@@ -8,8 +8,11 @@ public class GameController : MonoBehaviour
 {
     private int playerLifes = 5;
     private string sceneName;
+
     public static GameController instance = null;
     public List<Image> hearts = new List<Image>();
+    public BoxCollider2D playerCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            playerCollider.size = new Vector2(0.4f, 0.18f);
             Invoke("GameOver", 3f);
         }
     }
