@@ -10,8 +10,9 @@ public class GameController : MonoBehaviour
     private string sceneName;
 
     public static GameController instance = null;
-    public List<Image> hearts = new List<Image>();
     public BoxCollider2D playerCollider;
+    public GameObject player;
+    public Canvas canva;
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +25,22 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void HurtPlayer()
+    public void HurtPlayer()
     {
         playerLifes--;
-        Destroy(hearts[hearts.Count-1]);
+        Destroy(canva.transform.GetChild(playerLifes).gameObject);
         Invoke("RestartLevel", 3f);
     }
 
     void RestartLevel()
     {
-        sceneName = SceneManager.GetActiveScene().name;
-        if(playerLifes > 0)
+        //sceneName = SceneManager.GetActiveScene().name;
+        /*if(playerLifes > 0)
         {
             SceneManager.LoadScene(sceneName);
         }
-        else
-        {
+        else*/
+        if(playerLifes == 0){
             playerCollider.size = new Vector2(0.4f, 0.18f);
             Invoke("GameOver", 3f);
         }
@@ -47,6 +48,8 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
+        sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
 
     }
 

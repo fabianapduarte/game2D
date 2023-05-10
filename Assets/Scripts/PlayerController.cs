@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform detectFloor;
     public LayerMask isFloor;
-
+    public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +84,11 @@ public class PlayerController : MonoBehaviour
         {
             playerInFloor = true;
             doubleJump = false;
+        }
+
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            gameController.HurtPlayer();
         }
     }
 
