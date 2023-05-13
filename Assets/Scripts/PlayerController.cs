@@ -41,9 +41,23 @@ public class PlayerController : MonoBehaviour
                 playerInFloor = false;
                 doubleJump = false;
             }
-        } else { 
-            ani.SetBool("jump", false);
+            ani.SetBool("isJumping", true);
+        } else {
+            //ani.SetBool("isJumping", false);
         }
+
+        if (playerInFloor)
+        {
+            ani.SetBool("isJumping", false);
+        }
+    }
+
+    private void Flip(bool isFliped){
+        float scaleX = Mathf.Abs(transform.localScale.x);
+        if (isFliped){
+            scaleX *= -1;
+        }
+        transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
     }
 
     private void FixedUpdate()
@@ -52,24 +66,28 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
+        //bool flip = false;
         if(horizontal > 0){
-            ani.SetBool("idle", true);
-            rbSprite.flipX = false;
+            ani.SetBool("isRunning", true);
+            Flip(false);
+            //rbSprite.flipX = false;
         }
         else if(horizontal < 0){
-            ani.SetBool("idle", true);
-            rbSprite.flipX = true;
+            ani.SetBool("isRunning", true);
+            Flip(true);
+            //rbSprite.flipX = true;
         }
         else{
-            ani.SetBool("idle", false);
+            ani.SetBool("isRunning", false);
         }
 
         // teste da morte de Simétra
         if(vertical < 0){
-            ani.SetBool("dead", true);
-            playerCollider.size = new Vector2(0.4f, 0.18f);
+            ani.SetBool("isDead", true);
+            playerCollider.offset = new Vector2(-0.145f, -0.16f);
+            playerCollider.size = new Vector2(0.4f, 0.1f);
         } else if (vertical > 0){
-            ani.SetBool("jump", true);
+            ani.SetBool("isJumping", true);
         }
         
 

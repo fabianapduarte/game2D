@@ -246,9 +246,11 @@ GameObject:
   - component: {fileID: 481426186}
   - component: {fileID: 481426188}
   - component: {fileID: 481426190}
+  - component: {fileID: 481426194}
   - component: {fileID: 481426191}
   - component: {fileID: 481426192}
   - component: {fileID: 481426193}
+  - component: {fileID: 481426195}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -316,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481426184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.88, y: -2.726, z: 0}
+  m_LocalPosition: {x: -7.88, y: -2.436, z: 0}
   m_LocalScale: {x: 5.9737225, y: 5.973722, z: 5.973722}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -372,24 +374,24 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481426184}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000059604645, y: -0.00009538233}
+  m_Offset: {x: -0.000000059604645, y: -0.022301588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.33}
+    oldSize: {x: 0.69, y: 0.44}
     newSize: {x: 0.18, y: 0.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18157947, y: 0.32887974}
+  m_Size: {x: 0.18157947, y: 0.28446734}
   m_EdgeRadius: 0
 --- !u!95 &481426192
 Animator:
@@ -429,7 +431,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.33}
+    oldSize: {x: 0.69, y: 0.44}
     newSize: {x: 0.18, y: 0.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -461,6 +463,58 @@ PolygonCollider2D:
       - {x: 0.090144604, y: 0.10514889}
       - {x: 0.06065208, y: 0.10510671}
       - {x: 0.059847068, y: 0.16499999}
+--- !u!61 &481426194
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481426184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.075, y: -0.045}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.69, y: 0.44}
+    newSize: {x: 0.18, y: 0.33}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.33}
+  m_EdgeRadius: 0
+--- !u!61 &481426195
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481426184}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01, y: -0.16}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.69, y: 0.44}
+    newSize: {x: 0.18, y: 0.33}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.1}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,7 +1384,7 @@ SpriteRenderer:
   m_Size: {x: 18.48, y: 10.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &797497507
@@ -1829,7 +1883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624490720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.009, y: -0.161, z: 0.0061901873}
+  m_LocalPosition: {x: -0.009, y: -0.2131, z: 0.0061901873}
   m_LocalScale: {x: 0.16739982, y: 0.16739982, z: 0.16739982}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1949,7 +2003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01df38252a1e4da458eac02461e38628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCollider: {fileID: 481426191}
+  playerCollider: {fileID: 0}
   player: {fileID: 481426184}
   canva: {fileID: 2077656311}
 --- !u!1 &1957114727
