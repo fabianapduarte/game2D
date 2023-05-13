@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,10 +15,10 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed = 10f;
     private Animator ani;
     private BoxCollider2D playerCollider;
+    private Vector3 safePoint;
 
     public Transform detectFloor;
     public LayerMask isFloor;
-    public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,15 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isJumping", true);
         } else {
             //ani.SetBool("isJumping", false);
+        }
+
+        if (Input.GetButtonDown("Ataque1"))
+        {
+            ani.SetBool("isAtacking", true);
+        }
+        else
+        {
+            ani.SetBool("isAtacking", false);
         }
 
         if (playerInFloor)
@@ -104,16 +114,30 @@ public class PlayerController : MonoBehaviour
             doubleJump = false;
         }
 
-        if (collision.gameObject.tag.Equals("Enemy"))
+        if (collision.gameObject.layer.Equals("Enemy"))
         {
-            gameController.HurtPlayer();
+            if (ani.GetBool("isAtacking"))
+            {
+                Debug.Log(1);
+                FindObjectOfType<GameController>().HurtEnemy(collision);
+            }
         }
+
+        if (collision.gameObject.tag.Equals("LevelEnd")) {
+            FindObjectOfType<GameController>().LevelEnd();
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("collectibles")){
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("savepoint"))
+        {
+            safePoint = collision.transform.position;
         }
     }
 }
