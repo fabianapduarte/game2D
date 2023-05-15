@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    //Constantes de menu
+    public const int play = 1;
+
     private int playerLifes = 5;
     private string sceneName;
 
@@ -65,5 +67,13 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(sceneIndex+1);
     }
 
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(play);
+    }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
