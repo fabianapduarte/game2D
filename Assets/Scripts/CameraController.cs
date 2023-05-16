@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     {
         Vector3 newPosition = player.position + new Vector3(0f, 0f, -10);
         transform.position = newPosition;
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -5.66f, 44f),
-                                             Mathf.Clamp(transform.position.y, -0.06f, 0.41f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3f, 179f),
+                                             Mathf.Clamp(transform.position.y, 1.08f, 5.3f), transform.position.z);
     }
 }
