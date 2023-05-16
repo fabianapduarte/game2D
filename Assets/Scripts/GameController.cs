@@ -1,16 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     //Constantes de menu
     public const int play = 1;
 
+
+    // player
     private int playerLifes = 5;
     private int danoPlayer = 1;
+    private Vector3 savePoint = Vector3.zero;
+
+    public GameObject[] enemiesLevelOne;
+    public GameObject[] enemiesLevelTwo;
+    public GameObject[] enemiesLevelTree;
+    public GameObject[] enemiesLevelFour;
+
     private string sceneName;
+
+    //public Image[] hearts;
+    public Canvas canva;
 
     public static GameController instance = null;
 
@@ -23,18 +37,66 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        SceneManager.activeSceneChanged += GetSavePoints;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= GetSavePoints;
+    }
+
+    public int GetDanoPlayer() {
+        return danoPlayer;
+    }
+
+    public GameObject[] GetEnemies(int level)
+    {
+        if(level == 1)
+        {
+            return enemiesLevelOne;
+        }else if (level == 2)
+        {
+            return enemiesLevelTwo;
+        } else if (level == 3)
+        {
+            return enemiesLevelTree;
+        }
+        else
+        {
+            return enemiesLevelFour;
+        }
+    }
+   void GetSavePoints(Scene previousScene, Scene newScene)
+    {
+        if (newScene.name.Equals(previousScene.name)){
+            if (savePoint != Vector3.zero)
+            {
+                GameObject.Find("player").transform.position = savePoint;
+            }
+        }
     }
 
     public void HurtPlayer()
     {
         playerLifes--;
-        Destroy(FindObjectOfType<Canvas>().transform.GetChild(playerLifes).gameObject);
-        //Destroy(canva.transform.GetChild(playerLifes).gameObject);
-        if(playerLifes == 0)
+        //Destroy(FindObjectOfType<Image>().gameObject);
+        Destroy(canva.transform.GetChild(playerLifes).gameObject);
+        if (playerLifes == 0)
         {
             //playerCollider.size = new Vector2(0.4f, 0.18f);
-            Invoke("GameOver", 3f);
+            Invoke("DeadPlayer", 1f);
         }
+            
+    }
+
+    public void DeadPlayer()
+    {
+         Invoke("GameOver", 3f);
+    }
+
+    public void SafePoint(Collider2D collider)
+    {
+        savePoint = collider.transform.position;
     }
 
     public void HurtEnemy(Collision2D collision)
