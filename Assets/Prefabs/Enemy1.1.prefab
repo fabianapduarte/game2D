@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8301340622095200584}
   - component: {fileID: 2550921018860875983}
   - component: {fileID: 5312295089887438393}
+  - component: {fileID: 7238873427221242770}
   m_Layer: 6
   m_Name: Enemy1.1
   m_TagString: Enemy2
@@ -145,3 +146,24 @@ ConstantForce2D:
   m_Force: {x: -2, y: 0}
   m_RelativeForce: {x: 0, y: 0}
   m_Torque: 0
+--- !u!95 &7238873427221242770
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3077556213319489198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2bb702f2981c18b41a7cdbe47b6da096, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
