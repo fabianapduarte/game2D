@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -12,13 +13,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer rbSprite;
     private bool playerInFloor = false;
-    private float maxSpeed = 10f;
+    private float maxSpeed = 11f;
     private Animator ani;
     private BoxCollider2D playerCollider;
-    private Vector3 safePoint;
 
     public Transform detectFloor;
     public LayerMask isFloor;
+
 
     // Start is called before the first frame update
     void Start()
@@ -91,12 +92,12 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isRunning", false);
         }
 
-        // teste da morte de Simétra
+        // teste de Simétra machucada
         if(vertical < 0){
-            ani.SetBool("isDead", true);
-            playerCollider.offset = new Vector2(-0.145f, -0.16f);
-            playerCollider.size = new Vector2(0.4f, 0.1f);
-        } else if (vertical > 0){
+            ani.SetBool("isHurting", true);
+            Invoke("TimeTransitionHurt", 0.4f);
+        }
+        if (vertical > 0){
             ani.SetBool("isJumping", true);
         }
         
@@ -104,6 +105,12 @@ public class PlayerController : MonoBehaviour
         //Pulo Simples
         playerInFloor = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.16739f, 0.16739f), 0f, isFloor);
         /*playerInFloor = Physics2D.OverlapCircle(detectFloor.position, 0.0887f, isFloor);*/
+    }
+
+    private void TimeTransitionHurt()
+    {
+        ani.SetBool("isHurting", false);
+        return;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -116,10 +123,13 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.layer.Equals("Enemy"))
         {
-            if (ani.GetBool("isAtacking"))
+            if (!Input.GetButtonDown("Ataque1"))
             {
-                Debug.Log(1);
-                FindObjectOfType<GameController>().HurtEnemy(collision);
+                ani.SetBool("isHurting", true);
+                Invoke("Sleep", 0.4f);
+                ani.SetBool("isHurting", false);
+                FindObjectOfType<GameController>().HurtPlayer();
+               
             }
         }
 
@@ -127,17 +137,27 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<GameController>().LevelEnd();
         }
 
+    }
 
+    public void AnimationDead()
+    {
+        ani.SetBool("isDead", true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("water"))
+        {
+            ani.SetBool("isDead", true);
+            FindObjectOfType<GameController>().DeadPlayer();
+        }
+
         if (collision.gameObject.CompareTag("collectibles")){
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("savepoint"))
         {
-            safePoint = collision.transform.position;
+            FindObjectOfType<GameController>().SafePoint(collision);
         }
     }
 }
