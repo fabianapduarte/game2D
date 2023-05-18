@@ -12,6 +12,7 @@ TagManager:
   - savepoint
   - teste
   - water
+  - dynamicIcon
   layers:
   - Default
   - TransparentFX
