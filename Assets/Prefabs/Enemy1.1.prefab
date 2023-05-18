@@ -13,12 +13,11 @@ GameObject:
   - component: {fileID: 8301340622095200584}
   - component: {fileID: 2550921018860875983}
   - component: {fileID: 401896402402034571}
-  - component: {fileID: 5312295089887438393}
   - component: {fileID: 7238873427221242770}
   - component: {fileID: 5035698519653771272}
   m_Layer: 6
   m_Name: Enemy1.1
-  m_TagString: Enemy2
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: f374107ba66790641b6b7c9d0d9a49d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.8125, y: 1.28125}
@@ -153,17 +152,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
---- !u!247 &5312295089887438393
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3077556213319489198}
-  m_Enabled: 1
-  m_Force: {x: -2, y: 0}
-  m_RelativeForce: {x: 0, y: 0}
-  m_Torque: 0
 --- !u!95 &7238873427221242770
 Animator:
   serializedVersion: 5

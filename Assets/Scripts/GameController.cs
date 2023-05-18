@@ -10,12 +10,14 @@ public class GameController : MonoBehaviour
     //Constantes de menu
     public const int play = 3;
 
-
     // player
     private int playerLifes = 5;
     private int danoPlayer = 1;
-    private Vector3 savePoint = Vector3.zero;
+    private float maxSpeed = 11f;
 
+    private Vector3 savePoint = Vector3.zero;
+   
+    // enemies
     public GameObject[] enemiesLevelOne;
     public GameObject[] enemiesLevelTwo;
     public GameObject[] enemiesLevelTree;
@@ -98,19 +100,34 @@ public class GameController : MonoBehaviour
 
     public void HurtEnemy(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy1"))
+        if (collision.gameObject.layer == 6)
         {
             collision.gameObject.GetComponent<Enemy1Controller>().Hurt(danoPlayer);
         }
 
-        if (collision.gameObject.tag.Equals("Enemy2"))
+        if (collision.gameObject.layer == 7)
         {
             collision.gameObject.GetComponent<Enemy2Controller>().Hurt(danoPlayer);
         }
 
-        if (collision.gameObject.tag.Equals("Enemy3"))
+        if (collision.gameObject.layer == 8)
         {
             collision.gameObject.GetComponent<Enemy3Controller>().Hurt(danoPlayer);
+        }
+    }
+
+    public void GetCollectibles(GameObject collectable)
+    {
+        if(collectable.layer == 9) // force
+        {
+            danoPlayer++;
+        }
+        if(collectable.layer == 10) // speed
+        {
+            if(GameObject.Find("player").GetComponent<PlayerController>().GetSpeed() <= maxSpeed)
+            {
+                GameObject.Find("player").GetComponent<PlayerController>().SetSpeed();
+            }
         }
     }
 

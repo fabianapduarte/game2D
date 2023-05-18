@@ -8,6 +8,8 @@ public class SpawnerController : MonoBehaviour
     // Start is called before the first frame update
     private GameObject[] enemies;
     private int qntMax;
+
+    public GameObject Zone;
     void Start()
     {
         if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
@@ -31,6 +33,14 @@ public class SpawnerController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(qntMax == 0 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            Destroy(Zone);
+        }
+    }
+
     public void GatilhoZona()
     {
         Invoke("Spawn", 2f);
@@ -41,8 +51,8 @@ public class SpawnerController : MonoBehaviour
         Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity);
         if(qntMax > 0)
         {
-            Invoke("Spawn", Random.Range(22f, 33f));
+            Invoke("Spawn", Random.Range(8f, 10f));
             qntMax--;
-        }  
+        }
     }
 }

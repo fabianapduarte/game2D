@@ -6,27 +6,25 @@ TagManager:
   tags:
   - collectibles
   - LevelEnd
-  - Enemy2
-  - Enemy3
-  - Enemy1
   - savepoint
-  - teste
   - water
   - zoneInit
   - zoneFinish
   - dynamicIcon
+  - Enemy
+  - treasureChest
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy1
+  - Enemy2
+  - Enemy3
+  - Force
+  - Speed
   - 
   - 
   - 

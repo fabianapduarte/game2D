@@ -13,19 +13,19 @@ public class ZonesScriptController : MonoBehaviour
         player = GameObject.Find("player").transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player") && transform.tag.Equals("zoneInit") && Mathf.Abs(player.position.x) > Mathf.Abs(transform.position.x))
         {
             zoneCollider.isTrigger = false;
             GameObject.Find("Spawner").GetComponent<SpawnerController>().GatilhoZona();
         }
-        if (collision.gameObject.tag.Equals("Player") && transform.tag.Equals("zoneFinish")){
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player") && transform.tag.Equals("zoneFinish"))
+        {
             zoneCollider.isTrigger = false;
         }
     }

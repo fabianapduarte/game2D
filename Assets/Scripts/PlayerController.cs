@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer rbSprite;
     private bool playerInFloor = false;
-    private float maxSpeed = 11f;
     private Animator ani;
     private BoxCollider2D playerCollider;
     private int contabilizaDano = 0;
@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     public Transform detectFloor;
     public LayerMask isFloor;
 
+
+
+    private int isbau = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +67,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool GetStatusInFloor()
+    {
+        return playerInFloor;
+    }
+
     private void Flip(bool isFliped){
         float scaleX = Mathf.Abs(transform.localScale.x);
         if (isFliped){
@@ -96,7 +104,7 @@ public class PlayerController : MonoBehaviour
         if (vertical > 0){
             ani.SetBool("isJumping", true);
         }
-        
+
         //Pulo Simples
         playerInFloor = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.16739f, 0.16739f), 0f, isFloor);
         /*playerInFloor = Physics2D.OverlapCircle(detectFloor.position, 0.0887f, isFloor);*/
@@ -138,10 +146,18 @@ public class PlayerController : MonoBehaviour
         return;
     }
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
 
+    public void SetSpeed()
+    {
+        speed++;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6) // enemy
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             if (contabilizaDano == 0)
             {
@@ -157,12 +173,30 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<GameController>().DeadPlayer();
         }
 
-        if (collision.gameObject.CompareTag("collectibles")){
-            Destroy(collision.gameObject);
-        }
         if (collision.gameObject.CompareTag("savepoint"))
         {
             FindObjectOfType<GameController>().SafePoint(collision);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("treasureChest"))
+        {
+            if (Input.GetButtonDown("Open"))
+            {
+                GameObject.FindGameObjectWithTag("treasureChest").GetComponent<TreasureChestController>().AnimationOpen();
+            }
+        }
+
+        if (collision.gameObject.CompareTag("collectibles"))
+        {
+            if (Input.GetButtonDown("Coleta"))
+            {
+                FindObjectOfType<GameController>().GetCollectibles(collision.gameObject);
+                Destroy(collision.gameObject);
+            }
+
         }
     }
 }
