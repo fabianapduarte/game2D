@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Enemy1Controller : MonoBehaviour
 {
     private Animator ani;
-    private int enemyLife = 3;
+    private int life = 3;
     private int dano = 1;
+    private int speed = 7;
 
     private int contabilizaDano = 0;
     // Start is called before the first frame update
@@ -24,10 +26,10 @@ public class Enemy1Controller : MonoBehaviour
     public void Hurt(int danoPlayer)
     {
         Debug.Log("Acertou");
-        enemyLife -= danoPlayer;
+        life -= danoPlayer;
         ani.SetBool("isHurting", true);
         Invoke("TimeTransitionHurt", 0.4f);
-        if (enemyLife <= 0)
+        if (life <= 0)
         {
             ani.SetBool("isDead", true);
             Destroy(gameObject, 1f);

@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("savepoint"))
         {
-            FindObjectOfType<GameController>().SafePoint(collision);
+            FindObjectOfType<GameController>().SafePoint(collision.gameObject);
         }
     }
 

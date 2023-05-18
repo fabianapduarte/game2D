@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
     }
    void GetSavePoints(Scene previousScene, Scene newScene)
     {
-        if (newScene.name.Equals(previousScene.name)){
+        if (newScene.name.Equals("GameOver")){
             if (savePoint != Vector3.zero)
             {
                 GameObject.Find("player").transform.position = savePoint;
@@ -93,9 +93,9 @@ public class GameController : MonoBehaviour
          Invoke("GameOver", 2f);
     }
 
-    public void SafePoint(Collider2D collider)
+    public void SafePoint(GameObject savepoint)
     {
-        savePoint = collider.transform.position;
+        savePoint = savepoint.transform.position;
     }
 
     public void HurtEnemy(Collider2D collision)
