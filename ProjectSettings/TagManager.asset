@@ -10,17 +10,19 @@ TagManager:
   - Enemy3
   - Enemy1
   - savepoint
+  - teste
   - water
   - zoneInit
   - zoneFinish
+  - dynamicIcon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Floor
+  - 
   - Water
   - UI
-  - Enemy
+  - 
   - 
   - 
   - 

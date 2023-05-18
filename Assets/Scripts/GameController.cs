@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     //Constantes de menu
-    public const int play = 1;
+    public const int play = 3;
 
 
     // player
