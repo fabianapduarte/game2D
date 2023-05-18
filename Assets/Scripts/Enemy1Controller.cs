@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Enemy1Controller : MonoBehaviour
 {
-    //private Animator ani;
-    private int enemyLife = 2;
+    private Animator ani;
+    private int enemyLife = 3;
+    private int dano = 1;
 
-    private int dano = 0;
+    private int contabilizaDano = 0;
     // Start is called before the first frame update
     void Start()
     {
-        //ani = GetComponent<Animator>();
+        ani = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,46 +21,42 @@ public class Enemy1Controller : MonoBehaviour
         
     }
 
-    public void Hurt(int dano)
+    public void Hurt(int danoPlayer)
     {
-        enemyLife -= dano;
-        Invoke("Sleep", 1.5f);
-        if (enemyLife == 0)
+        Debug.Log("Acertou");
+        enemyLife -= danoPlayer;
+        ani.SetBool("isHurting", true);
+        Invoke("TimeTransitionHurt", 0.4f);
+        if (enemyLife <= 0)
         {
-            //ani.SetBool("isDead", true);
-            Destroy(gameObject, 1.5f);
+            ani.SetBool("isDead", true);
+            Destroy(gameObject, 1f);
         }
+    }
+
+    private void TimeTransitionHurt()
+    {
+        ani.SetBool("isHurting", false);
+        return;
     }
 
     private void Sleep()
     {
-        dano = 0;
+        contabilizaDano = 0;
         return;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Player"))
-        {
-            /*if (ani.GetBool("isAtacking"))
-            {
-                FindObjectOfType<GameController>().HurtPlayer();
-            }*/
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))
+        /*if (collision.gameObject.tag.Equals("Player"))
         {
-            //ani.SetBool("isHurting", true);
-            if(dano == 0)
+            if (contabilizaDano == 0)
             {
-                Debug.Log("Acertou!!");
-                Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
+                FindObjectOfType<GameController>().HurtPlayer(dano);
                 dano = 1;
+                Invoke("Sleep", 1.5f);
             }
-            //ani.SetBool("isHurting", false);
-        }
+        }*/
     }
 }

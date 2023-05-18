@@ -45,10 +45,6 @@ public class GameController : MonoBehaviour
         SceneManager.activeSceneChanged -= GetSavePoints;
     }
 
-    public int GetDanoPlayer() {
-        return danoPlayer;
-    }
-
     public GameObject[] GetEnemies(int level)
     {
         if(level == 1)
@@ -76,14 +72,15 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void HurtPlayer()
+    public void HurtPlayer(int danoEnemy)
     {
-        playerLifes--;
+        GameObject.Find("player").GetComponent<PlayerController>().AnimationHurtPlayer();
+        playerLifes -= danoEnemy;
         //Destroy(FindObjectOfType<Image>().gameObject);
-        Destroy(canva.transform.GetChild(playerLifes).gameObject);
-        if (playerLifes == 0)
+        //Destroy(canva.transform.GetChild(playerLifes).gameObject);
+        if (playerLifes <= 0)
         {
-            //playerCollider.size = new Vector2(0.4f, 0.18f);
+            GameObject.Find("player").GetComponent<PlayerController>().AnimationDeadPlayer();
             Invoke("DeadPlayer", 1f);
         }
             
@@ -91,7 +88,7 @@ public class GameController : MonoBehaviour
 
     public void DeadPlayer()
     {
-         Invoke("GameOver", 3f);
+         Invoke("GameOver", 2f);
     }
 
     public void SafePoint(Collider2D collider)
@@ -99,7 +96,7 @@ public class GameController : MonoBehaviour
         savePoint = collider.transform.position;
     }
 
-    public void HurtEnemy(Collision2D collision)
+    public void HurtEnemy(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Enemy1"))
         {
