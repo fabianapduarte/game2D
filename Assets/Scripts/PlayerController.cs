@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed = 11f;
     private Animator ani;
     private BoxCollider2D playerCollider;
+    private int contabilizaDano = 0;
 
     public Transform detectFloor;
     public LayerMask isFloor;
@@ -92,16 +93,10 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isRunning", false);
         }
 
-        // teste de Simétra machucada
-        if(vertical < 0){
-            ani.SetBool("isHurting", true);
-            Invoke("TimeTransitionHurt", 0.4f);
-        }
         if (vertical > 0){
             ani.SetBool("isJumping", true);
         }
         
-
         //Pulo Simples
         playerInFloor = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.16739f, 0.16739f), 0f, isFloor);
         /*playerInFloor = Physics2D.OverlapCircle(detectFloor.position, 0.0887f, isFloor);*/
@@ -115,22 +110,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer.Equals("Floor"))
+        if(collision.gameObject.layer == 3) // floor
         {
             playerInFloor = true;
             doubleJump = false;
-        }
-
-        if (collision.gameObject.layer.Equals("Enemy"))
-        {
-            if (!Input.GetButtonDown("Ataque1"))
-            {
-                ani.SetBool("isHurting", true);
-                Invoke("Sleep", 0.4f);
-                ani.SetBool("isHurting", false);
-                FindObjectOfType<GameController>().HurtPlayer();
-               
-            }
         }
 
         if (collision.gameObject.tag.Equals("LevelEnd")) {
@@ -138,14 +121,36 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
-    public void AnimationDead()
+    public void AnimationDeadPlayer()
     {
         ani.SetBool("isDead", true);
     }
 
+    public void AnimationHurtPlayer()
+    {
+        ani.SetBool("isHurting", true);
+        Invoke("TimeTransitionHurt", 0.4f);
+    }
+
+    private void Sleep()
+    {
+        contabilizaDano = 0;
+        return;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == 6) // enemy
+        {
+            if (contabilizaDano == 0)
+            {
+                FindObjectOfType<GameController>().HurtEnemy(collision);
+                contabilizaDano = 1;
+            }
+            Invoke("Sleep", 1.1f);
+        }
+
         if (collision.gameObject.CompareTag("water"))
         {
             ani.SetBool("isDead", true);

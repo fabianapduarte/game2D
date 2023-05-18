@@ -6,6 +6,9 @@ public class Enemy3Controller : MonoBehaviour
 {
     private Animator ani;
     private int enemyLife = 5;
+    private int dano = 2;
+
+    private int contabilizaDano = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,24 +21,42 @@ public class Enemy3Controller : MonoBehaviour
 
     }
 
-    public void Hurt(int dano)
+    public void Hurt(int danoPlayer)
     {
-        enemyLife -= dano;
-        if (enemyLife == 0)
+        Debug.Log("Acertou");
+        enemyLife -= danoPlayer;
+        ani.SetBool("isHurting", true);
+        Invoke("TimeTransitionHurt", 0.4f);
+        if (enemyLife <= 0)
         {
             ani.SetBool("isDead", true);
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void TimeTransitionHurt()
     {
-        if (collision.gameObject.tag.Equals("player"))
+        ani.SetBool("isHurting", false);
+        return;
+    }
+
+    private void Sleep()
+    {
+        contabilizaDano = 0;
+        return;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        /*if (collision.gameObject.tag.Equals("Player"))
         {
-            if (ani.GetBool("isAtacking"))
+            if (contabilizaDano == 0)
             {
-                FindObjectOfType<GameController>().HurtPlayer();
+                FindObjectOfType<GameController>().HurtPlayer(dano);
+                dano = 1;
+                Invoke("Sleep", 1.5f);
             }
-        }
+        }*/
     }
 }

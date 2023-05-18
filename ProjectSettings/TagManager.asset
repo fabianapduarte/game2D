@@ -10,8 +10,9 @@ TagManager:
   - Enemy3
   - Enemy1
   - savepoint
-  - teste
   - water
+  - zoneInit
+  - zoneFinish
   layers:
   - Default
   - TransparentFX

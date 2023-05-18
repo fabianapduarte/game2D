@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5875360836404975963}
   - component: {fileID: 6144204246330189102}
   - component: {fileID: 8334611001244405859}
-  - component: {fileID: 7340722540553387671}
   - component: {fileID: 5644326046971427237}
+  - component: {fileID: 3426591847141707214}
   m_Layer: 6
   m_Name: Enemy1.2
   m_TagString: Enemy2
@@ -134,18 +134,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!247 &7340722540553387671
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3426433329740557889}
-  m_Enabled: 1
-  m_Force: {x: -2, y: 0}
-  m_RelativeForce: {x: 0, y: 0}
-  m_Torque: 0
+  m_Constraints: 4
 --- !u!95 &5644326046971427237
 Animator:
   serializedVersion: 5
@@ -167,3 +156,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3426591847141707214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426433329740557889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5662a3da7b84a6b4b97de39b25ccab6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

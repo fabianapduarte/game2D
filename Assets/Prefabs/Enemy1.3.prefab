@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -7612088595999808592}
   - component: {fileID: 712451168600993381}
   - component: {fileID: 5506279929430826069}
-  - component: {fileID: 4167417616343846225}
   - component: {fileID: 1894919086856186135}
   m_Layer: 6
   m_Name: Enemy1.3
@@ -121,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5506279929430826069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,17 +147,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8125, y: 1.15625}
   m_EdgeRadius: 0
---- !u!247 &4167417616343846225
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6529037360947707042}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0}
-  m_RelativeForce: {x: -1.5, y: 0}
-  m_Torque: 0
 --- !u!95 &1894919086856186135
 Animator:
   serializedVersion: 5
