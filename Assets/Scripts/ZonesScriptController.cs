@@ -18,7 +18,18 @@ public class ZonesScriptController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player") && transform.tag.Equals("zoneInit") && Mathf.Abs(player.position.x) > Mathf.Abs(transform.position.x))
         {
             zoneCollider.isTrigger = false;
-            GameObject.Find("Spawner").GetComponent<SpawnerController>().GatilhoZona();
+            if (transform.parent.name.Equals("Zone1"))
+            {
+                GameObject.Find("Spawner1").GetComponent<SpawnerController>().GatilhoZona();
+            }else if (transform.parent.name.Equals("Zone2"))
+            {
+                GameObject.Find("Spawner2").GetComponent<SpawnerController>().GatilhoZona();
+            }
+            else
+            {
+                GameObject.Find("Spawner3").GetComponent<SpawnerController>().GatilhoZona();
+            }
+            
         }
     }
 

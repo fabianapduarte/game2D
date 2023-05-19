@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class UIController : MonoBehaviour
     public GameObject ConfiguracoesMenu;
     public TextMeshProUGUI dica;
     public bool telaDeEstadoFinal;
+
+    private Scene previousScene;
     
     private string[] dicas = new string[]
     {
@@ -122,7 +125,23 @@ public class UIController : MonoBehaviour
     }
 
     public void loadScene(){
+        if (SceneManager.GetActiveScene().name.Equals("Derrota"))
+        {
+            int sceneIndex = previousScene.buildIndex;
+            SceneManager.LoadScene(sceneIndex);
+        }
+        if (SceneManager.GetActiveScene().name.Equals("Vitoria"))
+        {
+            int sceneIndex = previousScene.buildIndex;
+            SceneManager.LoadScene(sceneIndex + 1);
+        }
+
         Debug.Log("Carregando cena (repetindo/avancando)");
+    }
+
+    public void PreviousScene(Scene scene)
+    {
+        previousScene = scene;
     }
 
     public void mainMenu(){

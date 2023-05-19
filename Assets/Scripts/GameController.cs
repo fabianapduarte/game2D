@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
     }
    void GetSavePoints(Scene previousScene, Scene newScene)
     {
-        if (newScene.name.Equals("GameOver")){
+        if (newScene.name.Equals("Derrota")){
             if (savePoint != Vector3.zero)
             {
                 GameObject.Find("player").transform.position = savePoint;
@@ -93,6 +93,10 @@ public class GameController : MonoBehaviour
         if (enemy.layer == 8)
         {
             playerLifes -= enemy.GetComponent<Enemy3Controller>().GetDano();
+        }
+        if(enemy.layer == 9)
+        {
+            playerLifes -= enemy.GetComponent<Enemy4Controller>().GetDano();
         }
         //playerLifes -= danoEnemy;
         //Destroy(FindObjectOfType<Image>().gameObject);
@@ -135,22 +139,25 @@ public class GameController : MonoBehaviour
 
     public void GetCollectibles(GameObject collectable)
     {
-        if(collectable.layer == 9) // force
+        if(collectable.layer == 10) // force
         {
             danoPlayer++;
+            Debug.Log(danoPlayer);
         }
-        if(collectable.layer == 10) // speed
+        if(collectable.layer == 11) // speed
         {
             if(GameObject.Find("player").GetComponent<PlayerController>().GetSpeed() <= maxSpeed)
             {
                 GameObject.Find("player").GetComponent<PlayerController>().SetSpeed();
             }
+            Debug.Log(GameObject.Find("player").GetComponent<PlayerController>().GetSpeed());
         }
     }
 
     void GameOver()
     {
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
+        //GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
         SceneManager.LoadScene(derrota);
     }
 
@@ -158,6 +165,7 @@ public class GameController : MonoBehaviour
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
+        //GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
         SceneManager.LoadScene(vitoria);
         //Invoke("NextLevel", 3f);
     }
