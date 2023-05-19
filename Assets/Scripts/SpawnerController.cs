@@ -51,7 +51,7 @@ public class SpawnerController : MonoBehaviour
         Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity);
         if(qntMax > 0)
         {
-            Invoke("Spawn", Random.Range(8f, 10f));
+            Invoke("Spawn", Random.Range(12f, 16f));
             qntMax--;
         }
     }

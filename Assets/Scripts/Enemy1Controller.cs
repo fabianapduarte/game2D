@@ -6,21 +6,41 @@ using UnityEngine;
 public class Enemy1Controller : MonoBehaviour
 {
     private Animator ani;
-    private int life = 3;
+    private int life = 2;
     private int dano = 1;
-    private int speed = 7;
+    private int speed = 2;
+    private Transform player;
 
     private int contabilizaDano = 0;
     // Start is called before the first frame update
     void Start()
     {
         ani = GetComponent<Animator>();
+        player = GameObject.Find("player").transform;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(Vector3.Distance(transform.position, player.position) > 2f)
+        {
+            ani.SetBool("isRunning", true);
+            ani.SetBool("isAtacking", false);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+        }
+        else
+        {
+            ani.SetBool("isRunning", false);
+            ani.SetBool("isAtacking", true);
+        }
+    }
+    private void Flip(bool isFliped)
+    {
+        float scaleX = Mathf.Abs(transform.localScale.x);
+        if (isFliped)
+        {
+            scaleX *= -1;
+        }
+        transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
     }
 
     public void Hurt(int danoPlayer)
@@ -42,23 +62,27 @@ public class Enemy1Controller : MonoBehaviour
         return;
     }
 
+    public int GetDano()
+    {
+        return dano;
+    }
+
     private void Sleep()
     {
         contabilizaDano = 0;
         return;
     }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             if (contabilizaDano == 0)
             {
-                FindObjectOfType<GameController>().HurtPlayer(dano);
-                dano = 1;
+                Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
+                //FindObjectOfType<GameController>().HurtPlayer(dano);
+                contabilizaDano = 1;
                 Invoke("Sleep", 1.5f);
             }
-        }*/
+        }
     }
 }

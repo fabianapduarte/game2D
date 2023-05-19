@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
             doubleJump = false;
         }
 
-        if (collision.gameObject.tag.Equals("LevelEnd")) {
+        if (collision.gameObject.tag.Equals("Finish")) {
             FindObjectOfType<GameController>().LevelEnd();
         }
 
@@ -155,16 +155,17 @@ public class PlayerController : MonoBehaviour
     {
         speed++;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             if (contabilizaDano == 0)
             {
-                FindObjectOfType<GameController>().HurtEnemy(collision);
+                FindObjectOfType<GameController>().HurtPlayer(collision.gameObject);
                 contabilizaDano = 1;
             }
-            Invoke("Sleep", 1.1f);
+            Invoke("Sleep", 1.5f);
         }
 
         if (collision.gameObject.CompareTag("water"))

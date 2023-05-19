@@ -47,6 +47,11 @@ public class GameController : MonoBehaviour
         SceneManager.activeSceneChanged -= GetSavePoints;
     }
 
+    public int GetDanoPlayer()
+    {
+        return danoPlayer;
+    }
+
     public GameObject[] GetEnemies(int level)
     {
         if(level == 1)
@@ -74,10 +79,22 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void HurtPlayer(int danoEnemy)
+    public void HurtPlayer(GameObject enemy/*int danoEnemy*/)
     {
         GameObject.Find("player").GetComponent<PlayerController>().AnimationHurtPlayer();
-        playerLifes -= danoEnemy;
+        if (enemy.layer == 6)
+        {
+            playerLifes -= enemy.GetComponent<Enemy1Controller>().GetDano();
+        }
+        if (enemy.layer == 7)
+        {
+            playerLifes -= enemy.GetComponent<Enemy2Controller>().GetDano();
+        }
+        if (enemy.layer == 8)
+        {
+            playerLifes -= enemy.GetComponent<Enemy3Controller>().GetDano();
+        }
+        //playerLifes -= danoEnemy;
         //Destroy(FindObjectOfType<Image>().gameObject);
         //Destroy(canva.transform.GetChild(playerLifes).gameObject);
         if (playerLifes <= 0)
@@ -98,7 +115,7 @@ public class GameController : MonoBehaviour
         savePoint = savepoint.transform.position;
     }
 
-    public void HurtEnemy(Collider2D collision)
+    /*public void HurtEnemy(Collider2D collision)
     {
         if (collision.gameObject.layer == 6)
         {
@@ -114,7 +131,7 @@ public class GameController : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy3Controller>().Hurt(danoPlayer);
         }
-    }
+    }*/
 
     public void GetCollectibles(GameObject collectable)
     {
@@ -133,14 +150,16 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
+        string derrota = SceneUtility.GetScenePathByBuildIndex(2);
+        SceneManager.LoadScene(derrota);
     }
 
     public void LevelEnd()
     {
         playerLifes = 5;
-        Invoke("NextLevel", 3f);
+        string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
+        SceneManager.LoadScene(vitoria);
+        //Invoke("NextLevel", 3f);
     }
 
     void NextLevel()
