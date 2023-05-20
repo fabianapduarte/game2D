@@ -80,7 +80,7 @@ public class Enemy3Controller : MonoBehaviour
                 Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
                 //FindObjectOfType<GameController>().HurtPlayer(dano);
                 contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
+                Invoke("Sleep", 4f);
             }
         }
     }
