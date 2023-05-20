@@ -5,7 +5,7 @@ using UnityEngine;
 public class slime_tutorial_script : MonoBehaviour
 {
     private Animator ani;
-    private int life = 2;
+    private int life = 1;
     private Transform player;
 
     // Start is called before the first frame update
