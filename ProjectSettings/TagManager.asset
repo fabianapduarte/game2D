@@ -13,6 +13,7 @@ TagManager:
   - dynamicIcon
   - Enemy
   - treasureChest
+  - objectToDelete
   layers:
   - Default
   - TransparentFX
