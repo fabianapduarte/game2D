@@ -4,10 +4,11 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    private float speed = 6;
     public float jumpForce;
     public bool doubleJump;
 
@@ -17,13 +18,10 @@ public class PlayerController : MonoBehaviour
     private Animator ani;
     private BoxCollider2D playerCollider;
     private int contabilizaDano = 0;
+    private int contabilizaColeta = 0;
 
     public Transform detectFloor;
     public LayerMask isFloor;
-
-
-
-    private int isbau = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +103,7 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isJumping", true);
         }
 
+        //AtaquePLayer();
         //Pulo Simples
         playerInFloor = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.16739f, 0.16739f), 0f, isFloor);
         /*playerInFloor = Physics2D.OverlapCircle(detectFloor.position, 0.0887f, isFloor);*/
@@ -162,10 +161,11 @@ public class PlayerController : MonoBehaviour
         {
             if (contabilizaDano == 0)
             {
-                FindObjectOfType<GameController>().HurtPlayer(collision.gameObject);
+                Debug.Log("acertou");
+                FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
+                Invoke("Sleep", 1.5f);
             }
-            Invoke("Sleep", 1.5f);
         }
 
         if (collision.gameObject.CompareTag("water"))
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Open"))
             {
-                GameObject.FindGameObjectWithTag("treasureChest").GetComponent<TreasureChestController>().AnimationOpen();
+                collision.GetComponent<TreasureChestController>().AnimationOpen();
             }
         }
 
@@ -195,10 +195,22 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Coleta"))
             {
-                FindObjectOfType<GameController>().GetCollectibles(collision.gameObject);
                 Destroy(collision.gameObject);
+                if (contabilizaColeta == 0)
+                {
+                    FindObjectOfType<GameController>().GetCollectibles(collision.gameObject);
+                    contabilizaColeta = 1;
+                }
+                    
             }
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("collectibles"))
+        {
+            contabilizaColeta = 0;
         }
     }
 }

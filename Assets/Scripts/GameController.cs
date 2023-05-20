@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     private int playerLifes = 5;
     private int danoPlayer = 1;
     private float maxSpeed = 11f;
+    private int contabilizaColeta = 0;
 
     private Vector3 savePoint = Vector3.zero;
    
@@ -25,7 +26,6 @@ public class GameController : MonoBehaviour
 
     private string sceneName;
 
-    //public Image[] hearts;
     public Canvas canva;
 
     public static GameController instance = null;
@@ -79,34 +79,19 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void HurtPlayer(GameObject enemy/*int danoEnemy*/)
+    public void HurtPlayer(int danoEnemy)
     {
         GameObject.Find("player").GetComponent<PlayerController>().AnimationHurtPlayer();
-        if (enemy.layer == 6)
+        playerLifes -= danoEnemy;
+        if (playerLifes >= 0)
         {
-            playerLifes -= enemy.GetComponent<Enemy1Controller>().GetDano();
+            Destroy(canva.transform.GetChild(playerLifes).gameObject);
         }
-        if (enemy.layer == 7)
-        {
-            playerLifes -= enemy.GetComponent<Enemy2Controller>().GetDano();
-        }
-        if (enemy.layer == 8)
-        {
-            playerLifes -= enemy.GetComponent<Enemy3Controller>().GetDano();
-        }
-        if(enemy.layer == 9)
-        {
-            playerLifes -= enemy.GetComponent<Enemy4Controller>().GetDano();
-        }
-        //playerLifes -= danoEnemy;
-        //Destroy(FindObjectOfType<Image>().gameObject);
-        //Destroy(canva.transform.GetChild(playerLifes).gameObject);
         if (playerLifes <= 0)
         {
             GameObject.Find("player").GetComponent<PlayerController>().AnimationDeadPlayer();
             Invoke("DeadPlayer", 1f);
         }
-            
     }
 
     public void DeadPlayer()
@@ -119,30 +104,34 @@ public class GameController : MonoBehaviour
         savePoint = savepoint.transform.position;
     }
 
-    /*public void HurtEnemy(Collider2D collision)
+    public void HurtEnemy(GameObject enemy)
     {
-        if (collision.gameObject.layer == 6)
+        if (enemy.layer == 6)
         {
-            collision.gameObject.GetComponent<Enemy1Controller>().Hurt(danoPlayer);
+            enemy.GetComponent<Enemy1Controller>().Hurt(danoPlayer);
         }
 
-        if (collision.gameObject.layer == 7)
+        if (enemy.layer == 7)
         {
-            collision.gameObject.GetComponent<Enemy2Controller>().Hurt(danoPlayer);
+            enemy.GetComponent<Enemy2Controller>().Hurt(danoPlayer);
         }
 
-        if (collision.gameObject.layer == 8)
+        if (enemy.layer == 8)
         {
-            collision.gameObject.GetComponent<Enemy3Controller>().Hurt(danoPlayer);
+            enemy.GetComponent<Enemy3Controller>().Hurt(danoPlayer);
         }
-    }*/
+
+        if (enemy.layer == 9)
+        {
+            enemy.GetComponent<Enemy4Controller>().Hurt(danoPlayer);
+        }
+    }
 
     public void GetCollectibles(GameObject collectable)
     {
         if(collectable.layer == 10) // force
         {
             danoPlayer++;
-            Debug.Log(danoPlayer);
         }
         if(collectable.layer == 11) // speed
         {
@@ -150,14 +139,14 @@ public class GameController : MonoBehaviour
             {
                 GameObject.Find("player").GetComponent<PlayerController>().SetSpeed();
             }
-            Debug.Log(GameObject.Find("player").GetComponent<PlayerController>().GetSpeed());
+            
         }
     }
 
     void GameOver()
     {
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
-        //GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
+        GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
         SceneManager.LoadScene(derrota);
     }
 
@@ -165,7 +154,7 @@ public class GameController : MonoBehaviour
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
-        //GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
+        GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
         SceneManager.LoadScene(vitoria);
         //Invoke("NextLevel", 3f);
     }
