@@ -29,7 +29,17 @@ public class UIController : MonoBehaviour
     Color32 corDeSelecao = new Color32(40, 40, 40, 255);
     InputController entrada = null;
 
+    public static UIController instance = null;
+
     void Start(){
+        if (instance == null){
+            instance = this;
+        }
+        else {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+
         if (MainMenu == null){
             if (dica != null){
                 setarDica();
