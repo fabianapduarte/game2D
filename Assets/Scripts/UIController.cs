@@ -25,8 +25,8 @@ public class UIController : MonoBehaviour
     };
 
     //Cores
-    Color32 corBase = new Color32(80, 80, 80, 255);
-    Color32 corDeSelecao = new Color32(40, 40, 40, 255);
+    Color corBase;
+    Color corDeSelecao;
     InputController entrada = null;
 
     public static UIController instance = null;
@@ -47,6 +47,9 @@ public class UIController : MonoBehaviour
             return;
         }
         menu();
+
+        ColorUtility.TryParseHtmlString("#635A56", out corBase);
+        ColorUtility.TryParseHtmlString("#352F2C", out corDeSelecao);
     }
 
     private void setarDica()
