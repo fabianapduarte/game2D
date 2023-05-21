@@ -20,17 +20,60 @@ public class ZonesScriptController : MonoBehaviour
             zoneCollider.isTrigger = false;
             if (transform.parent.name.Equals("Zone1"))
             {
-                GameObject.Find("Spawner1").GetComponent<SpawnerController>().GatilhoZona();
+                //GameObject.Find("Spawner1").GetComponent<SpawnerController>().GatilhoZona();
+                GameObject spawner = GameObject.Find("Spawner1");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerController>().GatilhoZona();
+                }
             }else if (transform.parent.name.Equals("Zone2"))
             {
-                GameObject.Find("Spawner2").GetComponent<SpawnerController>().GatilhoZona();
+                //GameObject.Find("Spawner2").GetComponent<SpawnerController>().GatilhoZona();
+                GameObject spawner = GameObject.Find("Spawner2");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerController>().GatilhoZona();
+                }
             }
             else
             {
-                GameObject.Find("Spawner3").GetComponent<SpawnerController>().GatilhoZona();
+                //GameObject.Find("Spawner3").GetComponent<SpawnerController>().GatilhoZona();
+                GameObject spawner = GameObject.Find("Spawner3");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerController>().GatilhoZona();
+                }
             }
-            
         }
+    }
+
+    public void Sleep()
+    {
+        return;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
