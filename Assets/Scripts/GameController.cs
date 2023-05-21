@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    //Constantes de menu
-    public const int play = 3;
 
     // player
     private int playerLifes = 5;
@@ -146,7 +144,8 @@ public class GameController : MonoBehaviour
     void GameOver()
     {
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
-        GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
+        GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene());
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(derrota);
     }
 
@@ -154,7 +153,7 @@ public class GameController : MonoBehaviour
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
-        GameObject.Find("UIController").GetComponent<UIController>().PreviousScene(SceneManager.GetActiveScene());
+        GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene());
         SceneManager.LoadScene(vitoria);
         //Invoke("NextLevel", 3f);
     }
@@ -163,15 +162,5 @@ public class GameController : MonoBehaviour
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneIndex+1);
-    }
-
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(play);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

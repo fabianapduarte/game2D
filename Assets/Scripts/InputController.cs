@@ -10,6 +10,8 @@ public class InputController : MonoBehaviour
     private Vector2 lastMousePosition;
     public bool gamepadOn = false;
 
+    public static InputController instance = null;
+
     private string pcIconsPath = "Interfaces/Icons/pc"; // Nome da pasta 1
     private string gamepadIconsPath = "Interfaces/Icons/gamepad"; // Nome da pasta 2
     private Dictionary<string, Sprite> pcIcons = new Dictionary<string, Sprite>();
@@ -17,6 +19,12 @@ public class InputController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+        if (instance == null){
+            instance = this;
+        }
+        else{
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
         lastMousePosition = Mouse.current.position.ReadValue();
         LoadImages(pcIconsPath, pcIcons);
