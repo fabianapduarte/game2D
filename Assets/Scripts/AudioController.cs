@@ -80,6 +80,29 @@ public class AudioController : MonoBehaviour
         runningPlayer.Play();
     }
 
+    public void AlternarBotao()
+    {
+        AudioClip teste = attack[0];
+        attackPlayer.clip = teste;
+        attackPlayer.Play();
+    }
+
+    public void Clique()
+    {
+        AudioClip teste = attack[1];
+        attackPlayer.clip = teste;
+        attackPlayer.Play();
+    }
+
+    public void ControlaVolume(float volume)
+    {
+        //Falta a parte matematica
+        soundAmbianceLevel.volume = volume;
+        attackPlayer.volume = volume;
+        runningPlayer.volume = volume;
+        jumpPlayer.volume = volume;
+    }
+
     public void RunningBreak()
     {
         runningPlayer.Pause();

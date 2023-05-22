@@ -47,6 +47,7 @@ public class InputController : MonoBehaviour
             //btnDinamico.sprite = keyboard;
             if (gamepadOn == true){
                 gamepadOn = false;
+                Cursor.visible = true;
             }
         }
 
@@ -57,6 +58,7 @@ public class InputController : MonoBehaviour
                     //return true;
                     if (gamepadOn == false){
                         gamepadOn = true;
+                        Cursor.visible = false;
                     }
                 }
             }

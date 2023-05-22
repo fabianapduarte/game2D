@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.8
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2487,6 +2487,7 @@ MonoBehaviour:
   ConfiguracoesMenu: {fileID: 2009143732}
   dica: {fileID: 1258784897}
   telaDeEstadoFinal: 0
+  volumeSlider: 0.8
 --- !u!4 &1441431313
 Transform:
   m_ObjectHideFlags: 0
