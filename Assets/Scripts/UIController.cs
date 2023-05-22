@@ -13,6 +13,9 @@ public class UIController : MonoBehaviour
     public GameObject ConfiguracoesMenu;
     public TextMeshProUGUI dica;
     public bool telaDeEstadoFinal;
+    public float volumeSlider = 0.8f;
+
+    private AudioController audioBtn;
     
     private string[] dicas = new string[]
     {
@@ -80,9 +83,21 @@ public class UIController : MonoBehaviour
         //Destaca opcao
         if (botaoAtual != btnSelected)
         {
-            //Slider e excecoes
+            //Aqui vem o som de troca
+            if (botaoAtual != null){
+                audioBtn.AlternarBotao();
+            }
+
+            //Slider e Volume
             if (btnSelected != null && btnSelected.name == "SliderVolume"){
                 btnSelected = btnSelected.transform.parent.gameObject;
+                Slider slider = FindObjectOfType<Slider>();
+
+                //Regula volume da cena
+                if(slider.value != volumeSlider){
+                    volumeSlider = slider.value;
+                    audioBtn.ControlaVolume(volumeSlider);
+                }
             }
 
             Button[] btns = FindObjectsOfType<Button>();
@@ -123,18 +138,28 @@ public class UIController : MonoBehaviour
                     }
                 }
             }
-
-            //Aqui vem o som de troca
         }
     }
 
+    private void clique(){
+        audioBtn = GameObject.Find("AudioController").GetComponent<AudioController>();
+        audioBtn.Clique();
+    }
+
     void Update(){
-        if(entrada == null){
+        audioBtn = GameObject.Find("AudioController").GetComponent<AudioController>();
+        if (entrada == null){
             //entrada = GetComponent<InputController>();
             entrada = FindObjectOfType<InputController>();
         }
 
         //Debug.Log(tela.name);
         select();
+
+        Button[] botoes = FindObjectsOfType<Button>();
+        foreach (Button btn in botoes)
+        {
+            btn.onClick.AddListener(clique);
+        }
     }
 }
