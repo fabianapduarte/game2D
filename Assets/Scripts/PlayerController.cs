@@ -38,10 +38,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump")){
             if (playerInFloor) {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
                 doubleJump = true;
             } else if (!playerInFloor && doubleJump == true){
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
                 doubleJump = false;
             }
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Ataque1"))
         {
             ani.SetBool("isAtacking", true);
+            GameObject.Find("AudioController").GetComponent<AudioController>().Attack();
         }
         else
         {
@@ -99,9 +102,9 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isRunning", false);
         }
 
-        if (vertical > 0){
+        /*if (vertical > 0){
             ani.SetBool("isJumping", true);
-        }
+        }*/
 
         //AtaquePLayer();
         //Pulo Simples
