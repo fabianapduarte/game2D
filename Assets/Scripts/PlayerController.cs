@@ -90,16 +90,20 @@ public class PlayerController : MonoBehaviour
         //bool flip = false;
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
+            //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(false);
             //rbSprite.flipX = false;
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
+            //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(true);
             //rbSprite.flipX = true;
         }
         else{
             ani.SetBool("isRunning", false);
+            //GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
+
         }
 
         /*if (vertical > 0){
