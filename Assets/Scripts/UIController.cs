@@ -49,13 +49,14 @@ public class UIController : MonoBehaviour
         //Debug.Log(dica);
     }
 
-    private void menu(){
+    public void menu(){
         MainMenu.SetActive(true);
         ConfiguracoesMenu.SetActive(false);
     }
 
     public void selectMain(){
-        GameObject button = GameObject.Find("ConfiguracoesBtn");
+        //GameObject button = GameObject.Find("ConfiguracoesBtn");
+        GameObject button = GameObject.Find("PlayBtn");
         EventSystem.current.SetSelectedGameObject(button);
     }
     public void selectOpcoes(){
@@ -103,7 +104,7 @@ public class UIController : MonoBehaviour
                 if (obj != null){
                     indicador = obj.GetComponent<Image>();
                 }
-                Vector3 posicaoBtn = new Vector3(indicador.rectTransform.position.x, btnSelected.transform.position.y, 0);
+                Vector3 posicaoBtn = new Vector3(btnSelected.transform.position.x-70, btnSelected.transform.position.y, 0);
                 indicador.rectTransform.position = posicaoBtn;
                 botaoAtual = btnSelected;
             }else{
@@ -135,25 +136,5 @@ public class UIController : MonoBehaviour
 
         //Debug.Log(tela.name);
         select();
-
-        //Tela de EstadoFinal (vitoria/derrota)
-        if (telaDeEstadoFinal){
-            if (Input.GetKey(KeyCode.LeftArrow)){
-                GameObject button = GameObject.Find("btn1");
-                EventSystem.current.SetSelectedGameObject(button);
-            } else if (Input.GetKey(KeyCode.RightArrow)){
-                GameObject button = GameObject.Find("btn2");
-                EventSystem.current.SetSelectedGameObject(button);
-            }
-
-        }
-        else{
-            //B pra voltar
-            float back = Input.GetAxisRaw("Fire2");
-            if (back > 0 && ConfiguracoesMenu.activeSelf){
-                menu();
-                selectMain();
-            }
-        }
     }
 }

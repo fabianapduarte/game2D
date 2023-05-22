@@ -111,20 +111,18 @@ public class InputController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        bool entradaPorGamepad = gamepadOn;
         detectarEntrada();
-        //if (entradaPorGamepad != gamepadOn){
-            //Debug.Log("Entrada de gamepad: "+gamepadOn);
-        //}
-    }
+        //Debug.Log("Entrada de gamepad: "+gamepadOn);
 
-    private void FixedUpdate(){
+
         //muda icones da HUD pra icones de gamepad
-        if (gamepadOn){
+        if (gamepadOn)
+        {
             toggleIcons(gamepadIcons);
         }
         //muda icones da HUD pra icones de PC
-        else{
+        else
+        {
             toggleIcons(pcIcons);
         }
     }
