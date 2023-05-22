@@ -13,33 +13,26 @@ public class UIController : MonoBehaviour
     public GameObject ConfiguracoesMenu;
     public TextMeshProUGUI dica;
     public bool telaDeEstadoFinal;
-
-    private Scene previousScene;
     
     private string[] dicas = new string[]
     {
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "Espere a plataforma se aproximar para pular nela, o pulo duplo não vai salvar sua vida.",
+        "Tente atacar e se afastar do inimigo antes de dar o próximo golpe para não perder vidas.",
+        "Os baús são importantes, não os deixe para traz."
     };
 
     //Cores
-    Color32 corBase = new Color32(80, 80, 80, 255);
-    Color32 corDeSelecao = new Color32(40, 40, 40, 255);
+    Color corBase;
+    Color corDeSelecao;
     InputController entrada = null;
 
-    public static UIController instance = null;
+    private Color colorRGB(int r, int g, int b){
+        return new Color(r / 255f, g / 255f, b / 255f);
+    }
 
     void Start(){
-        if (instance == null){
-            instance = this;
-        }
-        else {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-
+        corBase = colorRGB(99, 90, 86);
+        corDeSelecao = colorRGB(53, 47, 44);
         if (MainMenu == null){
             if (dica != null){
                 setarDica();
@@ -134,30 +127,6 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void loadScene(){
-        if (SceneManager.GetActiveScene().name.Equals("Derrota"))
-        {
-            int sceneIndex = previousScene.buildIndex;
-            SceneManager.LoadScene(sceneIndex);
-        }
-        if (SceneManager.GetActiveScene().name.Equals("Vitoria"))
-        {
-            int sceneIndex = previousScene.buildIndex;
-            SceneManager.LoadScene(sceneIndex + 1);
-        }
-
-        Debug.Log("Carregando cena (repetindo/avancando)");
-    }
-
-    public void PreviousScene(Scene scene)
-    {
-        previousScene = scene;
-    }
-
-    public void mainMenu(){
-        Debug.Log("Voltando pro menu inicial");
-    }
-
     void Update(){
         if(entrada == null){
             //entrada = GetComponent<InputController>();
@@ -167,9 +136,6 @@ public class UIController : MonoBehaviour
         //Debug.Log(tela.name);
         select();
 
-        //icones dinamicos
-        //dinamicIcons();
-
         //Tela de EstadoFinal (vitoria/derrota)
         if (telaDeEstadoFinal){
             if (Input.GetKey(KeyCode.LeftArrow)){
@@ -178,18 +144,6 @@ public class UIController : MonoBehaviour
             } else if (Input.GetKey(KeyCode.RightArrow)){
                 GameObject button = GameObject.Find("btn2");
                 EventSystem.current.SetSelectedGameObject(button);
-            }
-
-            float A = Input.GetAxisRaw("Fire1");
-            float B = Input.GetAxisRaw("Fire2");
-
-            if (A > 0){
-                //Reinicia ou avanca fase
-                loadScene();
-            }
-            else if (B > 0){
-                //Vai pro menu
-                mainMenu();
             }
 
         }
