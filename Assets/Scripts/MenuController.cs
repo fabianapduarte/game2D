@@ -154,7 +154,9 @@ public class MenuController : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Equals("Derrota"))
         {
             Debug.Log(previousSceneIndex);
-            SceneManager.LoadScene(previousSceneIndex);
+            string nameScene = SceneUtility.GetScenePathByBuildIndex(previousSceneIndex);
+            Debug.Log(nameScene);
+            SceneManager.LoadScene(nameScene);
         }
         if (SceneManager.GetActiveScene().name.Equals("Vitoria"))
         {
@@ -164,9 +166,9 @@ public class MenuController : MonoBehaviour
         //Debug.Log("Carregando cena (repetindo/avancando)");
     }
 
-    public void PreviousScene(Scene scene)
+    public void PreviousScene(int index)
     {
-        previousSceneIndex = scene.buildIndex;
+        previousSceneIndex = index;
     }
 
     public void mainMenu()

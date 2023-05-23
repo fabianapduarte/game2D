@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<BoxCollider2D>();
         rbSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
+        {
+            transform.position = FindObjectOfType<GameController>().GetSavePoint();
+        }
     }
 
     // Update is called once per frame
@@ -184,7 +188,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("savepoint"))
         {
             Debug.Log("Saveee");
-            FindObjectOfType<GameController>().SafePoint(collision.gameObject);
+            FindObjectOfType<GameController>().SetSafePoint(collision.gameObject);
         }
     }
 

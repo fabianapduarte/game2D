@@ -38,18 +38,15 @@ public class AudioController : MonoBehaviour
         {
             AudioClip teste = soundAmbiance[0];
             soundAmbianceLevel.clip = teste;
-            soundAmbianceLevel.volume = 0.494f;
         }else if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
         {
             AudioClip teste = soundAmbiance[1];
             soundAmbianceLevel.clip = teste;
-            soundAmbianceLevel.volume = 0.635f;
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
             AudioClip teste = soundAmbiance[2];
             soundAmbianceLevel.clip = teste;
-            soundAmbianceLevel.volume = 0.635f;
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {
@@ -60,7 +57,9 @@ public class AudioController : MonoBehaviour
             AudioClip teste = soundAmbiance[4];
             soundAmbianceLevel.clip = teste;
         }
+        soundAmbianceLevel.volume = 0.635f;
         soundAmbianceLevel.Play();
+        
     }
 
     public void Attack()
