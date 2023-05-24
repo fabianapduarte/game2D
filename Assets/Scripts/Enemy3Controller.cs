@@ -9,6 +9,7 @@ public class Enemy3Controller : MonoBehaviour
     private int dano = 2;
     private int speed = 2;
     private Transform player;
+    public bool facingLeft = true;
 
     private int contabilizaDano = 0;
     // Start is called before the first frame update
@@ -25,6 +26,14 @@ public class Enemy3Controller : MonoBehaviour
             ani.SetBool("isAtacking", false);
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
+            if (player.position.x < transform.position.x && !facingLeft)
+            {
+                Flip();
+            }
+            else if (player.position.x > transform.position.x && facingLeft)
+            {
+                Flip();
+            }
         }
         else
         {
@@ -33,14 +42,12 @@ public class Enemy3Controller : MonoBehaviour
         }
     }
 
-    private void Flip(bool isFliped)
+    void Flip()
     {
-        float scaleX = Mathf.Abs(transform.localScale.x);
-        if (isFliped)
-        {
-            scaleX *= -1;
-        }
-        transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
+        facingLeft = !facingLeft;
+        Vector3 Scale = transform.localScale;
+        Scale.x *= -1;
+        transform.localScale = Scale;
     }
 
     public void Hurt(int danoPlayer)
