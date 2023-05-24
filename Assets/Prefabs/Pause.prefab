@@ -626,6 +626,7 @@ MonoBehaviour:
   ConfiguracoesMenu: {fileID: 0}
   dica: {fileID: 0}
   telaDeEstadoFinal: 0
+  volumeSlider: 0.8
 --- !u!1 &5615951504566822279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1875,7 @@ GameObject:
   - component: {fileID: 8030268204581332491}
   - component: {fileID: 8030268204581332492}
   - component: {fileID: 8030268204581332493}
+  - component: {fileID: 4698446308968981640}
   m_Layer: 5
   m_Name: Pause
   m_TagString: pause
@@ -1963,6 +1965,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4698446308968981640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030268204581332494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103ad6c714950f64f94da223335c7999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8030268204727316480
 GameObject:
   m_ObjectHideFlags: 0

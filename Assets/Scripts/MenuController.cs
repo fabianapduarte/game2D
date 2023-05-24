@@ -13,7 +13,6 @@ public class MenuController : MonoBehaviour
     public static MenuController instance = null;
     private int previousSceneIndex;
     private string sceneName;
-    private GameObject pause;
     private bool isPause = false; 
 
     private Button btnPlay;
@@ -22,10 +21,16 @@ public class MenuController : MonoBehaviour
     private Button avancar;
     private Button sair;
 
-    private Button continuar;
-    private Button configuracoes;
-    private Button menuInicial;
-    private Button menuDePause;
+    private static Button continuarBtn;
+    private static Button configuracoesBtn;
+    private static Button menuInicialBtn;
+    private static Button menuDePauseBtn;
+
+    private static GameObject configMenuPausa;
+    private static GameObject menuPausa;
+    private GameObject buttonContinuar;
+
+    public GameObject pause;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +42,15 @@ public class MenuController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        menuDePauseBtn = GameObject.Find("VoltarBtn").GetComponent<Button>();
+        continuarBtn = GameObject.Find("ContinuarBtn").GetComponent<Button>();
+        configuracoesBtn = GameObject.Find("ConfigBtn").GetComponent<Button>();
+        menuInicialBtn = GameObject.Find("MenuBtn").GetComponent<Button>();
+
+        configMenuPausa = GameObject.Find("configMenu");
+        menuPausa = GameObject.Find("pauseMenu");
+        buttonContinuar = GameObject.Find("ContinuarBtn");
     }
 
     private void OnEnable(){
@@ -69,28 +83,43 @@ public class MenuController : MonoBehaviour
 
         //setar menu de pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria"){
-            GameObject button = GameObject.Find("ContinuarBtn");
-            EventSystem.current.SetSelectedGameObject(button);
-            pause = GameObject.FindGameObjectWithTag("pause");
+            pause.SetActive(true);
+            configMenuPausa.SetActive(true);
+            //StartCoroutine(WaitForPauseMenuActive());
 
-            continuar = GameObject.Find("ContinuarBtn").GetComponent<Button>();
-            continuar.onClick.AddListener(resume);
+            while (!pause.activeSelf && !buttonContinuar.activeSelf)
+            { // Aguarda até que o menu de pause esteja ativo
+                
+            }
+            Debug.Log("Essa porra ta ligada: "+ pause.activeSelf +" e "+buttonContinuar.activeSelf);
+            menuPause(buttonContinuar);
+            //EventSystem.current.SetSelectedGameObject(buttonContinuar);
 
-            configuracoes = GameObject.Find("ConfigBtn").GetComponent<Button>();
-            configuracoes.onClick.AddListener(configPause);
+            //pause = GameObject.FindGameObjectWithTag("pause");
 
-            menuInicial = GameObject.Find("MenuBtn").GetComponent<Button>();
-            menuInicial.onClick.AddListener(mainMenu);
+            continuarBtn.onClick.AddListener(resume);
 
-            menuDePause = GameObject.Find("VoltarBtn").GetComponent<Button>();
-            menuDePause.onClick.AddListener(menuPause);
+            configuracoesBtn.onClick.AddListener(configPause);
 
-            GameObject config = GameObject.Find("configMenu");
-            config.SetActive(false);
+            menuInicialBtn.onClick.AddListener(mainMenu);
+
+            menuDePauseBtn.onClick.AddListener(menuPause);
+
+            configMenuPausa.SetActive(false);
 
             pause.SetActive(false);
         }
     }
+
+    IEnumerator WaitForPauseMenuActive()
+    {
+        while (!pause.activeSelf && !buttonContinuar.activeSelf){ // Aguarda até que o menu de pause esteja ativo
+            yield return null;
+        }
+        Debug.Log("Menu de pause está ativo!");
+    }
+
+    
 
     // Update is called once per frame
     void Update(){
@@ -99,14 +128,20 @@ public class MenuController : MonoBehaviour
             float pausar = Input.GetAxisRaw("Pause");
             if (pausar>0){
                 pause.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(buttonContinuar);
                 Time.timeScale = 0f;
                 isPause = true;
+                menuPause();
             }
             //B pra voltar
             if(pause.activeSelf == true){
                 float back = Input.GetAxisRaw("Fire2");
-                if (back > 0)
-                {
+                if (back > 0){
+                    GameObject configDePausa = GameObject.Find("configMenu");
+                    if(configDePausa != null){
+                        configMenuPausa.SetActive(false);
+                        menuPausa.SetActive(true);
+                    }
                     resume();
                 }
             }
@@ -190,14 +225,21 @@ public class MenuController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(button);
     }
 
-    public void menuPause(){
+    public void menuPause(GameObject buttonContinuar)
+    {
+        GameObject button = GameObject.Find("ContinuarBtn");
+        EventSystem.current.SetSelectedGameObject(buttonContinuar);
+    }
+
+    public void menuPause()
+    {
         GameObject button = GameObject.Find("ContinuarBtn");
         EventSystem.current.SetSelectedGameObject(button);
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(play);
+        SceneManager.LoadScene(play+1);
     }
 
     public void QuitGame()
