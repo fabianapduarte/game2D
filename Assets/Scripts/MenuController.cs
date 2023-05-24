@@ -91,22 +91,12 @@ public class MenuController : MonoBehaviour
             { // Aguarda até que o menu de pause esteja ativo
                 
             }
-            Debug.Log("Essa porra ta ligada: "+ pause.activeSelf +" e "+buttonContinuar.activeSelf);
             menuPause(buttonContinuar);
-            //EventSystem.current.SetSelectedGameObject(buttonContinuar);
-
-            //pause = GameObject.FindGameObjectWithTag("pause");
-
             continuarBtn.onClick.AddListener(resume);
-
             configuracoesBtn.onClick.AddListener(configPause);
-
             menuInicialBtn.onClick.AddListener(mainMenu);
-
             menuDePauseBtn.onClick.AddListener(menuPause);
-
             configMenuPausa.SetActive(false);
-
             pause.SetActive(false);
         }
     }
