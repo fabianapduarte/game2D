@@ -23,10 +23,6 @@ public class GameController : MonoBehaviour
     public GameObject[] enemiesLevelTree;
     public GameObject[] enemiesLevelFour;
 
-    private string sceneName;
-
-    public Canvas canva;
-
     public static GameController instance = null;
 
     // Start is called before the first frame update
@@ -69,7 +65,7 @@ public class GameController : MonoBehaviour
         playerLifes -= danoEnemy;
         if (playerLifes >= 0)
         {
-            Destroy(canva.transform.GetChild(playerLifes).gameObject);
+            Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
         }
         if (playerLifes <= 0)
         {
@@ -151,12 +147,5 @@ public class GameController : MonoBehaviour
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(vitoria);
-        //Invoke("NextLevel", 3f);
-    }
-
-    void NextLevel()
-    {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex+1);
     }
 }

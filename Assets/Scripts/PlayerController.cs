@@ -110,9 +110,9 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        /*if (vertical > 0){
+        if (vertical > 0){
             ani.SetBool("isJumping", true);
-        }*/
+        }
 
         //AtaquePLayer();
         //Pulo Simples

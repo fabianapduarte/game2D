@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 4102988841355241784}
   - component: {fileID: 8025568927613409079}
   m_Layer: 0
-  m_Name: PF Village Props - Campfire
+  m_Name: Savepoint
   m_TagString: savepoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

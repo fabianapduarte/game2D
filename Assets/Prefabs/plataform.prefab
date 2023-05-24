@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6994182376109607823}
   - component: {fileID: 4169672094285284031}
   m_Layer: 0
-  m_Name: tileset_21
+  m_Name: plataform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
