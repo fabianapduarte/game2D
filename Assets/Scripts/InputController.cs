@@ -97,16 +97,24 @@ public class InputController : MonoBehaviour
         Image image;
         foreach (GameObject dynamicIcon in dynamicIcons){
             image = dynamicIcon.GetComponent<Image>();
+            string spriteName = dynamicIcon.name;
+            Sprite sprite;
 
+            //UI
             if (image != null){
                 //Debug.Log(dynamicIcon.name);
-                string spriteName = dynamicIcon.name;
-                Sprite sprite;
-
                 if (dicionario.TryGetValue(spriteName, out sprite)){
                     // sprite encontrado
                     image.sprite = sprite;
                 }
+            //In game
+            }else{
+                if (dicionario.TryGetValue(spriteName, out sprite)){
+                    // spriteRenderer encontrado
+                    SpriteRenderer spriteRenderer = dynamicIcon.GetComponent<SpriteRenderer>();
+                    spriteRenderer.sprite = sprite;
+                }
+
             }
         }
     }

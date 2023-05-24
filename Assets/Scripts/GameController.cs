@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     private int danoPlayer = 1;
     private float maxSpeed = 11f;
     private int contabilizaColeta = 0;
+    private int contabilizaMorte = 0;
 
     private Vector3 savePoint = Vector3.zero;
    
@@ -21,10 +22,6 @@ public class GameController : MonoBehaviour
     public GameObject[] enemiesLevelTwo;
     public GameObject[] enemiesLevelTree;
     public GameObject[] enemiesLevelFour;
-
-    private string sceneName;
-
-    public Canvas canva;
 
     public static GameController instance = null;
 
@@ -37,12 +34,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        SceneManager.activeSceneChanged += GetSavePoints;
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.activeSceneChanged -= GetSavePoints;
     }
 
     public int GetDanoPlayer()
@@ -67,15 +58,6 @@ public class GameController : MonoBehaviour
             return enemiesLevelFour;
         }
     }
-   void GetSavePoints(Scene previousScene, Scene newScene)
-    {
-        if (newScene.name.Equals("Derrota")){
-            if (savePoint != Vector3.zero)
-            {
-                GameObject.Find("player").transform.position = savePoint;
-            }
-        }
-    }
 
     public void HurtPlayer(int danoEnemy)
     {
@@ -83,7 +65,7 @@ public class GameController : MonoBehaviour
         playerLifes -= danoEnemy;
         if (playerLifes >= 0)
         {
-            Destroy(canva.transform.GetChild(playerLifes).gameObject);
+            Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
         }
         if (playerLifes <= 0)
         {
@@ -94,12 +76,21 @@ public class GameController : MonoBehaviour
 
     public void DeadPlayer()
     {
-         Invoke("GameOver", 2f);
+        if (contabilizaMorte == 0)
+        {
+            Invoke("GameOver", 2f);
+            contabilizaMorte = 1;
+        }
     }
 
-    public void SafePoint(GameObject savepoint)
+    public void SetSafePoint(GameObject savepoint)
     {
         savePoint = savepoint.transform.position;
+    }
+
+    public Vector3 GetSavePoint()
+    {
+        return savePoint;
     }
 
     public void HurtEnemy(GameObject enemy)
@@ -144,23 +135,17 @@ public class GameController : MonoBehaviour
     void GameOver()
     {
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
-        GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene());
+        GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         Debug.Log(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(derrota);
+        contabilizaMorte = 0;
     }
 
     public void LevelEnd()
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
-        GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene());
+        GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(vitoria);
-        //Invoke("NextLevel", 3f);
-    }
-
-    void NextLevel()
-    {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex+1);
     }
 }
