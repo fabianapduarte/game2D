@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
     {
         "Espere a plataforma se aproximar para pular nela, o pulo duplo não vai salvar sua vida.",
         "Tente atacar e se afastar do inimigo antes de dar o próximo golpe para não perder vidas.",
-        "Os baús são importantes, não os deixe para traz."
+        "Os baús são importantes, não os deixe para trás."
     };
 
     //Cores
@@ -34,7 +34,7 @@ public class UIController : MonoBehaviour
     }
 
     void Start(){
-        corBase = colorRGB(99, 90, 86);
+        corBase = colorRGB(89, 81, 78);
         corDeSelecao = colorRGB(53, 47, 44);
         if (MainMenu == null){
             if (dica != null){
