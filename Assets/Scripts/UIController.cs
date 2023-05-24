@@ -85,7 +85,7 @@ public class UIController : MonoBehaviour
         {
             //Aqui vem o som de troca
             if (botaoAtual != null){
-                audioBtn.AlternarBotao();
+                audioBtn.MoveButton();
             }
 
             //Slider e Volume
@@ -143,7 +143,7 @@ public class UIController : MonoBehaviour
 
     private void clique(){
         audioBtn = GameObject.Find("AudioController").GetComponent<AudioController>();
-        audioBtn.Clique();
+        audioBtn.Click();
     }
 
     void Update(){
