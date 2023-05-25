@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour { 
 
@@ -23,6 +24,10 @@ public class PauseController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "MenuInicial" && gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

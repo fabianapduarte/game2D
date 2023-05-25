@@ -177,9 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 6
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1028158548}
+    m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 1960647466}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -815,6 +815,14 @@ PrefabInstance:
     - target: {fileID: 8030268204581332494, guid: c931d7eba7b277548b73646054b23068, type: 3}
       propertyPath: m_Name
       value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030268204581332494, guid: c931d7eba7b277548b73646054b23068, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030268205172214223, guid: c931d7eba7b277548b73646054b23068, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8080947985843168991, guid: c931d7eba7b277548b73646054b23068, type: 3}
       propertyPath: m_AnchorMax.x

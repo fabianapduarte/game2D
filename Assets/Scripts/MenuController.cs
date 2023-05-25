@@ -51,6 +51,8 @@ public class MenuController : MonoBehaviour
         configMenuPausa = GameObject.Find("configMenu");
         menuPausa = GameObject.Find("pauseMenu");
         buttonContinuar = GameObject.Find("ContinuarBtn");
+
+        pause.SetActive(false);
     }
 
     private void OnEnable(){
@@ -85,7 +87,6 @@ public class MenuController : MonoBehaviour
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria"){
             pause.SetActive(true);
             configMenuPausa.SetActive(true);
-            //StartCoroutine(WaitForPauseMenuActive());
 
             while (!pause.activeSelf && !buttonContinuar.activeSelf)
             { // Aguarda até que o menu de pause esteja ativo
@@ -100,15 +101,6 @@ public class MenuController : MonoBehaviour
             pause.SetActive(false);
         }
     }
-
-    IEnumerator WaitForPauseMenuActive()
-    {
-        while (!pause.activeSelf && !buttonContinuar.activeSelf){ // Aguarda até que o menu de pause esteja ativo
-            yield return null;
-        }
-        Debug.Log("Menu de pause está ativo!");
-    }
-
     
 
     // Update is called once per frame
