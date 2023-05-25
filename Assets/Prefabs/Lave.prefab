@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3081160493363641351}
   - component: {fileID: 8705906949872115541}
   - component: {fileID: 9032336308536318499}
+  - component: {fileID: -2345659577371835251}
   m_Layer: 0
   m_Name: Lave
-  m_TagString: Untagged
+  m_TagString: lave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +112,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.644205, y: 1.8176188}
   m_EdgeRadius: 0
+--- !u!253 &-2345659577371835251
+BuoyancyEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340565763313694849}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_SurfaceLevel: 0
+  m_Density: 2
+  m_LinearDrag: 5
+  m_AngularDrag: 5
+  m_FlowAngle: 0
+  m_FlowMagnitude: 0
+  m_FlowVariation: 0

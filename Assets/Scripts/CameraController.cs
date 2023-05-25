@@ -23,8 +23,8 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.03f, 357f),
-                                 Mathf.Clamp(transform.position.y, -5.4f, 26.4f), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.3f, 356.8f),
+                                 Mathf.Clamp(transform.position.y, -2.8f, 21.9f), transform.position.z);
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
         {

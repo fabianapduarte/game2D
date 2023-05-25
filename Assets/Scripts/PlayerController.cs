@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private int contabilizaDano = 0;
     private int contabilizaColeta = 0;
 
+    private bool isClimbing;
+    private bool isLadder;
+
     public Transform detectFloor;
     public LayerMask isFloor;
 
@@ -53,6 +56,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float vertical = Input.GetAxisRaw("Vertical");
+
         if (Input.GetButtonDown("Jump")){
             if (playerInFloor) {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -84,6 +89,12 @@ public class PlayerController : MonoBehaviour
         {
             ani.SetBool("isJumping", false);
         }
+
+        if (isLadder && Math.Abs(vertical) > 0f)
+        {
+            ani.SetBool("isLadder", true);
+            isClimbing = true;
+        }
     }
 
     public bool GetStatusInFloor()
@@ -105,18 +116,15 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
-        //bool flip = false;
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(false);
-            //rbSprite.flipX = false;
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(true);
-            //rbSprite.flipX = true;
         }
         else{
             ani.SetBool("isRunning", false);
@@ -124,12 +132,18 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (vertical > 0){
-            ani.SetBool("isJumping", true);
+        if (isClimbing)
+        {
+            //ani.SetBool("isLadder", true);
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, vertical*speed);
+        }
+        else
+        {
+            rb.gravityScale = 1f;
         }
 
-        //AtaquePLayer();
-        //Pulo Simples
+
         playerInFloor = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.16739f, 0.16739f), 0f, isFloor);
         /*playerInFloor = Physics2D.OverlapCircle(detectFloor.position, 0.0887f, isFloor);*/
     }
@@ -194,6 +208,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.CompareTag("ladder"))
+        {
+            isLadder = true;
+        }
+
         if (collision.gameObject.CompareTag("water"))
         {
             ani.SetBool("isDead", true);
@@ -237,6 +256,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("collectibles"))
         {
             contabilizaColeta = 0;
+        }
+
+        if (collision.gameObject.CompareTag("ladder"))
+        {
+            ani.SetBool("isLadder", false);
+            isLadder = false;
+            isClimbing = false;
         }
     }
 }
