@@ -8,7 +8,7 @@ public class SpawnerController : MonoBehaviour
     // Start is called before the first frame update
     private GameObject[] enemies;
     private int qntMax;
-    public Transform enemys;
+    public Transform enemiesSlot;
 
     public GameObject Zone;
     void Start()
@@ -36,7 +36,7 @@ public class SpawnerController : MonoBehaviour
 
     private void Update()
     {
-        if(qntMax == 0 && enemys.childCount == 0)
+        if(qntMax == 0 && enemiesSlot.childCount == 0)
         {
             Destroy(Zone);
         }
@@ -49,7 +49,7 @@ public class SpawnerController : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity, enemys);
+        Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity, enemiesSlot);
         if(qntMax > 0)
         {
             Invoke("Spawn", Random.Range(10f, 14f));

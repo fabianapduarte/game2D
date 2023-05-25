@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de554f628bfc964c8a73f8fe5689b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 0}
+  enemiesSlot: {fileID: 0}
   Zone: {fileID: 1963030646}
 --- !u!61 &32400120
 BoxCollider2D:
@@ -1605,7 +1605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de554f628bfc964c8a73f8fe5689b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 0}
+  enemiesSlot: {fileID: 0}
   Zone: {fileID: 1693400675}
 --- !u!61 &233856225
 BoxCollider2D:
@@ -1789,7 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de554f628bfc964c8a73f8fe5689b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 0}
+  enemiesSlot: {fileID: 0}
   Zone: {fileID: 1693400675}
 --- !u!61 &284259464
 BoxCollider2D:
@@ -2098,7 +2098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de554f628bfc964c8a73f8fe5689b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 0}
+  enemiesSlot: {fileID: 0}
   Zone: {fileID: 464114798}
 --- !u!61 &347106668
 BoxCollider2D:
@@ -3222,7 +3222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542192946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.4, y: -9.5, z: 1.0303407}
+  m_LocalPosition: {x: 3.7, y: -9.5, z: 1.0303407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3616,7 +3616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de554f628bfc964c8a73f8fe5689b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 0}
+  enemiesSlot: {fileID: 0}
   Zone: {fileID: 1693400675}
 --- !u!61 &849684841
 BoxCollider2D:
@@ -5280,7 +5280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de554f628bfc964c8a73f8fe5689b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 0}
+  enemiesSlot: {fileID: 0}
   Zone: {fileID: 1963030646}
 --- !u!61 &1319948213
 BoxCollider2D:
@@ -5362,7 +5362,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.9164243
+  orthographic size: 5.74964
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6607,7 +6607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de554f628bfc964c8a73f8fe5689b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 0}
+  enemiesSlot: {fileID: 0}
   Zone: {fileID: 1963030646}
 --- !u!61 &1626620085
 BoxCollider2D:
