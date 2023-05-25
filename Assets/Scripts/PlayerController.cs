@@ -139,7 +139,9 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, vertical * speed);
             //congela frame caso a ela esteja parada
-            if (vertical == 0f){
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (vertical == 0f && stateInfo.IsName("Ladder"))
+            {
                 animator.speed = 0;
             }
             else
