@@ -132,14 +132,24 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        Animator animator = GetComponent<Animator>();
         if (isClimbing)
         {
             //ani.SetBool("isLadder", true);
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, vertical*speed);
+            rb.velocity = new Vector2(rb.velocity.x, vertical * speed);
+            //congela frame caso a ela esteja parada
+            if (vertical == 0f){
+                animator.speed = 0;
+            }
+            else
+            {
+                animator.speed = 1;
+            }
         }
         else
         {
+            animator.speed = 1;
             rb.gravityScale = 1f;
         }
 
