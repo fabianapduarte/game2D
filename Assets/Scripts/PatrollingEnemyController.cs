@@ -6,8 +6,13 @@ public class PatrollingEnemyController : MonoBehaviour
 {
     public float speed;
     public bool ground = true;
+    public bool wall = false;
     public Transform groundCheck;
     public LayerMask groundLayer;
+
+    public Transform wallCheck;
+    public LayerMask wallLayer;
+
     public bool facingLeft = true;
 
     private Animator ani;
@@ -31,7 +36,10 @@ public class PatrollingEnemyController : MonoBehaviour
         ground = Physics2D.Linecast(groundCheck.position, transform.position, groundLayer);
         Debug.Log(ground);
 
-        if(ground == false)
+        wall = Physics2D.Linecast(wallCheck.position, transform.position, wallLayer);
+        Debug.Log(wall);
+
+        if (ground == false || wall == true)
         {
             speed *= -1;
         }

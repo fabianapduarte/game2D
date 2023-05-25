@@ -11,7 +11,7 @@ public class CameraLevelTwoScript : MonoBehaviour
     {
         Vector3 newPosition = player.position + new Vector3(0f, 0f, -10);
         transform.position = newPosition;
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3f, 287f),
-                                             Mathf.Clamp(transform.position.y, -999f, 5.3f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8.51f, 215f),
+                                             Mathf.Clamp(transform.position.y, -32.6f, 9.5f), transform.position.z);
     }
 }
