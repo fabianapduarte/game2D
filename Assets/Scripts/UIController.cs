@@ -63,8 +63,10 @@ public class UIController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(button);
     }
     public void selectOpcoes(){
-        GameObject button = GameObject.Find("SliderVolume");
-        EventSystem.current.SetSelectedGameObject(button);
+        GameObject volume = GameObject.Find("SliderVolume");
+        EventSystem.current.SetSelectedGameObject(volume);
+        Slider slider = volume.GetComponent<Slider>();
+        slider.value = audioBtn.GetVolume();
     }
 
     public void hover(GameObject btn){
@@ -83,10 +85,6 @@ public class UIController : MonoBehaviour
         //Destaca opcao
         if (botaoAtual != btnSelected)
         {
-            //Aqui vem o som de troca
-            if (botaoAtual != null){
-                audioBtn.MoveButton();
-            }
 
             //Slider e Volume
             if (btnSelected != null && btnSelected.name == "SliderVolume"){
@@ -97,6 +95,13 @@ public class UIController : MonoBehaviour
                 if(slider.value != volumeSlider){
                     volumeSlider = slider.value;
                     audioBtn.ControlaVolume(volumeSlider);
+                }
+            }
+            else{
+                //Aqui vem o som de troca
+                if (botaoAtual != null)
+                {
+                    audioBtn.MoveButton();
                 }
             }
 

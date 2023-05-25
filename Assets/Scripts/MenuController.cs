@@ -21,16 +21,17 @@ public class MenuController : MonoBehaviour
     private Button avancar;
     private Button sair;
 
-    private static Button continuarBtn;
-    private static Button configuracoesBtn;
-    private static Button menuInicialBtn;
-    private static Button menuDePauseBtn;
+    private Button continuarBtn;
+    private Button configuracoesBtn;
+    private Button menuInicialBtn;
+    private Button menuDePauseBtn;
 
-    private static GameObject configMenuPausa;
-    private static GameObject menuPausa;
+    private GameObject configMenuPausa;
+    private GameObject menuPausa;
     private GameObject buttonContinuar;
 
     public GameObject pause;
+    private AudioController controleDeAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -85,8 +86,12 @@ public class MenuController : MonoBehaviour
 
         //setar menu de pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria"){
+            controleDeAudio = GameObject.Find("AudioController").GetComponent<AudioController>();
             pause.SetActive(true);
             configMenuPausa.SetActive(true);
+            GameObject volume = GameObject.Find("SliderVolume");
+            Slider slider = volume.GetComponent<Slider>();
+            slider.value = controleDeAudio.GetVolume();
 
             while (!pause.activeSelf && !buttonContinuar.activeSelf)
             { // Aguarda até que o menu de pause esteja ativo
@@ -191,6 +196,7 @@ public class MenuController : MonoBehaviour
     public void mainMenu()
     {
         Debug.Log("Voltando pro menu inicial");
+        resume();
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
