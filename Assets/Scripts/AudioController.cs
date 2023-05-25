@@ -97,6 +97,11 @@ public class AudioController : MonoBehaviour
         selection.Play();
     }
 
+    public float GetVolume()
+    {
+        return AudioListener.volume;
+    }
+
     public void ControlaVolume(float volume)
     {
         AudioListener.volume = volume;

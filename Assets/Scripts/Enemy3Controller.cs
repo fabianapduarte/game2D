@@ -80,12 +80,11 @@ public class Enemy3Controller : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player") && ani.GetBool("isAtacking"))
         {
             if (contabilizaDano == 0)
             {
-                Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
-                //FindObjectOfType<GameController>().HurtPlayer(dano);
+                FindObjectOfType<GameController>().HurtPlayer(dano);
                 contabilizaDano = 1;
                 Invoke("Sleep", 4f);
             }
