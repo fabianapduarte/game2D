@@ -16,23 +16,37 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer rbSprite;
     private bool playerInFloor = false;
     private Animator ani;
-    private BoxCollider2D playerCollider;
     private int contabilizaDano = 0;
     private int contabilizaColeta = 0;
 
     public Transform detectFloor;
     public LayerMask isFloor;
 
+    public static PlayerController instance = null;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            instance.transform.position = gameObject.transform.position;
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
         ani = GetComponent<Animator>();
-        playerCollider = GetComponent<BoxCollider2D>();
         rbSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
         {
             transform.position = FindObjectOfType<GameController>().GetSavePoint();
+        }
+        if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
+        {
+            speed += 2;
         }
     }
 
@@ -135,6 +149,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (collision.gameObject.tag.Equals("Finish")) {
+            Debug.Log(speed);
             FindObjectOfType<GameController>().LevelEnd();
         }
 

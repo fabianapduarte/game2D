@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        Debug.Log(danoPlayer);
     }
 
     public int GetDanoPlayer()
@@ -136,7 +137,6 @@ public class GameController : MonoBehaviour
     {
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(derrota);
         contabilizaMorte = 0;
     }
