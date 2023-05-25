@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrollingEnemyController : MonoBehaviour
+public class GhostEnemyController : MonoBehaviour
 {
     public float speed;
-    public bool ground = true;
     public bool wall = false;
-    public Transform groundCheck;
-    public LayerMask groundLayer;
 
     public Transform wallCheck;
     public LayerMask wallLayer;
@@ -33,21 +30,27 @@ public class PatrollingEnemyController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
-        ground = Physics2D.Linecast(groundCheck.position, transform.position, groundLayer);
-        Debug.Log(ground);
 
-        wall = Physics2D.Linecast(wallCheck.position, transform.position, wallLayer);
-        Debug.Log(wall);
-
-        if (ground == false || wall == true)
+        if (CheckWallCollision())
         {
+            //Debug.Log(wall);
             speed *= -1;
         }
 
-        if(speed > 0 && !facingLeft )
+        if (player.position.x < transform.position.x && !facingLeft)
         {
             Flip();
-        }else if(speed < 0 && facingLeft )
+        }
+        else if (player.position.x > transform.position.x && facingLeft)
+        {
+            Flip();
+        }
+
+        if (speed > 0 && !facingLeft)
+        {
+            Flip();
+        }
+        else if (speed < 0 && facingLeft)
         {
             Flip();
         }
@@ -66,6 +69,12 @@ public class PatrollingEnemyController : MonoBehaviour
                 Invoke("TimeTransitionAttack", 0.6f);
             }
         }
+    }
+
+    bool CheckWallCollision()
+    {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(wallCheck.position, new Vector2(0.1f, 0.1f), 0f, wallLayer);
+        return colliders.Length > 0;
     }
 
     void Flip()
