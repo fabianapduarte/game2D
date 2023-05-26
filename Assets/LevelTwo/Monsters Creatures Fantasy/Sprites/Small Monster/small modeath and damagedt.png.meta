@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -109,9 +121,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 309
-        width: 19
-        height: 26
+        y: 273
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,9 +142,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 274
-        width: 19
-        height: 22
+        y: 195
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,9 +163,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 235
-        width: 31
-        height: 34
+        y: 156
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,9 +184,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 196
-        width: 34
-        height: 34
+        y: 117
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,9 +205,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 159
-        width: 32
-        height: 33
+        y: 39
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,13 +222,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small modeath and damagedt_10
+      name: small modeath and damagedt_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 120
-        width: 32
-        height: 34
+        y: 312
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 396c00255dd2130429d6fca645ae1846
-      internalID: -388313025
+      spriteID: 9c37d01f6e69b6548836ac6eef41494f
+      internalID: -449029033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small modeath and damagedt_12
+      name: small modeath and damagedt_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 82
-        width: 32
-        height: 33
+        y: 234
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12b2c39daa1b2194ca8a66151c864219
-      internalID: 1320174586
+      spriteID: 20d78d33b0aaaa8439ed1182a0bbb668
+      internalID: -1406901204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small modeath and damagedt_17
+      name: small modeath and damagedt_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 45
-        width: 32
-        height: 31
+        y: 78
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd0462c65dbd9374a8ec14caa1091d7a
-      internalID: -481548141
+      spriteID: 028a77262a276444a875b34b930894f9
+      internalID: 629790889
       vertices: []
       indices: 
       edges: []
@@ -285,24 +297,12 @@ TextureImporter:
     nameFileIdTable:
       small modeath and damagedt_0: -449029033
       small modeath and damagedt_1: -884537488
-      small modeath and damagedt_10: -388313025
-      small modeath and damagedt_11: -1334267447
-      small modeath and damagedt_12: 1320174586
-      small modeath and damagedt_13: -1682365601
-      small modeath and damagedt_14: 677990415
-      small modeath and damagedt_15: -1162037724
-      small modeath and damagedt_16: 2098357592
-      small modeath and damagedt_17: -481548141
-      small modeath and damagedt_18: -1454924339
-      small modeath and damagedt_19: -1139457332
       small modeath and damagedt_2: -1406901204
       small modeath and damagedt_3: -1736577341
       small modeath and damagedt_4: 865063603
       small modeath and damagedt_5: -367417068
       small modeath and damagedt_6: 629790889
       small modeath and damagedt_7: -421604004
-      small modeath and damagedt_8: 793229024
-      small modeath and damagedt_9: -1844300116
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

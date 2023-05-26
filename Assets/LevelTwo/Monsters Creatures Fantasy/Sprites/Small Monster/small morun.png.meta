@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -108,10 +120,10 @@ TextureImporter:
       name: small morun_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 198
-        width: 12
-        height: 28
+        x: 0
+        y: 195
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +141,10 @@ TextureImporter:
       name: small morun_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 160
-        width: 13
-        height: 29
+        x: 0
+        y: 156
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +162,10 @@ TextureImporter:
       name: small morun_3
       rect:
         serializedVersion: 2
-        x: 7
-        y: 119
-        width: 14
-        height: 31
+        x: 0
+        y: 78
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +183,10 @@ TextureImporter:
       name: small morun_5
       rect:
         serializedVersion: 2
-        x: 8
-        y: 80
-        width: 14
-        height: 30
+        x: 0
+        y: 0
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,13 +201,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small morun_6
+      name: small morun_2
       rect:
         serializedVersion: 2
-        x: 8
-        y: 43
-        width: 14
-        height: 34
+        x: 0
+        y: 117
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 504a9a5ff4ef31647a5a121072cb66a3
-      internalID: -1690983174
+      spriteID: d78ee51d7d8720e4c8db7be6199f9d73
+      internalID: 1062806586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small morun_9
+      name: small morun_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 2
-        width: 13
-        height: 37
+        x: 0
+        y: 39
+        width: 135
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28be0ed7f59a1a74f9f025f7065bcdcd
-      internalID: -415166746
+      spriteID: eb644a5dfeee5164fa06b14b1c745a7d
+      internalID: -1868876185
       vertices: []
       indices: 
       edges: []
@@ -247,10 +259,6 @@ TextureImporter:
       small morun_3: -511348469
       small morun_4: -1868876185
       small morun_5: 1911291896
-      small morun_6: -1690983174
-      small morun_7: 609300871
-      small morun_8: -885870085
-      small morun_9: -415166746
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
