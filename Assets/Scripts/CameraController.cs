@@ -19,7 +19,8 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
-
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.25f, 215f),
+                                                 Mathf.Clamp(transform.position.y, -32.6f, 9.5f), transform.position.z);
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {

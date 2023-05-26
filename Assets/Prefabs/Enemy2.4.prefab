@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3115931102410263380}
   - component: {fileID: 1174811852182622171}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: small morun_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,14 +94,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2171037110352666718}
   - component: {fileID: 2171037110352666719}
-  - component: {fileID: 2171037110352666715}
   - component: {fileID: 2171037110352666712}
   - component: {fileID: 2171037110352666713}
   - component: {fileID: 5827701480875602093}
   - component: {fileID: 8653632837010805633}
-  m_Layer: 0
+  - component: {fileID: 6393421037774081014}
+  m_Layer: 7
   m_Name: Enemy2.4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,19 +174,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2171037110352666715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2171037110352666717}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5662a3da7b84a6b4b97de39b25ccab6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 1
 --- !u!50 &2171037110352666712
 Rigidbody2D:
   serializedVersion: 4
@@ -271,3 +258,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
+--- !u!114 &6393421037774081014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171037110352666717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5662a3da7b84a6b4b97de39b25ccab6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 1
