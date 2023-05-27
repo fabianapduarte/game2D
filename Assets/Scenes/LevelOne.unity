@@ -627,11 +627,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.088974, y: 1}
   m_EdgeRadius: 0
---- !u!4 &481426187 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4103789884661486600, guid: 9d6eca7d7a7be0046b07a442238f53e9, type: 3}
-  m_PrefabInstance: {fileID: 4103789885006491395}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +681,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.7496405
+  orthographic size: 5.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -730,7 +725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f30372431c7204199358109162ac8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 481426187}
 --- !u!1 &560979369
 GameObject:
   m_ObjectHideFlags: 0

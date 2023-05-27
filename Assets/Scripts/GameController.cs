@@ -42,6 +42,11 @@ public class GameController : MonoBehaviour
         return danoPlayer;
     }
 
+    public void SetDanoPlayer(int valor)
+    {
+        danoPlayer += valor;
+    }
+
     public GameObject[] GetEnemies(int level)
     {
         if(level == 1)
@@ -145,6 +150,9 @@ public class GameController : MonoBehaviour
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
+        savePoint = Vector3.zero;
+        Debug.Log(danoPlayer);
+        Debug.Log(GameObject.Find("player").GetComponent<PlayerController>().GetSpeed());
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(vitoria);
     }

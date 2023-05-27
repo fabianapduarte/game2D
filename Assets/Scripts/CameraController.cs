@@ -5,28 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
-    /*public Transform player;
-    public static CameraController instance = null;*/
+    private Transform player;
 
     void Start()
     {
-        /*if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            instance.transform.position = gameObject.transform.position;
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);*/
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
         // Update is called once per frame
         private void FixedUpdate()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 newPosition = player.transform.position + new Vector3(0f, 0f, -10);
+        Vector3 newPosition = player.position + new Vector3(0f, 0f, -10);
         transform.position = newPosition;
         if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
         {

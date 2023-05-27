@@ -25,21 +25,9 @@ public class PlayerController : MonoBehaviour
     public Transform detectFloor;
     public LayerMask isFloor;
 
-    //public static PlayerController instance = null;
-
     // Start is called before the first frame update
     void Start()
     {
-        /*if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            instance.transform.position = gameObject.transform.position;
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);*/
         ani = GetComponent<Animator>();
         rbSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -49,8 +37,18 @@ public class PlayerController : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
+            speed += 1;
+            FindObjectOfType<GameController>().SetDanoPlayer(1);
+        }else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+        {
             speed += 2;
+            FindObjectOfType<GameController>().SetDanoPlayer(2);
+        }else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+        {
+            speed += 3;
+            FindObjectOfType<GameController>().SetDanoPlayer(3);
         }
+        Debug.Log(speed);
     }
 
     // Update is called once per frame
