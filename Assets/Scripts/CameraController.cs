@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
-    public static CameraController instance = null;
+    /*public Transform player;
+    public static CameraController instance = null;*/
 
     void Start()
     {
-        if (instance == null)
+        /*if (instance == null)
         {
             instance = this;
         }
@@ -19,13 +19,14 @@ public class CameraController : MonoBehaviour
             instance.transform.position = gameObject.transform.position;
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);*/
     }
 
         // Update is called once per frame
         private void FixedUpdate()
     {
-        Vector3 newPosition = player.position + new Vector3(0f, 0f, -10);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 newPosition = player.transform.position + new Vector3(0f, 0f, -10);
         transform.position = newPosition;
         if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
         {
@@ -34,8 +35,8 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.25f, 215f),
-                                                 Mathf.Clamp(transform.position.y, -32.6f, 9.5f), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10.5f, 217.2f),
+                                                 Mathf.Clamp(transform.position.y, -32.4f, 9.1f), transform.position.z);
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {

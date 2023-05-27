@@ -25,12 +25,12 @@ public class PlayerController : MonoBehaviour
     public Transform detectFloor;
     public LayerMask isFloor;
 
-    public static PlayerController instance = null;
+    //public static PlayerController instance = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null)
+        /*if (instance == null)
         {
             instance = this;
         }
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             instance.transform.position = gameObject.transform.position;
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);*/
         ani = GetComponent<Animator>();
         rbSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
