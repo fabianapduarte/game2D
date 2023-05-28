@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3115931102410263380}
   - component: {fileID: 1174811852182622171}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: small morun_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5827701480875602093}
   - component: {fileID: 8653632837010805633}
   - component: {fileID: 6393421037774081014}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Enemy2.4
   m_TagString: Enemy
   m_Icon: {fileID: 0}

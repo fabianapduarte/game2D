@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public bool doubleJump;
 
     private Rigidbody2D rb;
-    private SpriteRenderer rbSprite;
     private bool playerInFloor = false;
     private Animator ani;
     private int contabilizaDano = 0;
@@ -29,7 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        rbSprite = GetComponent<SpriteRenderer>();
+        //running = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
         {
@@ -100,6 +99,8 @@ public class PlayerController : MonoBehaviour
         return playerInFloor;
     }
 
+    //private AudioSource running;
+
     private void Flip(bool isFliped){
         float scaleX = Mathf.Abs(transform.localScale.x);
         if (isFliped){
@@ -116,16 +117,21 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
+            //running.Play();
+            //running.mute = false;
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(false);
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
+            //running.Play();
+            //running.mute = false;
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(true);
         }
         else{
             ani.SetBool("isRunning", false);
+            //running.mute = true;
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
 
         }
@@ -211,7 +217,7 @@ public class PlayerController : MonoBehaviour
         {
             if (contabilizaDano == 0)
             {
-                Debug.Log("acertou");
+                GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
                 Invoke("Sleep", 1.5f);
@@ -256,6 +262,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Coleta"))
             {
+                GameObject.Find("AudioController").GetComponent<AudioController>().Collect();
                 Destroy(collision.gameObject);
                 if (contabilizaColeta == 0)
                 {

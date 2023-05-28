@@ -20,10 +20,9 @@ public class Enemy4Controller : MonoBehaviour
     }
     private void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) > 2f)
+        if (Vector3.Distance(transform.position, player.position) > 2.3f)
         {
             ani.SetBool("isRunning", true);
-            ani.SetBool("isAtacking", false);
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
             if (player.position.x < transform.position.x && !facingLeft)
@@ -35,10 +34,15 @@ public class Enemy4Controller : MonoBehaviour
                 Flip();
             }
         }
+
         else
         {
             ani.SetBool("isRunning", false);
-            ani.SetBool("isAtacking", true);
+            if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
+            {
+                ani.SetBool("isAtacking", true);
+                Invoke("TimeTransitionAttack", 0.6f);
+            }
         }
     }
 
@@ -52,7 +56,7 @@ public class Enemy4Controller : MonoBehaviour
 
     public void Hurt(int danoPlayer)
     {
-        Debug.Log("Acertou");
+        //Debug.Log("Acertou");
         life -= danoPlayer;
         ani.SetBool("isHurting", true);
         Invoke("TimeTransitionHurt", 0.4f);
@@ -68,6 +72,13 @@ public class Enemy4Controller : MonoBehaviour
         ani.SetBool("isHurting", false);
         return;
     }
+
+    private void TimeTransitionAttack()
+    {
+        ani.SetBool("isAtacking", false);
+        return;
+    }
+
     public int GetDano()
     {
         return dano;
@@ -78,16 +89,17 @@ public class Enemy4Controller : MonoBehaviour
         contabilizaDano = 0;
         return;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player") && ani.GetBool("isAtacking"))
         {
             if (contabilizaDano == 0)
             {
-                Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
-                //FindObjectOfType<GameController>().HurtPlayer(dano);
+                GameObject.Find("AudioController").GetComponent<AudioController>().HurtPlayer();
+                FindObjectOfType<GameController>().HurtPlayer(dano);
                 contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
+                Invoke("Sleep", 4f);
             }
         }
     }

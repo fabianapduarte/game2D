@@ -96,6 +96,7 @@ public class Enemy2Controller : MonoBehaviour
         {
             if (contabilizaDano == 0)
             {
+                GameObject.Find("AudioController").GetComponent<AudioController>().HurtPlayer();
                 FindObjectOfType<GameController>().HurtPlayer(dano);
                 contabilizaDano = 1;
                 Invoke("Sleep", 4f);
