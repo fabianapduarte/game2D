@@ -15,8 +15,9 @@ TagManager:
   - treasureChest
   - objectToDelete
   - pause
-  - lave
   - ladder
+  - lava
+  - lave
   layers:
   - Default
   - TransparentFX

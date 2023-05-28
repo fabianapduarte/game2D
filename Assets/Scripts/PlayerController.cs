@@ -229,6 +229,12 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<GameController>().DeadPlayer();
         }
 
+        if (collision.gameObject.CompareTag("lava"))
+        {
+            ani.SetBool("isDead", true);
+            FindObjectOfType<GameController>().DeadPlayer();
+        }
+
         if (collision.gameObject.CompareTag("savepoint"))
         {
             Debug.Log("Saveee");
