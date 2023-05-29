@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
 
-    // Update is called once per frame
-    private void FixedUpdate()
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+        // Update is called once per frame
+        private void FixedUpdate()
     {
         Vector3 newPosition = player.position + new Vector3(0f, 0f, -10);
         transform.position = newPosition;
@@ -19,7 +24,8 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
-
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10.5f, 217.2f),
+                                                 Mathf.Clamp(transform.position.y, -32.4f, 9.1f), transform.position.z);
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {
@@ -28,7 +34,8 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
         {
-
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -2.9f, 239.1f),
+                     Mathf.Clamp(transform.position.y, 1.24f, 3.45f), transform.position.z);
         }
 
     }

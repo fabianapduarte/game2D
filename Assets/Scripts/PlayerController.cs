@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public bool doubleJump;
 
     private Rigidbody2D rb;
-    private SpriteRenderer rbSprite;
     private bool playerInFloor = false;
     private Animator ani;
     private int contabilizaDano = 0;
@@ -25,23 +24,11 @@ public class PlayerController : MonoBehaviour
     public Transform detectFloor;
     public LayerMask isFloor;
 
-    public static PlayerController instance = null;
-
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            instance.transform.position = gameObject.transform.position;
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
         ani = GetComponent<Animator>();
-        rbSprite = GetComponent<SpriteRenderer>();
+        //running = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
         {
@@ -49,8 +36,18 @@ public class PlayerController : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
+            speed += 1;
+            FindObjectOfType<GameController>().SetDanoPlayer(1);
+        }else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+        {
             speed += 2;
+            FindObjectOfType<GameController>().SetDanoPlayer(2);
+        }else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+        {
+            speed += 3;
+            FindObjectOfType<GameController>().SetDanoPlayer(3);
         }
+        Debug.Log(speed);
     }
 
     // Update is called once per frame
@@ -102,6 +99,8 @@ public class PlayerController : MonoBehaviour
         return playerInFloor;
     }
 
+    //private AudioSource running;
+
     private void Flip(bool isFliped){
         float scaleX = Mathf.Abs(transform.localScale.x);
         if (isFliped){
@@ -118,16 +117,21 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
+            //running.Play();
+            //running.mute = false;
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(false);
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
+            //running.Play();
+            //running.mute = false;
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(true);
         }
         else{
             ani.SetBool("isRunning", false);
+            //running.mute = true;
             //GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
 
         }
@@ -213,7 +217,7 @@ public class PlayerController : MonoBehaviour
         {
             if (contabilizaDano == 0)
             {
-                Debug.Log("acertou");
+                GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
                 Invoke("Sleep", 1.5f);
@@ -226,6 +230,12 @@ public class PlayerController : MonoBehaviour
         }
 
         if (collision.gameObject.CompareTag("water"))
+        {
+            ani.SetBool("isDead", true);
+            FindObjectOfType<GameController>().DeadPlayer();
+        }
+
+        if (collision.gameObject.CompareTag("lava"))
         {
             ani.SetBool("isDead", true);
             FindObjectOfType<GameController>().DeadPlayer();
@@ -252,6 +262,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Coleta"))
             {
+                GameObject.Find("AudioController").GetComponent<AudioController>().Collect();
                 Destroy(collision.gameObject);
                 if (contabilizaColeta == 0)
                 {
