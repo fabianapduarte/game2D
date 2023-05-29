@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+using System.IO;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
@@ -32,6 +34,7 @@ public class MenuController : MonoBehaviour
 
     public GameObject pause;
     private AudioController controleDeAudio;
+    private int indexCena;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +57,8 @@ public class MenuController : MonoBehaviour
         buttonContinuar = GameObject.Find("ContinuarBtn");
 
         pause.SetActive(false);
+
+        indexCena = 2;
     }
 
     private void OnEnable(){
@@ -111,7 +116,7 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update(){
         //Coloca o jogo em pause
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria"){
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1"){
             float pausar = Input.GetAxisRaw("Pause");
             if (pausar>0){
                 pause.SetActive(true);
@@ -144,6 +149,25 @@ public class MenuController : MonoBehaviour
                 UIController uiController = menuPrincipal.GetComponent<UIController>();
                 uiController.menu();
                 uiController.selectMain();
+            }
+        }
+
+        if (sceneName == "Cutscene1"){
+            GameObject videoPanel = GameObject.Find("VideoPanel");
+            VideoPlayer videoPlayer = videoPanel.GetComponent<VideoPlayer>();
+            //Debug.Log(videoPlayer.clip.name);
+
+            //A/ENTER pra avancar
+            bool forward1 = Input.GetButtonDown("Fire1");
+            bool forward2 = Input.GetKeyDown(KeyCode.Return);
+            if (forward1 || forward2){
+                if(indexCena == 5){
+                    SceneManager.LoadScene(play+1);
+                }
+
+                string cena = "Cena" + (indexCena++);
+                videoPlayer.clip = (VideoClip)Resources.Load(cena);
+                videoPlayer.isLooping = true;
             }
         }
 
@@ -227,7 +251,7 @@ public class MenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(play+1);
+        SceneManager.LoadScene(play);
     }
 
     public void QuitGame()
