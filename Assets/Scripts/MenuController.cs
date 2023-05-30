@@ -161,7 +161,7 @@ public class MenuController : MonoBehaviour
             bool forward1 = Input.GetButtonDown("Fire1");
             bool forward2 = Input.GetKeyDown(KeyCode.Return);
             if (forward1 || forward2){
-                if(indexCena == 5){
+                if(indexCena == 10){
                     SceneManager.LoadScene(play+1);
                 }
 
