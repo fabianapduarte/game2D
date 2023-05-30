@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,6 +39,22 @@ public class SpawnerController : MonoBehaviour
     {
         if(qntMax == 0 && enemiesSlot.childCount == 0)
         {
+            if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
+            }
             Destroy(Zone);
         }
     }

@@ -75,27 +75,35 @@ public class AudioController : MonoBehaviour
         }
         else
         {
-            if (SceneManager.GetActiveScene().name.Equals("MenuInicial"))
+            if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
             {
                 AudioClip teste = soundAmbiance[0];
                 soundAmbianceLevel.clip = teste;
-            }else if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
+            } else if (SceneManager.GetActiveScene().name.Equals("MenuInicial"))
             {
                 AudioClip teste = soundAmbiance[1];
                 soundAmbianceLevel.clip = teste;
-            }
-            else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
+            }else if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
             {
                 AudioClip teste = soundAmbiance[2];
                 soundAmbianceLevel.clip = teste;
             }
-            else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
             {
                 AudioClip teste = soundAmbiance[3];
                 soundAmbianceLevel.clip = teste;
-            }else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
             {
                 AudioClip teste = soundAmbiance[4];
+                soundAmbianceLevel.clip = teste;
+            }else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+            {
+                AudioClip teste = soundAmbiance[5];
+                soundAmbianceLevel.clip = teste;
+            }else if (SceneManager.GetActiveScene().name.Equals("Cutscene1"))
+            {
+                AudioClip teste = soundAmbiance[6];
                 soundAmbianceLevel.clip = teste;
             }
             soundAmbianceLevel.volume = 0.635f;

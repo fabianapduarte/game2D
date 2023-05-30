@@ -17,10 +17,10 @@ public class ZonesScriptController : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player") && transform.tag.Equals("zoneInit") && Mathf.Abs(player.position.x) > Mathf.Abs(transform.position.x))
         {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel1(transform.parent);
             zoneCollider.isTrigger = false;
             if (transform.parent.name.Equals("Zone1"))
             {
-                //GameObject.Find("Spawner1").GetComponent<SpawnerController>().GatilhoZona();
                 GameObject spawner = GameObject.Find("Spawner1");
                 if (spawner.transform.childCount != 0)
                 {
@@ -36,7 +36,6 @@ public class ZonesScriptController : MonoBehaviour
                 }
             }else if (transform.parent.name.Equals("Zone2"))
             {
-                //GameObject.Find("Spawner2").GetComponent<SpawnerController>().GatilhoZona();
                 GameObject spawner = GameObject.Find("Spawner2");
                 if (spawner.transform.childCount != 0)
                 {
@@ -53,7 +52,6 @@ public class ZonesScriptController : MonoBehaviour
             }
             else
             {
-                //GameObject.Find("Spawner3").GetComponent<SpawnerController>().GatilhoZona();
                 GameObject spawner = GameObject.Find("Spawner3");
                 if (spawner.transform.childCount != 0)
                 {
