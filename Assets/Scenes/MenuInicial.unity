@@ -1471,7 +1471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 8.6, y: 57.1}
+  m_AnchoredPosition: {x: 8.600006, y: 57.1}
   m_SizeDelta: {x: 256.7441, y: 83.5722}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &535664844
@@ -1673,6 +1673,14 @@ PrefabInstance:
     - target: {fileID: 8030268204581332490, guid: c931d7eba7b277548b73646054b23068, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030268204581332492, guid: c931d7eba7b277548b73646054b23068, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030268204581332492, guid: c931d7eba7b277548b73646054b23068, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 8030268204581332494, guid: c931d7eba7b277548b73646054b23068, type: 3}
       propertyPath: m_Name
@@ -2036,7 +2044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.204529, y: -112.246994}
+  m_AnchoredPosition: {x: 7.204529, y: -112.24701}
   m_SizeDelta: {x: -260.1433, y: -224.02167}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1028158548
@@ -2276,7 +2284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.204529, y: -112.246994}
+  m_AnchoredPosition: {x: 7.204529, y: -112.24701}
   m_SizeDelta: {x: -260.1433, y: -224.02167}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1113666650
@@ -3554,10 +3562,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
