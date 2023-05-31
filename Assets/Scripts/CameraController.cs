@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, 1.6f, 63.68f),
                      Mathf.Clamp(transform.position.y, 3.64f, 5.65f), transform.position.z);
         }
-        if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
+        else if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX1, maxX1),
                                  Mathf.Clamp(transform.position.y, 1.08f, 2.6f), transform.position.z);
@@ -53,26 +53,78 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void SetLevel1(Transform zone)
+    public void SetLevel1(string zone)
     {
-        minX1 = zone.GetChild(0).position.x;
-        maxX1 = zone.GetChild(1).position.x;    
+        if (zone == "Zone1")
+        {
+            this.minX1 = 25.8f;
+            this.maxX1 = 38.3f;
+        }
+        if (zone == "Zone2")
+        {
+            this.minX1 = 118.6f;
+            this.maxX1 = 127.4f;
+        }
+        if (zone == "Zone3")
+        {
+            this.minX1 = 201.8f;
+            this.maxX1 = 209.2f;
+        }
     }
 
-    public void SetLevel2(Transform zone)
+    public void SetLevel2(string zone)
     {
-        minX2 = zone.GetChild(0).position.x;
-        maxX2 = zone.GetChild(1).position.x;
+        if (zone == "Zone1")
+        {
+            this.minX1 = 25.8f;
+            this.maxX1 = 38.3f;
+        }
+        if (zone == "Zone2")
+        {
+            this.minX1 = 118.6f;
+            this.maxX1 = 127.4f;
+        }
+        if (zone == "Zone3")
+        {
+            this.minX1 = 201.8f;
+            this.maxX1 = 209.2f;
+        }
     }
-    public void SetLevel3(Transform zone)
+    public void SetLevel3(string zone)
     {
-        minX3 = zone.GetChild(0).position.x;
-        maxX3 = zone.GetChild(1).position.x;
+        if (zone == "Zone1")
+        {
+            this.minX1 = 25.8f;
+            this.maxX1 = 38.3f;
+        }
+        if (zone == "Zone2")
+        {
+            this.minX1 = 118.6f;
+            this.maxX1 = 127.4f;
+        }
+        if (zone == "Zone3")
+        {
+            this.minX1 = 201.8f;
+            this.maxX1 = 209.2f;
+        }
     }
-    public void SetLevel4(Transform zone)
+    public void SetLevel4(string zone)
     {
-        minX4 = zone.GetChild(0).position.x;
-        maxX4 = zone.GetChild(1).position.x;
+        if (zone == "Zone1")
+        {
+            this.minX1 = 25.8f;
+            this.maxX1 = 38.3f;
+        }
+        if (zone == "Zone2")
+        {
+            this.minX1 = 118.6f;
+            this.maxX1 = 127.4f;
+        }
+        if (zone == "Zone3")
+        {
+            this.minX1 = 201.8f;
+            this.maxX1 = 209.2f;
+        }
     }
 
     public void ResetCoordX(int level)

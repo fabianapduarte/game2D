@@ -39,6 +39,7 @@ public class SpawnerController : MonoBehaviour
     {
         if(qntMax == 0 && enemiesSlot.childCount == 0)
         {
+            GameObject.Find("detectInZone").GetComponent<DetectPlayerController>().setContabilizaStart();
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
@@ -69,7 +70,7 @@ public class SpawnerController : MonoBehaviour
         Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity, enemiesSlot);
         if(qntMax > 0)
         {
-            Invoke("Spawn", Random.Range(10f, 14f));
+            Invoke("Spawn", Random.Range(8f, 14f));
             qntMax--;
         }
     }
