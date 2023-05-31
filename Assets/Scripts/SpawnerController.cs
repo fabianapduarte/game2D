@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,6 +39,23 @@ public class SpawnerController : MonoBehaviour
     {
         if(qntMax == 0 && enemiesSlot.childCount == 0)
         {
+            GameObject.Find("detectInZone").GetComponent<DetectPlayerController>().setContabilizaStart();
+            if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
+            }
             Destroy(Zone);
         }
     }
@@ -52,7 +70,7 @@ public class SpawnerController : MonoBehaviour
         Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, Quaternion.identity, enemiesSlot);
         if(qntMax > 0)
         {
-            Invoke("Spawn", Random.Range(10f, 14f));
+            Invoke("Spawn", Random.Range(8f, 14f));
             qntMax--;
         }
     }
