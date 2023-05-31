@@ -76,36 +76,31 @@ public class CameraController : MonoBehaviour
     {
         if (zone == "Zone1")
         {
-            this.minX1 = 25.8f;
-            this.maxX1 = 38.3f;
+            this.minX2 = 44.4f;
+            this.maxX2 = 60.6f;
         }
         if (zone == "Zone2")
         {
-            this.minX1 = 118.6f;
-            this.maxX1 = 127.4f;
-        }
-        if (zone == "Zone3")
-        {
-            this.minX1 = 201.8f;
-            this.maxX1 = 209.2f;
+            this.minX2 = 184.4f;
+            this.maxX2 = 202.1f;
         }
     }
     public void SetLevel3(string zone)
     {
         if (zone == "Zone1")
         {
-            this.minX1 = 25.8f;
-            this.maxX1 = 38.3f;
+            this.minX3 = 25.8f;
+            this.maxX3 = 38.3f;
         }
         if (zone == "Zone2")
         {
-            this.minX1 = 118.6f;
-            this.maxX1 = 127.4f;
+            this.minX3 = 118.6f;
+            this.maxX3 = 127.4f;
         }
         if (zone == "Zone3")
         {
-            this.minX1 = 201.8f;
-            this.maxX1 = 209.2f;
+            this.minX3 = 201.8f;
+            this.maxX3 = 209.2f;
         }
     }
     public void SetLevel4(string zone)

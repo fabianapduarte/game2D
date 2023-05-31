@@ -69,7 +69,6 @@ public class AudioController : MonoBehaviour
                 AudioClip teste = finishLevel[1];
                 endLevel.clip = teste;
             }
-
             endLevel.volume = 0.635f;
             endLevel.Play();
         }
@@ -180,5 +179,12 @@ public class AudioController : MonoBehaviour
         AudioClip teste = enemyHurt[0];
         hurtEnemy.clip = teste;
         hurtEnemy.Play();
+    }
+
+    public void BattleSound()
+    {
+        AudioClip teste = soundAmbiance[7];
+        soundAmbianceLevel.clip = teste;
+        soundAmbianceLevel.Play();
     }
 }

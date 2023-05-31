@@ -199,9 +199,7 @@ public class MenuController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name.Equals("Derrota"))
         {
-            Debug.Log(previousSceneIndex);
             string nameScene = SceneUtility.GetScenePathByBuildIndex(previousSceneIndex);
-            Debug.Log(nameScene);
             SceneManager.LoadScene(nameScene);
         }
         if (SceneManager.GetActiveScene().name.Equals("Vitoria"))

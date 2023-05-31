@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DetectPlayerController : MonoBehaviour
 {
@@ -16,8 +17,26 @@ public class DetectPlayerController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player") && contabilizaStart == 0)
         {
             contabilizaStart = 1;
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel1(transform.parent.name);
             transform.parent.GetComponent<ZonesScriptController>().ClosedZone();
+
+            if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel1(transform.parent.name);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
+            {
+                Debug.Log("Entrouu");
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel2(transform.parent.name);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel3(transform.parent.name);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel4(transform.parent.name);
+            }
+
             if (transform.parent.name.Equals("Zone1"))
             {
                 GameObject spawner = GameObject.Find("Spawner1");

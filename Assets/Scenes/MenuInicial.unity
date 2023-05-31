@@ -863,17 +863,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 64d857b785c6ae24c97f11d5be23a820, type: 3}
   - {fileID: 8300000, guid: 26ed5c907bd8d42409f006a19080a1d7, type: 3}
   - {fileID: 8300000, guid: 2cf983fdafe07654591586f2dcfff48c, type: 3}
+  - {fileID: 8300000, guid: 56d8431cc4b3d1943b7791fe595c3c40, type: 3}
   selectInMenu:
   - {fileID: 8300000, guid: 5373658e56a6b03498260f633649a71a, type: 3}
   moveInMenu:
   - {fileID: 8300000, guid: 49aa5c2ad6270c544a8fa61d19a0b68d, type: 3}
-  collectibles: []
-  finishLevel: []
+  collectibles:
+  - {fileID: 8300000, guid: e084a5da956625e4ea271a42991fbe4e, type: 3}
+  - {fileID: 8300000, guid: 06c9f6a9078813d49b25aad214788252, type: 3}
+  finishLevel:
+  - {fileID: 8300000, guid: 7b29cc9967921d549ba23ac0adba0b31, type: 3}
+  - {fileID: 8300000, guid: 7668fbca34f01114c9a9b06994248416, type: 3}
   enemyHurt:
-  - {fileID: 8300000, guid: 70c5753afa127cb4b8992122dcbee497, type: 3}
-  - {fileID: 8300000, guid: e21534aa46b1e394db651d71ba322105, type: 3}
+  - {fileID: 8300000, guid: d3cff70bb7bd51e46935689e6bae4844, type: 3}
+  - {fileID: 8300000, guid: 139fe9017593925458e4bd2102a12360, type: 3}
   playerHurt:
-  - {fileID: 8300000, guid: 568130ee9f4798745958045dab9a5247, type: 3}
+  - {fileID: 8300000, guid: 0cce2bc2fb3c95c429d6c545542b8cba, type: 3}
   soundAmbianceLevel: {fileID: 15581409}
   endLevel: {fileID: 15581411}
   hurtEnemy: {fileID: 15581411}
