@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2171037110352666713}
   - component: {fileID: 5827701480875602093}
   - component: {fileID: 8653632837010805633}
-  - component: {fileID: 6393421037774081014}
+  - component: {fileID: 7158393565014876550}
   m_Layer: 6
   m_Name: Enemy2.4
   m_TagString: Enemy
@@ -258,7 +258,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
---- !u!114 &6393421037774081014
+--- !u!114 &7158393565014876550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2171037110352666717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5662a3da7b84a6b4b97de39b25ccab6c, type: 3}
+  m_Script: {fileID: 11500000, guid: b810a1c40a475864a87bfcdf335139da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 1

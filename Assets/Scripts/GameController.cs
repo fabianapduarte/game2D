@@ -58,8 +58,7 @@ public class GameController : MonoBehaviour
         } else if (level == 3)
         {
             return enemiesLevelTree;
-        }
-        else
+        } else
         {
             return enemiesLevelFour;
         }
@@ -68,9 +67,18 @@ public class GameController : MonoBehaviour
     public void HurtPlayer(int danoEnemy)
     {
         GameObject.Find("player").GetComponent<PlayerController>().AnimationHurtPlayer();
-        playerLifes -= danoEnemy;
-        if (playerLifes >= 0)
+        if(danoEnemy > 1)
         {
+            while(danoEnemy > 0)
+            {
+                playerLifes--;
+                Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
+                danoEnemy--;
+            }
+        }
+        else
+        {
+            playerLifes--;
             Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
         }
         if (playerLifes <= 0)
@@ -140,6 +148,7 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
+        playerLifes = 5;
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(derrota);
