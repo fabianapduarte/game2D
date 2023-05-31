@@ -12,6 +12,8 @@ public class InputController : MonoBehaviour
 
     public static InputController instance = null;
 
+    private Gamepad gamepad;
+
     private string pcIconsPath = "Interfaces/Icons/pc"; // Nome da pasta 1
     private string gamepadIconsPath = "Interfaces/Icons/gamepad"; // Nome da pasta 2
     private Dictionary<string, Sprite> pcIcons = new Dictionary<string, Sprite>();
@@ -29,6 +31,22 @@ public class InputController : MonoBehaviour
         lastMousePosition = Mouse.current.position.ReadValue();
         LoadImages(pcIconsPath, pcIcons);
         LoadImages(gamepadIconsPath, gamepadIcons);
+        gamepad = Gamepad.current;
+    }
+
+    public void Vibrate(float duration){
+        if (gamepad != null){
+            // Definir a vibração nos motores esquerdo e direito
+            gamepad = Gamepad.current;
+            gamepad.SetMotorSpeeds(20, 20);
+            Invoke("StopVibration", duration);
+        }
+    }
+    private void StopVibration(){
+        if (gamepad != null){
+            // Parar a vibração definindo a intensidade dos motores para zero
+            gamepad.SetMotorSpeeds(0, 0);
+        }
     }
 
     private void detectarEntrada() {

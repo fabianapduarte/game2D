@@ -221,6 +221,8 @@ public class PlayerController : MonoBehaviour
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
                 Invoke("Sleep", 1.5f);
+                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
+                controle.Vibrate(0.3f);
             }
         }
 
