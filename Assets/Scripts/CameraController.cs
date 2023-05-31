@@ -107,18 +107,18 @@ public class CameraController : MonoBehaviour
     {
         if (zone == "Zone1")
         {
-            this.minX1 = 48.6f;
-            this.maxX1 = 67.2f;
+            this.minX4 = 48.6f;
+            this.maxX4 = 67.2f;
         }
         if (zone == "Zone2")
         {
-            this.minX1 = 118.6f;
-            this.maxX1 = 127.4f;
+            this.minX4 = 118.1f;
+            this.maxX4 = 130.4f;
         }
         if (zone == "Zone3")
         {
-            this.minX1 = 201.8f;
-            this.maxX1 = 209.2f;
+            this.minX4 = 211.6f;
+            this.maxX4 = 228f;
         }
     }
 
