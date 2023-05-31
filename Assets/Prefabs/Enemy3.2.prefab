@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 5992220052414538583}
   - component: {fileID: 2160118855343028538}
   - component: {fileID: 1186790329493516368}
-  - component: {fileID: 2671253776834481663}
   - component: {fileID: 4547463006337011015}
+  - component: {fileID: -8195329474732408833}
   m_Layer: 9
   m_Name: Enemy3.2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,19 +157,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.69, y: 1.54}
   m_EdgeRadius: 0
---- !u!114 &2671253776834481663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7121004292685263429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7382ebefa80fd5d49985d516ff94c913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 1
 --- !u!58 &4547463006337011015
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -186,3 +173,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
+--- !u!114 &-8195329474732408833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121004292685263429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a76e42b649dc7b4a89bcb9f6f20b1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 1

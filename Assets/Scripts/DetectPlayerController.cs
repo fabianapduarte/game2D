@@ -25,7 +25,6 @@ public class DetectPlayerController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
             {
-                Debug.Log("Entrouu");
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel2(transform.parent.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))

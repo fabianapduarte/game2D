@@ -140,6 +140,7 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
+        playerLifes = 5;
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(derrota);
