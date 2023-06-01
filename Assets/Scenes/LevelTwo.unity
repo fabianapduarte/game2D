@@ -9725,17 +9725,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 51476637654532372, guid: 05cd3482b1b516141b376145ccf6f6ff, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2171037110352666717, guid: 05cd3482b1b516141b376145ccf6f6ff, type: 3}
       propertyPath: m_Name
       value: Enemy2.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2171037110352666717, guid: 05cd3482b1b516141b376145ccf6f6ff, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2171037110352666718, guid: 05cd3482b1b516141b376145ccf6f6ff, type: 3}
       propertyPath: m_RootOrder
