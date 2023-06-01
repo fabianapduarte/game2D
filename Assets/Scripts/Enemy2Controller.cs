@@ -20,7 +20,7 @@ public class Enemy2Controller : MonoBehaviour
     }
     private void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) > 2.3f)
+        if (Vector3.Distance(transform.position, player.position) > 2f)
         {
             ani.SetBool("isRunning", true);
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);

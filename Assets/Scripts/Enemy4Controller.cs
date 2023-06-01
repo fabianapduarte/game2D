@@ -56,7 +56,6 @@ public class Enemy4Controller : MonoBehaviour
 
     public void Hurt(int danoPlayer)
     {
-        //Debug.Log("Acertou");
         life -= danoPlayer;
         ani.SetBool("isHurting", true);
         Invoke("TimeTransitionHurt", 0.4f);
