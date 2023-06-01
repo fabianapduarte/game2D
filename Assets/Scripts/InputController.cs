@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.InputSystem;
 using XInputDotNetPure;
+using TMPro;
 
 public class InputController : MonoBehaviour
 {
@@ -15,8 +16,8 @@ public class InputController : MonoBehaviour
 
     private Gamepad gamepad;
 
-    private string pcIconsPath = "Interfaces/Icons/pc"; // Nome da pasta 1
-    private string gamepadIconsPath = "Interfaces/Icons/gamepad"; // Nome da pasta 2
+    private string pcIconsPath = "Icons/pc"; // Nome da pasta 1
+    private string gamepadIconsPath = "Icons/gamepad"; // Nome da pasta 2
     private Dictionary<string, Sprite> pcIcons = new Dictionary<string, Sprite>();
     private Dictionary<string, Sprite> gamepadIcons = new Dictionary<string, Sprite>();
 
@@ -87,7 +88,7 @@ public class InputController : MonoBehaviour
     }
 
     private void LoadImages(string path, Dictionary<string, Sprite> dicionario){
-        string folderPath = Path.Combine(Application.dataPath, path); // Caminho completo para a pasta
+        string folderPath = Path.Combine(Application.streamingAssetsPath, path);
         string[] imagePaths = Directory.GetFiles(folderPath); // Obter os caminhos completos de todas as imagens na pasta
 
         foreach (string imagePath in imagePaths){
@@ -119,23 +120,14 @@ public class InputController : MonoBehaviour
         foreach (GameObject dynamicIcon in dynamicIcons){
             image = dynamicIcon.GetComponent<Image>();
             string spriteName = dynamicIcon.name;
-            Sprite sprite;
-
             //UI
             if (image != null){
-                //Debug.Log(dynamicIcon.name);
-                if (dicionario.TryGetValue(spriteName, out sprite)){
-                    // sprite encontrado
-                    image.sprite = sprite;
-                }
+                image.sprite = dicionario[spriteName];
+            }
             //In game
-            }else{
-                if (dicionario.TryGetValue(spriteName, out sprite)){
-                    // spriteRenderer encontrado
-                    SpriteRenderer spriteRenderer = dynamicIcon.GetComponent<SpriteRenderer>();
-                    spriteRenderer.sprite = sprite;
-                }
-
+            else{
+                SpriteRenderer spriteRenderer = dynamicIcon.GetComponent<SpriteRenderer>();
+                spriteRenderer.sprite = dicionario[spriteName];
             }
         }
     }
