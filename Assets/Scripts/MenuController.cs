@@ -5,12 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using System.IO;
+using TMPro;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
     //Constantes de menu
-    public const int play = 3;
+    public int play = 3;
 
     public static MenuController instance = null;
     private int previousSceneIndex;
@@ -81,8 +82,21 @@ public class MenuController : MonoBehaviour
             sair.onClick.AddListener(mainMenu);
         }
 
+        if (scene.name == "FimDeJogo")
+        {
+            // Encontra o botão pelo nome ou através de uma busca na hierarquia
+            sair = GameObject.Find("btn2").GetComponent<Button>();
+            sair.onClick.AddListener(mainMenu);
+        }
+
         if (scene.name == "MenuInicial"){
             btnPlay = GameObject.Find("PlayBtn").GetComponent<Button>();
+            PlayerPrefs.SetInt("FaseAtual", 0);
+            int save = PlayerPrefs.GetInt("FaseAtual");
+            if (save != 0){
+                play = save;
+                btnPlay.GetComponentInChildren<TextMeshProUGUI>().text = "Continuar";
+            }
             btnPlay.onClick.AddListener(PlayGame);
             btnQuit = GameObject.Find("ExitBtn").GetComponent<Button>();
             btnQuit.onClick.AddListener(QuitGame);
@@ -91,6 +105,8 @@ public class MenuController : MonoBehaviour
 
         //setar menu de pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria"){
+            //Salva fase atual pra continuar
+            PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
             controleDeAudio = GameObject.Find("AudioController").GetComponent<AudioController>();
             pause.SetActive(true);
             configMenuPausa.SetActive(true);
@@ -161,7 +177,7 @@ public class MenuController : MonoBehaviour
             bool forward1 = Input.GetButtonDown("Fire1");
             bool forward2 = Input.GetKeyDown(KeyCode.Return);
             if (forward1 || forward2){
-                if(indexCena == 10){
+                if(indexCena == 11){
                     SceneManager.LoadScene(play+1);
                 }
 
@@ -189,6 +205,16 @@ public class MenuController : MonoBehaviour
                 loadScene();
             }
             else if (B > 0){
+                //Vai pro menu
+                mainMenu();
+            }
+        }
+
+        if (sceneName == "FimDeJogo"){
+            GameObject select = GameObject.Find("btn2");
+            EventSystem.current.SetSelectedGameObject(select);
+            float B = Input.GetAxisRaw("Fire2");
+            if (B > 0){
                 //Vai pro menu
                 mainMenu();
             }

@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Movimentação
+        // Movimentaï¿½ï¿½o
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
@@ -137,13 +137,14 @@ public class PlayerController : MonoBehaviour
         }
 
         Animator animator = GetComponent<Animator>();
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (isClimbing)
         {
             //ani.SetBool("isLadder", true);
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, vertical * speed);
             //congela frame caso a ela esteja parada
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            
             if (vertical == 0f && stateInfo.IsName("Ladder"))
             {
                 animator.speed = 0;
@@ -159,6 +160,9 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 1f;
         }
 
+        if (stateInfo.IsName("Attack") && playerInFloor){
+            rb.velocity = new Vector3(0, rb.velocity.y, 0f);
+        }
 
         playerInFloor = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.16739f, 0.16739f), 0f, isFloor);
         /*playerInFloor = Physics2D.OverlapCircle(detectFloor.position, 0.0887f, isFloor);*/
@@ -213,7 +217,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Animator animator = GetComponent<Animator>();
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Attack"))
         {
             if (contabilizaDano == 0)
             {

@@ -101,7 +101,7 @@ public class Enemy1Controller : MonoBehaviour
                 contabilizaDano = 1;
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
                 controle.Vibrate(2f);
-                Invoke("Sleep", 4f);
+                Invoke("Sleep", 2f);
             }
         }
     }
