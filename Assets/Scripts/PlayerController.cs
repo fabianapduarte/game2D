@@ -9,6 +9,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class PlayerController : MonoBehaviour
 {
     private float speed = 6;
+    private int danoPlayer = 1;
     public float jumpForce;
     public bool doubleJump;
 
@@ -33,21 +34,34 @@ public class PlayerController : MonoBehaviour
         if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
         {
             transform.position = FindObjectOfType<GameController>().GetSavePoint();
+            GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
         }
         if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
             speed += 1;
-            FindObjectOfType<GameController>().SetDanoPlayer(1);
-        }else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+            danoPlayer += 1;
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {
             speed += 2;
-            FindObjectOfType<GameController>().SetDanoPlayer(2);
+            danoPlayer += 2;
         }else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
         {
             speed += 3;
-            FindObjectOfType<GameController>().SetDanoPlayer(3);
+            danoPlayer += 3;
         }
         Debug.Log(speed);
+        Debug.Log(danoPlayer);
+    }
+
+    public int GetDanoPlayer()
+    {
+        return danoPlayer;
+    }
+
+    public void SetDanoPlayer(int valor)
+    {
+        danoPlayer += valor;
     }
 
     // Update is called once per frame
@@ -210,9 +224,9 @@ public class PlayerController : MonoBehaviour
         return speed;
     }
 
-    public void SetSpeed()
+    public void SetSpeed(float valor)
     {
-        speed++;
+        speed += valor;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

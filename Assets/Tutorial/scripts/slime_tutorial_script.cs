@@ -43,7 +43,7 @@ public class slime_tutorial_script : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-             Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
+             Hurt(player.GetComponent<PlayerController>().GetDanoPlayer());
              Invoke("Sleep", 1.5f);
         }
     }
