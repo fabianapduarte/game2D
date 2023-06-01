@@ -26,7 +26,7 @@ public class PatrollingEnemyController : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        player = GameObject.Find("player").transform;
+        player = GameObject.Find("Simetra").transform;
     }
 
     // Update is called once per frame

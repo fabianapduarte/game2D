@@ -16,7 +16,7 @@ public class Enemy3Controller : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        player = GameObject.Find("player").transform;
+        player = GameObject.Find("Simetra").transform;
     }
     private void Update()
     {
