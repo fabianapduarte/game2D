@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     private float maxSpeed = 11f;
     private int contabilizaColeta = 0;
     private int contabilizaMorte = 0;
+    private int contabilizaBonusSpeed = 0;
+    private int contabilizaBonusForce = 0;
 
     private Vector3 savePoint = Vector3.zero;
    
@@ -34,16 +36,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-    }
-
-    public int GetDanoPlayer()
-    {
-        return danoPlayer;
-    }
-
-    public void SetDanoPlayer(int valor)
-    {
-        danoPlayer += valor;
     }
 
     public GameObject[] GetEnemies(int level)
@@ -119,22 +111,22 @@ public class GameController : MonoBehaviour
     {
         if (enemy.layer == 6)
         {
-            enemy.GetComponent<Enemy1Controller>().Hurt(danoPlayer);
+            enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
         }
 
         if (enemy.layer == 7)
         {
-            enemy.GetComponent<Enemy2Controller>().Hurt(danoPlayer);
+            enemy.GetComponent<Enemy2Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
         }
 
         if (enemy.layer == 8)
         {
-            enemy.GetComponent<Enemy3Controller>().Hurt(danoPlayer);
+            enemy.GetComponent<Enemy3Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
         }
 
         if (enemy.layer == 9)
         {
-            enemy.GetComponent<Enemy4Controller>().Hurt(danoPlayer);
+            enemy.GetComponent<Enemy4Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
         }
     }
 
@@ -142,13 +134,22 @@ public class GameController : MonoBehaviour
     {
         if(collectable.layer == 10) // force
         {
-            danoPlayer++;
+            if(contabilizaBonusForce == 0)
+            {
+                GameObject.Find("Simetra").GetComponent<PlayerController>().SetDanoPlayer(1);
+                contabilizaBonusForce = 1;
+            }
         }
         if(collectable.layer == 11) // speed
         {
             if(GameObject.Find("Simetra").GetComponent<PlayerController>().GetSpeed() <= maxSpeed)
             {
-                GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed();
+                if(contabilizaBonusSpeed == 0)
+                {   
+                    GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
+                    contabilizaBonusSpeed = 1;
+                }
+                
             }
             
         }
@@ -157,6 +158,17 @@ public class GameController : MonoBehaviour
     void GameOver()
     {
         playerLifes = 5;
+        if(savePoint != Vector3.zero)
+        {
+            if(contabilizaBonusForce != 0)
+            {
+                contabilizaBonusForce = 0;
+            }  
+        }
+        else
+        {
+            contabilizaBonusSpeed = 0;
+        }
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(derrota);
@@ -166,6 +178,8 @@ public class GameController : MonoBehaviour
     public void LevelEnd()
     {
         playerLifes = 5;
+        contabilizaBonusSpeed = 0;
+        contabilizaBonusForce = 0;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
         string final = SceneUtility.GetScenePathByBuildIndex(9);
         savePoint = Vector3.zero;
