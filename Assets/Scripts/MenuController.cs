@@ -82,6 +82,13 @@ public class MenuController : MonoBehaviour
             sair.onClick.AddListener(mainMenu);
         }
 
+        if (scene.name == "FimDeJogo")
+        {
+            // Encontra o botão pelo nome ou através de uma busca na hierarquia
+            sair = GameObject.Find("btn2").GetComponent<Button>();
+            sair.onClick.AddListener(mainMenu);
+        }
+
         if (scene.name == "MenuInicial"){
             btnPlay = GameObject.Find("PlayBtn").GetComponent<Button>();
             PlayerPrefs.SetInt("FaseAtual", 0);
@@ -170,7 +177,7 @@ public class MenuController : MonoBehaviour
             bool forward1 = Input.GetButtonDown("Fire1");
             bool forward2 = Input.GetKeyDown(KeyCode.Return);
             if (forward1 || forward2){
-                if(indexCena == 10){
+                if(indexCena == 11){
                     SceneManager.LoadScene(play+1);
                 }
 
@@ -198,6 +205,16 @@ public class MenuController : MonoBehaviour
                 loadScene();
             }
             else if (B > 0){
+                //Vai pro menu
+                mainMenu();
+            }
+        }
+
+        if (sceneName == "FimDeJogo"){
+            GameObject select = GameObject.Find("btn2");
+            EventSystem.current.SetSelectedGameObject(select);
+            float B = Input.GetAxisRaw("Fire2");
+            if (B > 0){
                 //Vai pro menu
                 mainMenu();
             }

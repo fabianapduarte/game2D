@@ -217,7 +217,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Animator animator = GetComponent<Animator>();
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Attack"))
         {
             if (contabilizaDano == 0)
             {
