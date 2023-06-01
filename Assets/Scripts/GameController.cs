@@ -34,7 +34,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        //GameObject.Find("ControllText").GetComponent<TextLevelController>().StartText();
     }
 
     public int GetDanoPlayer()
@@ -66,7 +65,7 @@ public class GameController : MonoBehaviour
 
     public void HurtPlayer(int danoEnemy)
     {
-        GameObject.Find("player").GetComponent<PlayerController>().AnimationHurtPlayer();
+        GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationHurtPlayer();
         if(danoEnemy > 1)
         {
             while(danoEnemy > 0)
@@ -83,7 +82,8 @@ public class GameController : MonoBehaviour
         }
         if (playerLifes <= 0)
         {
-            GameObject.Find("player").GetComponent<PlayerController>().AnimationDeadPlayer();
+            GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationDeadPlayer();
             Invoke("DeadPlayer", 1f);
         }
     }
@@ -138,9 +138,9 @@ public class GameController : MonoBehaviour
         }
         if(collectable.layer == 11) // speed
         {
-            if(GameObject.Find("player").GetComponent<PlayerController>().GetSpeed() <= maxSpeed)
+            if(GameObject.Find("Simetra").GetComponent<PlayerController>().GetSpeed() <= maxSpeed)
             {
-                GameObject.Find("player").GetComponent<PlayerController>().SetSpeed();
+                GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed();
             }
             
         }
@@ -160,8 +160,6 @@ public class GameController : MonoBehaviour
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
         savePoint = Vector3.zero;
-        Debug.Log(danoPlayer);
-        Debug.Log(GameObject.Find("player").GetComponent<PlayerController>().GetSpeed());
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(vitoria);
     }
