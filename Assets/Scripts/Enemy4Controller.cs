@@ -99,6 +99,8 @@ public class Enemy4Controller : MonoBehaviour
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtPlayer();
                 FindObjectOfType<GameController>().HurtPlayer(dano);
                 contabilizaDano = 1;
+                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
+                controle.Vibrate(2f);
                 Invoke("Sleep", 4f);
             }
         }

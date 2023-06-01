@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.InputSystem;
+using XInputDotNetPure;
 
 public class InputController : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class InputController : MonoBehaviour
             // Definir a vibração nos motores esquerdo e direito
             gamepad = Gamepad.current;
             gamepad.SetMotorSpeeds(50, 50);
+            GamePad.SetVibration(0, 50, 50);
             Invoke("StopVibration", duration);
         }
     }
@@ -46,6 +48,7 @@ public class InputController : MonoBehaviour
         if (gamepad != null){
             // Parar a vibração definindo a intensidade dos motores para zero
             gamepad.SetMotorSpeeds(0, 0);
+            GamePad.SetVibration(0, 0, 0);
         }
     }
 
