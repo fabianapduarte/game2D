@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 3752093495966143239}
   - component: {fileID: 5913483812343300021}
   - component: {fileID: 1591377011647497562}
-  - component: {fileID: 4152577176697211275}
-  - component: {fileID: 8054381663894693511}
-  m_Layer: 7
+  - component: {fileID: 6275944015179629250}
+  m_Layer: 8
   m_Name: Enemy4.2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -174,7 +173,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
---- !u!114 &4152577176697211275
+--- !u!114 &6275944015179629250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,20 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5151229122201477508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a76e42b649dc7b4a89bcb9f6f20b1d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 1
---- !u!114 &8054381663894693511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5151229122201477508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5662a3da7b84a6b4b97de39b25ccab6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7382ebefa80fd5d49985d516ff94c913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 1
