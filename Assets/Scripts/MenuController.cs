@@ -91,11 +91,14 @@ public class MenuController : MonoBehaviour
 
         if (scene.name == "MenuInicial"){
             btnPlay = GameObject.Find("PlayBtn").GetComponent<Button>();
-            //PlayerPrefs.SetInt("FaseAtual", 0);
             int save = PlayerPrefs.GetInt("FaseAtual");
             if (save != 0){
                 play = save;
                 btnPlay.GetComponentInChildren<TextMeshProUGUI>().text = "Continuar";
+            }
+            else
+            {
+                btnPlay.GetComponentInChildren<TextMeshProUGUI>().text = "Novo Jogo";
             }
             btnPlay.onClick.AddListener(PlayGame);
             btnQuit = GameObject.Find("ExitBtn").GetComponent<Button>();
@@ -217,6 +220,7 @@ public class MenuController : MonoBehaviour
             float B = Input.GetAxisRaw("Fire2");
             if (B > 0){
                 //Vai pro menu
+                PlayerPrefs.SetInt("FaseAtual", 0);
                 mainMenu();
             }
         }

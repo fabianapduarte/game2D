@@ -21,7 +21,8 @@ public class UIController : MonoBehaviour
     {
         "Espere a plataforma se aproximar para pular nela, o pulo duplo não vai salvar sua vida.",
         "Tente atacar e se afastar do inimigo antes de dar o próximo golpe para não perder vidas.",
-        "Os baús são importantes, não os deixe para trás."
+        "Os baús são importantes, não os deixe para trás.",
+        "Se o inimigo estiver em um lugar estreito, antes de enfrentá-lo, tente levá-lo para uma área mais ampla"
     };
 
     //Cores

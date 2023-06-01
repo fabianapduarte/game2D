@@ -50,8 +50,6 @@ public class PlayerController : MonoBehaviour
             speed += 3;
             danoPlayer += 3;
         }
-        Debug.Log(speed);
-        Debug.Log(danoPlayer);
     }
 
     public int GetDanoPlayer()
@@ -131,22 +129,14 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
-            //running.Play();
-            //running.mute = false;
-            //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(false);
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
-            //running.Play();
-            //running.mute = false;
-            //GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(true);
         }
         else{
             ani.SetBool("isRunning", false);
-            //running.mute = true;
-            //GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
 
         }
 
@@ -265,7 +255,6 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("savepoint"))
         {
-            Debug.Log("Saveee");
             FindObjectOfType<GameController>().SetSafePoint(collision.gameObject);
         }
     }

@@ -43,9 +43,9 @@ public class AudioController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().name.Equals("Vitoria") || SceneManager.GetActiveScene().name.Equals("Derrota"))
+        if(SceneManager.GetActiveScene().name.Equals("Vitoria") || SceneManager.GetActiveScene().name.Equals("Derrota") || SceneManager.GetActiveScene().name.Equals("FimDeJogo"))
         {
-            if (SceneManager.GetActiveScene().name.Equals("Vitoria"))
+            if (SceneManager.GetActiveScene().name.Equals("Vitoria") || SceneManager.GetActiveScene().name.Equals("FimDeJogo"))
             {
                 AudioClip teste = finishLevel[0];
                 endLevel.clip = teste;

@@ -178,19 +178,37 @@ public class GameController : MonoBehaviour
     public void LevelEnd()
     {
         playerLifes = 5;
-        contabilizaBonusSpeed = 0;
-        contabilizaBonusForce = 0;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
         string final = SceneUtility.GetScenePathByBuildIndex(9);
         savePoint = Vector3.zero;
+
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
+
         //Index da ultima fase
-        if(SceneManager.GetActiveScene().buildIndex == 8){
-            SceneManager.LoadScene(final);
+        if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
+        {
+            if(SceneManager.GetActiveScene().buildIndex == 8){
+                SceneManager.LoadScene(final);
+            }
+            else{
+                SceneManager.LoadScene(vitoria);
+            }
         }
-        else{
-            SceneManager.LoadScene(vitoria);
+        else
+        {
+            if(contabilizaBonusForce == 1 && contabilizaBonusSpeed == 1)
+            {
+                if (SceneManager.GetActiveScene().buildIndex == 8)
+                {
+                    SceneManager.LoadScene(final);
+                }
+                else
+                {
+                    SceneManager.LoadScene(vitoria);
+                }
+                contabilizaBonusSpeed = 0;
+                contabilizaBonusForce = 0;
+            }
         }
-        
     }
 }
