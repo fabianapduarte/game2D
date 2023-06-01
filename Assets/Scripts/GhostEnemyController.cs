@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostEnemyController : MonoBehaviour
 {
-    public float speed;
+    private float speed = 2;
     public bool wall = false;
 
     public Transform wallCheck;
@@ -23,7 +23,7 @@ public class GhostEnemyController : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        player = GameObject.Find("player").transform;
+        player = GameObject.Find("Simetra").transform;
     }
 
     // Update is called once per frame
@@ -33,7 +33,6 @@ public class GhostEnemyController : MonoBehaviour
 
         if (CheckWallCollision())
         {
-            //Debug.Log(wall);
             speed *= -1;
         }
 
@@ -129,7 +128,9 @@ public class GhostEnemyController : MonoBehaviour
             {
                 FindObjectOfType<GameController>().HurtPlayer(dano);
                 contabilizaDano = 1;
-                Invoke("Sleep", 4f);
+                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
+                controle.Vibrate(2f);
+                Invoke("Sleep", 2f);
             }
         }
     }
