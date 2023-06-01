@@ -178,6 +178,7 @@ public class MenuController : MonoBehaviour
             bool forward2 = Input.GetKeyDown(KeyCode.Return);
             if (forward1 || forward2){
                 if(indexCena == 11){
+                    indexCena = 2;
                     SceneManager.LoadScene(play+1);
                 }
 
