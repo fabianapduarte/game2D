@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Game2D
+  productName: AGuardaReal
   defaultCursor: {fileID: 2800000, guid: 132064d4e60951c46a42856fa2521d9b, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.066037714, g: 0.06198823, b: 0.063000605, a: 1}
