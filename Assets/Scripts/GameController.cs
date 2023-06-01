@@ -71,18 +71,26 @@ public class GameController : MonoBehaviour
             while(danoEnemy > 0)
             {
                 playerLifes--;
-                Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
+                if (playerLifes >= 0)
+                {
+                    Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
+                }
                 danoEnemy--;
             }
         }
         else
         {
             playerLifes--;
-            Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
+            if(playerLifes >= 0)
+            {
+                Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
+            }
+
         }
         if (playerLifes <= 0)
         {
-            GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
             GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationDeadPlayer();
             Invoke("DeadPlayer", 1f);
         }

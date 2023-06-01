@@ -12,7 +12,7 @@ public class slime_tutorial_script : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        player = GameObject.Find("player").transform;
+        player = GameObject.Find("Simetra").transform;
     }
 
     // Update is called once per frame
@@ -43,13 +43,8 @@ public class slime_tutorial_script : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            //if (contabilizaDano == 0)
-            //{
-                Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
-                //FindObjectOfType<GameController>().HurtPlayer(dano);
-              //  contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
-            //}
+             Hurt(FindObjectOfType<GameController>().GetDanoPlayer());
+             Invoke("Sleep", 1.5f);
         }
     }
 }
