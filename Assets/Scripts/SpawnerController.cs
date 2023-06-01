@@ -56,6 +56,7 @@ public class SpawnerController : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
             }
+            GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
             Destroy(Zone);
         }
     }

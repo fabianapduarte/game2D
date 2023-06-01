@@ -16,6 +16,7 @@ public class DetectPlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player") && contabilizaStart == 0)
         {
+            GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundStart();
             contabilizaStart = 1;
             transform.parent.GetComponent<ZonesScriptController>().ClosedZone();
 

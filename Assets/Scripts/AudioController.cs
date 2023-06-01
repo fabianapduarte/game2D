@@ -41,21 +41,9 @@ public class AudioController : MonoBehaviour
     [Header("Collectibles")]
     public AudioSource collect;
 
-    public static AudioController instance = null;
-
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-
         if(SceneManager.GetActiveScene().name.Equals("Vitoria") || SceneManager.GetActiveScene().name.Equals("Derrota"))
         {
             if (SceneManager.GetActiveScene().name.Equals("Vitoria"))
@@ -176,15 +164,21 @@ public class AudioController : MonoBehaviour
 
     public void HurtEnemy()
     {
-        AudioClip teste = enemyHurt[0];
+        AudioClip teste = enemyHurt[Random.Range(0, enemyHurt.Length)];
         hurtEnemy.clip = teste;
         hurtEnemy.Play();
     }
 
-    public void BattleSound()
+    public void BattleSoundStart()
     {
         AudioClip teste = soundAmbiance[7];
         soundAmbianceLevel.clip = teste;
+        soundAmbianceLevel.volume = 0.7f;
         soundAmbianceLevel.Play();
+    }
+
+    public void BattleSoundFinish()
+    {
+        Invoke("Start", 1f);
     }
 }

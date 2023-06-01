@@ -264,14 +264,21 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Coleta"))
             {
-                GameObject.Find("AudioController").GetComponent<AudioController>().Collect();
-                Destroy(collision.gameObject);
-                if (contabilizaColeta == 0)
+                if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
                 {
-                    FindObjectOfType<GameController>().GetCollectibles(collision.gameObject);
-                    contabilizaColeta = 1;
+                    GameObject.Find("AudioController").GetComponent<AudioController>().Collect();
+                    Destroy(collision.gameObject);
                 }
-                    
+                else
+                {
+                    GameObject.Find("AudioController").GetComponent<AudioController>().Collect();
+                    Destroy(collision.gameObject);
+                    if (contabilizaColeta == 0)
+                    {
+                        FindObjectOfType<GameController>().GetCollectibles(collision.gameObject);
+                        contabilizaColeta = 1;
+                    }
+                }
             }
         }
     }

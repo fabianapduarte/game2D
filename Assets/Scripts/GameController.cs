@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        Debug.Log(danoPlayer);
+        //GameObject.Find("ControllText").GetComponent<TextLevelController>().StartText();
     }
 
     public int GetDanoPlayer()
