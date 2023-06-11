@@ -107,7 +107,8 @@ public class MenuController : MonoBehaviour
 
 
         //setar menu de pause
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria"){
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria")
+        {
             //Salva fase atual pra continuar
             PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
             controleDeAudio = GameObject.Find("AudioController").GetComponent<AudioController>();
@@ -220,9 +221,10 @@ public class MenuController : MonoBehaviour
             float B = Input.GetAxisRaw("Fire2");
             if (B > 0){
                 //Vai pro menu
-                PlayerPrefs.SetInt("FaseAtual", 0);
                 mainMenu();
             }
+            PlayerPrefs.SetInt("FaseAtual", 0);
+            play = 3;
         }
 
     }

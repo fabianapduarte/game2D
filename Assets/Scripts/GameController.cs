@@ -82,7 +82,6 @@ public class GameController : MonoBehaviour
         if (playerLifes <= 0)
         {
             GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-            GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
             GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationDeadPlayer();
             Invoke("DeadPlayer", 1f);
         }
