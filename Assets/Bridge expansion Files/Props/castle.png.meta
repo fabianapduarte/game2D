@@ -110,10 +110,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
+        width: 78
         height: 288
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,7 +134,7 @@ TextureImporter:
         width: 96
         height: 288
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,7 +155,7 @@ TextureImporter:
         width: 80
         height: 288
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
         width: 42
         height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,6 +184,48 @@ TextureImporter:
       bones: []
       spriteID: 926902a075649f9428f01783bbbc0f8e
       internalID: 2043738051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: castle_0
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 48
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b422e1e7a0f3c8f4a9fb1b327dc8700e
+      internalID: 1417344904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: castle_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 34
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024b1077ff9e54a47b93e0e471eaa901
+      internalID: -338304637
       vertices: []
       indices: 
       edges: []
@@ -199,9 +241,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      banner: 2043738051
+      castle_0: 1417344904
+      castle_1: -338304637
       castle_entrance: 1415557859
       castle_wall: -1052250243
-      banner: 2043738051
       castle_window: -1786772195
   spritePackingTag: 
   pSDRemoveMatte: 0
