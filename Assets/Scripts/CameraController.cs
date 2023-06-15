@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -5.6f, 53.2f),
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.25f, 53.2f),
                     Mathf.Clamp(transform.position.y, 1.7f, 3.35f), transform.position.z);
         }
     }
