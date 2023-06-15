@@ -71,4 +71,9 @@ public class DialogueController : MonoBehaviour
             }
         }*/
     }
+
+    public GameObject getDialogue()
+    {
+        return dialogue;
+    }
 }

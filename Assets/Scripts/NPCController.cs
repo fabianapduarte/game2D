@@ -28,7 +28,6 @@ public class NPCController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T) && onArea)
         {
-            dialogueHUD.SetActive(false);
             dc.Speech(icon, message, nameNPC);
         }
         
@@ -41,7 +40,14 @@ public class NPCController : MonoBehaviour
         if (col != null)
         {
             onArea = true;
-            dialogueHUD.SetActive(true);
+            if (dc.getDialogue().activeSelf)
+            {
+                dialogueHUD.SetActive(false);
+            }
+            else
+            {
+                dialogueHUD.SetActive(true);
+            }
         }
         else
         {
