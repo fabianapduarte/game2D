@@ -3586,6 +3586,7 @@ GameObject:
   - component: {fileID: 1659390540}
   - component: {fileID: 1659390542}
   - component: {fileID: 1659390541}
+  - component: {fileID: 1659390543}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -3655,6 +3656,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659390539}
   m_CullTransparentMesh: 1
+--- !u!111 &1659390543
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659390539}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 43b0b8067c02f744f8415be1b9e53850, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 43b0b8067c02f744f8415be1b9e53850, type: 2}
+  - {fileID: 7400000, guid: 6a427b4bcd2256c4d9728ddae4478bd3, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1717005251
 GameObject:
   m_ObjectHideFlags: 0

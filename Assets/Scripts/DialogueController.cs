@@ -12,7 +12,7 @@ public class DialogueController : MonoBehaviour
     public TextMeshProUGUI messageNPC;
     public TextMeshProUGUI nameNPC;
 
-    private float speedWrite = 0.1f;
+    private float speedWrite = 0.08f;
     private string[] messageSet;
     private int index = 0;
     //private int varTemp = 0;
@@ -20,7 +20,7 @@ public class DialogueController : MonoBehaviour
 
     public void Speech(Sprite icon, string[] message, string name)
     {
-        dialogue.GetComponent<Animation>().Play();
+        dialogue.GetComponent<Animation>().Play("DialogueStart");
         dialogue.SetActive(true);
         iconNPC.sprite = icon;
         messageSet = message;
@@ -58,7 +58,8 @@ public class DialogueController : MonoBehaviour
                 {
                     index = 0;
                     messageNPC.text = "";
-                    dialogue.SetActive(false);
+                    dialogue.GetComponent<Animation>().Play("DialogueEnd");
+                    Invoke("Sleep", 0.4f);
                 }
             }
         }
@@ -71,6 +72,12 @@ public class DialogueController : MonoBehaviour
                 varTemp++;
             }
         }*/
+    }
+
+    public void Sleep()
+    {
+        dialogue.SetActive(false);
+        return;
     }
 
     public GameObject getDialogue()
