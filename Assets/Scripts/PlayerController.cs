@@ -219,6 +219,16 @@ public class PlayerController : MonoBehaviour
         speed += valor;
     }
 
+    public int GetDano()
+    {
+        return danoPlayer;
+    }
+
+    public float GetVelocidade()
+    {
+        return speed;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Animator animator = GetComponent<Animator>();

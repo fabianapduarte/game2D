@@ -70,6 +70,13 @@ public class MenuController : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    private void changeHudInfos()
+    {
+        PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
+        GameObject.Find("danoDeAtaqueTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetDano();
+        GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetVelocidade();
+    }
+
     //Define coisas para cenas especificas quando estas sao carregadas - util demais
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -109,6 +116,7 @@ public class MenuController : MonoBehaviour
         //setar menu de pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria")
         {
+            changeHudInfos();
             //Salva fase atual pra continuar
             PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
             controleDeAudio = GameObject.Find("AudioController").GetComponent<AudioController>();
