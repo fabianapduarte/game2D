@@ -94,6 +94,16 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isAtacking", false);
         }
 
+        if ((Input.GetButtonDown("Ataque2") || Input.GetAxis("Ataque2") > 0) && SceneManager.GetActiveScene().buildIndex >= 7)
+        {
+            ani.SetBool("isMagicAtacking", true);
+            GameObject.Find("AudioController").GetComponent<AudioController>().Attack();
+        }
+        else
+        {
+            ani.SetBool("isMagicAtacking", false);
+        }
+
         if (playerInFloor)
         {
             ani.SetBool("isJumping", false);
@@ -164,7 +174,7 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 1f;
         }
 
-        if (stateInfo.IsName("Attack") && playerInFloor){
+        if ((stateInfo.IsName("Attack") || stateInfo.IsName("Spell")) && playerInFloor){
             rb.velocity = new Vector3(0, rb.velocity.y, 0f);
         }
 
