@@ -7,6 +7,7 @@ using UnityEngine.Video;
 using System.IO;
 using TMPro;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public class MenuController : MonoBehaviour
 {
@@ -107,7 +108,7 @@ public class MenuController : MonoBehaviour
             {
                 btnPlay.GetComponentInChildren<TextMeshProUGUI>().text = "Novo Jogo";
             }
-            btnPlay.onClick.AddListener(PlayGame);
+            btnPlay.onClick.AddListener(FadeOut);
             btnQuit = GameObject.Find("ExitBtn").GetComponent<Button>();
             btnQuit.onClick.AddListener(QuitGame);
         }
@@ -116,7 +117,6 @@ public class MenuController : MonoBehaviour
         //setar menu de pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria")
         {
-            changeHudInfos();
             //Salva fase atual pra continuar
             PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
             controleDeAudio = GameObject.Find("AudioController").GetComponent<AudioController>();
@@ -137,6 +137,11 @@ public class MenuController : MonoBehaviour
             menuDePauseBtn.onClick.AddListener(menuPause);
             configMenuPausa.SetActive(false);
             pause.SetActive(false);
+        }
+
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Tutorial" && sceneName != "FimDeJogo")
+        { 
+            changeHudInfos();
         }
     }
     
@@ -286,6 +291,15 @@ public class MenuController : MonoBehaviour
     {
         GameObject button = GameObject.Find("ContinuarBtn");
         EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    public async void FadeOut()
+    {
+        GameObject.Find("CanvasFade").GetComponent<Canvas>().sortingOrder = 5;
+        Animator animator = GameObject.Find("ImageFadeOut").GetComponent<Animator>();
+        animator.SetBool("isFadeOut", true);
+        await Task.Delay(1000);
+        PlayGame();
     }
 
     public void PlayGame()
