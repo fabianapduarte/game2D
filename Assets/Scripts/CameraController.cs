@@ -15,6 +15,10 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
+    private float minX5 = -2.9f, maxX5 = 239.1f;
+
+    private float minX6 = -9.25f, maxX6 = 53.2f;
+
 
     void Start()
     {
@@ -51,9 +55,14 @@ public class CameraController : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX4, maxX4),
                      Mathf.Clamp(transform.position.y, 1.24f, 3.45f), transform.position.z);
         }
+        else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+        {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX4, maxX4),
+                     Mathf.Clamp(transform.position.y, 1.24f, 3.45f), transform.position.z);
+        }
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.25f, 53.2f),
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX6, maxX6),
                     Mathf.Clamp(transform.position.y, 1.7f, 3.35f), transform.position.z);
         }
     }
@@ -127,6 +136,34 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public void SetLevel5(string zone)
+    {
+        if (zone == "Zone1")
+        {
+            this.minX4 = 48.6f;
+            this.maxX4 = 67.2f;
+        }
+        if (zone == "Zone2")
+        {
+            this.minX4 = 118.1f;
+            this.maxX4 = 130.4f;
+        }
+        if (zone == "Zone3")
+        {
+            this.minX4 = 211.6f;
+            this.maxX4 = 228f;
+        }
+    }
+
+    public void SetLevel6(string zone)
+    {
+        if (zone == "Zone1")
+        {
+            this.minX6 = 23.32f;
+            this.maxX6 = 31.24f;
+        }
+    }
+
     public void ResetCoordX(int level)
     {
         if(level == 1)
@@ -149,6 +186,12 @@ public class CameraController : MonoBehaviour
         {
             minX4 = -2.9f;
             maxX4 = 239.1f;
+        }
+
+        if (level == 5)
+        {
+            minX6 = -9.25f;
+            maxX6 = 53.2f;
         }
     }
 }

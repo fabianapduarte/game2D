@@ -32,6 +32,15 @@ public class SpawnerController : MonoBehaviour
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(4);
             qntMax = Random.Range(6, 8);
+        }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+        {
+            enemies = FindObjectOfType<GameController>().GetEnemies(5);
+            qntMax = Random.Range(7, 9);
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
+        {
+            enemies = FindObjectOfType<GameController>().GetEnemies(6);
+            qntMax = Random.Range(3, 5);
         }
     }
 
@@ -55,6 +64,13 @@ public class SpawnerController : MonoBehaviour
             else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
+            }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6);
             }
             GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
             Destroy(Zone);
