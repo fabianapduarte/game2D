@@ -20,6 +20,7 @@ public class DialogueController : MonoBehaviour
 
     public void Speech(Sprite icon, string[] message, string name)
     {
+        dialogue.GetComponent<Animation>().Play();
         dialogue.SetActive(true);
         iconNPC.sprite = icon;
         messageSet = message;
