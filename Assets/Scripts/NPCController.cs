@@ -46,7 +46,9 @@ public class NPCController : MonoBehaviour
             }
             else
             {
+                dialogueHUD.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animation>().Play("Arrow");
                 dialogueHUD.SetActive(true);
+                
             }
         }
         else

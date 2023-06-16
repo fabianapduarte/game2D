@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
     public GameObject[] enemiesLevelTwo;
     public GameObject[] enemiesLevelTree;
     public GameObject[] enemiesLevelFour;
+    public GameObject[] enemiesLevelFive;
+    public GameObject[] enemiesAcidron1;
 
     public static GameController instance = null;
 
@@ -49,9 +51,16 @@ public class GameController : MonoBehaviour
         } else if (level == 3)
         {
             return enemiesLevelTree;
-        } else
+        } else if(level == 4)
         {
             return enemiesLevelFour;
+        }else if (level == 5)
+        {
+            return enemiesLevelFive;
+        }
+        else
+        {
+            return enemiesAcidron1;
         }
     }
 
