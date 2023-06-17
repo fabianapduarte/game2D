@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueController : MonoBehaviour
+public class DialogueTipo1Controller : MonoBehaviour
 {
     public GameObject dialogue;
     public Image iconNPC;

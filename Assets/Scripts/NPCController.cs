@@ -11,12 +11,13 @@ public class NPCController : MonoBehaviour
     public Sprite icon;
     public GameObject dialogueHUD;
     public LayerMask playerLayer;
-    private DialogueController dc;
+    private DialogueTipo1Controller dc;
     private bool onArea;
 
     void Start()
     {
-        dc = FindObjectOfType<DialogueController>();
+        dc = FindObjectOfType<DialogueTipo1Controller>();
+        gameObject.GetComponent<Animator>().SetBool("idle", true);
     }
 
     private void FixedUpdate()
