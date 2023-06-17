@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
-    private float minX5 = 0.11f, maxX5 = 275.4f;
+    private float minX5 = 0.51f, maxX5 = 268.73f;
 
     private float minX6 = -9.25f, maxX6 = 53.2f;
 
@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
         {
-            if (transform.position.x < 158f)
+            if (transform.position.x < 153f)
             {
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
                          Mathf.Clamp(transform.position.y, 0.01f, 3.8f), transform.position.z);
@@ -158,13 +158,13 @@ public class CameraController : MonoBehaviour
         }
         if (zone == "Zone3")
         {
-            this.minX5 = 175.58f;
-            this.maxX5 = 195.02f;
+            this.minX5 = 171.4f;
+            this.maxX5 = 190.97f;
         }
         if(zone == "Zone4")
         {
-            this.minX5 = 255.31f;
-            this.maxX5 = 274.81f;
+            this.minX5 = 251.07f;
+            this.maxX5 = 270.65f;
         }
     }
 
