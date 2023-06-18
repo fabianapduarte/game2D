@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
-    private float minX5 = 0.51f, maxX5 = 268.73f;
+    private float minX5 = 0.51f, maxX5 = 268.73f, minY5 = 0.5f;
 
     private float minX6 = -9.25f, maxX6 = 53.2f;
 
@@ -57,6 +57,9 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
         {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
+                         Mathf.Clamp(transform.position.y, minY5, 11.2f), transform.position.z);
+            /*
             if (transform.position.x < 153f)
             {
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
@@ -66,7 +69,7 @@ public class CameraController : MonoBehaviour
             {
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
                          Mathf.Clamp(transform.position.y, 3.57f, 3.8f), transform.position.z);
-            }
+            }*/
         }
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
@@ -166,6 +169,10 @@ public class CameraController : MonoBehaviour
             this.minX5 = 251.07f;
             this.maxX5 = 270.65f;
         }
+        if (zone == "EntradaCastle")
+        {
+            this.minY5 = 5.07f;
+        }
     }
 
     public void SetLevel6(string zone)
@@ -202,6 +209,13 @@ public class CameraController : MonoBehaviour
         }
 
         if (level == 5)
+        {
+            minX5 = 0.51f;
+            maxX5 = 268.73f;
+            minY5 = 0.5f;
+        }
+
+        if(level == 6)
         {
             minX6 = -9.25f;
             maxX6 = 53.2f;
