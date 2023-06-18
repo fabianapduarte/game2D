@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
         {
             speed += 3;
             danoPlayer += 3;
+        } else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+        {
+            GameObject.Find("HUD_Dialogue").transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animation>().Play("Arrow");
         }
     }
 
@@ -197,7 +200,6 @@ public class PlayerController : MonoBehaviour
         }
 
         if (collision.gameObject.tag.Equals("Finish")) {
-            Debug.Log(speed);
             FindObjectOfType<GameController>().LevelEnd();
         }
 
@@ -309,6 +311,11 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if (collision.gameObject.CompareTag("Door") && Input.GetKeyDown(KeyCode.T))
+        {
+            FindObjectOfType<GameController>().LevelEnd();
         }
     }
 

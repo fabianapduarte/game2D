@@ -17,7 +17,7 @@ TagManager:
   - pause
   - ladder
   - lava
-  - lave
+  - Door
   layers:
   - Default
   - TransparentFX
