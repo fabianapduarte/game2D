@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Ataque1"))
         {
             ani.SetBool("isAtacking", true);
-            GameObject.Find("AudioController").GetComponent<AudioController>().Attack();
+            GameObject.Find("AudioController").GetComponent<AudioController>().Attack1();
         }
         else
         {
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetButtonDown("Ataque2") || Input.GetAxis("Ataque2") > 0) && SceneManager.GetActiveScene().buildIndex >= 7)
         {
             ani.SetBool("isMagicAtacking", true);
-            GameObject.Find("AudioController").GetComponent<AudioController>().Attack();
+            GameObject.Find("AudioController").GetComponent<AudioController>().Attack2();
         }
         else
         {

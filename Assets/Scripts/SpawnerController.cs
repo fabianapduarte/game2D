@@ -40,7 +40,7 @@ public class SpawnerController : MonoBehaviour
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(6);
-            qntMax = Random.Range(3, 5);
+            qntMax = 3;
         }
     }
 

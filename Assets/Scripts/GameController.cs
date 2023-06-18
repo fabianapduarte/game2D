@@ -10,7 +10,6 @@ public class GameController : MonoBehaviour
 
     // player
     private int playerLifes = 5;
-    private int danoPlayer = 1;
     private float maxSpeed = 11f;
     private int contabilizaColeta = 0;
     private int contabilizaMorte = 0;
