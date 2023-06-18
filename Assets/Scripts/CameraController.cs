@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
-    private float minX5 = -2.9f, maxX5 = 239.1f;
+    private float minX5 = 0.51f, maxX5 = 268.73f;
 
     private float minX6 = -9.25f, maxX6 = 53.2f;
 
@@ -57,8 +57,16 @@ public class CameraController : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX4, maxX4),
-                     Mathf.Clamp(transform.position.y, 1.24f, 3.45f), transform.position.z);
+            if (transform.position.x < 153f)
+            {
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
+                         Mathf.Clamp(transform.position.y, 0.01f, 3.8f), transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
+                         Mathf.Clamp(transform.position.y, 3.57f, 3.8f), transform.position.z);
+            }
         }
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
@@ -140,18 +148,23 @@ public class CameraController : MonoBehaviour
     {
         if (zone == "Zone1")
         {
-            this.minX4 = 48.6f;
-            this.maxX4 = 67.2f;
+            this.minX5 = 27.53f;
+            this.maxX5 = 36.04f;
         }
         if (zone == "Zone2")
         {
-            this.minX4 = 118.1f;
-            this.maxX4 = 130.4f;
+            this.minX5 = 104.35f;
+            this.maxX5 = 122.61f;
         }
         if (zone == "Zone3")
         {
-            this.minX4 = 211.6f;
-            this.maxX4 = 228f;
+            this.minX5 = 171.4f;
+            this.maxX5 = 190.97f;
+        }
+        if(zone == "Zone4")
+        {
+            this.minX5 = 251.07f;
+            this.maxX5 = 270.65f;
         }
     }
 
