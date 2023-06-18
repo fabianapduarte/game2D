@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6087218293894239334}
   - component: {fileID: 5786079502334431389}
   - component: {fileID: 5154713242866431121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SoloVillage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
