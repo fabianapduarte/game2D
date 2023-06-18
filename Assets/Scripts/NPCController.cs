@@ -17,7 +17,6 @@ public class NPCController : MonoBehaviour
     void Start()
     {
         dc = FindObjectOfType<DialogueTipo1Controller>();
-        gameObject.GetComponent<Animator>().SetBool("idle", true);
     }
 
     private void FixedUpdate()
