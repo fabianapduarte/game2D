@@ -283,6 +283,18 @@ public class PlayerController : MonoBehaviour
                 controle.Vibrate(0.3f);
             }
         }
+        if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Spell"))
+        {
+            if (contabilizaDano == 0)
+            {
+                GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
+                FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
+                contabilizaDano = 1;
+                Invoke("Sleep", 1.5f);
+                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
+                controle.Vibrate(0.3f);
+            }
+        }
 
         if (collision.gameObject.CompareTag("ladder"))
         {
