@@ -43,13 +43,18 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
+    /*private void Update()
     {
         if(savePoint != Vector3.zero)
         {
             contabilizaBonusForce = 0;
         }
-    }
+    }*/
+
+    public void SetContabilizaBonusForce()
+    {
+        contabilizaBonusForce = 0;
+    } 
 
     public GameObject[] GetEnemies(int level)
     {

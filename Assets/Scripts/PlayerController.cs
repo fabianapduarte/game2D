@@ -9,6 +9,10 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    private string namePlayer = "Simétra";
+    private string[] message;
+    public Sprite iconPlayer;
+
     private float speed = 6;
     private int danoPlayer = 1;
     public float jumpForce;
@@ -26,15 +30,24 @@ public class PlayerController : MonoBehaviour
     public Transform detectFloor;
     public LayerMask isFloor;
 
+    private DialogueTipo2Controller dc;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name.Equals("Acidron2"))
+        {
+            message.SetValue("Perdoe o incomodo Vossa Majestade, mas a capital está um verdadeiro caos e não consigo encontrar meus pais.", 0);
+            message.SetValue("Minha mãe é a guarda real Adnátra.", 0);
+            dc = FindObjectOfType<DialogueTipo2Controller>();
+        }
+
         ani = GetComponent<Animator>();
-        //running = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
         {
             transform.position = FindObjectOfType<GameController>().GetSavePoint();
+            FindObjectOfType<GameController>().SetContabilizaBonusForce();
             SetSpeed(1);
         }
         if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
@@ -113,6 +126,15 @@ public class PlayerController : MonoBehaviour
         {
             ani.SetBool("isLadder", true);
             isClimbing = true;
+        }
+        if (SceneManager.GetActiveScene().name.Equals("Acidron2"))
+        {
+            GameObject queen = GameObject.Find("Queen");
+
+            if(Vector3.Distance(transform.position, queen.transform.position) < 8f)
+            {
+                dc.Speech(iconPlayer, message, namePlayer);
+            }
         }
     }
 

@@ -16,6 +16,7 @@ public class DialogueTipo2Controller : MonoBehaviour
     //private int varTemp = 0;
     private int maxSize = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss".Length;
 
+
     public void Speech(Sprite icon, string[] message, string name)
     {
         FindObjectOfType<NPCTipo2>().setDialogue(false);
@@ -32,6 +33,10 @@ public class DialogueTipo2Controller : MonoBehaviour
     {
         for(int ii = 0; ii < messageSet.Length; ii++)
         {
+            if (ii == 0)
+            {
+
+            }
             for (int jj = 0; jj < messageSet[ii].Length; jj++)
             {
                 messageNPC.text += messageSet[ii][jj];
