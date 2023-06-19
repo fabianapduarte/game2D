@@ -10,7 +10,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     private string namePlayer = "Simétra";
-    private string[] message;
+    public string[] message;
     public Sprite iconPlayer;
 
     private float speed = 6;
@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name.Equals("Acidron2"))
         {
-            message.SetValue("Perdoe o incomodo Vossa Majestade, mas a capital está um verdadeiro caos e não consigo encontrar meus pais.", 0);
-            message.SetValue("Minha mãe é a guarda real Adnátra.", 0);
             dc = FindObjectOfType<DialogueTipo2Controller>();
         }
 
@@ -64,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             speed += 3;
             danoPlayer += 3;
-        } else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+        } else if (SceneManager.GetActiveScene().name.Equals("LevelFive") || SceneManager.GetActiveScene().name.Equals("Acidron2"))
         {
             GameObject.Find("HUD_Dialogue").transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animation>().Play("Arrow");
         }
@@ -131,12 +129,26 @@ public class PlayerController : MonoBehaviour
         {
             GameObject queen = GameObject.Find("Queen");
 
-            if(Vector3.Distance(transform.position, queen.transform.position) < 8f)
+            if(Vector3.Distance(transform.position, queen.transform.position) < 7f)
             {
-                dc.Speech(iconPlayer, message, namePlayer);
+                if (dc.GetStart())
+                {
+                    if(ordem == 0)
+                    {
+                        dc.Speech(iconPlayer, message, namePlayer, 0, 1);
+                        ordem++;
+                    }
+                    else if(ordem == 1)
+                    {
+                        FindObjectOfType<NPCTipo2>().toCallDialogue(0, 1, 2);
+                        ordem++;
+                    }
+                }
             }
         }
     }
+
+    private int ordem = 0;
 
     public bool GetStatusInFloor()
     {
@@ -329,6 +341,12 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Door") && Input.GetKeyDown(KeyCode.T))
         {
+            FindObjectOfType<GameController>().LevelEnd();
+        }
+
+        if (collision.gameObject.CompareTag("ObjAzul") && Input.GetKeyDown(KeyCode.T))
+        {
+            Destroy(collision.gameObject);
             FindObjectOfType<GameController>().LevelEnd();
         }
     }

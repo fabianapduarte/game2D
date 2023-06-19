@@ -18,6 +18,7 @@ TagManager:
   - ladder
   - lava
   - Door
+  - ObjAzul
   layers:
   - Default
   - TransparentFX
