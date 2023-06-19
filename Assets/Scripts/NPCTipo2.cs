@@ -49,6 +49,7 @@ public class NPCTipo2 : MonoBehaviour
     {
         explosion.SetActive(true);
         gameObject.SetActive(false);
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         Invoke("Sleep", 0.8f);
 
     }

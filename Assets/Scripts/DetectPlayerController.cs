@@ -35,6 +35,13 @@ public class DetectPlayerController : MonoBehaviour
             else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel4(transform.parent.name);
+            }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel5(transform.parent.name);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel6(transform.parent.name);
             }
 
             if (transform.parent.name.Equals("Zone1"))
