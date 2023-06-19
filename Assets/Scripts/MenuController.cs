@@ -61,6 +61,10 @@ public class MenuController : MonoBehaviour
         pause.SetActive(false);
 
         indexCena = 2;
+        if (PlayerPrefs.GetInt("FaseAtual") != 0)
+        {
+            indexCena = 11;
+        }
     }
 
     private void OnEnable(){
@@ -99,10 +103,12 @@ public class MenuController : MonoBehaviour
 
         if (scene.name == "MenuInicial"){
             btnPlay = GameObject.Find("PlayBtn").GetComponent<Button>();
+            PlayerPrefs.SetInt("FaseAtual", 0);
             int save = PlayerPrefs.GetInt("FaseAtual");
             if (save != 0){
                 play = save;
                 btnPlay.GetComponentInChildren<TextMeshProUGUI>().text = "Continuar";
+                indexCena = 11;
             }
             else
             {
@@ -139,7 +145,7 @@ public class MenuController : MonoBehaviour
             pause.SetActive(false);
         }
 
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Tutorial" && sceneName != "FimDeJogo")
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2" && sceneName != "Tutorial" && sceneName != "FimDeJogo")
         { 
             changeHudInfos();
         }
@@ -149,7 +155,8 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update(){
         //Coloca o jogo em pause
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1"){
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2")
+        {
             float pausar = Input.GetAxisRaw("Pause");
             if (pausar>0){
                 pause.SetActive(true);
@@ -195,10 +202,37 @@ public class MenuController : MonoBehaviour
             bool forward2 = Input.GetKeyDown(KeyCode.Return);
             if (forward1 || forward2){
                 if(indexCena == 11){
-                    indexCena = 2;
+                    /*indexCena = 2;*/
                     SceneManager.LoadScene(play+1);
                 }
 
+                Animator animator = GameObject.Find("TransicaoCutscene").GetComponent<Animator>();
+                animator.Play("Cutscene");
+                string cena = "Cena" + (indexCena++);
+                videoPlayer.clip = (VideoClip)Resources.Load(cena);
+                videoPlayer.isLooping = true;
+            }
+        }
+
+        if (sceneName == "Cutscene2")
+        {
+            GameObject videoPanel = GameObject.Find("VideoPanel");
+            VideoPlayer videoPlayer = videoPanel.GetComponent<VideoPlayer>();
+            //Debug.Log(videoPlayer.clip.name);
+
+            //A/ENTER pra avancar
+            bool forward1 = Input.GetButtonDown("Fire1");
+            bool forward2 = Input.GetKeyDown(KeyCode.Return);
+            if (forward1 || forward2)
+            {
+                if (indexCena == 16)
+                {
+                    indexCena = 2;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+                }
+
+                Animator animator = GameObject.Find("TransicaoCutscene").GetComponent<Animator>();
+                animator.Play("Cutscene");
                 string cena = "Cena" + (indexCena++);
                 videoPlayer.clip = (VideoClip)Resources.Load(cena);
                 videoPlayer.isLooping = true;
