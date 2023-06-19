@@ -195,7 +195,7 @@ public class GameController : MonoBehaviour
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
-        string final = SceneUtility.GetScenePathByBuildIndex(13);
+        string final = SceneUtility.GetScenePathByBuildIndex(12);
         savePoint = Vector3.zero;
 
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
@@ -214,7 +214,7 @@ public class GameController : MonoBehaviour
         {
             if(contabilizaBonusForce == 1 && contabilizaBonusSpeed == 1)
             {
-                if (SceneManager.GetActiveScene().buildIndex == 10)
+                if (SceneManager.GetActiveScene().buildIndex == 12)
                 {
                     SceneManager.LoadScene(final);
                 }
