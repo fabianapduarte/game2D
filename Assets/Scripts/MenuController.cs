@@ -79,7 +79,7 @@ public class MenuController : MonoBehaviour
     {
         PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
         GameObject.Find("danoDeAtaqueTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetDano();
-        GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetVelocidade();
+        GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetSpeed();
     }
 
     //Define coisas para cenas especificas quando estas sao carregadas - util demais
@@ -143,11 +143,6 @@ public class MenuController : MonoBehaviour
             menuDePauseBtn.onClick.AddListener(menuPause);
             configMenuPausa.SetActive(false);
             pause.SetActive(false);
-        }
-
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2" && sceneName != "Tutorial" && sceneName != "FimDeJogo")
-        { 
-            changeHudInfos();
         }
     }
     
@@ -272,6 +267,11 @@ public class MenuController : MonoBehaviour
             }
             PlayerPrefs.SetInt("FaseAtual", 0);
             play = 3;
+        }
+
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2" && sceneName != "Tutorial" && sceneName != "FimDeJogo")
+        {
+            changeHudInfos();
         }
 
     }

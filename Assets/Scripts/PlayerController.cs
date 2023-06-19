@@ -5,6 +5,7 @@ using System;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using static UnityEngine.EventSystems.EventTrigger;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
         {
             transform.position = FindObjectOfType<GameController>().GetSavePoint();
-            GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
+            SetSpeed(1);
         }
         if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
@@ -45,7 +46,8 @@ public class PlayerController : MonoBehaviour
         {
             speed += 2;
             danoPlayer += 2;
-        }else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
         {
             speed += 3;
             danoPlayer += 3;
@@ -53,11 +55,6 @@ public class PlayerController : MonoBehaviour
         {
             GameObject.Find("HUD_Dialogue").transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animation>().Play("Arrow");
         }
-    }
-
-    public int GetDanoPlayer()
-    {
-        return danoPlayer;
     }
 
     public void SetDanoPlayer(int valor)
@@ -234,11 +231,6 @@ public class PlayerController : MonoBehaviour
     public int GetDano()
     {
         return danoPlayer;
-    }
-
-    public float GetVelocidade()
-    {
-        return speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
