@@ -560,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &192519018
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,7 +1028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &394552643
 Transform:
   m_ObjectHideFlags: 0
@@ -2823,6 +2823,7 @@ MonoBehaviour:
   attack:
   - {fileID: 8300000, guid: df84e6105804efd449bea17fb959207e, type: 3}
   - {fileID: 8300000, guid: 6999534b20898f34f91fdb958de23c98, type: 3}
+  - {fileID: 8300000, guid: 13816f73afbc8084683d220824568fcf, type: 3}
   running:
   - {fileID: 8300000, guid: cdbbca7b39eb45c4e8da96569728c9e6, type: 3}
   soundAmbiance:
@@ -5424,7 +5425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1850911410
 Transform:
   m_ObjectHideFlags: 0

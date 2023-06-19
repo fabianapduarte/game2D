@@ -195,7 +195,7 @@ public class GameController : MonoBehaviour
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
-        string final = SceneUtility.GetScenePathByBuildIndex(12);
+        string final = SceneUtility.GetScenePathByBuildIndex(13);
         savePoint = Vector3.zero;
 
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
