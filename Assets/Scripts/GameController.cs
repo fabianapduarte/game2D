@@ -41,27 +41,17 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        SceneManager.activeSceneChanged += GetRobotsLeft;
     }
 
-
-
-    void OnDestroy()
+    private void Update()
     {
-        SceneManager.activeSceneChanged -= GetRobotsLeft;
-    }
-
-    void GetRobotsLeft(Scene previousScene, Scene newScene)
-    {
-        if (newScene.name.CompareTo("LevelOne") == 0 || newScene.name.CompareTo("LevelTwo") == 0 || 
-            newScene.name.CompareTo("LevelTree") == 0 || newScene.name.CompareTo("LevelFour") == 0 || 
-            newScene.name.CompareTo("LevelFive") == 0)
+        if(savePoint != Vector3.zero)
         {
-            GameObject.Find("Simetra").GetComponent<PlayerController>();
+            contabilizaBonusForce = 0;
         }
     }
 
-public GameObject[] GetEnemies(int level)
+    public GameObject[] GetEnemies(int level)
     {
         if(level == 1)
         {
@@ -163,7 +153,7 @@ public GameObject[] GetEnemies(int level)
     {
         if(collectable.layer == 10) // force
         {
-            if(contabilizaBonusForce == 0)
+            if (contabilizaBonusForce == 0)
             {
                 GameObject.Find("Simetra").GetComponent<PlayerController>().SetDanoPlayer(1);
                 contabilizaBonusForce = 1;
@@ -208,7 +198,7 @@ public GameObject[] GetEnemies(int level)
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
-        string final = SceneUtility.GetScenePathByBuildIndex(11);
+        string final = SceneUtility.GetScenePathByBuildIndex(13);
         savePoint = Vector3.zero;
 
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);

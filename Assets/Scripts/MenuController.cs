@@ -145,10 +145,10 @@ public class MenuController : MonoBehaviour
             pause.SetActive(false);
         }
 
-        if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelThree" || sceneName == "LevelFour" || sceneName == "LevelFive")
+        /*if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelThree" || sceneName == "LevelFour" || sceneName == "LevelFive")
         { 
             changeHudInfos();
-        }
+        }*/
     }
     
 
@@ -278,12 +278,6 @@ public class MenuController : MonoBehaviour
             PlayerPrefs.SetInt("FaseAtual", 0);
             play = 3;
         }
-
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2" && sceneName != "Tutorial" && sceneName != "FimDeJogo")
-        {
-            changeHudInfos();
-        }
-
     }
     public void loadScene()
     {
