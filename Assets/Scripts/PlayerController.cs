@@ -5,9 +5,14 @@ using System;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using static UnityEngine.EventSystems.EventTrigger;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    private string namePlayer = "Simétra";
+    public string[] message;
+    public Sprite iconPlayer;
+
     private float speed = 6;
     private int danoPlayer = 1;
     public float jumpForce;
@@ -25,16 +30,23 @@ public class PlayerController : MonoBehaviour
     public Transform detectFloor;
     public LayerMask isFloor;
 
+    private DialogueTipo2Controller dc;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name.Equals("Acidron2"))
+        {
+            dc = FindObjectOfType<DialogueTipo2Controller>();
+        }
+
         ani = GetComponent<Animator>();
-        //running = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
         {
             transform.position = FindObjectOfType<GameController>().GetSavePoint();
-            GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
+            FindObjectOfType<GameController>().SetContabilizaBonusForce();
+            SetSpeed(1);
         }
         if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
@@ -45,19 +57,15 @@ public class PlayerController : MonoBehaviour
         {
             speed += 2;
             danoPlayer += 2;
-        }else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
         {
             speed += 3;
             danoPlayer += 3;
-        } else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+        } else if (SceneManager.GetActiveScene().name.Equals("LevelFive") || SceneManager.GetActiveScene().name.Equals("Acidron2"))
         {
             GameObject.Find("HUD_Dialogue").transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animation>().Play("Arrow");
         }
-    }
-
-    public int GetDanoPlayer()
-    {
-        return danoPlayer;
     }
 
     public void SetDanoPlayer(int valor)
@@ -117,7 +125,30 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isLadder", true);
             isClimbing = true;
         }
+        if (SceneManager.GetActiveScene().name.Equals("Acidron2"))
+        {
+            GameObject queen = GameObject.Find("Queen");
+
+            if(Vector3.Distance(transform.position, queen.transform.position) < 7f)
+            {
+                if (dc.GetStart())
+                {
+                    if(ordem == 0)
+                    {
+                        dc.Speech(iconPlayer, message, namePlayer, 0, 1);
+                        ordem++;
+                    }
+                    else if(ordem == 1)
+                    {
+                        FindObjectOfType<NPCTipo2>().toCallDialogue(0, 1, 2);
+                        ordem++;
+                    }
+                }
+            }
+        }
     }
+
+    private int ordem = 0;
 
     public bool GetStatusInFloor()
     {
@@ -236,11 +267,6 @@ public class PlayerController : MonoBehaviour
         return danoPlayer;
     }
 
-    public float GetVelocidade()
-    {
-        return speed;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Animator animator = GetComponent<Animator>();
@@ -315,6 +341,12 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Door") && Input.GetKeyDown(KeyCode.T))
         {
+            FindObjectOfType<GameController>().LevelEnd();
+        }
+
+        if (collision.gameObject.CompareTag("ObjAzul") && Input.GetKeyDown(KeyCode.T))
+        {
+            Destroy(collision.gameObject);
             FindObjectOfType<GameController>().LevelEnd();
         }
     }

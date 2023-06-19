@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueTipo2Controller : MonoBehaviour
@@ -13,8 +14,9 @@ public class DialogueTipo2Controller : MonoBehaviour
 
     private float speedWrite = 0.08f;
     private string[] messageSet;
-    //private int varTemp = 0;
+    private bool startDialogue = true;
     private int maxSize = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss".Length;
+
 
     public void Speech(Sprite icon, string[] message, string name)
     {
@@ -26,6 +28,24 @@ public class DialogueTipo2Controller : MonoBehaviour
         messageSet = message;
         nameNPC.text = name;
         StartCoroutine(WritingText());
+    }
+
+    public bool GetStart()
+    {
+        return startDialogue;
+    }
+
+    public void Speech(Sprite icon, string[] message, string name, params int[] index)
+    {
+        FindObjectOfType<NPCTipo2>().setDialogue(false);
+        startDialogue = false;
+        dialogue.transform.GetChild(3).gameObject.SetActive(false);
+        dialogue.GetComponent<Animation>().Play("DialogueStart");
+        dialogue.SetActive(true);
+        iconNPC.sprite = icon;
+        messageSet = message;
+        nameNPC.text = name;
+        StartCoroutine(WritingText(index));
     }
 
     IEnumerator WritingText()
@@ -42,5 +62,21 @@ public class DialogueTipo2Controller : MonoBehaviour
         }
         dialogue.GetComponent<Animation>().Play("DialogueEnd");
         FindObjectOfType<NPCTipo2>().ExitNPC();
+    }
+
+    IEnumerator WritingText(int[] index)
+    {
+        for(int ii=0; ii < index.Length; ii++)
+        {
+            for (int jj = 0; jj < messageSet[ii].Length; jj++)
+            {
+                messageNPC.text += messageSet[ii][jj];
+                yield return new WaitForSeconds(speedWrite);
+            }
+            yield return new WaitForSeconds(speedWrite + 1.3f);
+            messageNPC.text = "";
+        }
+        dialogue.GetComponent<Animation>().Play("DialogueEnd");
+        startDialogue = true;
     }
 }

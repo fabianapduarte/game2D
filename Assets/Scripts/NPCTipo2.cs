@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NPCTipo2 : MonoBehaviour
@@ -24,12 +25,20 @@ public class NPCTipo2 : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, player.transform.position) < 8f)
         {
-            if(startDialogue)
+            if (!SceneManager.GetActiveScene().name.Equals("Acidron2"))
             {
-                player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                dc.Speech(icon, message, nameNPC);
+                if(startDialogue)
+                {
+                    player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    dc.Speech(icon, message, nameNPC);
+                }
             }
         }
+    }
+
+    public void toCallDialogue(params int[] index)
+    {
+        dc.Speech(icon, message, nameNPC, index);
     }
     public void setDialogue(bool status)
     {

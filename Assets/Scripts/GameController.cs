@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,13 +32,29 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(instance == null){
+        if (instance == null)
+        {
             instance = this;
-        } else {
+        }
+        else
+        {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    /*private void Update()
+    {
+        if(savePoint != Vector3.zero)
+        {
+            contabilizaBonusForce = 0;
+        }
+    }*/
+
+    public void SetContabilizaBonusForce()
+    {
+        contabilizaBonusForce = 0;
+    } 
 
     public GameObject[] GetEnemies(int level)
     {
@@ -118,22 +135,22 @@ public class GameController : MonoBehaviour
     {
         if (enemy.layer == 6)
         {
-            enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
+            enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
         }
 
         if (enemy.layer == 7)
         {
-            enemy.GetComponent<Enemy2Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
+            enemy.GetComponent<Enemy2Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
         }
 
         if (enemy.layer == 8)
         {
-            enemy.GetComponent<Enemy3Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
+            enemy.GetComponent<Enemy3Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
         }
 
         if (enemy.layer == 9)
         {
-            enemy.GetComponent<Enemy4Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDanoPlayer());
+            enemy.GetComponent<Enemy4Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
         }
     }
 
@@ -141,7 +158,7 @@ public class GameController : MonoBehaviour
     {
         if(collectable.layer == 10) // force
         {
-            if(contabilizaBonusForce == 0)
+            if (contabilizaBonusForce == 0)
             {
                 GameObject.Find("Simetra").GetComponent<PlayerController>().SetDanoPlayer(1);
                 contabilizaBonusForce = 1;
@@ -152,7 +169,7 @@ public class GameController : MonoBehaviour
             if(GameObject.Find("Simetra").GetComponent<PlayerController>().GetSpeed() <= maxSpeed)
             {
                 if(contabilizaBonusSpeed == 0)
-                {   
+                {
                     GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
                     contabilizaBonusSpeed = 1;
                 }
@@ -186,7 +203,7 @@ public class GameController : MonoBehaviour
     {
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
-        string final = SceneUtility.GetScenePathByBuildIndex(11);
+        string final = SceneUtility.GetScenePathByBuildIndex(13);
         savePoint = Vector3.zero;
 
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);

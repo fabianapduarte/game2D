@@ -79,7 +79,7 @@ public class MenuController : MonoBehaviour
     {
         PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
         GameObject.Find("danoDeAtaqueTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetDano();
-        GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetVelocidade();
+        GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetSpeed();
     }
 
     //Define coisas para cenas especificas quando estas sao carregadas - util demais
@@ -87,7 +87,7 @@ public class MenuController : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;
         if (scene.name == "Derrota" || scene.name == "Vitoria"){
-            // Encontra o botão pelo nome ou através de uma busca na hierarquia
+            // Encontra o botï¿½o pelo nome ou atravï¿½s de uma busca na hierarquia
             avancar = GameObject.Find("btn1").GetComponent<Button>();
             sair = GameObject.Find("btn2").GetComponent<Button>();
             avancar.onClick.AddListener(loadScene);
@@ -96,7 +96,7 @@ public class MenuController : MonoBehaviour
 
         if (scene.name == "FimDeJogo")
         {
-            // Encontra o botão pelo nome ou através de uma busca na hierarquia
+            // Encontra o botï¿½o pelo nome ou atravï¿½s de uma busca na hierarquia
             sair = GameObject.Find("btn2").GetComponent<Button>();
             sair.onClick.AddListener(mainMenu);
         }
@@ -133,7 +133,7 @@ public class MenuController : MonoBehaviour
             slider.value = controleDeAudio.GetVolume();
 
             while (!pause.activeSelf && !buttonContinuar.activeSelf)
-            { // Aguarda até que o menu de pause esteja ativo
+            { // Aguarda atï¿½ que o menu de pause esteja ativo
                 
             }
             menuPause(buttonContinuar);
@@ -145,10 +145,10 @@ public class MenuController : MonoBehaviour
             pause.SetActive(false);
         }
 
-        if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelThree" || sceneName == "LevelFour" || sceneName == "LevelFive")
+        /*if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelThree" || sceneName == "LevelFour" || sceneName == "LevelFive")
         { 
             changeHudInfos();
-        }
+        }*/
     }
     
 
@@ -278,7 +278,6 @@ public class MenuController : MonoBehaviour
             PlayerPrefs.SetInt("FaseAtual", 0);
             play = 3;
         }
-
     }
     public void loadScene()
     {
