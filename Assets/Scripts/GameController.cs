@@ -201,7 +201,7 @@ public class GameController : MonoBehaviour
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
 
         //Index da ultima fase
-        if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
+        if (SceneManager.GetActiveScene().name.Equals("Tutorial") || SceneManager.GetActiveScene().name.Equals("Acidron1") || SceneManager.GetActiveScene().name.Equals("Acidron2"))
         {
             if(SceneManager.GetActiveScene().buildIndex == 8){
                 SceneManager.LoadScene(final);
