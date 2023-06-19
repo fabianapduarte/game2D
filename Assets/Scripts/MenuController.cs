@@ -145,7 +145,7 @@ public class MenuController : MonoBehaviour
             pause.SetActive(false);
         }
 
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2" && sceneName != "Tutorial" && sceneName != "FimDeJogo")
+        if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelThree" || sceneName == "LevelFour" || sceneName == "LevelFive")
         { 
             changeHudInfos();
         }
@@ -154,6 +154,11 @@ public class MenuController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelThree" || sceneName == "LevelFour" || sceneName == "LevelFive")
+        {
+            changeHudInfos();
+        }
+
         //Coloca o jogo em pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2")
         {
