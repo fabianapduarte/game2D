@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Movimenta��o
+        // Movimentacao
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
@@ -365,6 +365,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("ObjAzul") && Input.GetKeyDown(KeyCode.T))
         {
             Destroy(collision.gameObject);
+            GameObject.Find("HUD_Dialogue").SetActive(false);
             FindObjectOfType<GameController>().LevelEnd();
         }
     }

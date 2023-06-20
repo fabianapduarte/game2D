@@ -2429,7 +2429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1141983332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,8 +5672,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
+      - m_Target: {fileID: 889442779}
+        m_TargetAssemblyTypeName: DialogueTipo1Controller, Assembly-CSharp
         m_MethodName: NextSentence
         m_Mode: 1
         m_Arguments:
