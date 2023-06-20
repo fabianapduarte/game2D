@@ -26,7 +26,7 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T) && onArea)
+        if ((Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interagir")) && onArea)
         {
             dc.Speech(icon, message, nameNPC);
         }

@@ -357,12 +357,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Door") && Input.GetKeyDown(KeyCode.T))
+        if (collision.gameObject.CompareTag("Door") && (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interagir")))
         {
             FindObjectOfType<GameController>().LevelEnd();
         }
 
-        if (collision.gameObject.CompareTag("ObjAzul") && Input.GetKeyDown(KeyCode.T))
+        if (collision.gameObject.CompareTag("ObjAzul") && (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interagir")))
         {
             Destroy(collision.gameObject);
             GameObject.Find("HUD_Dialogue").SetActive(false);

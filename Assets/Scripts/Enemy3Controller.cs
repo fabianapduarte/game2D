@@ -20,10 +20,18 @@ public class Enemy3Controller : MonoBehaviour
     }
     private void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) > 2f)
+        float limite = 2f;
+
+        //Utiliza ponto medio da boxCollider
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        BoxCollider2D colliderPlayer = player.GetComponent<BoxCollider2D>();
+        Vector3 pontoMedioObjetoAtual = collider.bounds.center;
+        Vector3 pontoMedioPlayer = colliderPlayer.bounds.center;
+        float distanciaPontosMedios = Vector3.Distance(pontoMedioObjetoAtual, pontoMedioPlayer);
+
+        if (distanciaPontosMedios > limite)
         {
             ani.SetBool("isRunning", true);
-            ani.SetBool("isAtacking", false);
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
             if (player.position.x < transform.position.x && !facingLeft)
@@ -35,10 +43,19 @@ public class Enemy3Controller : MonoBehaviour
                 Flip();
             }
         }
+
         else
         {
             ani.SetBool("isRunning", false);
-            ani.SetBool("isAtacking", true);
+            if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
+            {
+                //Faz com que so ataque depois de um tempo
+                if (contabilizaDano == 0)
+                {
+                    ani.SetBool("isAtacking", true);
+                }
+                Invoke("TimeTransitionAttack", 0.6f);
+            }
         }
     }
 
@@ -55,6 +72,11 @@ public class Enemy3Controller : MonoBehaviour
         life -= danoPlayer;
         ani.SetBool("isHurting", true);
         Invoke("TimeTransitionHurt", 0.4f);
+
+        //Adiciona tempo de recuperacao pro inimigo
+        contabilizaDano = 1;
+        Invoke("Sleep", 1f);
+
         if (life <= 0)
         {
             ani.SetBool("isDead", true);
@@ -67,6 +89,13 @@ public class Enemy3Controller : MonoBehaviour
         ani.SetBool("isHurting", false);
         return;
     }
+
+    private void TimeTransitionAttack()
+    {
+        ani.SetBool("isAtacking", false);
+        return;
+    }
+
     public int GetDano()
     {
         return dano;
@@ -77,9 +106,10 @@ public class Enemy3Controller : MonoBehaviour
         contabilizaDano = 0;
         return;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player") && ani.GetBool("isAtacking"))
+        if (collision.gameObject.tag.Equals("Player") && collision.GetType() == typeof(BoxCollider2D))
         {
             if (contabilizaDano == 0)
             {
