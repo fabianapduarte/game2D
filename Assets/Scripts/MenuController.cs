@@ -103,7 +103,7 @@ public class MenuController : MonoBehaviour
 
         if (scene.name == "MenuInicial"){
             btnPlay = GameObject.Find("PlayBtn").GetComponent<Button>();
-            /*PlayerPrefs.SetInt("FaseAtual", 0);*/
+            PlayerPrefs.SetInt("FaseAtual", 0);
             int save = PlayerPrefs.GetInt("FaseAtual");
             if (save != 0){
                 play = save;

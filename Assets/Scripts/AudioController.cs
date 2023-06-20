@@ -87,7 +87,7 @@ public class AudioController : MonoBehaviour
             {
                 AudioClip teste = soundAmbiance[5];
                 soundAmbianceLevel.clip = teste;
-            }else if (SceneManager.GetActiveScene().name.Equals("Cutscene1"))
+            }else if (SceneManager.GetActiveScene().name.Equals("Cutscene1") || SceneManager.GetActiveScene().name.Equals("Cutscene2"))
             {
                 AudioClip teste = soundAmbiance[6];
                 soundAmbianceLevel.clip = teste;
