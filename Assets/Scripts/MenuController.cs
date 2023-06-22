@@ -133,7 +133,7 @@ public class MenuController : MonoBehaviour
             slider.value = controleDeAudio.GetVolume();
 
             while (!pause.activeSelf && !buttonContinuar.activeSelf)
-            { // Aguarda at� que o menu de pause esteja ativo
+            { // Aguarda ate que o menu de pause esteja ativo
                 
             }
             menuPause(buttonContinuar);
