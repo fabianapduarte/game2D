@@ -22,10 +22,6 @@ public class NPCController : MonoBehaviour
     private void FixedUpdate()
     {
         DetectionPlayer();
-        if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.A))
-        {
-            dc.NextSentence();
-        }
     }
 
     private void Update()
@@ -34,7 +30,12 @@ public class NPCController : MonoBehaviour
         {
             dc.Speech(icon, message, nameNPC);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.A))
+        {
+            dc.NextSentence();
+        }
+
     }
 
     public void DetectionPlayer()
