@@ -21,7 +21,11 @@ public class NPCController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        DetectionPlayer();    
+        DetectionPlayer();
+        if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.A))
+        {
+            dc.NextSentence();
+        }
     }
 
     private void Update()
