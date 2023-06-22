@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="#-sobre-o-projeto">Sobre</a> •
-  <a href="#-interface">Interface</a> •
+  <a href="#-telas">Telas</a> •
   <a href="#-mecânicas-básicas-do-jogador">Mecânicas básicas do jogador</a> •
   <a href="#-autores">Autores</a>
 </p>
@@ -12,11 +12,11 @@
 ## 💻 Sobre o projeto
 
 Trabalho desenvolvido para as disciplinas de Fundamentos de Jogos Digitais e Motores de Jogos Digitais, cujo objetivo é construir um jogo de aventura e plataforma utilizando a engine Unity.
-Para mais informações sobre a narrativa do jogo, acesse o [documento de game design](<[https://docs.google.com/document/d/1aa51VNLQ_jpZaEuGkMz2KE8feAkE48-TENZ9eqn48nk/edit?usp=sharing](https://docs.google.com/document/d/1uhHRkAj-2WnMxkUVVzYRH_FLHOOsaESE/edit?usp=sharing&ouid=116738805822748469008&rtpof=true&sd=true)>).
+Para mais informações sobre a narrativa do jogo, acesse o [documento de game design](https://docs.google.com/document/d/1uhHRkAj-2WnMxkUVVzYRH_FLHOOsaESE/edit?usp=sharing&ouid=116738805822748469008&rtpof=true&sd=true).
 
 ---
 
-## 🎨 Interface
+## 🎨 Telas
 
 <p align="center">
   <img src="./.github/menu-inicial.jpeg" alt="Menu inicial" width="600px" style="margin-top: 16px" />
@@ -60,16 +60,17 @@ Para mais informações sobre a narrativa do jogo, acesse o [documento de game d
     <p align="center">
       <img src="./.github/magia.jpg" width="600px" style="margin-top: 16px" />
     </p>
-    
 - Desviar de ataques inimigos:
   - Pulo duplo e pulo simples;
   - Subir e descer escadas.
+
+💡 Foi feita a implementação de retorno tátil em combate no gamepad: Pulsação de longa duração ao ser atacado e de curta duração ao atingir o inimigo.
 
 ---
 
 ## 👥 Autores
 
-- Bianca Mirtes
-- Fabiana Pereira
-- João Pedro Barreto
-- Samuel Costa
+- Bianca Mirtes: Desenvolvedora/Sonoplasta
+- Fabiana Pereira: Game designer
+- João Pedro Barreto: Game designer
+- Samuel Costa: Desenvolvedor/Animador
