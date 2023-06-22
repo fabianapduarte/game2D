@@ -5,7 +5,7 @@
 <p align="center">
   <a href="#-sobre-o-projeto">Sobre</a> •
   <a href="#-interface">Interface</a> •
-  <a href="#-mecanicas-basicas-do-jogador">Mecânicas básicas do jogador</a> •
+  <a href="#-mecânicas-básicas-do-jogador">Mecânicas básicas do jogador</a> •
   <a href="#-autores">Autores</a>
 </p>
 
@@ -53,12 +53,14 @@ Para mais informações sobre a narrativa do jogo, acesse o [documento de game d
 <p align="center">
   <img src="./.github/subir-escada.jpg" width="600px" style="margin-top: 16px" />
 </p>
+
 - Atacar:
   - Espada;
   - Magia (a partir do nível 3);
     <p align="center">
       <img src="./.github/magia.jpg" width="600px" style="margin-top: 16px" />
     </p>
+    
 - Desviar de ataques inimigos:
   - Pulo duplo e pulo simples;
   - Subir e descer escadas.
