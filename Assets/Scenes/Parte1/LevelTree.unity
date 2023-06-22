@@ -4247,6 +4247,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 5.613486
       objectReference: {fileID: 0}
+    - target: {fileID: 25867118781154491, guid: 626ab26cc256dd84891c6b4593ea7a1e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 846072179363264566, guid: 626ab26cc256dd84891c6b4593ea7a1e, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -11774,6 +11778,10 @@ PrefabInstance:
     - target: {fileID: 25867118781154491, guid: 626ab26cc256dd84891c6b4593ea7a1e, type: 3}
       propertyPath: m_Size.x
       value: 34.644436
+      objectReference: {fileID: 0}
+    - target: {fileID: 25867118781154491, guid: 626ab26cc256dd84891c6b4593ea7a1e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 846072179363264566, guid: 626ab26cc256dd84891c6b4593ea7a1e, type: 3}
       propertyPath: m_RootOrder
