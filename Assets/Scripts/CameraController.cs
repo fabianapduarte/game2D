@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
-    private float minX5 = 9.12f, maxX5 = 268.73f, minY5 = 0.5f;
+    private float minX5 = 9.12f, maxX5 = 277.1f, minY5 = 0.5f;
 
     private float minX6 = -9.25f, maxX6 = 53.2f;
 
@@ -212,8 +212,8 @@ public class CameraController : MonoBehaviour
 
         if (level == 5)
         {
-            minX5 = 0.51f;
-            maxX5 = 268.73f;
+            minX5 = 9.12f;
+            maxX5 = 277.1f;
             minY5 = 0.5f;
         }
 

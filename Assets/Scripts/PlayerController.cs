@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour
 
             if(Vector3.Distance(transform.position, queen.transform.position) < 7f)
             {
+                rb.bodyType = RigidbodyType2D.Static;
                 if (dc.GetStart())
                 {
                     if(ordem == 0)
