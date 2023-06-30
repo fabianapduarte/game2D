@@ -31,7 +31,7 @@ public class NPCController : MonoBehaviour
             dc.Speech(icon, message, nameNPC);
         }
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("selecionar"))
         {
             dc.NextSentence();
         }
