@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
     private bool isPause = false; 
 
     private Button btnPlay;
+    private Button btnMultiplayer;
     private Button btnQuit;
 
     private Button avancar;
@@ -117,6 +118,8 @@ public class MenuController : MonoBehaviour
             btnPlay.onClick.AddListener(FadeOut);
             btnQuit = GameObject.Find("ExitBtn").GetComponent<Button>();
             btnQuit.onClick.AddListener(QuitGame);
+            btnMultiplayer = GameObject.Find("MultiplayerBtn").GetComponent<Button>();
+            btnMultiplayer.onClick.AddListener(PlayMultiplayer);
         }
 
 
@@ -343,6 +346,11 @@ public class MenuController : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(play);
+    }
+
+    public void PlayMultiplayer()
+    {
+        SceneManager.LoadScene(13);
     }
 
     public void QuitGame()
