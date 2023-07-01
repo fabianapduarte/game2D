@@ -9,8 +9,8 @@ public class MCameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player1 = GameObject.Find("Player1").transform;
-        player2 = GameObject.Find("Player2").transform;
+        player1 = GameObject.Find("Jogador1").transform;
+        player2 = GameObject.Find("Jogador2").transform;
     }
 
     // Update is called once per frame
@@ -20,15 +20,15 @@ public class MCameraController : MonoBehaviour
         {
             Vector3 newPosition = player1.position + new Vector3(0f, 0f, -10);
             transform.position = newPosition;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -24.43768f, 181.1f),
-                     Mathf.Clamp(transform.position.y, 3.64f, 5.65f), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 5.5f, 215.5f),
+                     Mathf.Clamp(transform.position.y, 0f, 5.65f), transform.position.z);
         }
         else
         {
             Vector3 newPosition = player2.position + new Vector3(0f, 0f, -10);
             transform.position = newPosition;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -45.8f, 160f),
-                     Mathf.Clamp(transform.position.y, 3.64f, 5.65f), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 5.5f, 215.5f),
+                     Mathf.Clamp(transform.position.y, -31f, -27f), transform.position.z);
         }
     }
 }
