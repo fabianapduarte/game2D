@@ -20,14 +20,14 @@ public class MCameraController : MonoBehaviour
         {
             Vector3 newPosition = player1.position + new Vector3(0f, 0f, -10);
             transform.position = newPosition;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 5.5f, 215.5f),
-                     Mathf.Clamp(transform.position.y, 0f, 5.65f), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 6.5f, 215.5f),
+                     Mathf.Clamp(transform.position.y, 0f, 4.5f), transform.position.z);
         }
         else
         {
             Vector3 newPosition = player2.position + new Vector3(0f, 0f, -10);
             transform.position = newPosition;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 5.5f, 215.5f),
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 6.5f, 215.5f),
                      Mathf.Clamp(transform.position.y, -31f, -27f), transform.position.z);
         }
     }
