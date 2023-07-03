@@ -26,12 +26,12 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interagir")) && onArea)
+        if ((Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interacao")) && onArea)
         {
             dc.Speech(icon, message, nameNPC);
         }
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("selecionar"))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetButtonDown("Submit"))
         {
             dc.NextSentence();
         }

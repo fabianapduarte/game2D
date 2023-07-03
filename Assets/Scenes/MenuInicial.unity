@@ -3685,9 +3685,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1485562701}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: PlayMultiplayer
+      - m_Target: {fileID: 1441431312}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: selectCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6069,7 +6069,7 @@ MonoBehaviour:
   MainMenu: {fileID: 1901555182}
   ConfiguracoesMenu: {fileID: 2009143732}
   PlayMenu: {fileID: 1120681247}
-  CreditoMenu: {fileID: 0}
+  CreditosMenu: {fileID: 181497652}
   dica: {fileID: 1258784897}
   telaDeEstadoFinal: 0
   volumeSlider: 0.8
@@ -6584,7 +6584,7 @@ MonoBehaviour:
   MainMenu: {fileID: 0}
   ConfiguracoesMenu: {fileID: 0}
   PlayMenu: {fileID: 0}
-  CreditoMenu: {fileID: 0}
+  CreditosMenu: {fileID: 0}
   dica: {fileID: 0}
   telaDeEstadoFinal: 0
   volumeSlider: 0.8

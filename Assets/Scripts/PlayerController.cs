@@ -83,8 +83,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float vertical = Input.GetAxisRaw("Vertical");
+        GameObject dialogo = GameObject.Find("Dialogue");
 
-        if (Input.GetButtonDown("Jump")){
+        if (Input.GetButtonDown("Jump") && dialogo==null)
+        {
             if (playerInFloor) {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
@@ -358,12 +360,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Door") && (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interagir")))
+        if (collision.gameObject.CompareTag("Door") && (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interacao")))
         {
             FindObjectOfType<GameController>().LevelEnd();
         }
 
-        if (collision.gameObject.CompareTag("ObjAzul") && (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interagir")))
+        if (collision.gameObject.CompareTag("ObjAzul") && (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interacao")))
         {
             Destroy(collision.gameObject);
             GameObject.Find("HUD_Dialogue").SetActive(false);

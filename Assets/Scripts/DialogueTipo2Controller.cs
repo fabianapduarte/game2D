@@ -60,6 +60,7 @@ public class DialogueTipo2Controller : MonoBehaviour
             messageNPC.text = "";
         }
         dialogue.GetComponent<Animation>().Play("DialogueEnd");
+        dialogue.SetActive(false);
         FindObjectOfType<NPCTipo2>().ExitNPC();
     }
 
