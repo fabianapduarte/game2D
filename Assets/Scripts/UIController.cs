@@ -11,6 +11,8 @@ public class UIController : MonoBehaviour
     private GameObject botaoAtual;
     public GameObject MainMenu;
     public GameObject ConfiguracoesMenu;
+    public GameObject PlayMenu;
+    public GameObject CreditosMenu;
     public TextMeshProUGUI dica;
     public bool telaDeEstadoFinal;
     public float volumeSlider = 0.8f;
@@ -56,18 +58,33 @@ public class UIController : MonoBehaviour
     public void menu(){
         MainMenu.SetActive(true);
         ConfiguracoesMenu.SetActive(false);
+        PlayMenu.SetActive(false);
+        CreditosMenu.SetActive(false);
     }
 
     public void selectMain(){
         //GameObject button = GameObject.Find("ConfiguracoesBtn");
-        GameObject button = GameObject.Find("PlayBtn");
+        GameObject button = GameObject.Find("PlayMenuBtn");
         EventSystem.current.SetSelectedGameObject(button);
     }
-    public void selectOpcoes(){
+
+    public void selectOpcoes()
+    {
         GameObject volume = GameObject.Find("SliderVolume");
         EventSystem.current.SetSelectedGameObject(volume);
         Slider slider = volume.GetComponent<Slider>();
         slider.value = audioBtn.GetVolume();
+    }
+
+    public void selectPlay(){
+        GameObject button = GameObject.Find("PlayBtn");
+        EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    public void selectCredits()
+    {
+        GameObject button = GameObject.Find("VoltarBtn3");
+        EventSystem.current.SetSelectedGameObject(button);
     }
 
     public void hover(GameObject btn){
