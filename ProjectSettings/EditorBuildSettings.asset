@@ -47,5 +47,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/FimDeJogo.unity
     guid: ba738ef948ba29749a2ee2860c43c9ed
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer/Multiplayer.unity
+    guid: 1e47b3f620b456041abd12ca7213e211
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer/Placar.unity
+    guid: 271f63035cb16b841a394a0779978e7a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a53cc139e5670964180dd543024356e5, type: 2}

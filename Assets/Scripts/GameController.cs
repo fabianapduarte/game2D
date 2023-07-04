@@ -205,9 +205,14 @@ public class GameController : MonoBehaviour
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
         string final = SceneUtility.GetScenePathByBuildIndex(13);
+        string placar = SceneUtility.GetScenePathByBuildIndex(15);
         savePoint = Vector3.zero;
 
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
+
+        if (SceneManager.GetActiveScene().name.Equals("TutorialM"){
+            SceneManager.LoadScene(placar);
+        }
 
         //Index da ultima fase
         if (SceneManager.GetActiveScene().name.Equals("Tutorial") || SceneManager.GetActiveScene().name.Equals("Acidron1") || SceneManager.GetActiveScene().name.Equals("Acidron2"))

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy1Controller : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class Enemy1Controller : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
+        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+        {
+            player1 = GameObject.Find("Jogador1").transform;
+            player2 = GameObject.Find("Jogador2").transform;
+        }
         player = GameObject.Find("Simetra").transform;
     }
     private void Update()
