@@ -42,6 +42,11 @@ public class SpawnerController : MonoBehaviour
             enemies = FindObjectOfType<GameController>().GetEnemies(6);
             qntMax = 3;
         }
+        else if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+        {
+            enemies = FindObjectOfType<GameController>().GetEnemies(1);
+            qntMax = Random.Range(3, 5);
+        }
     }
 
     private void Update()
