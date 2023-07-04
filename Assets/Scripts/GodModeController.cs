@@ -13,6 +13,6 @@ public class GodModeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        FindObjectOfType<GameController>().LevelEnd();
     }
 }

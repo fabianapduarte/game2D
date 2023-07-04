@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
-    private float minX5 = 9.12f, maxX5 = 277.1f, minY5 = 0.5f;
+    private float minX5 = 11f, maxX5 = 277.1f, minY5 = 1.33f;
 
     private float minX6 = -9.25f, maxX6 = 53.2f;
 
@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
         else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
-                         Mathf.Clamp(transform.position.y, minY5, 11.2f), transform.position.z);
+                         Mathf.Clamp(transform.position.y, minY5, 9f), transform.position.z);
             /*
             if (transform.position.x < 153f)
             {
@@ -156,24 +156,24 @@ public class CameraController : MonoBehaviour
     {
         if (zone == "Zone1")
         {
-            this.minX5 = 80.9f;
-            this.maxX5 = 127f;
+            this.minX5 = 82.8f;
+            this.maxX5 = 125.5f;
         }
         if (zone == "Zone2")
         {
-            this.minX5 = 173.8f;
-            this.maxX5 = 203.3f;
-            this.minY5 = 5.07f;
+            this.minX5 = 175.3f;
+            this.maxX5 = 201.8f;
+            this.minY5 = 5.87f;
         }
         if (zone == "Zone3")
         {
-            this.minX5 = 239.8f;
-            this.maxX5 = 260f;
-            this.minY5 = 5.07f;
+            this.minX5 = 241.5f;
+            this.maxX5 = 258.4f;
+            this.minY5 = 5.87f;
         }
         if (zone == "EntradaCastle")
         {
-            this.minY5 = 5.07f;
+            this.minY5 = 5.87f;
         }
     }
 
