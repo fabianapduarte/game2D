@@ -32,15 +32,15 @@ public class MCameraController : MonoBehaviour
         {
             Vector3 newPosition = player1.position + new Vector3(0f, 0f, -10);
             transform.position = newPosition;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 6.5f, 215.5f),
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 6.5f, 224f),
                      Mathf.Clamp(transform.position.y, 0f, 0f), transform.position.z);
         }
         else
         {
             Vector3 newPosition = player2.position + new Vector3(0f, 0f, -10);
             transform.position = newPosition;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -45.8f, 159.5f),
-                     Mathf.Clamp(transform.position.y, 6f, 6f), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 6.5f, 224f),
+                     Mathf.Clamp(transform.position.y, -83.7f, -83.7f), transform.position.z);
         }
     }
 
