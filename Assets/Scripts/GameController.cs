@@ -210,7 +210,7 @@ public class GameController : MonoBehaviour
 
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
 
-        if (SceneManager.GetActiveScene().name.Equals("TutorialM")){
+        if (SceneManager.GetActiveScene().name.Equals("Multiplayer")){
             SceneManager.LoadScene(placar);
         }
 
