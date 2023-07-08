@@ -105,6 +105,54 @@ public class DetectPlayer1Controller : MonoBehaviour
                     spawner.GetComponent<SpawnerControllerPlayer1>().GatilhoZona();
                 }
             }
+            else if (transform.parent.name.Equals("Zone1Lv3P1"))
+            {
+                GameObject spawner = GameObject.Find("Spawner1Lv3P1");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerControllerPlayer1>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerControllerPlayer1>().GatilhoZona();
+                }
+            }
+            else if (transform.parent.name.Equals("Zone2Lv3P1"))
+            {
+                GameObject spawner = GameObject.Find("Spawner2Lv3P1");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerControllerPlayer1>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerControllerPlayer1>().GatilhoZona();
+                }
+            }
+            else if (transform.parent.name.Equals("Zone3Lv3P1"))
+            {
+                GameObject spawner = GameObject.Find("Spawner3Lv3P1");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerControllerPlayer1>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerControllerPlayer1>().GatilhoZona();
+                }
+            }
         }
     }
     public void Sleep()
