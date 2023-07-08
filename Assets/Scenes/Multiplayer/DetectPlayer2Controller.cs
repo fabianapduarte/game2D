@@ -57,9 +57,41 @@ public class DetectPlayer2Controller : MonoBehaviour
                     spawner.GetComponent<SpawnerControllerPlayer2>().GatilhoZona();
                 }
             }
-            else
+            else if (transform.parent.name.Equals("Zone3P2"))
             {
                 GameObject spawner = GameObject.Find("Spawner3P2");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerControllerPlayer2>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerControllerPlayer2>().GatilhoZona();
+                }
+            }
+            else if (transform.parent.name.Equals("Zone1Lv2P2"))
+            {
+                GameObject spawner = GameObject.Find("Spawner1Lv2P2");
+                if (spawner.transform.childCount != 0)
+                {
+                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
+                    {
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerControllerPlayer2>().GatilhoZona();
+                        Invoke("Sleep", 5f);
+                    }
+                }
+                else
+                {
+                    spawner.GetComponent<SpawnerControllerPlayer2>().GatilhoZona();
+                }
+            }
+            else if (transform.parent.name.Equals("Zone2Lv2P2"))
+            {
+                GameObject spawner = GameObject.Find("Spawner2Lv2P2");
                 if (spawner.transform.childCount != 0)
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
