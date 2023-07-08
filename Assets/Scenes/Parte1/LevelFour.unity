@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 111698196}
   m_Layer: 0
   m_Name: detectInZone
-  m_TagString: Untagged
+  m_TagString: zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 192519019}
   m_Layer: 0
   m_Name: Zone3
-  m_TagString: Untagged
+  m_TagString: zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 394552644}
   m_Layer: 0
   m_Name: Zone1
-  m_TagString: Untagged
+  m_TagString: zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4896,7 +4896,7 @@ GameObject:
   - component: {fileID: 1687264743}
   m_Layer: 0
   m_Name: detectInZone
-  m_TagString: Untagged
+  m_TagString: zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5790,7 +5790,7 @@ GameObject:
   - component: {fileID: 1850911411}
   m_Layer: 0
   m_Name: Zone2
-  m_TagString: Untagged
+  m_TagString: zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6338,7 +6338,7 @@ GameObject:
   - component: {fileID: 2070047065}
   m_Layer: 0
   m_Name: detectInZone
-  m_TagString: Untagged
+  m_TagString: zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
