@@ -10,6 +10,7 @@ public class SpawnerControllerPlayer2 : MonoBehaviour
     private GameObject[] enemies;
     private int qntMax;
     public Transform enemiesSlot;
+    public Transform player2;
 
     public GameObject Zone;
     void Start()
@@ -38,6 +39,22 @@ public class SpawnerControllerPlayer2 : MonoBehaviour
 
     public void GatilhoZona()
     {
+        player2 = GameObject.Find("Jogador2").transform;
+        if (player2.position.x > 305 && player2.position.x < 445)
+        {
+            enemies = FindObjectOfType<GameController>().GetEnemies(2);
+            qntMax = Random.Range(4, 6);
+        }
+        else if (player2.position.x > 450 && player2.position.x < 750)
+        {
+            enemies = FindObjectOfType<GameController>().GetEnemies(3);
+            qntMax = Random.Range(5, 7);
+        }
+        else if (player2.position.x > 900 && player2.position.x < 1200)
+        {
+            enemies = FindObjectOfType<GameController>().GetEnemies(4);
+            qntMax = Random.Range(6, 8);
+        }
         Invoke("Spawn", 2f);
     }
 
