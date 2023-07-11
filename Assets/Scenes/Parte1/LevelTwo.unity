@@ -6204,7 +6204,7 @@ GameObject:
   - component: {fileID: 1073724230}
   m_Layer: 0
   m_Name: detectInZone
-  m_TagString: zone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6351,7 +6351,7 @@ GameObject:
   - component: {fileID: 1084109380}
   m_Layer: 0
   m_Name: detectInZone
-  m_TagString: zone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7815,7 +7815,6 @@ MonoBehaviour:
   - {fileID: 8380370150417031522, guid: 1d836d06b7a06894ca9de77ce09d6129, type: 3}
   enemiesLevelFive: []
   enemiesAcidron1: []
-  hud: {fileID: 0}
 --- !u!4 &1376863661
 Transform:
   m_ObjectHideFlags: 0
@@ -9301,7 +9300,7 @@ GameObject:
   - component: {fileID: 1693400677}
   m_Layer: 0
   m_Name: Zone2
-  m_TagString: zone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9973,7 +9972,7 @@ GameObject:
   - component: {fileID: 1963030648}
   m_Layer: 0
   m_Name: Zone1
-  m_TagString: zone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

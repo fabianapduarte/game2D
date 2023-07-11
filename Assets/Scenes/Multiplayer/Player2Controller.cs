@@ -171,7 +171,6 @@ public class Player2Controller : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Finish"))
         {
-            collision.gameObject.SetActive(false);
             FindObjectOfType<GameController>().LevelEnd();
         }
 

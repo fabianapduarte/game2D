@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Enemy1Controller : MonoBehaviour
 {
@@ -11,19 +10,12 @@ public class Enemy1Controller : MonoBehaviour
     private int speed = 2;
     private Transform player;
     public bool facingLeft = true;
-    private Transform player1;
-    private Transform player2;
 
     private int contabilizaDano = 0;
     // Start is called before the first frame update
     void Start()
     {
         ani = GetComponent<Animator>();
-        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
-        {
-            player1 = GameObject.Find("Jogador1").transform;
-            player2 = GameObject.Find("Jogador2").transform;
-        }
         player = GameObject.Find("Simetra").transform;
     }
     private void Update()
