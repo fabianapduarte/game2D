@@ -19,7 +19,6 @@ public class DetectPlayerController : MonoBehaviour
             GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundStart();
             contabilizaStart = 1;
             transform.parent.GetComponent<ZonesScriptController>().ClosedZone();
-
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel1(transform.parent.name);
@@ -35,7 +34,8 @@ public class DetectPlayerController : MonoBehaviour
             else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel4(transform.parent.name);
-            }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel5(transform.parent.name);
             }
@@ -43,21 +43,76 @@ public class DetectPlayerController : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().SetLevel6(transform.parent.name);
             }
-
             if (transform.parent.name.Equals("Zone1"))
             {
-                GameObject spawner = GameObject.Find("Spawner1");
+                GameObject spawner = null;
+                if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                {
+                    if (transform.parent.parent.name.Equals("Level1P1"))
+                    {
+                        spawner = GameObject.Find("Spawner1L1P1");
+                    }
+                    if (transform.parent.parent.name.Equals("Level1P2"))
+                    {
+                        spawner = GameObject.Find("Spawner1L1P2");
+                    }
+
+                    if (transform.parent.parent.name.Equals("Level2P1"))
+                    {
+                        spawner = GameObject.Find("Spawner1L2P1");
+                    }
+                    if (transform.parent.parent.name.Equals("Level2P2"))
+                    {
+                        spawner = GameObject.Find("Spawner1L2P2");
+                    }
+
+                    if (transform.parent.parent.name.Equals("Level3P1"))
+                    {
+                        spawner = GameObject.Find("Spawner1L3P1");
+                    }
+                    if (transform.parent.parent.name.Equals("Level3P2"))
+                    {
+                        spawner = GameObject.Find("Spawner1L3P2");
+                    }
+
+                    if (transform.parent.parent.name.Equals("Level4P1"))
+                    {
+                        spawner = GameObject.Find("Spawner1L4P1");
+                    }
+                    if (transform.parent.parent.name.Equals("Level4P2"))
+                    {
+                        spawner = GameObject.Find("Spawner1L4P2");
+                    }
+                }
+                else
+                {
+                    spawner = GameObject.Find("Spawner1");
+                }
                 if (spawner.transform.childCount != 0)
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                        {
+                            spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
+                        }
+                        else
+                        {
+                            spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        }
                         Invoke("Sleep", 5f);
                     }
                 }
                 else
                 {
-                    spawner.GetComponent<SpawnerController>().GatilhoZona();
+                    if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                    {
+                        spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
+                    }
+                    else
+                    {
+                        spawner.GetComponent<SpawnerController>().GatilhoZona();
+                    }
                 }
             }
             else if (transform.parent.name.Equals("Zone2"))
@@ -67,13 +122,27 @@ public class DetectPlayerController : MonoBehaviour
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                        {
+                            spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
+                        }
+                        else
+                        {
+                            spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        }
                         Invoke("Sleep", 5f);
                     }
                 }
                 else
                 {
-                    spawner.GetComponent<SpawnerController>().GatilhoZona();
+                    if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                    {
+                        spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
+                    }
+                    else
+                    {
+                        spawner.GetComponent<SpawnerController>().GatilhoZona();
+                    }
                 }
             }
             else
@@ -83,13 +152,27 @@ public class DetectPlayerController : MonoBehaviour
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                        {
+                            spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
+                        }
+                        else
+                        {
+                            spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
+                        }
                         Invoke("Sleep", 5f);
                     }
                 }
                 else
                 {
-                    spawner.GetComponent<SpawnerController>().GatilhoZona();
+                    if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                    {
+                        spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
+                    }
+                    else
+                    {
+                        spawner.GetComponent<SpawnerController>().GatilhoZona();
+                    }
                 }
             }
         }

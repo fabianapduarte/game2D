@@ -12,7 +12,7 @@ public class SpawnerController : MonoBehaviour
     public Transform enemiesSlot;
 
     public GameObject Zone;
-    void Start()
+    private void Start()
     {
         if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
         {

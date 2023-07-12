@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Enemy1Controller : MonoBehaviour
+public class EnemyControllerP2 : MonoBehaviour
 {
     private Animator ani;
-    private int life = 2;
-    private int dano = 1;
+    private int life = 0;
+    private int dano = 0;
     private int speed = 2;
     private Transform player;
     public bool facingLeft = true;
@@ -15,8 +16,25 @@ public class Enemy1Controller : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        player = GameObject.Find("Simetra").transform;
+        player = GameObject.Find("Jogador2").transform;
+        if(gameObject.layer == 6)
+        {
+            life = 2; dano = 1;
+        }
+        if(gameObject.layer == 7)
+        {
+            life = 3; dano = 1;
+        }
+        if(gameObject.layer == 8)
+        {
+            life = 4; dano = 2;
+        }
+        if (gameObject.layer == 9)
+        {
+            life = 6; dano = 3;
+        }
     }
+
     private void Update()
     {
         float limite = 2.3f;
@@ -28,31 +46,35 @@ public class Enemy1Controller : MonoBehaviour
         Vector3 pontoMedioPlayer = colliderPlayer.bounds.center;
         float distanciaPontosMedios = Vector3.Distance(pontoMedioObjetoAtual, pontoMedioPlayer);
 
-        if (distanciaPontosMedios > limite){
-            ani.SetBool("isRunning", true);
-            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-
-            if (player.position.x < transform.position.x && !facingLeft)
-            {
-                Flip();
-            }
-            else if (player.position.x > transform.position.x && facingLeft)
-            {
-                Flip();
-            }
-        }
-
-        else
+        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
         {
-            ani.SetBool("isRunning", false);
-            if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
+            if (distanciaPontosMedios > limite)
             {
-                //Faz com que so ataque depois de um tempo
-                if (contabilizaDano == 0)
+                ani.SetBool("isRunning", true);
+                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+                if (player.position.x < transform.position.x && !facingLeft)
                 {
-                    ani.SetBool("isAtacking", true);
+                    Flip();
                 }
-                Invoke("TimeTransitionAttack", 0.6f);
+                else if (player.position.x > transform.position.x && facingLeft)
+                {
+                    Flip();
+                }
+            }
+
+            else
+            {
+                ani.SetBool("isRunning", false);
+                if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
+                {
+                    //Faz com que so ataque depois de um tempo
+                    if (contabilizaDano == 0)
+                    {
+                        ani.SetBool("isAtacking", true);
+                    }
+                    Invoke("TimeTransitionAttack", 0.6f);
+                }
             }
         }
     }
@@ -112,7 +134,7 @@ public class Enemy1Controller : MonoBehaviour
             if (contabilizaDano == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtPlayer();
-                FindObjectOfType<GameController>().HurtPlayer(dano);
+                FindObjectOfType<MGameController>().HurtPlayer(dano, collision.gameObject);
                 contabilizaDano = 1;
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
                 controle.Vibrate(2f);
@@ -120,4 +142,4 @@ public class Enemy1Controller : MonoBehaviour
             }
         }
     }
-}   
+}

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5708682879159329560}
   - component: {fileID: 4137595672935340554}
   - component: {fileID: -787695266672192674}
+  - component: {fileID: -6138547836600203310}
+  - component: {fileID: -1571603113941085668}
   m_Layer: 9
   m_Name: EnemyAcidron
   m_TagString: Enemy
@@ -186,3 +188,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 0
+--- !u!114 &-6138547836600203310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970672001000105977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0679a8c79774574a8da1df6e7e5fab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 1
+--- !u!114 &-1571603113941085668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970672001000105977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca031a549cd553e4d9dcd4c80e2942bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 1

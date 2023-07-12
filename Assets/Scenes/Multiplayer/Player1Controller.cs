@@ -27,10 +27,10 @@ public class Player1Controller : MonoBehaviour
     {
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
+        if (FindObjectOfType<MGameController>().GetSavePoint(gameObject) != Vector3.zero)
         {
-            transform.position = FindObjectOfType<GameController>().GetSavePoint();
-            FindObjectOfType<GameController>().SetContabilizaBonusForce();
+            transform.position = FindObjectOfType<MGameController>().GetSavePoint(gameObject);
+            FindObjectOfType<MGameController>().SetContabilizaBonusForce();
             SetSpeed(1);
         }
     }
@@ -217,7 +217,7 @@ public class Player1Controller : MonoBehaviour
             if (contabilizaDano == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
-                FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
+                FindObjectOfType<MGameController>().HurtEnemy(collision.gameObject, gameObject);
                 contabilizaDano = 1;
                 Invoke("Sleep", 1.5f);
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
@@ -229,7 +229,7 @@ public class Player1Controller : MonoBehaviour
             if (contabilizaDano == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
-                FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
+                FindObjectOfType<MGameController>().HurtEnemy(collision.gameObject, gameObject);
                 contabilizaDano = 1;
                 Invoke("Sleep", 1.5f);
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
@@ -245,18 +245,69 @@ public class Player1Controller : MonoBehaviour
         if (collision.gameObject.CompareTag("water"))
         {
             ani.SetBool("isDead", true);
-            FindObjectOfType<GameController>().DeadPlayer();
+            FindObjectOfType<MGameController>().DeadPlayer();
         }
 
         if (collision.gameObject.CompareTag("lava"))
         {
             ani.SetBool("isDead", true);
-            FindObjectOfType<GameController>().DeadPlayer();
+            FindObjectOfType<MGameController>().DeadPlayer();
         }
 
         if (collision.gameObject.CompareTag("savepoint"))
         {
-            FindObjectOfType<GameController>().SetSafePoint(collision.gameObject);
+            FindObjectOfType<MGameController>().SetSafePoint(collision.gameObject, gameObject);
+        }
+    }
+    public void SetDanoPlayer(int valor)
+    {
+        danoPlayer += valor;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("collectibles"))
+        {
+            contabilizaColeta = 0;
+        }
+
+        if (collision.gameObject.CompareTag("ladder"))
+        {
+            ani.SetBool("isLadder", false);
+            isLadder = false;
+            isClimbing = false;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("treasureChest"))
+        {
+            if (Input.GetButtonDown("Open"))
+            {
+                collision.GetComponent<TreasureChestController>().AnimationOpen();
+            }
+        }
+
+        if (collision.gameObject.CompareTag("collectibles"))
+        {
+            if (Input.GetButtonDown("Coleta"))
+            {
+                if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
+                {
+                    GameObject.Find("AudioController").GetComponent<AudioController>().Collect();
+                    Destroy(collision.gameObject);
+                }
+                else
+                {
+                    GameObject.Find("AudioController").GetComponent<AudioController>().Collect();
+                    Destroy(collision.gameObject);
+                    if (contabilizaColeta == 0)
+                    {
+                        FindObjectOfType<MGameController>().GetCollectibles(collision.gameObject, gameObject);
+                        contabilizaColeta = 1;
+                    }
+                }
+            }
         }
     }
 }
