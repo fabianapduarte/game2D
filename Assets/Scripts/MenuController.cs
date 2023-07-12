@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
     private bool isPause = false; 
 
     private Button btnPlay;
+    private Button btnMultiplayer;
     private Button btnCreditos;
     private Button btnQuit;
 
@@ -118,6 +119,8 @@ public class MenuController : MonoBehaviour
                 btnPlay.GetComponentInChildren<TextMeshProUGUI>().text = "Novo Jogo";
             }
             btnPlay.onClick.AddListener(FadeOut);
+            btnMultiplayer = GameObject.Find("MultiplayerBtn").GetComponent<Button>();
+            btnMultiplayer.onClick.AddListener(PlayMultiplayer);
             btnQuit = GameObject.Find("ExitBtn").GetComponent<Button>();
             btnQuit.onClick.AddListener(QuitGame);
             btnCreditos = GameObject.Find("CreditosBtn").GetComponent<Button>();
@@ -126,10 +129,13 @@ public class MenuController : MonoBehaviour
 
 
         //setar menu de pause
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Multiplayer")
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Placar")
         {
             //Salva fase atual pra continuar
-            PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
+            if(sceneName != "MLevelOne" && sceneName != "MLevelTwo" && sceneName != "MLevelTree" && sceneName != "MLevelFor")
+            {
+                PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
+            }
             controleDeAudio = GameObject.Find("AudioController").GetComponent<AudioController>();
             pause.SetActive(true);
             configMenuPausa.SetActive(true);
@@ -281,6 +287,8 @@ public class MenuController : MonoBehaviour
                 mainMenu();
             }
             PlayerPrefs.SetInt("FaseAtual", 0);
+
+            indexCena = 2;
             play = 3;
         }
     }
@@ -356,7 +364,7 @@ public class MenuController : MonoBehaviour
 
     public void PlayMultiplayer()
     {
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(14);
     }
     public void RunCredits()
     { 
