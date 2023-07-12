@@ -11027,7 +11027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1151140347}
   - component: {fileID: 1151140349}
-  - component: {fileID: 1151140348}
+  - component: {fileID: 1151140350}
   m_Layer: 0
   m_Name: detectInZone
   m_TagString: Untagged
@@ -11050,18 +11050,6 @@ Transform:
   m_Father: {fileID: 204891165}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1151140348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151140346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba9b132d75a28847b3480ce52b327e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1151140349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11088,6 +11076,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 21.342197}
   m_EdgeRadius: 0
+--- !u!114 &1151140350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151140346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c340414edb524a459d2cb6148dc6643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1157268123
 GameObject:
   m_ObjectHideFlags: 0
@@ -11522,7 +11522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186223263}
   - component: {fileID: 1186223265}
-  - component: {fileID: 1186223264}
+  - component: {fileID: 1186223266}
   m_Layer: 0
   m_Name: detectInZone
   m_TagString: Untagged
@@ -11545,18 +11545,6 @@ Transform:
   m_Father: {fileID: 823271413}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1186223264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186223262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba9b132d75a28847b3480ce52b327e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1186223265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11583,6 +11571,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 30.265196}
   m_EdgeRadius: 0
+--- !u!114 &1186223266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186223262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c340414edb524a459d2cb6148dc6643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1190845663
 GameObject:
   m_ObjectHideFlags: 0
@@ -17947,7 +17947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705305528}
   - component: {fileID: 1705305530}
-  - component: {fileID: 1705305529}
+  - component: {fileID: 1705305531}
   m_Layer: 0
   m_Name: detectInZone
   m_TagString: Untagged
@@ -17970,18 +17970,6 @@ Transform:
   m_Father: {fileID: 1848787334}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1705305529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705305527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba9b132d75a28847b3480ce52b327e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1705305530
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18008,6 +17996,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 30.265196}
   m_EdgeRadius: 0
+--- !u!114 &1705305531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705305527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c340414edb524a459d2cb6148dc6643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1723210105
 GameObject:
   m_ObjectHideFlags: 0
@@ -20573,7 +20573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959871357}
   - component: {fileID: 1959871359}
-  - component: {fileID: 1959871358}
+  - component: {fileID: 1959871360}
   m_Layer: 0
   m_Name: detectInZone
   m_TagString: Untagged
@@ -20596,18 +20596,6 @@ Transform:
   m_Father: {fileID: 785915615}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1959871358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959871356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba9b132d75a28847b3480ce52b327e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1959871359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20634,6 +20622,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 21.342197}
   m_EdgeRadius: 0
+--- !u!114 &1959871360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959871356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c340414edb524a459d2cb6148dc6643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1961187496
 GameObject:
   m_ObjectHideFlags: 0

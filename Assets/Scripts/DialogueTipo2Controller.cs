@@ -61,7 +61,7 @@ public class DialogueTipo2Controller : MonoBehaviour
         }
         dialogue.GetComponent<Animation>().Play("DialogueEnd");
         dialogue.SetActive(false);
-        FindObjectOfType<NPCTipo2>().ExitNPC();
+        GameObject.Find("Simetra").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 
     IEnumerator WritingText(int[] index)
