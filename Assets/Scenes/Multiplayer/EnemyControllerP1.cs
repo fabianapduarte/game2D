@@ -44,35 +44,32 @@ public class EnemyControllerP1 : MonoBehaviour
         Vector3 pontoMedioObjetoAtual = collider.bounds.center;
         Vector3 pontoMedioPlayer = colliderPlayer.bounds.center;
         float distanciaPontosMedios = Vector3.Distance(pontoMedioObjetoAtual, pontoMedioPlayer);
-        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+        if (distanciaPontosMedios > limite)
         {
-            if (distanciaPontosMedios > limite)
-            {
-                ani.SetBool("isRunning", true);
-                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            ani.SetBool("isRunning", true);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-                if (player.position.x < transform.position.x && !facingLeft)
-                {
-                    Flip();
-                }
-                else if (player.position.x > transform.position.x && facingLeft)
-                {
-                    Flip();
-                }
+            if (player.position.x < transform.position.x && !facingLeft)
+            {
+                Flip();
             }
-
-            else
+            else if (player.position.x > transform.position.x && facingLeft)
             {
-                ani.SetBool("isRunning", false);
-                if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
+                Flip();
+            }
+        }
+
+        else
+        {
+            ani.SetBool("isRunning", false);
+            if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
+            {
+                //Faz com que so ataque depois de um tempo
+                if (contabilizaDano == 0)
                 {
-                    //Faz com que so ataque depois de um tempo
-                    if (contabilizaDano == 0)
-                    {
-                        ani.SetBool("isAtacking", true);
-                    }
-                    Invoke("TimeTransitionAttack", 0.6f);
+                    ani.SetBool("isAtacking", true);
                 }
+                Invoke("TimeTransitionAttack", 0.6f);
             }
         }
     }
@@ -132,7 +129,7 @@ public class EnemyControllerP1 : MonoBehaviour
             if (contabilizaDano == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtPlayer();
-                FindObjectOfType<GameController>().HurtPlayer(dano);
+                FindObjectOfType<MGameController>().HurtPlayer(dano, collision.gameObject);
                 contabilizaDano = 1;
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
                 controle.Vibrate(2f);

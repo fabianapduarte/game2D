@@ -48,6 +48,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplayer/MLevelOne.unity
     guid: f42b4c39803119a45a9ea898b78eec61
   - enabled: 1
+    path: Assets/Scenes/Multiplayer/MLevelTwo.unity
+    guid: b115b39dfc03fd84f94dfd35adc9e352
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer/MLevelTree.unity
+    guid: 11942d0829b979f4296bab3f331da069
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer/MLevelFour.unity
+    guid: d6931ce9dc2e71546b4685f34a29e8b0
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer/Placar.unity
+    guid: 271f63035cb16b841a394a0779978e7a
+  - enabled: 1
     path: Assets/Scenes/Menus/FimDeJogo.unity
     guid: ba738ef948ba29749a2ee2860c43c9ed
   m_configObjects:

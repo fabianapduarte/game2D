@@ -55,6 +55,8 @@ public class MCameraController : MonoBehaviour
         }
         else
         {
+            Vector3 newPosition = player2.position + new Vector3(0f, 0f, -10);
+            transform.position = newPosition;
             if (SceneManager.GetActiveScene().name.Equals("MLevelOne"))
             {
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x, 7.5f, 215.5f),

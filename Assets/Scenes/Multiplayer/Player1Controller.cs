@@ -30,7 +30,7 @@ public class Player1Controller : MonoBehaviour
         if (FindObjectOfType<MGameController>().GetSavePoint(gameObject) != Vector3.zero)
         {
             transform.position = FindObjectOfType<MGameController>().GetSavePoint(gameObject);
-            FindObjectOfType<MGameController>().SetContabilizaBonusForce();
+            FindObjectOfType<MGameController>().SetContabilizaBonusForce(gameObject);
             SetSpeed(1);
         }
     }
@@ -245,13 +245,13 @@ public class Player1Controller : MonoBehaviour
         if (collision.gameObject.CompareTag("water"))
         {
             ani.SetBool("isDead", true);
-            FindObjectOfType<MGameController>().DeadPlayer();
+            FindObjectOfType<MGameController>().DeadPlayer(gameObject);
         }
 
         if (collision.gameObject.CompareTag("lava"))
         {
             ani.SetBool("isDead", true);
-            FindObjectOfType<MGameController>().DeadPlayer();
+            FindObjectOfType<MGameController>().DeadPlayer(gameObject);
         }
 
         if (collision.gameObject.CompareTag("savepoint"))

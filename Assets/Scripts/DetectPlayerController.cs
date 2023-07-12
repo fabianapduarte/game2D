@@ -46,45 +46,14 @@ public class DetectPlayerController : MonoBehaviour
             if (transform.parent.name.Equals("Zone1"))
             {
                 GameObject spawner = null;
-                if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                if (transform.parent.parent.name.Equals("LevelP1"))
                 {
-                    if (transform.parent.parent.name.Equals("Level1P1"))
-                    {
-                        spawner = GameObject.Find("Spawner1L1P1");
-                    }
-                    if (transform.parent.parent.name.Equals("Level1P2"))
-                    {
-                        spawner = GameObject.Find("Spawner1L1P2");
-                    }
-
-                    if (transform.parent.parent.name.Equals("Level2P1"))
-                    {
-                        spawner = GameObject.Find("Spawner1L2P1");
-                    }
-                    if (transform.parent.parent.name.Equals("Level2P2"))
-                    {
-                        spawner = GameObject.Find("Spawner1L2P2");
-                    }
-
-                    if (transform.parent.parent.name.Equals("Level3P1"))
-                    {
-                        spawner = GameObject.Find("Spawner1L3P1");
-                    }
-                    if (transform.parent.parent.name.Equals("Level3P2"))
-                    {
-                        spawner = GameObject.Find("Spawner1L3P2");
-                    }
-
-                    if (transform.parent.parent.name.Equals("Level4P1"))
-                    {
-                        spawner = GameObject.Find("Spawner1L4P1");
-                    }
-                    if (transform.parent.parent.name.Equals("Level4P2"))
-                    {
-                        spawner = GameObject.Find("Spawner1L4P2");
-                    }
+                    spawner = GameObject.Find("Spawner1P1");
                 }
-                else
+                else if (transform.parent.parent.name.Equals("LevelP2"))
+                {
+                    spawner = GameObject.Find("Spawner1P2");
+                }else
                 {
                     spawner = GameObject.Find("Spawner1");
                 }
@@ -92,7 +61,8 @@ public class DetectPlayerController : MonoBehaviour
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                        if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+                            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
                         {
                             spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
                         }
@@ -105,7 +75,8 @@ public class DetectPlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                    if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+                        SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
                     {
                         spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
                     }
@@ -117,12 +88,25 @@ public class DetectPlayerController : MonoBehaviour
             }
             else if (transform.parent.name.Equals("Zone2"))
             {
-                GameObject spawner = GameObject.Find("Spawner2");
+                GameObject spawner = null;
+                if (transform.parent.parent.name.Equals("LevelP1"))
+                {
+                    spawner = GameObject.Find("Spawner1P1");
+                }
+                else if (transform.parent.parent.name.Equals("LevelP2"))
+                {
+                    spawner = GameObject.Find("Spawner1P2");
+                }
+                else
+                {
+                    spawner = GameObject.Find("Spawner2");
+                }
                 if (spawner.transform.childCount != 0)
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                        if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+                            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
                         {
                             spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
                         }
@@ -135,7 +119,8 @@ public class DetectPlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                    if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+                        SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
                     {
                         spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
                     }
@@ -147,12 +132,25 @@ public class DetectPlayerController : MonoBehaviour
             }
             else
             {
-                GameObject spawner = GameObject.Find("Spawner3");
+                GameObject spawner = null;
+                if (transform.parent.parent.name.Equals("LevelP1"))
+                {
+                    spawner = GameObject.Find("Spawner1P1");
+                }
+                else if (transform.parent.parent.name.Equals("LevelP2"))
+                {
+                    spawner = GameObject.Find("Spawner1P2");
+                }
+                else
+                {
+                    spawner = GameObject.Find("Spawner3");
+                }
                 if (spawner.transform.childCount != 0)
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                        if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+                            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
                         {
                             spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
                         }
@@ -165,7 +163,8 @@ public class DetectPlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name.Equals("Multiplayer"))
+                    if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+                        SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
                     {
                         spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
                     }

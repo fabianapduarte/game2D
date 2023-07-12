@@ -13,25 +13,24 @@ public class SpawnerControllerM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(transform.parent.name);
-        if (transform.parent.parent.name.Equals("Level1P1") || transform.parent.parent.name.Equals("Level1P2"))
+        if (SceneManager.GetActiveScene().name.Equals("MLevelOne"))
         {
-            enemies = FindObjectOfType<GameController>().GetEnemies(1);
+            enemies = FindObjectOfType<MGameController>().GetEnemies(1);
             qntMax = Random.Range(3, 5);
         }
-        else if (transform.parent.name.Equals("Level2P1") || transform.parent.name.Equals("Level2P2"))
+        else if (SceneManager.GetActiveScene().name.Equals("MLevelTwo"))
         {
-            enemies = FindObjectOfType<GameController>().GetEnemies(2);
+            enemies = FindObjectOfType<MGameController>().GetEnemies(2);
             qntMax = Random.Range(4, 6);
         }
-        else if (transform.parent.name.Equals("Level3P1") || transform.parent.name.Equals("Level3P2"))
+        else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {
-            enemies = FindObjectOfType<GameController>().GetEnemies(3);
+            enemies = FindObjectOfType<MGameController>().GetEnemies(3);
             qntMax = Random.Range(5, 7);
         }
-        else if (transform.parent.name.Equals("Level4P1") || transform.parent.name.Equals("Level4P2"))
+        else if (SceneManager.GetActiveScene().name.Equals("MLevelFour"))
         {
-            enemies = FindObjectOfType<GameController>().GetEnemies(4);
+            enemies = FindObjectOfType<MGameController>().GetEnemies(4);
             qntMax = Random.Range(6, 8);
         }
     }

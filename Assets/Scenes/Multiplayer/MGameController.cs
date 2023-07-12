@@ -9,10 +9,18 @@ public class MGameController : MonoBehaviour
     private int player1Lifes = 5;
     private int player2Lifes = 5;
     private float maxSpeed = 10f;
-    private int contabilizaColeta = 0;
-    private int contabilizaMorte = 0;
-    private int contabilizaBonusSpeed = 0;
-    private int contabilizaBonusForce = 0;
+
+    private int contabilizaColetaP1 = 0;
+    private int contabilizaColetaP2 = 0;
+
+    private int contabilizaMorteP1 = 0;
+    private int contabilizaMorteP2 = 0;
+
+    private int contabilizaBonusSpeedP1 = 0;
+    private int contabilizaBonusForceP1 = 0;
+
+    private int contabilizaBonusSpeedP2 = 0;
+    private int contabilizaBonusForceP2 = 0;
 
     private Vector3 savePointP1 = Vector3.zero;
     private Vector3 savePointP2 = Vector3.zero;
@@ -22,11 +30,10 @@ public class MGameController : MonoBehaviour
     public GameObject[] enemiesLevelTwo;
     public GameObject[] enemiesLevelTree;
     public GameObject[] enemiesLevelFour;
-    public GameObject[] enemiesLevelFive;
-    public GameObject[] enemiesAcidron1;
 
     public static MGameController instance = null;
-    public GameObject hud;
+    public GameObject hudP1;
+    public GameObject hudP2;
 
     void Start()
     {
@@ -40,16 +47,25 @@ public class MGameController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        if (SceneManager.GetActiveScene().name.Equals("LevelTree") || SceneManager.GetActiveScene().name.Equals("LevelFour"))
+        if (SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
         {
             Destroy(GameObject.Find("BG"));
-            hud.transform.GetChild(0).gameObject.SetActive(true);
-            hud.transform.GetChild(1).gameObject.SetActive(true);
+            hudP1.transform.GetChild(0).gameObject.SetActive(true);
+            hudP1.transform.GetChild(1).gameObject.SetActive(true);
+            hudP2.transform.GetChild(0).gameObject.SetActive(true);
+            hudP2.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
-    public void SetContabilizaBonusForce()
+    public void SetContabilizaBonusForce(GameObject player)
     {
-        contabilizaBonusForce = 0;
+        if (player.name.Equals("Jogador1"))
+        {
+            contabilizaBonusForceP1 = 0;
+        }
+        else
+        {
+            contabilizaBonusForceP2 = 0;
+        }
     }
 
     public GameObject[] GetEnemies(int level)
@@ -138,12 +154,25 @@ public class MGameController : MonoBehaviour
         
     }
 
-    public void DeadPlayer()
+    public void DeadPlayer(GameObject player)
     {
-        if (contabilizaMorte == 0)
+        if (player.name.Equals("Jogador1"))
         {
-            Invoke("GameOver", 2f);
-            contabilizaMorte = 1;
+            if (contabilizaMorteP1 == 0)
+            {
+                GameOver(player);
+                //Invoke("GameOver", 2f);
+                contabilizaMorteP1 = 1;
+            }
+        }
+        else
+        {
+            if (contabilizaMorteP2 == 0)
+            {
+                GameOver(player);
+                //Invoke("GameOver", 2f);
+                contabilizaMorteP2 = 1;
+            }        
         }
     }
 
@@ -189,32 +218,89 @@ public class MGameController : MonoBehaviour
     {
         if (collectable.layer == 10) // force
         {
-            if (contabilizaBonusForce == 0)
+            if (player.name.Equals("Jogador1"))
             {
-                if (player.name.Equals("Jogador1"))
+                if (contabilizaBonusForceP1 == 0)
                 {
                     GameObject.Find(player.name).GetComponent<Player1Controller>().SetDanoPlayer(1);
+                    contabilizaBonusForceP1 = 1;
                 }
-                else
+            }
+            else
+            {
+                if (contabilizaBonusForceP2 == 0)
                 {
                     GameObject.Find(player.name).GetComponent<Player2Controller>().SetDanoPlayer(1);
+                    contabilizaBonusForceP2 = 1;
                 }
-                
-                contabilizaBonusForce = 1;
             }
         }
         if (collectable.layer == 11) // speed
         {
-            if (GameObject.Find("Simetra").GetComponent<PlayerController>().GetSpeed() <= maxSpeed)
+            if (player.name.Equals("Jogador1"))
             {
-                if (contabilizaBonusSpeed == 0)
+                if (GameObject.Find(player.name).GetComponent<Player1Controller>().GetSpeed() <= maxSpeed)
                 {
-                    GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
-                    contabilizaBonusSpeed = 1;
+                    if (contabilizaBonusSpeedP1 == 0)
+                    {
+                    GameObject.Find(player.name).GetComponent<Player1Controller>().SetSpeed(1);
+                    contabilizaBonusSpeedP1 = 1;
+                    }
                 }
-
             }
+            else
+            {
+                if (GameObject.Find(player.name).GetComponent<Player2Controller>().GetSpeed() <= maxSpeed)
+                {
+                    if (contabilizaBonusSpeedP2 == 0)
+                    {
+                        GameObject.Find(player.name).GetComponent<Player2Controller>().SetSpeed(1);
+                        contabilizaBonusSpeedP2 = 1;
+                    }
+                }
+            }
+        }
+    }
 
+    void GameOver(GameObject player)
+    {
+        if (player.name.Equals("Jogador1"))
+        {
+            player1Lifes = 5;
+            if (savePointP1 != Vector3.zero)
+            {
+                if (contabilizaBonusForceP1 != 0)
+                {
+                    contabilizaBonusForceP1 = 0;
+                }
+            }
+            else
+            {
+                contabilizaBonusSpeedP1 = 0;
+            }
+            string derrota = SceneUtility.GetScenePathByBuildIndex(2);
+            GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(derrota);
+            contabilizaMorteP1 = 0;
+        }
+        else
+        {
+            player2Lifes = 5;
+            if (savePointP2 != Vector3.zero)
+            {
+                if (contabilizaBonusForceP2 != 0)
+                {
+                    contabilizaBonusForceP2 = 0;
+                }
+            }
+            else
+            {
+                contabilizaBonusSpeedP2 = 0;
+            }
+            string derrota = SceneUtility.GetScenePathByBuildIndex(2);
+            GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(derrota);
+            contabilizaMorteP2 = 0;
         }
     }
 }
