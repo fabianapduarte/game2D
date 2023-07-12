@@ -39,13 +39,13 @@ public class MCameraController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelTwo"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX2, maxX2),
-                                                     Mathf.Clamp(transform.position.y, -32.4f, 9.1f), transform.position.z);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 7.5f, 215.5f),
+                                                     Mathf.Clamp(transform.position.y, -27.4f, 8.2f), transform.position.z);
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelTree"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX3, maxX3),
-                                     Mathf.Clamp(transform.position.y, -2.8f, 21.9f), transform.position.z);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 11.5f, 215.5f),
+                                     Mathf.Clamp(transform.position.y,0f, 22f), transform.position.z);
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelFour"))
             {
@@ -64,13 +64,13 @@ public class MCameraController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelTwo"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX2, maxX2),
-                                                     Mathf.Clamp(transform.position.y, -32.4f, 9.1f), transform.position.z);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 7.5f, 215.5f),
+                                     Mathf.Clamp(transform.position.y, -97.8f, -62f), transform.position.z);
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelTree"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX3, maxX3),
-                                     Mathf.Clamp(transform.position.y, -2.8f, 21.9f), transform.position.z);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 11.5f, 215.5f),
+                                     Mathf.Clamp(transform.position.y, -70f, -40f), transform.position.z);
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelFour"))
             {
