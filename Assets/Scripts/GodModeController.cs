@@ -16,7 +16,7 @@ public class GodModeController : MonoBehaviour
     public GameObject Pause;
     private string sceneName;
     private GameObject buttonContinuarSelecao;
-    private Button buttonContinuarGm, prevLvl, nextLvl, zonesBtn;
+    private Button buttonContinuarGm, prevLvl, nextLvl, zonesBtn, limparSaveBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class GodModeController : MonoBehaviour
         zonesBtn = GameObject.Find("ZonaBtn").GetComponent<Button>();
         prevLvl = GameObject.Find("pvFaseBtn").GetComponent<Button>();
         nextLvl = GameObject.Find("nxFaseBtn").GetComponent<Button>();
+        limparSaveBtn = GameObject.Find("limparSaveBtn").GetComponent<Button>();
         GodMode.SetActive(false);
     }
 
@@ -50,11 +51,11 @@ public class GodModeController : MonoBehaviour
             { // Aguarda ate que o menu de pause esteja ativo
 
             }
-            Debug.Log("aaa");
             buttonContinuarGm.onClick.AddListener(resumeGM);
             zonesBtn.onClick.AddListener(DisableZones);
             prevLvl.onClick.AddListener(prevLvlFunc);
             nextLvl.onClick.AddListener(nextLvllFunc);
+            limparSaveBtn.onClick.AddListener(deletePlayerPrefs);
             GodMode.SetActive(false);
         }
     }
@@ -102,12 +103,16 @@ public class GodModeController : MonoBehaviour
     public void prevLvlFunc()
     {
         resumeGM();
+        PlayerPrefs.SetFloat("saveX", 0f);
+        PlayerPrefs.SetFloat("saveY", 0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void nextLvllFunc()
     {
         resumeGM();
+        PlayerPrefs.SetFloat("saveX", 0f);
+        PlayerPrefs.SetFloat("saveY", 0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -159,6 +164,18 @@ public class GodModeController : MonoBehaviour
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6);
         }
         GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
+        resumeGM();
+    }
+
+    public void deletePlayerPrefs()
+    {
+        PlayerPrefs.SetInt("FaseAtual", 0);
+        PlayerPrefs.SetFloat("saveX", 0f);
+        PlayerPrefs.SetFloat("saveY", 0f);
+
+        MenuController menuController = FindObjectOfType<MenuController>();
+        menuController.indexCena = 2;
+        menuController.play = 3;
         resumeGM();
     }
 }

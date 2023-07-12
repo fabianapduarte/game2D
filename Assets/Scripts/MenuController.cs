@@ -39,7 +39,7 @@ public class MenuController : MonoBehaviour
 
     public GameObject gm;
     private AudioController controleDeAudio;
-    private int indexCena;
+    public int indexCena;
 
     // Start is called before the first frame update
     void Start()
@@ -126,7 +126,7 @@ public class MenuController : MonoBehaviour
 
 
         //setar menu de pause
-        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria")
+        if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Multiplayer")
         {
             //Salva fase atual pra continuar
             PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
@@ -306,6 +306,10 @@ public class MenuController : MonoBehaviour
 
     public void mainMenu()
     {
+        if (SceneManager.GetActiveScene().name.Equals("Vitoria"))
+        {
+            PlayerPrefs.SetInt("FaseAtual", PlayerPrefs.GetInt("FaseAtual")+1);
+        }
         Debug.Log("Voltando pro menu inicial");
         resume();
         Time.timeScale = 1f;
