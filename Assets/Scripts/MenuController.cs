@@ -36,6 +36,8 @@ public class MenuController : MonoBehaviour
     private GameObject buttonContinuar;
 
     public GameObject pause;
+
+    public GameObject gm;
     private AudioController controleDeAudio;
     private int indexCena;
 
@@ -166,7 +168,7 @@ public class MenuController : MonoBehaviour
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2")
         {
             float pausar = Input.GetAxisRaw("Pause");
-            if (pausar>0){
+            if (pausar>0 && !gm.activeSelf){ //REMOVER JUNTO COM O GM
                 pause.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(buttonContinuar);
                 Time.timeScale = 0f;
