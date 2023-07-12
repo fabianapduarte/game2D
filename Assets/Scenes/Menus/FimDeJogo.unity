@@ -1729,8 +1729,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291348680
-  m_fontColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    rgba: 4282074441
+  m_fontColor: {r: 0.28627452, g: 0.27058825, b: 0.23137257, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1894,6 +1894,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 0}
   ConfiguracoesMenu: {fileID: 0}
+  PlayMenu: {fileID: 0}
+  CreditosMenu: {fileID: 0}
   dica: {fileID: 676514835}
   telaDeEstadoFinal: 1
   volumeSlider: 0.8
@@ -1933,7 +1935,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -959.92426, y: -540.26056}
-  m_SizeDelta: {x: 9.0563, y: 4.745}
+  m_SizeDelta: {x: 8.4, y: 4.745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294095528
 MonoBehaviour:
@@ -1965,7 +1967,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278716519
-  m_fontColor: {r: 0.4056604, g: 0.032146644, b: 0.032146644, a: 1}
+  m_fontColor: {r: 0.24705884, g: 0.19215688, b: 0.14901961, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2153,7 +2155,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2214,7 +2216,7 @@ RectTransform:
   m_GameObject: {fileID: 1535344541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.010679607, y: 0.010679607, z: 0.010679607}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1180922795}
@@ -2224,7 +2226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 785.3, y: -479.66476}
+  m_AnchoredPosition: {x: -952.03, y: -544.79}
   m_SizeDelta: {x: -1662.8616, y: -1005.1269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1535344543

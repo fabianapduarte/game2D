@@ -15,6 +15,9 @@ public class EnemyControllerP1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour")) { 
+
         ani = GetComponent<Animator>();
         player = GameObject.Find("Jogador1").transform;
         if (gameObject.layer == 6)
@@ -33,9 +36,14 @@ public class EnemyControllerP1 : MonoBehaviour
         {
             life = 6; dano = 3;
         }
+
+        }
     }
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
+            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour")) {
+
         float limite = 2.3f;
 
         //Utiliza ponto medio da boxCollider
@@ -71,6 +79,8 @@ public class EnemyControllerP1 : MonoBehaviour
                 }
                 Invoke("TimeTransitionAttack", 0.6f);
             }
+        }
+
         }
     }
 
