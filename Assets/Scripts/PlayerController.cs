@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        if (FindObjectOfType<GameController>().GetSavePoint() != Vector3.zero)
+        if ((PlayerPrefs.GetFloat("saveX") != 0) && (PlayerPrefs.GetFloat("saveY") != 0))
         {
             transform.position = FindObjectOfType<GameController>().GetSavePoint();
             FindObjectOfType<GameController>().SetContabilizaBonusForce();

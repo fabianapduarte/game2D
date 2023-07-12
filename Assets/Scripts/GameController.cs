@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     private int contabilizaBonusSpeed = 0;
     private int contabilizaBonusForce = 0;
 
-    private Vector3 savePoint = Vector3.zero;
+    //private Vector3 savePoint = Vector3.zero;
    
     // enemies
     public GameObject[] enemiesLevelOne;
@@ -124,12 +124,14 @@ public class GameController : MonoBehaviour
 
     public void SetSafePoint(GameObject savepoint)
     {
-        savePoint = savepoint.transform.position;
+        PlayerPrefs.SetFloat("saveX", savepoint.transform.position.x);
+        PlayerPrefs.SetFloat("saveY", savepoint.transform.position.y);
     }
 
     public Vector3 GetSavePoint()
     {
-        return savePoint;
+        Vector3 savePointVector = new Vector3(PlayerPrefs.GetFloat("saveX"), PlayerPrefs.GetFloat("saveY"), -10f);
+        return savePointVector;
     }
 
     public void HurtEnemy(GameObject enemy)
@@ -183,7 +185,7 @@ public class GameController : MonoBehaviour
     void GameOver()
     {
         playerLifes = 5;
-        if(savePoint != Vector3.zero)
+        if ((PlayerPrefs.GetFloat("saveX") != 0) && (PlayerPrefs.GetFloat("saveY") != 0))
         {
             if(contabilizaBonusForce != 0)
             {
@@ -205,7 +207,9 @@ public class GameController : MonoBehaviour
         playerLifes = 5;
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
         string final = SceneUtility.GetScenePathByBuildIndex(13);
-        savePoint = Vector3.zero;
+
+        PlayerPrefs.SetFloat("saveX", 0f);
+        PlayerPrefs.SetFloat("saveY", 0f);
 
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
 
