@@ -49,7 +49,8 @@ public class MGameController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
         {
-            Destroy(GameObject.Find("BG"));
+            Destroy(GameObject.Find("BGP1"));
+            Destroy(GameObject.Find("BGP2"));
             hudP1.transform.GetChild(0).gameObject.SetActive(true);
             hudP1.transform.GetChild(1).gameObject.SetActive(true);
             hudP2.transform.GetChild(0).gameObject.SetActive(true);

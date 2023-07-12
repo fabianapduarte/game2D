@@ -1044,7 +1044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &192519018
 Transform:
   m_ObjectHideFlags: 0
@@ -1573,7 +1573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 296278501}
   - component: {fileID: 296278503}
-  - component: {fileID: 296278502}
+  - component: {fileID: 296278504}
   m_Layer: 0
   m_Name: detectInZone
   m_TagString: Untagged
@@ -1596,18 +1596,6 @@ Transform:
   m_Father: {fileID: 192519018}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &296278502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296278500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba9b132d75a28847b3480ce52b327e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &296278503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1634,6 +1622,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 13.788391}
   m_EdgeRadius: 0
+--- !u!114 &296278504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296278500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c340414edb524a459d2cb6148dc6643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &311393427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &394552643
 Transform:
   m_ObjectHideFlags: 0
@@ -3534,7 +3534,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 599628966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba9b132d75a28847b3480ce52b327e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c340414edb524a459d2cb6148dc6643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &612872559
@@ -9619,7 +9619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594659007}
   - component: {fileID: 1594659009}
-  - component: {fileID: 1594659008}
+  - component: {fileID: 1594659010}
   m_Layer: 0
   m_Name: detectInZone
   m_TagString: Untagged
@@ -9642,18 +9642,6 @@ Transform:
   m_Father: {fileID: 1850911410}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1594659008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594659006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba9b132d75a28847b3480ce52b327e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1594659009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9680,6 +9668,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 13.788391}
   m_EdgeRadius: 0
+--- !u!114 &1594659010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594659006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c340414edb524a459d2cb6148dc6643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1599362678
 GameObject:
   m_ObjectHideFlags: 0
@@ -12180,7 +12180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1850911410
 Transform:
   m_ObjectHideFlags: 0
@@ -12399,7 +12399,7 @@ GameObject:
   - component: {fileID: 2013875427}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: GameController
+  m_TagString: MGameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12451,7 +12451,7 @@ MonoBehaviour:
   - {fileID: 7587605246683998437, guid: df6768be528bb904b8f771acee783986, type: 3}
   - {fileID: 8380370150417031522, guid: 1d836d06b7a06894ca9de77ce09d6129, type: 3}
   hudP1: {fileID: 11225026}
-  hudP2: {fileID: 0}
+  hudP2: {fileID: 2011468648}
 --- !u!1 &2015827290
 GameObject:
   m_ObjectHideFlags: 0

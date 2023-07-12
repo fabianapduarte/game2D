@@ -44,7 +44,7 @@ public class MCameraController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelTree"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 11.5f, 215.5f),
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 11.5f, 345.5f),
                                      Mathf.Clamp(transform.position.y,0f, 22f), transform.position.z);
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelFour"))
@@ -69,7 +69,7 @@ public class MCameraController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelTree"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 11.5f, 215.5f),
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 11.5f, 345.5f),
                                      Mathf.Clamp(transform.position.y, -70f, -40f), transform.position.z);
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelFour"))

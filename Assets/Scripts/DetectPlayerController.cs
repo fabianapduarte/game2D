@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class DetectPlayerController : MonoBehaviour
 {
     private int contabilizaStart = 0;
-
-
     public void setContabilizaStart()
     {
         contabilizaStart = 0;
@@ -45,133 +43,50 @@ public class DetectPlayerController : MonoBehaviour
             }
             if (transform.parent.name.Equals("Zone1"))
             {
-                GameObject spawner = null;
-                if (transform.parent.parent.name.Equals("LevelP1"))
-                {
-                    spawner = GameObject.Find("Spawner1P1");
-                }
-                else if (transform.parent.parent.name.Equals("LevelP2"))
-                {
-                    spawner = GameObject.Find("Spawner1P2");
-                }else
-                {
-                    spawner = GameObject.Find("Spawner1");
-                }
+                GameObject spawner = GameObject.Find("Spawner1");
                 if (spawner.transform.childCount != 0)
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
-                            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
-                        {
-                            spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
-                        }
-                        else
-                        {
-                            spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
-                        }
-                        Invoke("Sleep", 5f);
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
                     }
+                    Invoke("Sleep", 5f);
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
-                        SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
-                    {
-                        spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
-                    }
-                    else
-                    {
-                        spawner.GetComponent<SpawnerController>().GatilhoZona();
-                    }
+                    spawner.GetComponent<SpawnerController>().GatilhoZona();
                 }
             }
             else if (transform.parent.name.Equals("Zone2"))
             {
-                GameObject spawner = null;
-                if (transform.parent.parent.name.Equals("LevelP1"))
-                {
-                    spawner = GameObject.Find("Spawner1P1");
-                }
-                else if (transform.parent.parent.name.Equals("LevelP2"))
-                {
-                    spawner = GameObject.Find("Spawner1P2");
-                }
-                else
-                {
-                    spawner = GameObject.Find("Spawner2");
-                }
+                GameObject spawner = GameObject.Find("Spawner2");
                 if (spawner.transform.childCount != 0)
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
-                            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
-                        {
-                            spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
-                        }
-                        else
-                        {
-                            spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
-                        }
-                        Invoke("Sleep", 5f);
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
                     }
+                    Invoke("Sleep", 5f);
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
-                        SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
-                    {
-                        spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
-                    }
-                    else
-                    {
-                        spawner.GetComponent<SpawnerController>().GatilhoZona();
-                    }
+                    spawner.GetComponent<SpawnerController>().GatilhoZona();
                 }
             }
             else
             {
-                GameObject spawner = null;
-                if (transform.parent.parent.name.Equals("LevelP1"))
-                {
-                    spawner = GameObject.Find("Spawner1P1");
-                }
-                else if (transform.parent.parent.name.Equals("LevelP2"))
-                {
-                    spawner = GameObject.Find("Spawner1P2");
-                }
-                else
-                {
-                    spawner = GameObject.Find("Spawner3");
-                }
+                GameObject spawner = GameObject.Find("Spawner3");
                 if (spawner.transform.childCount != 0)
                 {
                     for (int ii = 0; ii < spawner.transform.childCount; ii++)
                     {
-                        if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
-                            SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
-                        {
-                            spawner.transform.GetChild(ii).GetComponent<SpawnerControllerM>().GatilhoZona();
-                        }
-                        else
-                        {
-                            spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
-                        }
-                        Invoke("Sleep", 5f);
+                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
                     }
+                    Invoke("Sleep", 5f);
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name.Equals("MLevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelTwo") ||
-                        SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
-                    {
-                        spawner.GetComponent<SpawnerControllerM>().GatilhoZona();
-                    }
-                    else
-                    {
-                        spawner.GetComponent<SpawnerController>().GatilhoZona();
-                    }
+                   spawner.GetComponent<SpawnerController>().GatilhoZona();
                 }
             }
         }
