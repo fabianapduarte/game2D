@@ -215,7 +215,7 @@ public class GameController : MonoBehaviour
         //Index da ultima fase
         if (SceneManager.GetActiveScene().name.Equals("Tutorial") || SceneManager.GetActiveScene().name.Equals("Acidron1") || SceneManager.GetActiveScene().name.Equals("Acidron2"))
         {
-            if(SceneManager.GetActiveScene().buildIndex == 8){
+            if(SceneManager.GetActiveScene().buildIndex == 12){
                 SceneManager.LoadScene(final);
             }
             else{

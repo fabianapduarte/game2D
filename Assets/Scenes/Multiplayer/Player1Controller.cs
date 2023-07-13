@@ -225,7 +225,7 @@ public class Player1Controller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("collectibles"))
         {
-            if (Input.GetButtonDown("Coleta"))
+            if (Input.GetKeyDown(KeyCode.M))
             {
                 if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
                 {

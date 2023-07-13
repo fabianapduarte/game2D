@@ -158,6 +158,10 @@ public class MGameController : MonoBehaviour
             countSpeedP1 = 0;
             countSpeedP2 = 0;
         }
+        else
+        {
+            CancelInvoke("GameOver");
+        }
         if (sceneName == "Placar")
         {
             if (verifVitoriaP1 == true && verifVitoriaP2 == true)
