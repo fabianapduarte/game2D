@@ -308,7 +308,7 @@ public class MGameController : MonoBehaviour
             verifVitoriaP1 = true;
             verifVitoriaP2 = false;
         }
-        string placar = SceneUtility.GetScenePathByBuildIndex(17);
+        string placar = SceneUtility.GetScenePathByBuildIndex(18);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(placar);
         contabilizaMorteP1 = 0;
