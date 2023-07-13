@@ -40,6 +40,8 @@ public class MGameController : MonoBehaviour
     private GameObject hudP1;
     private GameObject hudP2;
 
+    private string sceneName;
+
     void Start()
     {
         if (instance == null)
@@ -58,7 +60,6 @@ public class MGameController : MonoBehaviour
 
     private void Update()
     {
-        Invoke("GameOver", 90f);
         if (SceneManager.GetActiveScene().name.Equals("Placar"))
         {
             if(verifVitoriaP1 == true && verifVitoriaP2 == true)
@@ -67,6 +68,11 @@ public class MGameController : MonoBehaviour
                 GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
                 GameObject.Find("Empate1").SetActive(true);
                 GameObject.Find("Empate2").SetActive(true);
+                GameObject.Find("Vencedor1").SetActive(false);
+                GameObject.Find("Vencedor2").SetActive(false);
+                GameObject.Find("Perdedor1").SetActive(false);
+                GameObject.Find("Perdedor2").SetActive(false);
+
             }
             else if(verifVitoriaP1 == true)
             {
@@ -74,6 +80,10 @@ public class MGameController : MonoBehaviour
                 GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
                 GameObject.Find("Vencedor1").SetActive(true);
                 GameObject.Find("Perdedor2").SetActive(true);
+                GameObject.Find("Empate1").SetActive(false);
+                GameObject.Find("Empate2").SetActive(false);
+                GameObject.Find("Vencedor2").SetActive(false);
+                GameObject.Find("Perdedor1").SetActive(false);
             }
             else
             {
@@ -81,6 +91,10 @@ public class MGameController : MonoBehaviour
                 GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
                 GameObject.Find("Vencedor2").SetActive(true);
                 GameObject.Find("Perdedor1").SetActive(true);
+                GameObject.Find("Vencedor1").SetActive(false);
+                GameObject.Find("Perdedor2").SetActive(false);
+                GameObject.Find("Empate1").SetActive(false);
+                GameObject.Find("Empate2").SetActive(false);
             }
 
         }
@@ -157,13 +171,34 @@ public class MGameController : MonoBehaviour
         }
     }
 
-    void GameOver()
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    //Define coisas para cenas especificas quando estas sao carregadas - util demais
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "MLevelOne" || sceneName == "MLevelTwo" || sceneName == "MLevelTree" || sceneName == "MLevelFour")
+        {
+            Invoke("GameOver", 90f);
+        }
+    }
+
+        void GameOver()
     {
         if(scoreP1 > scoreP2)
         {
             verifVitoriaP1 = true;
             verifVitoriaP2 = false;
-        }else if(scoreP1 < scoreP2)
+        }
+        else if(scoreP1 < scoreP2)
         {
             verifVitoriaP1 = false;
             verifVitoriaP2 = true;
@@ -173,6 +208,7 @@ public class MGameController : MonoBehaviour
             verifVitoriaP1 = true;
             verifVitoriaP2 = true;
         }
+
     }
 
     void GameOver(GameObject player)
