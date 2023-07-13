@@ -90,7 +90,8 @@ public class MenuController : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         sceneName = SceneManager.GetActiveScene().name;
-        if (scene.name == "Derrota" || scene.name == "Vitoria"){
+        if (scene.name == "Derrota" || scene.name == "Vitoria" || scene.name == "Placar")
+        {
             // Encontra o bot�o pelo nome ou atrav�s de uma busca na hierarquia
             avancar = GameObject.Find("btn1").GetComponent<Button>();
             sair = GameObject.Find("btn2").GetComponent<Button>();
@@ -132,7 +133,7 @@ public class MenuController : MonoBehaviour
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Placar")
         {
             //Salva fase atual pra continuar
-            if(sceneName != "MLevelOne" && sceneName != "MLevelTwo" && sceneName != "MLevelTree" && sceneName != "MLevelFor")
+            if(sceneName != "MLevelOne" && sceneName != "MLevelTwo" && sceneName != "MLevelTree" && sceneName != "MLevelFour")
             {
                 PlayerPrefs.SetInt("FaseAtual", SceneManager.GetActiveScene().buildIndex);
             }
@@ -255,7 +256,8 @@ public class MenuController : MonoBehaviour
             }
         }
 
-        if (sceneName == "Derrota" || sceneName == "Vitoria"){
+        if (sceneName == "Derrota" || sceneName == "Vitoria" || sceneName == "Placar")
+        {
             if (Input.GetKey(KeyCode.LeftArrow)){
                 GameObject button = GameObject.Find("btn1");
                 EventSystem.current.SetSelectedGameObject(button);
@@ -300,6 +302,10 @@ public class MenuController : MonoBehaviour
             SceneManager.LoadScene(nameScene);
         }
         if (SceneManager.GetActiveScene().name.Equals("Vitoria"))
+        {
+            SceneManager.LoadScene(previousSceneIndex + 1);
+        }
+        if (SceneManager.GetActiveScene().name.Equals("Placar"))
         {
             SceneManager.LoadScene(previousSceneIndex + 1);
         }
