@@ -863,6 +863,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 22d97e5de6744234bb421a98d7a47645, type: 3}
   - {fileID: 8300000, guid: 64d857b785c6ae24c97f11d5be23a820, type: 3}
   - {fileID: 8300000, guid: 26ed5c907bd8d42409f006a19080a1d7, type: 3}
+  - {fileID: 8300000, guid: a3ca344a2ea1b7a4f898adb99100e239, type: 3}
+  - {fileID: 8300000, guid: a4a3d79abc68fd64a86e7a2f7f111f09, type: 3}
   - {fileID: 8300000, guid: 2cf983fdafe07654591586f2dcfff48c, type: 3}
   - {fileID: 8300000, guid: 2faf3c228cf076444bc442fabc84da19, type: 3}
   selectInMenu:
@@ -8100,6 +8102,7 @@ MonoBehaviour:
   play: 3
   pause: {fileID: 1376974178}
   gm: {fileID: 1221615057}
+  indexCena: 0
 --- !u!4 &1485562702
 Transform:
   m_ObjectHideFlags: 0
