@@ -394,7 +394,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2584347733953628903, guid: 2cafb386d027f63479fd59fb78d3e710, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2cafb386d027f63479fd59fb78d3e710, type: 3}
 --- !u!4 &45997981 stripped
 Transform:
@@ -6784,7 +6785,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4103789884661486605, guid: 9d6eca7d7a7be0046b07a442238f53e9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9d6eca7d7a7be0046b07a442238f53e9, type: 3}
 --- !u!4 &877425175 stripped
 Transform:
@@ -9997,7 +9999,7 @@ GameObject:
   - component: {fileID: 1171810042}
   - component: {fileID: 1171810041}
   m_Layer: 0
-  m_Name: GameController (1)
+  m_Name: GameController
   m_TagString: MGameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

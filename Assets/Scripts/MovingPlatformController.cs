@@ -28,8 +28,28 @@ public class MovingPlatformController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<PlayerController>().GetStatusInFloor())
-                collision.gameObject.transform.parent = transform;
+            if(collision.gameObject.name.Equals("Jogador1"))
+            {
+                if (collision.gameObject.GetComponent<Player1Controller>().GetStatusInFloor())
+                {
+                    collision.gameObject.transform.parent = transform;
+                }
+            }else if (collision.gameObject.name.Equals("Jogador2"))
+            {
+                if (collision.gameObject.GetComponent<Player2Controller>().GetStatusInFloor())
+                {
+                    collision.gameObject.transform.parent = transform;
+                }
+            }
+            else
+            {
+                if (collision.gameObject.GetComponent<PlayerController>().GetStatusInFloor())
+                {
+                    collision.gameObject.transform.parent = transform;
+                }
+            }
+
+                
         }
     }
 

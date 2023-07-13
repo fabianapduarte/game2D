@@ -53,13 +53,12 @@ public class MGameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-
-        hudP1 = GameObject.Find("numInfosP1");
-        hudP2 = GameObject.Find("numInfosP2");
     }
 
     private void Update()
     {
+        hudP1 = GameObject.Find("numInfosP1");
+        hudP2 = GameObject.Find("numInfosP2");
         if (SceneManager.GetActiveScene().name.Equals("Placar"))
         {
             if(verifVitoriaP1 == true && verifVitoriaP2 == true)
@@ -188,6 +187,14 @@ public class MGameController : MonoBehaviour
         if (sceneName == "MLevelOne" || sceneName == "MLevelTwo" || sceneName == "MLevelTree" || sceneName == "MLevelFour")
         {
             Invoke("GameOver", 90f);
+            scoreP1 = 0;
+            scoreP2 = 0;
+            countForceP1 = 0;
+            countForceP2 = 0;
+            countMagicP1 = 0;
+            countMagicP2 = 0;
+            countSpeedP1 = 0;
+            countSpeedP2 = 0;
         }
     }
 
@@ -208,6 +215,9 @@ public class MGameController : MonoBehaviour
             verifVitoriaP1 = true;
             verifVitoriaP2 = true;
         }
+        string placar = SceneUtility.GetScenePathByBuildIndex(18);
+        GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(placar);
 
     }
 
@@ -227,6 +237,14 @@ public class MGameController : MonoBehaviour
             verifVitoriaP1 = true;
             verifVitoriaP2 = false;
         }
+
+        countForceP1 = 0;
+        countForceP2 = 0;
+        countMagicP1 = 0;
+        countMagicP2 = 0;
+        countSpeedP1 = 0;
+        countSpeedP2 = 0;
+
         string placar = SceneUtility.GetScenePathByBuildIndex(18);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(placar);
