@@ -59,44 +59,6 @@ public class MGameController : MonoBehaviour
     {
         hudP1 = GameObject.Find("numInfosP1");
         hudP2 = GameObject.Find("numInfosP2");
-        if (SceneManager.GetActiveScene().name.Equals("Placar"))
-        {
-            if(verifVitoriaP1 == true && verifVitoriaP2 == true)
-            {
-                GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
-                GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
-                GameObject.Find("Empate1").SetActive(true);
-                GameObject.Find("Empate2").SetActive(true);
-                GameObject.Find("Vencedor1").SetActive(false);
-                GameObject.Find("Vencedor2").SetActive(false);
-                GameObject.Find("Perdedor1").SetActive(false);
-                GameObject.Find("Perdedor2").SetActive(false);
-
-            }
-            else if(verifVitoriaP1 == true)
-            {
-                GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
-                GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
-                GameObject.Find("Vencedor1").SetActive(true);
-                GameObject.Find("Perdedor2").SetActive(true);
-                GameObject.Find("Empate1").SetActive(false);
-                GameObject.Find("Empate2").SetActive(false);
-                GameObject.Find("Vencedor2").SetActive(false);
-                GameObject.Find("Perdedor1").SetActive(false);
-            }
-            else
-            {
-                GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
-                GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
-                GameObject.Find("Vencedor2").SetActive(true);
-                GameObject.Find("Perdedor1").SetActive(true);
-                GameObject.Find("Vencedor1").SetActive(false);
-                GameObject.Find("Perdedor2").SetActive(false);
-                GameObject.Find("Empate1").SetActive(false);
-                GameObject.Find("Empate2").SetActive(false);
-            }
-
-        }
     }
 
     public void DeadPlayer(GameObject player)
@@ -195,6 +157,43 @@ public class MGameController : MonoBehaviour
             countMagicP2 = 0;
             countSpeedP1 = 0;
             countSpeedP2 = 0;
+        }
+        if (sceneName == "Placar")
+        {
+            if (verifVitoriaP1 == true && verifVitoriaP2 == true)
+            {
+                GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
+                GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
+                GameObject.Find("Empate1").SetActive(true);
+                GameObject.Find("Empate2").SetActive(true);
+                GameObject.Find("Vencedor1").SetActive(false);
+                GameObject.Find("Vencedor2").SetActive(false);
+                GameObject.Find("Perdedor1").SetActive(false);
+                GameObject.Find("Perdedor2").SetActive(false);
+
+            }
+            else if (verifVitoriaP1 == true)
+            {
+                GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
+                GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
+                GameObject.Find("Vencedor1").SetActive(true);
+                GameObject.Find("Perdedor2").SetActive(true);
+                GameObject.Find("Empate1").SetActive(false);
+                GameObject.Find("Empate2").SetActive(false);
+                GameObject.Find("Vencedor2").SetActive(false);
+                GameObject.Find("Perdedor1").SetActive(false);
+            }
+            else
+            {
+                GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
+                GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
+                GameObject.Find("Vencedor2").SetActive(true);
+                GameObject.Find("Perdedor1").SetActive(true);
+                GameObject.Find("Vencedor1").SetActive(false);
+                GameObject.Find("Perdedor2").SetActive(false);
+                GameObject.Find("Empate1").SetActive(false);
+                GameObject.Find("Empate2").SetActive(false);
+            }
         }
     }
 
