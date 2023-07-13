@@ -15,8 +15,6 @@ GameObject:
   - component: {fileID: 7929636704581698958}
   - component: {fileID: 7929636704581698945}
   - component: {fileID: 7929636704581698944}
-  - component: {fileID: 8807655499328610423}
-  - component: {fileID: -8186101938837652611}
   m_Layer: 8
   m_Name: Enemy3.3
   m_TagString: Enemy
@@ -188,29 +186,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 0
---- !u!114 &8807655499328610423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7929636704581698954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0679a8c79774574a8da1df6e7e5fab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 1
---- !u!114 &-8186101938837652611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7929636704581698954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca031a549cd553e4d9dcd4c80e2942bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 1

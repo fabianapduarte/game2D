@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class MGameController : MonoBehaviour
 {
@@ -14,21 +15,20 @@ public class MGameController : MonoBehaviour
     private int scoreP2;
     private bool verifVitoriaP1 = false;
     private bool verifVitoriaP2 = false;
+    
 
-    private int contabilizaColetaP1 = 0;
-    private int contabilizaColetaP2 = 0;
+    private int countMagicP1 = 0;
+    private int countMagicP2 = 0;
 
     private int contabilizaMorteP1 = 0;
     private int contabilizaMorteP2 = 0;
 
-    private int contabilizaBonusSpeedP1 = 0;
-    private int contabilizaBonusForceP1 = 0;
+    private int countSpeedP1 = 0;
+    private int countForceP1 = 0;
 
-    private int contabilizaBonusSpeedP2 = 0;
-    private int contabilizaBonusForceP2 = 0;
+    private int countSpeedP2 = 0;
+    private int countForceP2 = 0;
 
-    private Vector3 savePointP1 = Vector3.zero;
-    private Vector3 savePointP2 = Vector3.zero;
 
     // enemies
     public GameObject[] enemiesLevelOne;
@@ -51,34 +51,20 @@ public class MGameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-
-        if (SceneManager.GetActiveScene().name.Equals("MLevelTree") || SceneManager.GetActiveScene().name.Equals("MLevelFour"))
-        {
-            Destroy(GameObject.Find("BGP1"));
-            Destroy(GameObject.Find("BGP2"));
-            hudP1.transform.GetChild(0).gameObject.SetActive(true);
-            hudP1.transform.GetChild(1).gameObject.SetActive(true);
-            hudP2.transform.GetChild(0).gameObject.SetActive(true);
-            hudP2.transform.GetChild(1).gameObject.SetActive(true);
-        }
-    }
-    public void SetContabilizaBonusForce(GameObject player)
-    {
-        if (player.name.Equals("Jogador1"))
-        {
-            contabilizaBonusForceP1 = 0;
-        }
-        else
-        {
-            contabilizaBonusForceP2 = 0;
-        }
     }
 
     private void Update()
     {
         if (SceneManager.GetActiveScene().name.Equals("Placar"))
         {
-            if(verifVitoriaP1 == true)
+            if(verifVitoriaP1 == true && verifVitoriaP2 == true)
+            {
+                GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
+                GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
+                GameObject.Find("Empate1").SetActive(true);
+                GameObject.Find("Empate2").SetActive(true);
+            }
+            else if(verifVitoriaP1 == true)
             {
                 GameObject.Find("pointP1").GetComponent<TextMeshProUGUI>().text = scoreP1 + "";
                 GameObject.Find("pointP2").GetComponent<TextMeshProUGUI>().text = scoreP2 + "";
@@ -94,94 +80,6 @@ public class MGameController : MonoBehaviour
             }
 
         }
-    }
-
-    public GameObject[] GetEnemies(int level)
-    {
-        if (level == 1)
-        {
-            return enemiesLevelOne;
-        }
-        else if (level == 2)
-        {
-            return enemiesLevelTwo;
-        }
-        else if (level == 3)
-        {
-            return enemiesLevelTree;
-        }
-        else
-        {
-            return enemiesLevelFour;
-        }
-    }
-
-    public void HurtPlayer(int danoEnemy, GameObject player)
-    {
-        if (player.name.Equals("Jogador1")) {
-            GameObject.Find(player.name).GetComponent<Player1Controller>().AnimationHurtPlayer();
-            if (danoEnemy > 1)
-            {
-                while (danoEnemy > 0)
-                {
-                    player1Lifes--;
-                    if (player1Lifes >= 0)
-                    {
-                        Destroy(GameObject.Find("LifePlayer").transform.GetChild(player1Lifes).gameObject);
-                    }
-                    danoEnemy--;
-                }
-            }
-            else
-            {
-                player1Lifes--;
-                if (player1Lifes >= 0)
-                {
-                    Destroy(GameObject.Find("LifePlayer").transform.GetChild(player1Lifes).gameObject);
-                }
-
-            }
-            if (player1Lifes <= 0)
-            {
-                GameObject.Find(player.name).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-                GameObject.Find(player.name).GetComponent<Player1Controller>().AnimationDeadPlayer();
-                DeadPlayer(player);
-                //Invoke("DeadPlayer", 1f);
-            }
-        }
-        else
-        {
-            GameObject.Find(player.name).GetComponent<Player2Controller>().AnimationHurtPlayer();
-            if (danoEnemy > 1)
-            {
-                while (danoEnemy > 0)
-                {
-                    player2Lifes--;
-                    if (player2Lifes >= 0)
-                    {
-                        Destroy(GameObject.Find("LifePlayer").transform.GetChild(player2Lifes).gameObject);
-                    }
-                    danoEnemy--;
-                }
-            }
-            else
-            {
-                player2Lifes--;
-                if (player2Lifes >= 0)
-                {
-                    Destroy(GameObject.Find("LifePlayer").transform.GetChild(player2Lifes).gameObject);
-                }
-
-            }
-            if (player2Lifes <= 0)
-            {
-                GameObject.Find(player.name).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-                GameObject.Find(player.name).GetComponent<Player2Controller>().AnimationDeadPlayer();
-                DeadPlayer(player);
-                //Invoke("DeadPlayer", 1f);
-            }
-        }
-
     }
 
     public void DeadPlayer(GameObject player)
@@ -206,89 +104,70 @@ public class MGameController : MonoBehaviour
         }
     }
 
-    public void SetSafePoint(GameObject savepoint, GameObject player)
-    {
-        if (player.name.Equals("Jogador1"))
-        {
-            savePointP1 = savepoint.transform.position;
-        }
-        else
-        {
-            savePointP2 = savepoint.transform.position;
-        }
-    }
-
-    public Vector3 GetSavePoint(GameObject player)
-    {
-        if (player.name.Equals("Jogador1"))
-        {
-            return savePointP1;
-        }
-        else
-        {
-            return savePointP2;
-        }
-
-    }
-
-
-    public void HurtEnemy(GameObject enemy, GameObject player)
-    {
-        if (player.name.Equals("Jogador1"))
-        {
-            enemy.GetComponent<EnemyControllerP1>().Hurt(GameObject.Find(player.name).GetComponent<Player1Controller>().GetDano());
-        }
-        else
-        {
-            enemy.GetComponent<EnemyControllerP2>().Hurt(GameObject.Find(player.name).GetComponent<Player2Controller>().GetDano());
-        }
-    }
-
     public void GetCollectibles(GameObject collectable, GameObject player)
     {
         if (collectable.layer == 10) // force
         {
             if (player.name.Equals("Jogador1"))
             {
-                if (contabilizaBonusForceP1 == 0)
-                {
-                    GameObject.Find(player.name).GetComponent<Player1Controller>().SetDanoPlayer(1);
-                    contabilizaBonusForceP1 = 1;
-                }
+                scoreP1 += 2;
+                countForceP1++;
+                hudP1.transform.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + countForceP1;
             }
             else
             {
-                if (contabilizaBonusForceP2 == 0)
-                {
-                    GameObject.Find(player.name).GetComponent<Player2Controller>().SetDanoPlayer(1);
-                    contabilizaBonusForceP2 = 1;
-                }
+                scoreP2 += 2;
+                countForceP2++;
+                hudP2.transform.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + countForceP2;
             }
         }
         if (collectable.layer == 11) // speed
         {
             if (player.name.Equals("Jogador1"))
             {
-                if (GameObject.Find(player.name).GetComponent<Player1Controller>().GetSpeed() <= maxSpeed)
-                {
-                    if (contabilizaBonusSpeedP1 == 0)
-                    {
-                        GameObject.Find(player.name).GetComponent<Player1Controller>().SetSpeed(1);
-                        contabilizaBonusSpeedP1 = 1;
-                    }
-                }
+                scoreP1++;
+                countSpeedP1++;
+                hudP1.transform.GetChild(3).GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + countSpeedP1;
             }
             else
             {
-                if (GameObject.Find(player.name).GetComponent<Player2Controller>().GetSpeed() <= maxSpeed)
-                {
-                    if (contabilizaBonusSpeedP2 == 0)
-                    {
-                        GameObject.Find(player.name).GetComponent<Player2Controller>().SetSpeed(1);
-                        contabilizaBonusSpeedP2 = 1;
-                    }
-                }
+                scoreP2++;
+                countSpeedP2++;
+                hudP2.transform.GetChild(3).GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + countSpeedP2;
             }
+        }
+        if (collectable.layer == 14) // magic
+        {
+            if (player.name.Equals("Jogador1"))
+            {
+                scoreP1 += 3;
+                countMagicP1++;
+                hudP1.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + countMagicP1;
+            }
+            else
+            {
+                scoreP2 += 3;
+                countMagicP2++;
+                hudP2.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + countMagicP2;
+            }
+        }
+    }
+
+    void GameOver()
+    {
+        if(scoreP1 > scoreP2)
+        {
+            verifVitoriaP1 = true;
+            verifVitoriaP2 = false;
+        }else if(scoreP1 < scoreP2)
+        {
+            verifVitoriaP1 = false;
+            verifVitoriaP2 = true;
+        }
+        else
+        {
+            verifVitoriaP1 = true;
+            verifVitoriaP2 = true;
         }
     }
 
@@ -298,13 +177,13 @@ public class MGameController : MonoBehaviour
         player2Lifes = 5;
         if (player.name.Equals("Jogador1"))
         {
-            scoreP2++;
+            scoreP1 = 0;
             verifVitoriaP1 = false;
             verifVitoriaP2 = true;
         }
         else
         {
-            scoreP1++;
+            scoreP2 = 0;
             verifVitoriaP1 = true;
             verifVitoriaP2 = false;
         }

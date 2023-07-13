@@ -27,12 +27,6 @@ public class Player1Controller : MonoBehaviour
     {
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        if (FindObjectOfType<MGameController>().GetSavePoint(gameObject) != Vector3.zero)
-        {
-            transform.position = FindObjectOfType<MGameController>().GetSavePoint(gameObject);
-            FindObjectOfType<MGameController>().SetContabilizaBonusForce(gameObject);
-            SetSpeed(1);
-        }
     }
 
     // Update is called once per frame
@@ -193,50 +187,8 @@ public class Player1Controller : MonoBehaviour
         return;
     }
 
-    public float GetSpeed()
-    {
-        return speed;
-    }
-
-    public void SetSpeed(float valor)
-    {
-        speed += valor;
-    }
-
-    public int GetDano()
-    {
-        return danoPlayer;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Animator animator = GetComponent<Animator>();
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Attack"))
-        {
-            if (contabilizaDano == 0)
-            {
-                GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
-                FindObjectOfType<MGameController>().HurtEnemy(collision.gameObject, gameObject);
-                contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
-                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
-                controle.Vibrate(0.3f);
-            }
-        }
-        if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Spell"))
-        {
-            if (contabilizaDano == 0)
-            {
-                GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
-                FindObjectOfType<MGameController>().HurtEnemy(collision.gameObject, gameObject);
-                contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
-                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
-                controle.Vibrate(0.3f);
-            }
-        }
-
         if (collision.gameObject.CompareTag("ladder"))
         {
             isLadder = true;
@@ -253,15 +205,6 @@ public class Player1Controller : MonoBehaviour
             ani.SetBool("isDead", true);
             FindObjectOfType<MGameController>().DeadPlayer(gameObject);
         }
-
-        if (collision.gameObject.CompareTag("savepoint"))
-        {
-            FindObjectOfType<MGameController>().SetSafePoint(collision.gameObject, gameObject);
-        }
-    }
-    public void SetDanoPlayer(int valor)
-    {
-        danoPlayer += valor;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -280,14 +223,6 @@ public class Player1Controller : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("treasureChest"))
-        {
-            if (Input.GetButtonDown("Open"))
-            {
-                collision.GetComponent<TreasureChestController>().AnimationOpen();
-            }
-        }
-
         if (collision.gameObject.CompareTag("collectibles"))
         {
             if (Input.GetButtonDown("Coleta"))
