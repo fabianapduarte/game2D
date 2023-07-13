@@ -1649,7 +1649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166415191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 276, y: 0.8, z: -10}
+  m_LocalPosition: {x: 11.5, y: 0.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5268,7 +5268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &555977837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9335,7 +9335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1040266181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9888,11 +9888,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8141365021083468839, guid: 4cbac1dda337be84c911c0394c4285af, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 969.1
+      value: 971.2
       objectReference: {fileID: 0}
     - target: {fileID: 8141365021083468839, guid: 4cbac1dda337be84c911c0394c4285af, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 540
+      value: 539.89
       objectReference: {fileID: 0}
     - target: {fileID: 8141365021083468839, guid: 4cbac1dda337be84c911c0394c4285af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12096,7 +12096,6 @@ MonoBehaviour:
   enemiesLevelFive:
   - {fileID: 7848710450595917062, guid: 2b9a83bf352f8824ebb78dfb8bb41d28, type: 3}
   enemiesAcidron1: []
-  hud: {fileID: 0}
 --- !u!4 &1553286238
 Transform:
   m_ObjectHideFlags: 0
@@ -13284,7 +13283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1715689967
 MonoBehaviour:
   m_ObjectHideFlags: 0

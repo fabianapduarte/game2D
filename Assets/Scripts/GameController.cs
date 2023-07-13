@@ -28,7 +28,6 @@ public class GameController : MonoBehaviour
     public GameObject[] enemiesAcidron1;
 
     public static GameController instance = null;
-    public GameObject hud; 
 
     // Start is called before the first frame update
     void Start()
@@ -47,8 +46,8 @@ public class GameController : MonoBehaviour
             SceneManager.GetActiveScene().name.Equals("LevelFour") || SceneManager.GetActiveScene().name.Equals("LevelFive"))
         {
             Destroy(GameObject.Find("BG"));
-            hud.transform.GetChild(0).gameObject.SetActive(true);
-            hud.transform.GetChild(1).gameObject.SetActive(true);
+            GameObject.Find("numInfos").transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("numInfos").transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 

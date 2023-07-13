@@ -154,6 +154,10 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                rb.bodyType = RigidbodyType2D.Dynamic;
+            }
         }
     }
 
