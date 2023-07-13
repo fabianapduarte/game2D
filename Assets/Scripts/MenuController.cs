@@ -97,6 +97,13 @@ public class MenuController : MonoBehaviour
             sair = GameObject.Find("btn2").GetComponent<Button>();
             avancar.onClick.AddListener(loadScene);
             sair.onClick.AddListener(mainMenu);
+
+            if(scene.name == "Placar" && previousSceneIndex == 17)
+            {
+                GameObject.Find("btn1").SetActive(false);
+                GameObject buttonSair = GameObject.Find("btn2");
+                EventSystem.current.SetSelectedGameObject(buttonSair);
+            }
         }
 
         if (scene.name == "FimDeJogo")
