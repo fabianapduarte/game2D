@@ -3617,7 +3617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1141983332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6370,7 +6370,6 @@ MonoBehaviour:
   - {fileID: 7848710450595917062, guid: 2b9a83bf352f8824ebb78dfb8bb41d28, type: 3}
   enemiesAcidron1:
   - {fileID: 7970672001000105977, guid: 17787b135d2a26944b83b0c1a0484561, type: 3}
-  hud: {fileID: 0}
 --- !u!4 &2013875426
 Transform:
   m_ObjectHideFlags: 0
