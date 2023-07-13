@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
-    private float minX5 = 11f, maxX5 = 277.1f, minY5 = 1.33f;
+    private float minX5 = 11f, maxX5 = 276f, minY5 = 1.33f;
 
     private float minX6 = -9.25f, maxX6 = 53.2f;
 
@@ -59,17 +59,6 @@ public class CameraController : MonoBehaviour
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
                          Mathf.Clamp(transform.position.y, minY5, 9f), transform.position.z);
-            /*
-            if (transform.position.x < 153f)
-            {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
-                         Mathf.Clamp(transform.position.y, 0.01f, 3.8f), transform.position.z);
-            }
-            else
-            {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX5, maxX5),
-                         Mathf.Clamp(transform.position.y, 3.57f, 3.8f), transform.position.z);
-            }*/
         }
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
@@ -213,7 +202,7 @@ public class CameraController : MonoBehaviour
         if (level == 5)
         {
             minX5 = 9.12f;
-            maxX5 = 277.1f;
+            maxX5 = 276f;
             minY5 = 0.5f;
         }
 
