@@ -8,17 +8,6 @@ public class MCameraController : MonoBehaviour
     private Transform player1;
     private Transform player2;
 
-    private float minX1 = -3f, maxX1 = 223.5f;
-
-    private float minX2 = -10.5f, maxX2 = 217.2f;
-
-    private float minX3 = 0.3f, maxX3 = 356.8f;
-
-    private float minX4 = -2.9f, maxX4 = 239.1f;
-
-    private float minX5 = 11f, maxX5 = 277.1f, minY5 = 1.33f;
-
-    private float minX6 = -9.25f, maxX6 = 53.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,8 +38,8 @@ public class MCameraController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelFour"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX4, maxX4),
-                         Mathf.Clamp(transform.position.y, 1.24f, 3.45f), transform.position.z);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 10f, 231.7f),
+                         Mathf.Clamp(transform.position.y, 22f, 32f), transform.position.z);
             }
         }
         else
@@ -74,8 +63,8 @@ public class MCameraController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("MLevelFour"))
             {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX4, maxX4),
-                         Mathf.Clamp(transform.position.y, 1.24f, 3.45f), transform.position.z);
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 10f, 231.7f),
+                         Mathf.Clamp(transform.position.y, -19.5f, -10f), transform.position.z);
             }
         }
     }
