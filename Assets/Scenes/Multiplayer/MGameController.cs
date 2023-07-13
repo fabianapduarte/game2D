@@ -37,8 +37,8 @@ public class MGameController : MonoBehaviour
     public GameObject[] enemiesLevelFour;
 
     public static MGameController instance = null;
-    public GameObject hudP1;
-    public GameObject hudP2;
+    private GameObject hudP1;
+    private GameObject hudP2;
 
     void Start()
     {
@@ -51,10 +51,14 @@ public class MGameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        hudP1 = GameObject.Find("numInfosP1");
+        hudP2 = GameObject.Find("numInfosP2");
     }
 
     private void Update()
     {
+        Invoke("GameOver", 90f);
         if (SceneManager.GetActiveScene().name.Equals("Placar"))
         {
             if(verifVitoriaP1 == true && verifVitoriaP2 == true)

@@ -208,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11225027}
   m_Layer: 5
-  m_Name: numInfos
+  m_Name: numInfosP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10596,14 +10596,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1693028074}
-  - {fileID: 2037277830}
   - {fileID: 667640867}
-  - {fileID: 2055773889}
+  - {fileID: 2037277830}
   - {fileID: 1229121330}
+  - {fileID: 2055773889}
   - {fileID: 1466480991}
   - {fileID: 971756914}
-  - {fileID: 6715739016768104607}
   - {fileID: 1071895258}
+  - {fileID: 6715739016768104607}
   - {fileID: 1902150978}
   - {fileID: 1138125466}
   m_Father: {fileID: 416240663}
@@ -11101,7 +11101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2011468649}
   m_Layer: 5
-  m_Name: numInfos
+  m_Name: numInfosP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

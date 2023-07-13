@@ -9762,7 +9762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 952590791}
   m_Layer: 5
-  m_Name: numInfos
+  m_Name: numInfosP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15613,7 +15613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1490256948}
   m_Layer: 5
-  m_Name: numInfos
+  m_Name: numInfosP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18553,8 +18553,6 @@ MonoBehaviour:
   - {fileID: 5151229122201477508, guid: 83240181275588e4495d50601c0f2c65, type: 3}
   - {fileID: 7587605246683998437, guid: df6768be528bb904b8f771acee783986, type: 3}
   - {fileID: 8380370150417031522, guid: 1d836d06b7a06894ca9de77ce09d6129, type: 3}
-  hudP1: {fileID: 0}
-  hudP2: {fileID: 0}
 --- !u!4 &1781965272
 Transform:
   m_ObjectHideFlags: 0
