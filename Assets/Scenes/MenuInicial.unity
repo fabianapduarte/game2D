@@ -2092,8 +2092,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.056915, y: -16}
-  m_SizeDelta: {x: 845.6362, y: 224.26}
+  m_AnchoredPosition: {x: 282.89816, y: -7.4572}
+  m_SizeDelta: {x: 1281.3188, y: 313.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219158891
 MonoBehaviour:
@@ -2115,8 +2115,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor
-    incididunt et dolore magna aliqua enim ad minim veniam
+  m_text: "Anchel Vitor Varela da Silva - Desenvolvedor e Designer de N\xEDvel\r\nBianca
+    Mirtes Ara\xFAjo Miranda - Desenvolvedora e Sonoplasta\r\nPablo Messias Rodrigues
+    dos Santos - Desenvolvedor e Designer de N\xEDvel\nSamuel Soares Pereira Costa
+    - Desenvolvedor e Artista\r\nOs Assets n\xE3o autorais est\xE3o sendo utilizados
+    mediante licen\xE7as CC0 e CC4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
   m_sharedMaterial: {fileID: -1312703284477486907, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
@@ -2143,8 +2146,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2179,7 +2182,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -1.8708496, z: 0, w: -1.870697}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
