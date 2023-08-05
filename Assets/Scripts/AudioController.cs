@@ -129,7 +129,7 @@ public class AudioController : MonoBehaviour
 
     public void RunningPlay()
     {
-        AudioClip teste = running[0];
+        AudioClip teste = running[Random.Range(0, running.Length)];
         runningPlayer.clip = teste;
         runningPlayer.Play();
     }
