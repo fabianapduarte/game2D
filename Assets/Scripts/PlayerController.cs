@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isClimbing;
     private bool isLadder;
+    private int condicaoPassos = 0;
 
     public Transform detectFloor;
     public LayerMask isFloor;
@@ -88,11 +89,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && dialogo==null)
         {
             if (playerInFloor) {
+                rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
                 doubleJump = true;
             } else if (!playerInFloor && doubleJump == true){
+                rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
@@ -186,14 +189,27 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
+            if(condicaoPassos == 0)
+            {
+                GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
+                condicaoPassos = 1;
+            }
             Flip(false);
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
+            if (condicaoPassos == 0)
+            {
+                GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
+                condicaoPassos = 1;
+            }
             Flip(true);
         }
         else{
             ani.SetBool("isRunning", false);
+            GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
+            Invoke("resetPassos", 1f);
+            
 
         }
 
@@ -262,6 +278,12 @@ public class PlayerController : MonoBehaviour
     private void Sleep()
     {
         contabilizaDano = 0;
+        return;
+    }
+
+    private void resetPassos()
+    {
+        condicaoPassos = 0;
         return;
     }
 
