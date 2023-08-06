@@ -81,7 +81,13 @@ public class GameController : MonoBehaviour
     }
 
     public void HurtPlayer(int danoEnemy)
-    {
+    {        
+        if (playerLifes <= 0)
+        {
+            GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationDeadPlayer();
+            Invoke("DeadPlayer", 1f);
+        }
         GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationHurtPlayer();
         if(danoEnemy > 1)
         {
@@ -104,12 +110,7 @@ public class GameController : MonoBehaviour
             }
 
         }
-        if (playerLifes <= 0)
-        {
-            GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-            GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationDeadPlayer();
-            Invoke("DeadPlayer", 1f);
-        }
+
     }
 
     public void DeadPlayer()
