@@ -73,22 +73,6 @@ public class DetectPlayerController : MonoBehaviour
                     spawner.GetComponent<SpawnerController>().GatilhoZona();
                 }
             }
-            else
-            {
-                GameObject spawner = GameObject.Find("Spawner3");
-                if (spawner.transform.childCount != 0)
-                {
-                    for (int ii = 0; ii < spawner.transform.childCount; ii++)
-                    {
-                        spawner.transform.GetChild(ii).GetComponent<SpawnerController>().GatilhoZona();
-                    }
-                    Invoke("Sleep", 5f);
-                }
-                else
-                {
-                   spawner.GetComponent<SpawnerController>().GatilhoZona();
-                }
-            }
         }
     }
     public void Sleep()
