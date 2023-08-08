@@ -29,9 +29,15 @@ public class PlayerController : MonoBehaviour
     private int condicaoPassos = 0;
 
     public Transform detectFloor;
+    public Transform detectFloor2;
     public LayerMask isFloor;
     public float slopeCheckDistance;
     private float slopeAngle;
+    private bool isOnSlope;
+    private Vector2 perpendicularSpeed;
+
+    public PhysicsMaterial2D noFriction;
+    public PhysicsMaterial2D friction;
 
     private DialogueTipo2Controller dc;
 
@@ -85,6 +91,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(playerInFloor);
         float vertical = Input.GetAxisRaw("Vertical");
         GameObject dialogo = GameObject.Find("Dialogue");
 
@@ -92,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && dialogo==null)
         {
-            if (playerInFloor) {
+            if (playerInFloor || isOnSlope) {
                 rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
@@ -108,6 +115,7 @@ public class PlayerController : MonoBehaviour
                 doubleJump = false;
             }
             ani.SetBool("isJumping", true);
+            rb.sharedMaterial = noFriction;
         } else {
             //ani.SetBool("isJumping", false);
         }
@@ -184,8 +192,20 @@ public class PlayerController : MonoBehaviour
 
         if (hitSlope)
         {
+            perpendicularSpeed = Vector2.Perpendicular(hitSlope.normal).normalized;
+
             slopeAngle = Vector2.Angle(hitSlope.normal, Vector2.up);
-            print(slopeAngle);
+            isOnSlope = slopeAngle != 0;
+            //print(slopeAngle);
+        }
+
+        if(isOnSlope && !Input.anyKey && Input.GetAxis("Horizontal")==0)
+        {
+            rb.sharedMaterial = friction;
+        }
+        else
+        {
+            rb.sharedMaterial = noFriction;
         }
     }
 
@@ -204,7 +224,18 @@ public class PlayerController : MonoBehaviour
         // Movimentacao
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
+
+        if (isOnSlope && playerInFloor)
+        {
+            //MOVIMENTACAO NA COLINA
+            rb.velocity = new Vector3(speed * (-horizontal) * perpendicularSpeed.x * 0.8f, speed * (-horizontal) * perpendicularSpeed.y * 0.8f, 0f);
+        }
+        else
+        {
+            //MOVIMENTACAO PADRAO
+            rb.velocity = new Vector3(speed * horizontal, rb.velocity.y, 0f);
+        }
+        
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
             if(condicaoPassos == 0)
@@ -259,8 +290,24 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(0, rb.velocity.y, 0f);
         }
 
-        playerInFloor = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.16739f, 0.16739f), 0f, isFloor);
+        //old 0.16739f
+        bool detect1 = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.3f, 0.3f), 0f, isFloor);
+        bool detect2 = Physics2D.OverlapBox(detectFloor2.position, new Vector2(0.3f, 0.3f), 0f, isFloor);
+        if((detect1 && detect2) == false)
+        {
+            //coyoteTimeContador
+            Invoke("resetCoyoteTime", 0.2f);
+        }
+        else {
+            playerInFloor = true;
+            CancelInvoke("resetCoyoteTime");
+        }
         /*playerInFloor = Physics2D.OverlapCircle(detectFloor.position, 0.0887f, isFloor);*/
+    }
+
+    private void resetCoyoteTime()
+    {
+        playerInFloor = false;
     }
 
     private void TimeTransitionHurt()
@@ -274,6 +321,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.layer == 3) // floor
         {
             playerInFloor = true;
+            CancelInvoke("resetCoyoteTime");
             doubleJump = false;
         }
 
