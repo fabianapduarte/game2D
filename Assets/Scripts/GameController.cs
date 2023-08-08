@@ -86,7 +86,31 @@ public class GameController : MonoBehaviour
         {
             GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
             GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationDeadPlayer();
+            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach( var enemy in enemys)
+            {
+                if (enemy.layer == 6)
+                {
+                    enemy.GetComponent<Enemy1Controller>().SetPlayerCheck(false);
+                }
+
+                if (enemy.layer == 7)
+                {
+                    enemy.GetComponent<Enemy2Controller>().SetPlayerCheck(false);
+                }
+
+                if (enemy.layer == 8)
+                {
+                    enemy.GetComponent<Enemy3Controller>().SetPlayerCheck(false);
+                }
+
+                if (enemy.layer == 9)
+                {
+                    enemy.GetComponent<Enemy4Controller>().SetPlayerCheck(false);
+                }
+            }
             Invoke("DeadPlayer", 1f);
+            return;
         }
         GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationHurtPlayer();
         if(danoEnemy > 1)

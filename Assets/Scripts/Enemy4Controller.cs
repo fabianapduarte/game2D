@@ -10,6 +10,7 @@ public class Enemy4Controller : MonoBehaviour
     private int speed = 2;
     private Transform player;
     public bool facingLeft = true;
+    private bool playerCheck = true;
 
     private int contabilizaDano = 0;
     // Start is called before the first frame update
@@ -31,8 +32,15 @@ public class Enemy4Controller : MonoBehaviour
 
         if (distanciaPontosMedios > limite)
         {
-            ani.SetBool("isRunning", true);
-            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            if(playerCheck == true)
+            {
+                ani.SetBool("isRunning", true);
+                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            }
+            else
+            {
+                ani.SetBool("isRunning", false);
+            }
 
             if (player.position.x < transform.position.x && !facingLeft)
             {
@@ -57,6 +65,11 @@ public class Enemy4Controller : MonoBehaviour
                 Invoke("TimeTransitionAttack", 0.6f);
             }
         }
+    }
+
+    public void SetPlayerCheck( bool valor)
+    {
+        this.playerCheck = valor;
     }
 
     void Flip()
