@@ -1135,7 +1135,8 @@ MonoBehaviour:
     especial para Clembod, criador(a) da Sim\xE9tra, protagonista do jogo.\r\n\r\nAssets
     que possuem licen\xE7a CC4 (Atribui\xE7\xE3o): \r\nBackground e Ambienta\xE7\xE3o
     do P\xE2ntano de Asudem - Criador(a): The Flavare\r\nColet\xE1veis - Criador(a):
-    AhNinniah\r\nBackground do Tutorial - Criador(a): Devnewton"
+    AhNinniah\r\nBackground do Tutorial - Criador(a): Devnewton\nBarra de Vida dos
+    BOSSs - Criador(a): Adwitr\nBoss da Caverna de Aigolotim - Criador(a): Chierit\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
   m_sharedMaterial: {fileID: -1312703284477486907, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}

@@ -18,7 +18,8 @@ public class GameController : MonoBehaviour
     private int contabilizaBonusForce = 0;
 
     //private Vector3 savePoint = Vector3.zero;
-   
+    private string sceneCurrent;
+
     // enemies
     public GameObject[] enemiesLevelOne;
     public GameObject[] enemiesLevelTwo;
@@ -49,6 +50,11 @@ public class GameController : MonoBehaviour
             GameObject.Find("numInfos").transform.GetChild(0).gameObject.SetActive(true);
             GameObject.Find("numInfos").transform.GetChild(1).gameObject.SetActive(true);
         }
+    }
+
+    private void Update()
+    {
+        sceneCurrent = SceneManager.GetActiveScene().name;
     }
 
     public void SetContabilizaBonusForce()
@@ -160,6 +166,33 @@ public class GameController : MonoBehaviour
 
     public void HurtEnemy(GameObject enemy)
     {
+        if (enemy.tag.Equals("Boss"))
+        {
+            if (sceneCurrent.Equals("LevelOne"))
+            {
+                enemy.GetComponent<BossController>().Hurt(0.25f);
+            }
+            if (sceneCurrent.Equals("LevelTwo"))
+            {
+                enemy.GetComponent<BossController>().Hurt(0.20f);
+            }
+            if (sceneCurrent.Equals("LevelTree"))
+            {
+                enemy.GetComponent<BossController>().Hurt(0.20f);
+            }
+            if (sceneCurrent.Equals("LevelFour"))
+            {
+                enemy.GetComponent<BossController>().Hurt(0.15f);
+            }
+            if (sceneCurrent.Equals("LevelFive"))
+            {
+                enemy.GetComponent<BossController>().Hurt(0.10f);
+            }
+        }
+        if (enemy.layer == 6)
+        {
+            enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
+        }
         if (enemy.layer == 6)
         {
             enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
