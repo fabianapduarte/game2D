@@ -21,6 +21,7 @@ TagManager:
   - ObjAzul
   - zone
   - MGameController
+  - Boss
   layers:
   - Default
   - TransparentFX
