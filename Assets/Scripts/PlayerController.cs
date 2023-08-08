@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform detectFloor;
     public LayerMask isFloor;
+    public float slopeCheckDistance;
+    private float slopeAngle;
 
     private DialogueTipo2Controller dc;
 
@@ -85,6 +87,8 @@ public class PlayerController : MonoBehaviour
     {
         float vertical = Input.GetAxisRaw("Vertical");
         GameObject dialogo = GameObject.Find("Dialogue");
+
+        DetectSlopes();
 
         if (Input.GetButtonDown("Jump") && dialogo==null)
         {
@@ -171,6 +175,18 @@ public class PlayerController : MonoBehaviour
     public bool GetStatusInFloor()
     {
         return playerInFloor;
+    }
+
+    public void DetectSlopes()
+    {
+        //Vector2 position = new Vector2(0f, 0f);
+        RaycastHit2D hitSlope = Physics2D.Raycast(detectFloor.position, Vector2.down, slopeCheckDistance, isFloor);
+
+        if (hitSlope)
+        {
+            slopeAngle = Vector2.Angle(hitSlope.normal, Vector2.up);
+            print(slopeAngle);
+        }
     }
 
     //private AudioSource running;
