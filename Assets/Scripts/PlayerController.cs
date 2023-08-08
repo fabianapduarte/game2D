@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 6;
     private int danoPlayer = 1;
-    public float jumpForce;
+    private float jumpForce = 8.5f;
     public bool doubleJump;
 
     private Rigidbody2D rb;
@@ -91,12 +91,14 @@ public class PlayerController : MonoBehaviour
             if (playerInFloor) {
                 rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
                 GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
                 doubleJump = true;
             } else if (!playerInFloor && doubleJump == true){
                 rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
                 GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
                 doubleJump = false;
@@ -208,7 +210,7 @@ public class PlayerController : MonoBehaviour
         else{
             ani.SetBool("isRunning", false);
             GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
-            Invoke("resetPassos", 1f);
+            Invoke("resetPassos", 0.13f);
             
 
         }
