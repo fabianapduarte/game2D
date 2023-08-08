@@ -194,7 +194,7 @@ MonoBehaviour:
   isFloor:
     serializedVersion: 2
     m_Bits: 8
-  slopeCheckDistance: 0
+  slopeCheckDistance: 2
   noFriction: {fileID: 6200000, guid: 6bbaf1f1d28933347bd1c54e3a0914a3, type: 2}
   friction: {fileID: 6200000, guid: 67b48d94556efdd469150d67a944f176, type: 2}
 --- !u!61 &4103789884661486609
