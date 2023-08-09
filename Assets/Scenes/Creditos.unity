@@ -1136,7 +1136,13 @@ MonoBehaviour:
     que possuem licen\xE7a CC4 (Atribui\xE7\xE3o): \r\nBackground e Ambienta\xE7\xE3o
     do P\xE2ntano de Asudem - Criador(a): The Flavare\r\nColet\xE1veis - Criador(a):
     AhNinniah\r\nBackground do Tutorial - Criador(a): Devnewton\nBarra de Vida dos
-    BOSSs - Criador(a): Adwitr\nBoss da Caverna de Aigolotim - Criador(a): Chierit\n"
+    BOSSs - Criador(a): Adwitr\nBoss da Caverna de Aigolotim - Criador(a): Chierit\nO
+    a\xFAdio do jogo foi feito inteiramente com a\xFAdios das plataformas Pixabay,
+    Freesound e Unity Assets Store. \nO Pixabay permite o uso dos a\xFAdios por meio
+    de uma Licen\xE7a de Conte\xFAdo, que permite que utilizemos as midias sem necessidade
+    de atribui\xE7\xE3o aos autores(as) e possamos modific\xE1-las para utiliza\xE7\xE3o
+    em projetos comerciais (desde que n\xE3o haja marcas registradas, logotipos ou
+    marcas reconhec\xEDveis) ou n\xE3o-comerciais."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
   m_sharedMaterial: {fileID: -1312703284477486907, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
