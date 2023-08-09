@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         print(playerInFloor);
+        print("ladeira: " + isOnSlope);
         float vertical = Input.GetAxisRaw("Vertical");
         GameObject dialogo = GameObject.Find("Dialogue");
 
@@ -106,6 +107,8 @@ public class PlayerController : MonoBehaviour
                 GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
                 doubleJump = true;
+                isOnSlope = false;
+                ani.SetBool("isJumping", true);
             } else if (!playerInFloor && doubleJump == true){
                 rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -113,8 +116,8 @@ public class PlayerController : MonoBehaviour
                 GameObject.Find("AudioController").GetComponent<AudioController>().Jump();
                 playerInFloor = false;
                 doubleJump = false;
+                ani.SetBool("isJumping", true);
             }
-            ani.SetBool("isJumping", true);
             rb.sharedMaterial = noFriction;
         } else {
             //ani.SetBool("isJumping", false);
@@ -195,7 +198,7 @@ public class PlayerController : MonoBehaviour
             perpendicularSpeed = Vector2.Perpendicular(hitSlope.normal).normalized;
 
             slopeAngle = Vector2.Angle(hitSlope.normal, Vector2.up);
-            isOnSlope = slopeAngle != 0;
+            isOnSlope = slopeAngle > 5;
             //print(slopeAngle);
         }
 
@@ -296,7 +299,7 @@ public class PlayerController : MonoBehaviour
         if((detect1 && detect2) == false)
         {
             //coyoteTimeContador
-            Invoke("resetCoyoteTime", 0.2f);
+            Invoke("resetCoyoteTime", 0.25f);
         }
         else {
             playerInFloor = true;

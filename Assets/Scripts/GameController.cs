@@ -160,7 +160,7 @@ public class GameController : MonoBehaviour
 
     public Vector3 GetSavePoint()
     {
-        Vector3 savePointVector = new Vector3(PlayerPrefs.GetFloat("saveX"), PlayerPrefs.GetFloat("saveY"), -10f);
+        Vector3 savePointVector = new Vector3(PlayerPrefs.GetFloat("saveX"), PlayerPrefs.GetFloat("saveY"), 0f);
         return savePointVector;
     }
 
