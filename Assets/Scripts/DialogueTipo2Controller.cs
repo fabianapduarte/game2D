@@ -79,7 +79,9 @@ public class DialogueTipo2Controller : MonoBehaviour
         dialogue.GetComponent<Animation>().Play("DialogueEnd");
         if(nameNPC.text.Equals("Rainha Lechna"))
         {
-            GameObject.Find("Queen").GetComponent<ConstantForce2D>().relativeForce = new Vector2(-0.25f, 0f);
+            GameObject.Find("Queen").GetComponent<ConstantForce2D>().relativeForce = new Vector2(-0.45f, 0f);
+            Animator aniQueen = GameObject.Find("Queen").GetComponent<Animator>();
+            aniQueen.SetBool("isWalking", true);
         }
         startDialogue = true;
     }
