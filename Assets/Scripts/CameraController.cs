@@ -95,10 +95,15 @@ public class CameraController : MonoBehaviour
     {
         if (zone == "Zone1")
         {
-            this.minX2 = 44.4f;
-            this.maxX2 = 60.2f;
+            this.minX2 = 44f;
+            this.maxX2 = 62.28f;
         }
-        if (zone == "Zone2")
+        if(zone == "Zone2")
+        {
+            this.minX2 = 142f;
+            this.maxX2 = 151.3f;
+        }
+        if (zone == "Zone3")
         {
             this.minX2 = 184.4f;
             this.maxX2 = 202.1f;
