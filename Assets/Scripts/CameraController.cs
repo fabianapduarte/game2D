@@ -87,7 +87,7 @@ public class CameraController : MonoBehaviour
         if (zone == "Zone3")
         {
             this.minX1 = 202.3f;
-            this.maxX1 = 211.7f;
+            this.maxX1 = 217.4f;
         }
     }
 
