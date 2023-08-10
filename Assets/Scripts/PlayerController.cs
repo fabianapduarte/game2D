@@ -79,10 +79,6 @@ public class PlayerController : MonoBehaviour
             speed += 4;
             danoPlayer += 4;
         }
-        if (SceneManager.GetActiveScene().name.Equals("LevelFive") || SceneManager.GetActiveScene().name.Equals("Acidron1") || SceneManager.GetActiveScene().name.Equals("Acidron2"))
-        {
-            GameObject.Find("HUD_Dialogue").transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animation>().Play("Arrow");
-        }
     }
 
     public void SetDanoPlayer(int valor)

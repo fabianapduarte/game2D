@@ -1027,8 +1027,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -458.5263, y: -109.43286}
-  m_SizeDelta: {x: -1434.501, y: -781.1052}
+  m_AnchoredPosition: {x: 412, y: 326}
+  m_SizeDelta: {x: 485.49878, y: 298.89478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &181497654
 MonoBehaviour:
@@ -1104,8 +1104,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.638275, y: -1027}
-  m_SizeDelta: {x: 1450.4985, y: 773.0123}
+  m_AnchoredPosition: {x: -0.00000095367, y: -1225}
+  m_SizeDelta: {x: 1267.7, y: 1265.544}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219158891
 MonoBehaviour:
@@ -1131,18 +1131,21 @@ MonoBehaviour:
     e Designer de N\xEDvel\r\nBianca Mirtes Ara\xFAjo Miranda - Desenvolvedora e
     Sonoplasta\r\nPablo Messias Rodrigues dos Santos - Desenvolvedor e Designer de
     N\xEDvel\r\nSamuel Soares Pereira Costa - Desenvolvedor e Artista\r\n\r\nOs Assets
-    n\xE3o autorais est\xE3o sendo utilizados mediante licen\xE7as CC0 e CC4.\r\nCr\xE9dito
-    especial para Clembod, criador(a) da Sim\xE9tra, protagonista do jogo.\r\n\r\nAssets
-    que possuem licen\xE7a CC4 (Atribui\xE7\xE3o): \r\nBackground e Ambienta\xE7\xE3o
-    do P\xE2ntano de Asudem - Criador(a): The Flavare\r\nColet\xE1veis - Criador(a):
-    AhNinniah\r\nBackground do Tutorial - Criador(a): Devnewton\nBarra de Vida dos
-    BOSSs - Criador(a): Adwitr\nBoss da Caverna de Aigolotim - Criador(a): Chierit\nO
-    a\xFAdio do jogo foi feito inteiramente com a\xFAdios das plataformas Pixabay,\nFreesound
-    e Unity Assets Store. \nO Pixabay permite o uso dos a\xFAdios por meio de uma
-    Licen\xE7a de Conte\xFAdo, que permite\nque utilizemos as midias sem necessidade
-    de atribui\xE7\xE3o aos autores(as) e possamos\nmodific\xE1-las para utiliza\xE7\xE3o
-    em projetos comerciais (desde que n\xE3o haja marcas\nregistradas, logotipos
-    ou marcas reconhec\xEDveis) ou n\xE3o-comerciais."
+    n\xE3o autorais est\xE3o sendo utilizados mediante licen\xE7as CC0, CC4 \ne Licen\xE7a
+    de Extens\xE3o do Unity.\r\nCr\xE9dito especial para Clembod, criador(a) do assets
+    Warrior Free Set, protagonista do jogo.\r\n\r\nAssets que possuem licen\xE7a
+    CC4 (Atribui\xE7\xE3o): \r\nBackground e Ambienta\xE7\xE3o do P\xE2ntano de Asudem
+    - Criador(a): The Flavare\r\nColet\xE1veis - Criador(a): AhNinniah\r\nBackground
+    do Tutorial - Criador(a): Devnewton\nBarra de Vida dos BOSSs - Criador(a): Adwitr\nBoss
+    da Caverna de Aigolotim - Criador(a): Chierit\n\nO a\xFAdio do jogo foi feito
+    inteiramente com a\xFAdios das plataformas Pixabay,\nFreesound e Unity Assets
+    Store (Licen\xE7a de Extens\xE3o).\n \nO Pixabay permite o uso dos a\xFAdios
+    por meio de uma Licen\xE7a de Conte\xFAdo, que permite\nque utilizemos as midias
+    sem necessidade de atribui\xE7\xE3o aos autores(as) e possamos\nmodific\xE1-las
+    para utiliza\xE7\xE3o em projetos comerciais (desde que n\xE3o haja marcas\nregistradas,
+    logotipos ou marcas reconhec\xEDveis) ou n\xE3o-comerciais.\n\nEm rela\xE7\xE3o
+    ao Freesound, utiliza licen\xE7as Creative Commons, sendo CC0 (Dom\xEDnio P\xFAblico)
+    \na licen\xE7a dos a\xFAdios da plataforma que foram utilizados no jogo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
   m_sharedMaterial: {fileID: -1312703284477486907, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
@@ -1205,7 +1208,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -1.8708496, z: 0, w: -1.870697}
+  m_margin: {x: 0, y: -1.8708496, z: -3.4399414, w: -1.870697}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
