@@ -93,7 +93,7 @@ public class Enemy1Controller : MonoBehaviour
         if (life <= 0)
         {
             ani.SetBool("isDead", true);
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, .4f);
         }
     }
 

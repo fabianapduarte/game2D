@@ -393,6 +393,10 @@ public class PlayerController : MonoBehaviour
                     Invoke("ReiniciaCombo", 4f);
                     controle.Vibrate(1f);
                 }
+                if(stateInfo.IsName("especial") && SceneManager.GetActiveScene().name.Equals("Tutorial")){
+                    enemyTarget alvo = GameObject.Find("BonecoAlvo").GetComponent<enemyTarget>();
+                    alvo.destroiAlvo();
+                }
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;

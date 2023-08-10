@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
         transform.position = newPosition;
         if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 1.6f, 71.6f),
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 1.6f, 85.6f),
                      Mathf.Clamp(transform.position.y, 3.64f, 5.65f), transform.position.z);
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelOne"))

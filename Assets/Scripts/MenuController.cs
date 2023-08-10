@@ -80,22 +80,30 @@ public class MenuController : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    private void updateCombo()
+    {
+        TextMeshProUGUI comboTxt = GameObject.Find("comboTxt").GetComponent<TextMeshProUGUI>();
+        PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
+        if (player.getCombo() > 1)
+        {
+            string old = comboTxt.text;
+            comboTxt.text = "x" + player.getCombo();
+            if (old != comboTxt.text)
+                comboTxt.fontSize = comboTxt.fontSize + 22;
+        }
+        else
+        {
+            comboTxt.text = "";
+            comboTxt.fontSize = 80;
+        }
+    }
+
     private void changeHudInfos()
     {
         PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
         GameObject.Find("danoDeAtaqueTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetDano();
         GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetSpeed();
-
-        TextMeshProUGUI comboTxt = GameObject.Find("comboTxt").GetComponent<TextMeshProUGUI>();
-        if(player.getCombo()>1){
-            string old = comboTxt.text;
-            comboTxt.text = "x" + player.getCombo();
-            if(old != comboTxt.text)
-                comboTxt.fontSize = comboTxt.fontSize+22;
-        }else{
-            comboTxt.text = "";
-            comboTxt.fontSize = 80;
-        }
+        updateCombo();
     }
 
     //Define coisas para cenas especificas quando estas sao carregadas - util demais
@@ -191,6 +199,11 @@ public class MenuController : MonoBehaviour
         {
             changeHudInfos();
         }
+        if (sceneName == "Tutorial" )
+        {
+            updateCombo();
+        }
+        
 
         //Coloca o jogo em pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2")
