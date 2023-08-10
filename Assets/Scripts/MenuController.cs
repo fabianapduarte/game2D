@@ -84,6 +84,17 @@ public class MenuController : MonoBehaviour
         PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
         GameObject.Find("danoDeAtaqueTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetDano();
         GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetSpeed();
+
+        TextMeshProUGUI comboTxt = GameObject.Find("comboTxt").GetComponent<TextMeshProUGUI>();
+        if(player.getCombo()>1){
+            string old = comboTxt.text;
+            comboTxt.text = "x" + player.getCombo();
+            if(old != comboTxt.text)
+                comboTxt.fontSize = comboTxt.fontSize+22;
+        }else{
+            comboTxt.text = "";
+            comboTxt.fontSize = 80;
+        }
     }
 
     //Define coisas para cenas especificas quando estas sao carregadas - util demais

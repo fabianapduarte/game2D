@@ -31,10 +31,13 @@ public class PlayerController : MonoBehaviour
     public Transform detectFloor;
     public Transform detectFloor2;
     public LayerMask isFloor;
+
     public float slopeCheckDistance;
     private float slopeAngle;
     private bool isOnSlope;
     private Vector2 perpendicularSpeed;
+
+    private int combo = 0;
 
     public PhysicsMaterial2D noFriction;
     public PhysicsMaterial2D friction;
@@ -91,8 +94,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(playerInFloor);
-        print("ladeira: " + isOnSlope);
+        print(combo);
+        //print("ladeira: " + isOnSlope);
         float vertical = Input.GetAxisRaw("Vertical");
         GameObject dialogo = GameObject.Find("Dialogue");
 
@@ -125,12 +128,19 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Ataque1"))
         {
-            ani.SetBool("isAtacking", true);
+            if(combo == 5){
+                ani.SetBool("isEspecial", true);
+                Invoke("ReiniciaCombo", 1.5f);
+            }else{
+                ani.SetBool("isAtacking", true);
+            }
+            
             GameObject.Find("AudioController").GetComponent<AudioController>().Attack1();
         }
         else
         {
             ani.SetBool("isAtacking", false);
+            ani.SetBool("isEspecial", false);
         }
 
         if ((Input.GetButtonDown("Ataque2") || Input.GetAxis("Ataque2") > 0) && SceneManager.GetActiveScene().buildIndex >= 7)
@@ -342,6 +352,7 @@ public class PlayerController : MonoBehaviour
     {
         ani.SetBool("isHurting", true);
         Invoke("TimeTransitionHurt", 0.4f);
+        ReiniciaCombo();
     }
 
     private void Sleep()
@@ -371,14 +382,27 @@ public class PlayerController : MonoBehaviour
         return danoPlayer;
     }
 
+    private void ReiniciaCombo(){
+        combo = 0;
+    }
+
+    public int  getCombo(){
+        return combo;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Animator animator = GetComponent<Animator>();
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Attack"))
+        if (collision.gameObject.CompareTag("Enemy") && (stateInfo.IsName("Attack") || stateInfo.IsName("especial")))
         {
             if (contabilizaDano == 0)
             {
+                if(stateInfo.IsName("Attack")){
+                    CancelInvoke("ReiniciaCombo");
+                    combo++;
+                    Invoke("ReiniciaCombo", 4f);
+                }
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
