@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
     private bool isClimbing;
     private bool isLadder;
-    private int condicaoPassos = 0;
 
     public Transform detectFloor;
     public Transform detectFloor2;
@@ -251,26 +250,17 @@ public class PlayerController : MonoBehaviour
         
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
-            if(condicaoPassos == 0)
-            {
-                GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
-                condicaoPassos = 1;
-            }
+            GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(false);
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
-            if (condicaoPassos == 0)
-            {
-                GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
-                condicaoPassos = 1;
-            }
+            GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
             Flip(true);
         }
         else{
             ani.SetBool("isRunning", false);
             GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
-            Invoke("resetPassos", 0.13f);
             
 
         }
@@ -358,12 +348,6 @@ public class PlayerController : MonoBehaviour
     private void Sleep()
     {
         contabilizaDano = 0;
-        return;
-    }
-
-    private void resetPassos()
-    {
-        condicaoPassos = 0;
         return;
     }
 

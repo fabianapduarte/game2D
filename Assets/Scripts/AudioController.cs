@@ -95,11 +95,11 @@ public class AudioController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name.Equals("Cutscene1") || SceneManager.GetActiveScene().name.Equals("Cutscene2") || SceneManager.GetActiveScene().name.Equals("FimDeJogo"))
             {
-                AudioClip teste = soundAmbiance[8];
+                AudioClip teste = soundAmbiance[7];
                 soundAmbianceLevel.clip = teste;
             }else if (SceneManager.GetActiveScene().name.Equals("Acidron1") || SceneManager.GetActiveScene().name.Equals("Acidron2"))
             {
-                AudioClip teste = soundAmbiance[7];
+                AudioClip teste = soundAmbiance[0];
                 soundAmbianceLevel.clip = teste;
             }
             soundAmbianceLevel.volume = 0.635f;
@@ -129,9 +129,13 @@ public class AudioController : MonoBehaviour
 
     public void RunningPlay()
     {
-        AudioClip teste = running[Random.Range(0, running.Length)];
-        runningPlayer.clip = teste;
-        runningPlayer.Play();
+        if(!runningPlayer.isPlaying)
+        {
+            AudioClip teste = running[Random.Range(0, running.Length)];
+            runningPlayer.clip = teste;
+            runningPlayer.volume = 0.5f;
+            runningPlayer.Play();
+        }
     }
 
     public void MoveButton()
@@ -160,7 +164,7 @@ public class AudioController : MonoBehaviour
 
     public void RunningBreak()
     {
-        runningPlayer.Pause();
+        runningPlayer.Stop();
     }
 
     public void Collect()
