@@ -21,6 +21,7 @@ public class MenuController : MonoBehaviour
 
     private Button btnPlay;
     private Button btnMultiplayer;
+    private Button btnDelSave;
     private Button btnCreditos;
     private Button btnQuit;
 
@@ -140,6 +141,8 @@ public class MenuController : MonoBehaviour
             btnPlay.onClick.AddListener(FadeOut);
             btnMultiplayer = GameObject.Find("MultiplayerBtn").GetComponent<Button>();
             btnMultiplayer.onClick.AddListener(PlayMultiplayer);
+            btnDelSave = GameObject.Find("DeleteBtn").GetComponent<Button>();
+            btnDelSave.onClick.AddListener(DelSave);
             btnQuit = GameObject.Find("ExitBtn").GetComponent<Button>();
             btnQuit.onClick.AddListener(QuitGame);
             btnCreditos = GameObject.Find("CreditosBtn").GetComponent<Button>();
@@ -392,6 +395,18 @@ public class MenuController : MonoBehaviour
     }
     public void RunCredits()
     { 
+    }
+
+    public void DelSave()
+    {
+        PlayerPrefs.SetInt("FaseAtual", 0);
+        PlayerPrefs.SetFloat("saveX", 0f);
+        PlayerPrefs.SetFloat("saveY", 0f);
+
+        indexCena = 2;
+        play = 3;
+
+        btnPlay.GetComponentInChildren<TextMeshProUGUI>().text = "Novo Jogo";
     }
 
     public void QuitGame()
