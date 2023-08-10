@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8690527241591476145}
   - component: {fileID: 5692905000283453097}
   - component: {fileID: 5065789641196750853}
+  - component: {fileID: 4152489086798096692}
   m_Layer: 0
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +177,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8737f3fec80a0384d8eb590b14832421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4152489086798096692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2567265688298157244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71eb7c32a06ed0c4d90b0ccb077f7a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 1
 --- !u!1 &6261882274107291242
 GameObject:
   m_ObjectHideFlags: 0

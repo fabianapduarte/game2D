@@ -7076,6 +7076,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7122703833591349724, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     - target: {fileID: 8625582910968923535, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7144,5 +7148,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}

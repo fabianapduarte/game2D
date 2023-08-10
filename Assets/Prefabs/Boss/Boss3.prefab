@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2551052020275452608}
   - component: {fileID: 2551052020275452609}
   - component: {fileID: 2551052020275452611}
+  - component: {fileID: -8487211198348316807}
   m_Layer: 0
   m_Name: Boss3
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,3 +163,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
+--- !u!114 &-8487211198348316807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551052020275452613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71eb7c32a06ed0c4d90b0ccb077f7a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 1

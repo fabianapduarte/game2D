@@ -20,10 +20,10 @@ public class BossController : MonoBehaviour
     }
     private void Update()
     {
-        float limite = 2.3f;
+        float limite = 4f;
 
         //Utiliza ponto medio da boxCollider
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
         BoxCollider2D colliderPlayer = player.GetComponent<BoxCollider2D>();
         Vector3 pontoMedioObjetoAtual = collider.bounds.center;
         Vector3 pontoMedioPlayer = colliderPlayer.bounds.center;
@@ -31,7 +31,7 @@ public class BossController : MonoBehaviour
 
         if (distanciaPontosMedios > limite)
         {
-            if (playerCheck == true)
+            if (playerCheck == true && Vector3.Distance(transform.position, player.position) <= 16f)
             {
                 ani.SetBool("isRunning", true);
                 transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);

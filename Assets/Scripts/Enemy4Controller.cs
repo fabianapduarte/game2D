@@ -32,7 +32,7 @@ public class Enemy4Controller : MonoBehaviour
 
         if (distanciaPontosMedios > limite)
         {
-            if(playerCheck == true)
+            if(playerCheck == true && Vector3.Distance(transform.position, player.position) <= 12f)
             {
                 ani.SetBool("isRunning", true);
                 transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
