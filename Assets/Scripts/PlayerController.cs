@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(GetDano());
+        //print(GetDano());
         //print("ladeira: " + isOnSlope);
         float vertical = Input.GetAxisRaw("Vertical");
         GameObject dialogo = GameObject.Find("Dialogue");

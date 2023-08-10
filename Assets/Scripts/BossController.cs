@@ -129,7 +129,7 @@ public class BossController : MonoBehaviour
                 FindObjectOfType<GameController>().HurtPlayer(dano);
                 contabilizaDano = 1;
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
-                controle.Vibrate(2f);
+                controle.Vibrate(1f);
                 Invoke("Sleep", 4f);
             }
         }

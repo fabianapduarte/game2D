@@ -54,6 +54,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        print(playerLifes);
         sceneCurrent = SceneManager.GetActiveScene().name;
     }
 
@@ -88,12 +89,35 @@ public class GameController : MonoBehaviour
 
     public void HurtPlayer(int danoEnemy)
     {        
+        GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationHurtPlayer();
+        if(danoEnemy > 1)
+        {
+            while(danoEnemy > 0)
+            {
+                playerLifes--;
+                if (playerLifes >= 0)
+                {
+                    Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
+                }
+                danoEnemy--;
+            }
+        }
+        else
+        {
+            playerLifes--;
+            if(playerLifes >= 0)
+            {
+                Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
+            }
+
+        }
+
         if (playerLifes <= 0)
         {
             GameObject.Find("Simetra").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
             GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationDeadPlayer();
             GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach( var enemy in enemys)
+            foreach (var enemy in enemys)
             {
                 if (enemy.layer == 6)
                 {
@@ -118,29 +142,6 @@ public class GameController : MonoBehaviour
             Invoke("DeadPlayer", 1f);
             return;
         }
-        GameObject.Find("Simetra").GetComponent<PlayerController>().AnimationHurtPlayer();
-        if(danoEnemy > 1)
-        {
-            while(danoEnemy > 0)
-            {
-                playerLifes--;
-                if (playerLifes >= 0)
-                {
-                    Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
-                }
-                danoEnemy--;
-            }
-        }
-        else
-        {
-            playerLifes--;
-            if(playerLifes >= 0)
-            {
-                Destroy(GameObject.Find("LifePlayer").transform.GetChild(playerLifes).gameObject);
-            }
-
-        }
-
     }
 
     public void DeadPlayer()
