@@ -9,7 +9,7 @@ public class TextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < 1000f)
+        if(transform.position.y < 1200f)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + speed, 0f);
         }
