@@ -24,7 +24,7 @@ public class projetil : MonoBehaviour
         {
             projectileAnimator.SetBool("isShooting", true);
         }
-        Invoke("recarrega", 1f);
+        Invoke("recarrega", .9f);
     }
 
     void recarrega()

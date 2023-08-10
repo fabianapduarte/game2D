@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextController : MonoBehaviour
 {
-    float speed = 0.2f;
+    float speed = 1.6f;
 
     // Update is called once per frame
     void Update()
