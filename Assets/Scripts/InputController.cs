@@ -45,6 +45,19 @@ public class InputController : MonoBehaviour
             Invoke("StopVibration", duration);
         }
     }
+
+    public void VibrateEspecial(float duration)
+    {
+        if (gamepad != null)
+        {
+            // Definir a vibração nos motores esquerdo e direito
+            gamepad = Gamepad.current;
+            gamepad.SetMotorSpeeds(100, 100);
+            GamePad.SetVibration(0, 100, 100);
+            Invoke("StopVibration", duration);
+        }
+    }
+
     private void StopVibration(){
         if (gamepad != null){
             // Parar a vibração definindo a intensidade dos motores para zero

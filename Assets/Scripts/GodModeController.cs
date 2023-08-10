@@ -18,6 +18,8 @@ public class GodModeController : MonoBehaviour
     private GameObject buttonContinuarSelecao;
     private Button buttonContinuarGm, prevLvl, nextLvl, zonesBtn, limparSaveBtn;
 
+    private int gmCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,10 @@ public class GodModeController : MonoBehaviour
         }
     }
 
+    public void cancelaGM(){
+        gmCount = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -73,13 +79,17 @@ public class GodModeController : MonoBehaviour
         //Coloca o jogo em pause
         if (sceneName != "MenuInicial" && sceneName != "Derrota" && sceneName != "Vitoria" && sceneName != "Cutscene1" && sceneName != "Cutscene2")
         {
-            float gm = Input.GetAxisRaw("GodMode");
-            if (gm > 0 && !Pause.activeSelf)
+            if (Input.GetButtonDown("GodMode") && !Pause.activeSelf)
             {
-                GodMode.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(buttonContinuarSelecao);
-                Time.timeScale = 0f;
-                //menuPause();
+                CancelInvoke("cancelaGM");
+                gmCount++;
+                Invoke("cancelaGM", 1f);
+                if(gmCount == 2){
+                    GodMode.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(buttonContinuarSelecao);
+                    Time.timeScale = 0f;
+                }
+                
             }
             //B pra voltar
             if (GodMode.activeSelf == true)
@@ -96,6 +106,9 @@ public class GodModeController : MonoBehaviour
 
     public void resumeGM()
     {
+        PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
+        player.resetaInputPulo();
+        gmCount = 0;
         GodMode.SetActive(false);
         Time.timeScale = 1f;
     }

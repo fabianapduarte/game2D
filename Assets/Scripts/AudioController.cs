@@ -120,6 +120,20 @@ public class AudioController : MonoBehaviour
         attackPlayer.Play();
     }
 
+    public void AttackCombo()
+    {
+        AudioClip teste = attack[Random.Range(0, attack.Length - 1)];
+        attackPlayer.clip = teste;
+        attackPlayer.Play();
+    }
+
+    public void AttackBlock()
+    {
+        AudioClip teste = moveInMenu[0];
+        attackPlayer.clip = teste;
+        attackPlayer.Play();
+    }
+
     public void Jump()
     {
         AudioClip teste = jump[Random.Range(0, jump.Length)];

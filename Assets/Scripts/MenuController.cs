@@ -366,6 +366,8 @@ public class MenuController : MonoBehaviour
 
     public void resume()
     {
+        PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
+        player.resetaInputPulo();
         pause.SetActive(false);
         Time.timeScale = 1f;
         isPause = false;

@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
 
     private DialogueTipo2Controller dc;
 
+    private bool jump = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +88,17 @@ public class PlayerController : MonoBehaviour
         danoPlayer += valor;
     }
 
+    private void reativaPulo()
+    {
+        jump = true;
+    }
+
+    public void resetaInputPulo()
+    {
+        jump = false;
+        Invoke("reativaPulo", .1f);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -96,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
         DetectSlopes();
 
-        if (Input.GetButtonDown("Jump") && dialogo==null)
+        if (Input.GetButtonDown("Jump") && jump && dialogo==null)
         {
             if (playerInFloor || isOnSlope) {
                 rb.velocity = Vector2.zero;
@@ -123,23 +136,30 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Ataque1") && contabilizaDano == 0)
         {
-            if(combo == 5){
+            if (combo == 5)
+            {
                 ani.SetBool("isEspecial", true);
                 Invoke("ReiniciaCombo", .8f);
 
                 //SOM DE ATAQUE ESPECIAL
-                GameObject.Find("AudioController").GetComponent<AudioController>().Attack1();
+                GameObject.Find("AudioController").GetComponent<AudioController>().AttackCombo();
             }
-            else{
+            else
+            {
                 ani.SetBool("isAtacking", true);
                 GameObject.Find("AudioController").GetComponent<AudioController>().Attack1();
             }
-            
         }
         else
         {
             ani.SetBool("isAtacking", false);
             ani.SetBool("isEspecial", false);
+        }
+
+        if (((Input.GetButtonDown("Ataque1") || (Input.GetButtonDown("Ataque2") || Input.GetAxis("Ataque2") > 0))) && contabilizaDano != 0)
+        {
+            //SOM DE BLOQUEIO
+            GameObject.Find("AudioController").GetComponent<AudioController>().AttackBlock();
         }
 
         if ((Input.GetButtonDown("Ataque2") || Input.GetAxis("Ataque2") > 0) && SceneManager.GetActiveScene().buildIndex >= 7)
@@ -391,8 +411,12 @@ public class PlayerController : MonoBehaviour
                     CancelInvoke("ReiniciaCombo");
                     combo++;
                     Invoke("ReiniciaCombo", 4f);
+                    controle.Vibrate(0.3f);
+                }
+                else{
                     controle.Vibrate(1f);
                 }
+
                 if(stateInfo.IsName("especial") && SceneManager.GetActiveScene().name.Equals("Tutorial")){
                     enemyTarget alvo = GameObject.Find("BonecoAlvo").GetComponent<enemyTarget>();
                     alvo.destroiAlvo();
@@ -400,8 +424,7 @@ public class PlayerController : MonoBehaviour
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
-                Invoke("Sleep", .8f);
-                controle.Vibrate(0.3f);
+                Invoke("Sleep", 1.5f);
             }
         }
         if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Spell"))
