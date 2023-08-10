@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextController : MonoBehaviour
 {
-    float speed = 0.5f;
+    float speed = 0.4f;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +21,6 @@ public class TextController : MonoBehaviour
  
     public void ResetCredits()
     {
-        transform.position = new Vector3(transform.position.x, -500f, 0f);
+        transform.position = new Vector3(transform.position.x, -800f, 0f);
     }
 }
