@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(combo);
+        print(GetDano());
         //print("ladeira: " + isOnSlope);
         float vertical = Input.GetAxisRaw("Vertical");
         GameObject dialogo = GameObject.Find("Dialogue");
@@ -125,16 +125,20 @@ public class PlayerController : MonoBehaviour
             //ani.SetBool("isJumping", false);
         }
 
-        if (Input.GetButtonDown("Ataque1"))
+        if (Input.GetButtonDown("Ataque1") && contabilizaDano == 0)
         {
             if(combo == 5){
                 ani.SetBool("isEspecial", true);
-                Invoke("ReiniciaCombo", 1.5f);
-            }else{
+                Invoke("ReiniciaCombo", .8f);
+
+                //SOM DE ATAQUE ESPECIAL
+                GameObject.Find("AudioController").GetComponent<AudioController>().Attack1();
+            }
+            else{
                 ani.SetBool("isAtacking", true);
+                GameObject.Find("AudioController").GetComponent<AudioController>().Attack1();
             }
             
-            GameObject.Find("AudioController").GetComponent<AudioController>().Attack1();
         }
         else
         {
@@ -363,7 +367,11 @@ public class PlayerController : MonoBehaviour
 
     public int GetDano()
     {
-        return danoPlayer;
+        //DEFINE DANO DO COMBO
+        if(combo == 5)
+            return danoPlayer+2;
+        else
+            return danoPlayer;
     }
 
     private void ReiniciaCombo(){
@@ -382,16 +390,17 @@ public class PlayerController : MonoBehaviour
         {
             if (contabilizaDano == 0)
             {
-                if(stateInfo.IsName("Attack")){
+                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
+                if (stateInfo.IsName("Attack")){
                     CancelInvoke("ReiniciaCombo");
                     combo++;
                     Invoke("ReiniciaCombo", 4f);
+                    controle.Vibrate(1f);
                 }
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
-                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
+                Invoke("Sleep", .8f);
                 controle.Vibrate(0.3f);
             }
         }

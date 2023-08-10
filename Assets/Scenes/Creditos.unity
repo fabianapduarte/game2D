@@ -1016,19 +1016,19 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181497652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.8229103}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1278601643}
   - {fileID: 1162363343}
-  m_Father: {fileID: 1441431313}
-  m_RootOrder: 1
+  m_Father: {fileID: 1212839253}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 446, y: 433}
-  m_SizeDelta: {x: 485.49878, y: 298.89478}
+  m_AnchoredPosition: {x: -458.5263, y: -109.43286}
+  m_SizeDelta: {x: -1434.501, y: -781.1052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &181497654
 MonoBehaviour:
@@ -1700,7 +1700,7 @@ GameObject:
   - component: {fileID: 1212839255}
   - component: {fileID: 1212839254}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Creditos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1722,6 +1722,7 @@ RectTransform:
   - {fileID: 464051995}
   - {fileID: 1406903115}
   - {fileID: 2035604144}
+  - {fileID: 181497653}
   m_Father: {fileID: 1441431313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2081,7 +2082,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1212839253}
-  - {fileID: 181497653}
   m_Father: {fileID: 1839679085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

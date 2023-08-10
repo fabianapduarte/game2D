@@ -19,8 +19,8 @@ public class TextController : MonoBehaviour
         }
     }
  
-    private void ResetCredits()
+    public void ResetCredits()
     {
-        transform.position = new Vector3(transform.position.x, -900f, 0f);
+        transform.position = new Vector3(transform.position.x, -500f, 0f);
     }
 }
