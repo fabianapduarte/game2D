@@ -633,8 +633,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280297264
-  m_fontColor: {r: 0.18823531, g: 0.15294118, b: 0.1254902, a: 1}
+    rgba: 4289839833
+  m_fontColor: {r: 0.8490566, g: 0.76119727, b: 0.6928622, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7230,6 +7230,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1701941937951671050, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7122703833591349724, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
       propertyPath: m_TagString
       value: Boss

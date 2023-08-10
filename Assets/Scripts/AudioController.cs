@@ -190,7 +190,7 @@ public class AudioController : MonoBehaviour
 
     public void BattleSoundStart()
     {
-        AudioClip teste = soundAmbiance[9];
+        AudioClip teste = soundAmbiance[8];
         soundAmbianceLevel.clip = teste;
         soundAmbianceLevel.volume = 0.7f;
         soundAmbianceLevel.Play();
