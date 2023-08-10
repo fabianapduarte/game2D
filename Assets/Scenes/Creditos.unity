@@ -1104,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.638275, y: -998}
+  m_AnchoredPosition: {x: -10.638275, y: -1027}
   m_SizeDelta: {x: 1450.4985, y: 773.0123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219158891
@@ -1137,12 +1137,12 @@ MonoBehaviour:
     do P\xE2ntano de Asudem - Criador(a): The Flavare\r\nColet\xE1veis - Criador(a):
     AhNinniah\r\nBackground do Tutorial - Criador(a): Devnewton\nBarra de Vida dos
     BOSSs - Criador(a): Adwitr\nBoss da Caverna de Aigolotim - Criador(a): Chierit\nO
-    a\xFAdio do jogo foi feito inteiramente com a\xFAdios das plataformas Pixabay,
-    Freesound e Unity Assets Store. \nO Pixabay permite o uso dos a\xFAdios por meio
-    de uma Licen\xE7a de Conte\xFAdo, que permite que utilizemos as midias sem necessidade
-    de atribui\xE7\xE3o aos autores(as) e possamos modific\xE1-las para utiliza\xE7\xE3o
-    em projetos comerciais (desde que n\xE3o haja marcas registradas, logotipos ou
-    marcas reconhec\xEDveis) ou n\xE3o-comerciais."
+    a\xFAdio do jogo foi feito inteiramente com a\xFAdios das plataformas Pixabay,\nFreesound
+    e Unity Assets Store. \nO Pixabay permite o uso dos a\xFAdios por meio de uma
+    Licen\xE7a de Conte\xFAdo, que permite\nque utilizemos as midias sem necessidade
+    de atribui\xE7\xE3o aos autores(as) e possamos\nmodific\xE1-las para utiliza\xE7\xE3o
+    em projetos comerciais (desde que n\xE3o haja marcas\nregistradas, logotipos
+    ou marcas reconhec\xEDveis) ou n\xE3o-comerciais."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
   m_sharedMaterial: {fileID: -1312703284477486907, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
@@ -1151,8 +1151,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4292269782
+  m_fontColor: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1169,8 +1169,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1267,8 +1267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 321}
-  m_SizeDelta: {x: 221.9, y: 53.68}
+  m_AnchoredPosition: {x: -3, y: 308.8225}
+  m_SizeDelta: {x: 221.9, y: 56.4956}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &464051996
 MonoBehaviour:
@@ -1283,16 +1283,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.121568635, g: 0.1137255, b: 0.12941177, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1862417286, guid: 5355386c4fd666c4ea63dbce51bd2f35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 528a25706955dba4ba031f13196ef1e1, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1544,8 +1544,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4291611852
+  m_fontColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1743,15 +1743,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12553401, g: 0.11899254, b: 0.13207549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 10dff26dc3dd280418d15e73d66642f1, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2007,7 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98039216, g: 0.9137255, b: 0.7921569, a: 1}
+  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2472,8 +2472,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290888129
+  m_fontColor: {r: 0.75686276, g: 0.75686276, b: 0.75686276, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
