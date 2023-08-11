@@ -452,6 +452,38 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.CompareTag("Boss") && (stateInfo.IsName("Attack") || stateInfo.IsName("especial")))
+        {
+            if (contabilizaDano == 0)
+            {
+                InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
+                if (stateInfo.IsName("Attack"))
+                {
+                    CancelInvoke("ReiniciaCombo");
+                    combo++;
+                    Invoke("ReiniciaCombo", 4f);
+                    controle.Vibrate(0.3f);
+                }
+                else
+                {
+                    controle.Vibrate(1f);
+                }
+
+                if (stateInfo.IsName("especial") && SceneManager.GetActiveScene().name.Equals("Tutorial"))
+                {
+                    enemyTarget alvo = GameObject.Find("BonecoAlvo").GetComponent<enemyTarget>();
+                    alvo.destroiAlvo();
+                }
+                GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
+                BossController boss = FindObjectOfType<BossController>();
+                if(boss != null)
+                {
+                    boss.Hurt(GetDano());
+                }
+                contabilizaDano = 1;
+                Invoke("Sleep", 1.5f);
+            }
+        }
         if (collision.gameObject.CompareTag("Boss") && stateInfo.IsName("Spell"))
         {
             if (contabilizaDano == 0)

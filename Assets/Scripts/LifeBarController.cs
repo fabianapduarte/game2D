@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LifeBarController : MonoBehaviour
 {
+    public int vidaTotal = 50;
+
     void Start()
     {
         GetComponent<Slider>().value = 1;
@@ -12,7 +14,8 @@ public class LifeBarController : MonoBehaviour
 
     public void SetLifeBar(float value)
     {
-        GetComponent<Slider>().value -= value;
+        float dano = ((GetComponent<Slider>().value*vidaTotal) - value)/vidaTotal;
+        GetComponent<Slider>().value = dano;
     }
 
     public float GetValueLifeBar()
