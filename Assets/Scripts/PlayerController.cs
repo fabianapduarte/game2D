@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private bool jump = true;
     private float direcaoDoAtaque;
+    float previousState = Input.GetAxis("Ataque2");
 
     // Start is called before the first frame update
     void Start()
@@ -98,6 +99,14 @@ public class PlayerController : MonoBehaviour
     {
         jump = false;
         Invoke("reativaPulo", .1f);
+    }
+
+    private bool GetR2ButtonDown()
+    {
+        //float previousState = Input.GetAxis("Ataque2"); // Estado no frame anterior
+        float currentState = Input.GetAxisRaw("Ataque2"); // Estado no frame atual
+
+        return currentState > 0 && previousState <= 0;
     }
 
     // Update is called once per frame
@@ -158,15 +167,20 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isEspecial", false);
         }
 
-        if (((Input.GetButtonDown("Ataque1") || (Input.GetButtonDown("Ataque2") || Input.GetAxis("Ataque2") > 0))) && contabilizaDano != 0)
+        previousState = Input.GetAxis("Ataque2");
+        if (((Input.GetButtonDown("Ataque1") || (Input.GetButtonDown("Ataque2") || GetR2ButtonDown()))) && contabilizaDano != 0)
         {
             //SOM DE BLOQUEIO
             GameObject.Find("AudioController").GetComponent<AudioController>().AttackBlock();
         }
 
-        if ((Input.GetButtonDown("Ataque2") || Input.GetAxis("Ataque2") > 0) && SceneManager.GetActiveScene().buildIndex >= 7)
+        if ((Input.GetButtonDown("Ataque2") || GetR2ButtonDown()) && contabilizaDano == 0 && SceneManager.GetActiveScene().buildIndex >= 7)
         {
+            direcaoDoAtaque = transform.localScale.x;
             ani.SetBool("isMagicAtacking", true);
+            CancelInvoke("Sleep");
+            contabilizaDano = 1;
+            Invoke("Sleep", 1.5f);
             GameObject.Find("AudioController").GetComponent<AudioController>().Attack2();
         }
         else
@@ -326,6 +340,7 @@ public class PlayerController : MonoBehaviour
             {
                 ani.SetBool("isAtacking", false);
                 ani.SetBool("isEspecial", false);
+                ani.SetBool("isMagicAtacking", false);
                 ani.Play("idle");
             }
         }
@@ -450,8 +465,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
-                contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
+                
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
                 controle.Vibrate(0.3f);
             }

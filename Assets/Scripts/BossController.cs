@@ -79,6 +79,8 @@ public class BossController : MonoBehaviour
         Vector3 Scale = transform.localScale;
         Scale.x *= -1;
         transform.localScale = Scale;
+        Vector3 HUDScale = GameObject.Find("HUD_Boss").transform.localScale;
+        GameObject.Find("HUD_Boss").transform.localScale = new Vector3((-1 * HUDScale.x), HUDScale.y, HUDScale.z);
     }
 
     public void Hurt(int dano)

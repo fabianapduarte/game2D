@@ -7275,6 +7275,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8625582911894588669, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.7108965
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625582912609596193, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625582912609596193, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625582912609596193, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625582912822334990, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 8625582912822334991, guid: a771b11e4f83c1d4b89922f082fb8d68, type: 3}
       propertyPath: m_Value
       value: 10
@@ -7303,4 +7323,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e2729e9e24b6428a3451a0d1a2529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaTotal: 50
