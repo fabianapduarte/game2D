@@ -358,9 +358,13 @@ public class MenuController : MonoBehaviour
         {
             PlayerPrefs.SetInt("FaseAtual", PlayerPrefs.GetInt("FaseAtual")+1);
         }
+        
+        if (pause.activeSelf)
+        {
+            resume();
+            Time.timeScale = 1f;
+        }
         Debug.Log("Voltando pro menu inicial");
-        resume();
-        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
