@@ -63,11 +63,11 @@ public class AudioController : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name.Equals("Tutorial"))
             {
-                AudioClip teste = soundAmbiance[0];
+                AudioClip teste = soundAmbiance[1];
                 soundAmbianceLevel.clip = teste;
             } else if (SceneManager.GetActiveScene().name.Equals("MenuInicial"))
             {
-                AudioClip teste = soundAmbiance[1];
+                AudioClip teste = soundAmbiance[0];
                 soundAmbianceLevel.clip = teste;
             }else if (SceneManager.GetActiveScene().name.Equals("LevelOne") || SceneManager.GetActiveScene().name.Equals("MLevelOne"))
             {
@@ -88,18 +88,18 @@ public class AudioController : MonoBehaviour
                 AudioClip teste = soundAmbiance[5];
                 soundAmbianceLevel.clip = teste;
             }
-            else if (SceneManager.GetActiveScene().name.Equals("LevelFive") || SceneManager.GetActiveScene().name.Equals("MLevelFive"))
+            else if (SceneManager.GetActiveScene().name.Equals("Acidron1") || SceneManager.GetActiveScene().name.Equals("LevelFive") || SceneManager.GetActiveScene().name.Equals("MLevelFive"))
             {
                 AudioClip teste = soundAmbiance[6];
                 soundAmbianceLevel.clip = teste;
             }
             else if (SceneManager.GetActiveScene().name.Equals("Cutscene1") || SceneManager.GetActiveScene().name.Equals("Cutscene2") || SceneManager.GetActiveScene().name.Equals("FimDeJogo"))
             {
-                AudioClip teste = soundAmbiance[7];
+                AudioClip teste = soundAmbiance[8];
                 soundAmbianceLevel.clip = teste;
-            }else if (SceneManager.GetActiveScene().name.Equals("Acidron1") || SceneManager.GetActiveScene().name.Equals("Acidron2"))
+            }else if (SceneManager.GetActiveScene().name.Equals("Acidron2"))
             {
-                AudioClip teste = soundAmbiance[0];
+                AudioClip teste = soundAmbiance[7];
                 soundAmbianceLevel.clip = teste;
             }
             soundAmbianceLevel.volume = 0.635f;
@@ -178,7 +178,10 @@ public class AudioController : MonoBehaviour
 
     public void RunningBreak()
     {
-        runningPlayer.Stop();
+        if (runningPlayer.isPlaying)
+        {
+            runningPlayer.Stop();
+        }
     }
 
     public void Collect()
@@ -202,9 +205,17 @@ public class AudioController : MonoBehaviour
         hurtEnemy.Play();
     }
 
-    public void BattleSoundStart()
+    public void BattleSoundStart(bool boss)
     {
-        AudioClip teste = soundAmbiance[8];
+        AudioClip teste;
+        if (boss)
+        {
+            teste = soundAmbiance[10];
+        }
+        else
+        {
+            teste = soundAmbiance[9];
+        }
         soundAmbianceLevel.clip = teste;
         soundAmbianceLevel.volume = 0.7f;
         soundAmbianceLevel.Play();

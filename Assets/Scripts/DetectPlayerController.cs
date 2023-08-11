@@ -14,7 +14,7 @@ public class DetectPlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player") && contabilizaStart == 0)
         {
-            GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundStart();
+            //GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundStart();
             contabilizaStart = 1;
             transform.parent.GetComponent<ZonesScriptController>().ClosedZone();
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
@@ -43,6 +43,7 @@ public class DetectPlayerController : MonoBehaviour
             }
             if (transform.parent.name.Equals("Zone1"))
             {
+                GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundStart(false);
                 GameObject spawner = GameObject.Find("Spawner1");
                 if (spawner.transform.childCount != 0)
                 {
@@ -59,6 +60,7 @@ public class DetectPlayerController : MonoBehaviour
             }
             else if (transform.parent.name.Equals("Zone2"))
             {
+                GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundStart(false);
                 GameObject spawner = GameObject.Find("Spawner2");
                 if (spawner.transform.childCount != 0)
                 {
@@ -72,6 +74,10 @@ public class DetectPlayerController : MonoBehaviour
                 {
                     spawner.GetComponent<SpawnerController>().GatilhoZona();
                 }
+            }
+            else
+            {
+                GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundStart(true);
             }
         }
     }

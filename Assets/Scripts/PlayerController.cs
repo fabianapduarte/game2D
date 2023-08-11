@@ -272,12 +272,18 @@ public class PlayerController : MonoBehaviour
         
         if(horizontal > 0){
             ani.SetBool("isRunning", true);
+            if (playerInFloor)
+            {
             GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
+            }
             Flip(false);
         }
         else if(horizontal < 0){
             ani.SetBool("isRunning", true);
-            GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
+            if (playerInFloor)
+            {
+                GameObject.Find("AudioController").GetComponent<AudioController>().RunningPlay();
+            }
             Flip(true);
         }
         else{
