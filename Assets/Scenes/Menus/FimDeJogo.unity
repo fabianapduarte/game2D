@@ -1321,7 +1321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2007238560}
+  - {fileID: 1928184074}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1490,7 +1490,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535344541}
   m_CullTransparentMesh: 1
---- !u!1 &2007238559
+--- !u!1 &1928184073
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1498,16 +1498,16 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2007238560}
-  - component: {fileID: 2007238569}
-  - component: {fileID: 2007238568}
-  - component: {fileID: 2007238567}
-  - component: {fileID: 2007238566}
-  - component: {fileID: 2007238565}
-  - component: {fileID: 2007238564}
-  - component: {fileID: 2007238563}
-  - component: {fileID: 2007238562}
-  - component: {fileID: 2007238561}
+  - component: {fileID: 1928184074}
+  - component: {fileID: 1928184083}
+  - component: {fileID: 1928184082}
+  - component: {fileID: 1928184081}
+  - component: {fileID: 1928184080}
+  - component: {fileID: 1928184079}
+  - component: {fileID: 1928184078}
+  - component: {fileID: 1928184077}
+  - component: {fileID: 1928184076}
+  - component: {fileID: 1928184075}
   m_Layer: 0
   m_Name: AudioController
   m_TagString: Untagged
@@ -1515,28 +1515,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2007238560
+--- !u!4 &1928184074
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.28, y: -0.19999981, z: 16.737198}
+  m_LocalPosition: {x: 0.20000005, y: -1.1999997, z: 16.737198}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1430162225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2007238561
+--- !u!82 &1928184075
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1626,13 +1626,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2007238562
+--- !u!82 &1928184076
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1722,13 +1722,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2007238563
+--- !u!82 &1928184077
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1818,13 +1818,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2007238564
+--- !u!82 &1928184078
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1914,13 +1914,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2007238565
+--- !u!82 &1928184079
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -2010,13 +2010,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2007238566
+--- !u!82 &1928184080
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -2106,13 +2106,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2007238567
+--- !u!82 &1928184081
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -2202,13 +2202,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2007238568
+--- !u!82 &1928184082
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -2298,13 +2298,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2007238569
+--- !u!114 &1928184083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007238559}
+  m_GameObject: {fileID: 1928184073}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cec582ccdb9bd946bd178396f2b31f3, type: 3}
@@ -2316,17 +2316,24 @@ MonoBehaviour:
   attack:
   - {fileID: 8300000, guid: df84e6105804efd449bea17fb959207e, type: 3}
   - {fileID: 8300000, guid: 6999534b20898f34f91fdb958de23c98, type: 3}
+  - {fileID: 8300000, guid: 13816f73afbc8084683d220824568fcf, type: 3}
   running:
-  - {fileID: 8300000, guid: cdbbca7b39eb45c4e8da96569728c9e6, type: 3}
+  - {fileID: 8300000, guid: 505a015d5525e0442ae4a62d5bac304d, type: 3}
+  - {fileID: 8300000, guid: 2802b1a72217c464ea0171ad67e835f7, type: 3}
+  - {fileID: 8300000, guid: 88da42c7018c0fa41870ccf17d13da9c, type: 3}
+  - {fileID: 8300000, guid: b30822d7e7d412d459397d0749be742a, type: 3}
   soundAmbiance:
-  - {fileID: 8300000, guid: a1c572a1239020246bb254baffd06ba6, type: 3}
   - {fileID: 8300000, guid: 16badc907e8edc847b2ae906af9f07d4, type: 3}
+  - {fileID: 8300000, guid: 1f6869b02c48c4444ade895b392f3159, type: 3}
   - {fileID: 8300000, guid: a2287a702ad00e34d981545adda17b73, type: 3}
   - {fileID: 8300000, guid: 22d97e5de6744234bb421a98d7a47645, type: 3}
   - {fileID: 8300000, guid: 64d857b785c6ae24c97f11d5be23a820, type: 3}
   - {fileID: 8300000, guid: 26ed5c907bd8d42409f006a19080a1d7, type: 3}
+  - {fileID: 8300000, guid: e24e5723ec1449149b1f8e3698f85b7d, type: 3}
+  - {fileID: 8300000, guid: a0941b8dbfc37014cada5036cc4b019e, type: 3}
   - {fileID: 8300000, guid: 2cf983fdafe07654591586f2dcfff48c, type: 3}
-  - {fileID: 8300000, guid: 56d8431cc4b3d1943b7791fe595c3c40, type: 3}
+  - {fileID: 8300000, guid: 2faf3c228cf076444bc442fabc84da19, type: 3}
+  - {fileID: 8300000, guid: f1419cfd01872b34fa7b6761239f22a5, type: 3}
   selectInMenu:
   - {fileID: 8300000, guid: 5373658e56a6b03498260f633649a71a, type: 3}
   moveInMenu:
@@ -2335,20 +2342,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e084a5da956625e4ea271a42991fbe4e, type: 3}
   - {fileID: 8300000, guid: 06c9f6a9078813d49b25aad214788252, type: 3}
   finishLevel:
-  - {fileID: 8300000, guid: 7668fbca34f01114c9a9b06994248416, type: 3}
   - {fileID: 8300000, guid: 7b29cc9967921d549ba23ac0adba0b31, type: 3}
+  - {fileID: 8300000, guid: 7668fbca34f01114c9a9b06994248416, type: 3}
   enemyHurt:
   - {fileID: 8300000, guid: d3cff70bb7bd51e46935689e6bae4844, type: 3}
   - {fileID: 8300000, guid: 139fe9017593925458e4bd2102a12360, type: 3}
   playerHurt:
   - {fileID: 8300000, guid: 0cce2bc2fb3c95c429d6c545542b8cba, type: 3}
-  soundAmbianceLevel: {fileID: 2007238568}
-  endLevel: {fileID: 2007238561}
-  hurtEnemy: {fileID: 2007238561}
-  attackPlayer: {fileID: 2007238567}
-  runningPlayer: {fileID: 2007238566}
-  jumpPlayer: {fileID: 2007238565}
-  hurtPlayer: {fileID: 2007238561}
-  selection: {fileID: 2007238564}
-  move: {fileID: 2007238565}
-  collect: {fileID: 2007238562}
+  soundAmbianceLevel: {fileID: 1928184082}
+  endLevel: {fileID: 1928184075}
+  hurtEnemy: {fileID: 1928184075}
+  attackPlayer: {fileID: 1928184081}
+  runningPlayer: {fileID: 1928184081}
+  jumpPlayer: {fileID: 1928184079}
+  hurtPlayer: {fileID: 1928184075}
+  selection: {fileID: 1928184078}
+  move: {fileID: 1928184079}
+  collect: {fileID: 1928184076}
