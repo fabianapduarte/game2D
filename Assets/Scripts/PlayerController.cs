@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private DialogueTipo2Controller dc;
 
     private bool jump = true;
+    private float direcaoDoAtaque;
 
     // Start is called before the first frame update
     void Start()
@@ -136,6 +137,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Ataque1") && contabilizaDano == 0)
         {
+            direcaoDoAtaque = transform.localScale.x;
             if (combo == 5)
             {
                 ani.SetBool("isEspecial", true);
@@ -309,8 +311,18 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 1f;
         }
 
+        
         if ((stateInfo.IsName("Attack") || stateInfo.IsName("Spell")) && playerInFloor){
-            rb.velocity = new Vector3(0, rb.velocity.y, 0f);
+            if((horizontal <= 0 && direcaoDoAtaque < 0) || (horizontal >= 0 && direcaoDoAtaque > 0))
+            {
+                rb.velocity = new Vector3(0, rb.velocity.y, 0f);
+            }
+            else
+            {
+                ani.SetBool("isAtacking", false);
+                ani.SetBool("isEspecial", false);
+                ani.Play("idle");
+            }
         }
 
         //old 0.16739f

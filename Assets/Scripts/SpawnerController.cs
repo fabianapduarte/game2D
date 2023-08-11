@@ -12,6 +12,7 @@ public class SpawnerController : MonoBehaviour
     public Transform enemiesSlot;
 
     public GameObject Zone;
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
@@ -75,6 +76,14 @@ public class SpawnerController : MonoBehaviour
             GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
             Destroy(Zone);
         }
+        else if (enemiesSlot.childCount == 0){
+            if (IsInvoking("Spawn"))
+            {
+                CancelInvoke("Spawn");
+                Spawn();
+            }
+        }
+
     }
 
     public void GatilhoZona()
@@ -88,7 +97,7 @@ public class SpawnerController : MonoBehaviour
         Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPosition, Quaternion.identity, enemiesSlot);
         if(qntMax > 0)
         {
-            Invoke("Spawn", Random.Range(8f, 14f));
+            Invoke("Spawn", Random.Range(8f, 10f));
             qntMax--;
         }
     }
