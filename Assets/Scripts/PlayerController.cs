@@ -289,7 +289,6 @@ public class PlayerController : MonoBehaviour
         else{
             ani.SetBool("isRunning", false);
             GameObject.Find("AudioController").GetComponent<AudioController>().RunningBreak();
-            
 
         }
 
@@ -495,7 +494,11 @@ public class PlayerController : MonoBehaviour
             if (contabilizaDano == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
-                FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
+                BossController boss = FindObjectOfType<BossController>();
+                if (boss != null)
+                {
+                    boss.Hurt(GetDano());
+                }
                 contabilizaDano = 1;
                 Invoke("Sleep", 1.5f);
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();

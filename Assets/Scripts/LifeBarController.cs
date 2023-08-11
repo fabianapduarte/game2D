@@ -5,17 +5,30 @@ using UnityEngine.UI;
 
 public class LifeBarController : MonoBehaviour
 {
-    public int vidaTotal = 50;
-
-    void Start()
+    public void InitSlider(int value)
     {
-        GetComponent<Slider>().value = 1;
+        if(value == 1)
+        {
+            GetComponent<Slider>().value = 10;
+        }else if(value == 2)
+        {
+            GetComponent<Slider>().value = 20;
+        }else if(value == 3)
+        {
+                GetComponent<Slider>().value = 30;
+        } else if(value == 4)
+        {
+            GetComponent<Slider>().value = 35;
+        }
+        else
+        {
+            GetComponent<Slider>().value = 45;
+        }
     }
 
-    public void SetLifeBar(float value)
+    public void SetLifeBar(int value)
     {
-        float dano = ((GetComponent<Slider>().value*vidaTotal) - value)/vidaTotal;
-        GetComponent<Slider>().value = dano;
+        GetComponent<Slider>().value -= value;
     }
 
     public float GetValueLifeBar()

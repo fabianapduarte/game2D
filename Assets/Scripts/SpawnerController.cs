@@ -47,7 +47,7 @@ public class SpawnerController : MonoBehaviour
 
     private void Update()
     {
-        if(qntMax == 0 && enemiesSlot.childCount == 0)
+        if((qntMax == 0 && enemiesSlot.childCount == 0))
         {
             GameObject.Find("detectInZone").GetComponent<DetectPlayerController>().setContabilizaStart();
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
@@ -79,9 +81,9 @@ public class BossController : MonoBehaviour
         transform.localScale = Scale;
     }
 
-    public void Hurt(float danoPlayer)
+    public void Hurt(int dano)
     {
-        FindObjectOfType<LifeBarController>().SetLifeBar(danoPlayer);
+        FindObjectOfType<LifeBarController>().SetLifeBar(dano);
         ani.SetBool("isHurting", true);
         Invoke("TimeTransitionHurt", 0.4f);
 
@@ -92,6 +94,32 @@ public class BossController : MonoBehaviour
         if (FindObjectOfType<LifeBarController>().GetValueLifeBar() == 0)
         {
             ani.SetBool("isDead", true);
+            if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5);
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6);
+            }
+            GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
+            FindObjectOfType<ZonesScriptController>().DestroyZone();
             Destroy(gameObject, 1f);
         }
     }

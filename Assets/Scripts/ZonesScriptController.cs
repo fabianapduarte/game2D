@@ -10,4 +10,9 @@ public class ZonesScriptController : MonoBehaviour
         transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = false;
     }
 
+    public void DestroyZone()
+    {
+        Destroy(gameObject);
+    }
+
 }

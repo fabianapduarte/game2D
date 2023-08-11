@@ -67,18 +67,23 @@ public class GameController : MonoBehaviour
     {
         if(level == 1)
         {
+            FindObjectOfType<LifeBarController>().InitSlider(1);
             return enemiesLevelOne;
         }else if (level == 2)
         {
+            FindObjectOfType<LifeBarController>().InitSlider(2);
             return enemiesLevelTwo;
         } else if (level == 3)
         {
+            FindObjectOfType<LifeBarController>().InitSlider(3);
             return enemiesLevelTree;
         } else if(level == 4)
         {
+            FindObjectOfType<LifeBarController>().InitSlider(4);
             return enemiesLevelFour;
         }else if (level == 5)
         {
+            FindObjectOfType<LifeBarController>().InitSlider(5);
             return enemiesLevelFive;
         }
         else
@@ -167,29 +172,6 @@ public class GameController : MonoBehaviour
 
     public void HurtEnemy(GameObject enemy)
     {
-        if (enemy.tag.Equals("Boss"))
-        {
-            if (sceneCurrent.Equals("LevelOne"))
-            {
-                enemy.GetComponent<BossController>().Hurt(0.25f);
-            }
-            if (sceneCurrent.Equals("LevelTwo"))
-            {
-                enemy.GetComponent<BossController>().Hurt(0.20f);
-            }
-            if (sceneCurrent.Equals("LevelTree"))
-            {
-                enemy.GetComponent<BossController>().Hurt(0.20f);
-            }
-            if (sceneCurrent.Equals("LevelFour"))
-            {
-                enemy.GetComponent<BossController>().Hurt(0.15f);
-            }
-            if (sceneCurrent.Equals("LevelFive"))
-            {
-                enemy.GetComponent<BossController>().Hurt(0.10f);
-            }
-        }
         if (enemy.layer == 6)
         {
             enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
