@@ -14651,6 +14651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss3
       objectReference: {fileID: 0}
+    - target: {fileID: 1506618270978664868, guid: 3589c97e58ff6a648a9aacc6d821e26f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1506618270978664870, guid: 3589c97e58ff6a648a9aacc6d821e26f, type: 3}
       propertyPath: m_RootOrder
       value: 52

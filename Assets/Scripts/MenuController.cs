@@ -101,8 +101,8 @@ public class MenuController : MonoBehaviour
     private void changeHudInfos()
     {
         PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
-        GameObject.Find("danoDeAtaqueTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetDano();
-        GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "x" + player.GetSpeed();
+        GameObject.Find("danoDeAtaqueTxt").GetComponent<TextMeshProUGUI>().text = "" + player.GetDano();
+        GameObject.Find("velocidadeTxt").GetComponent<TextMeshProUGUI>().text = "" + player.GetSpeed();
         updateCombo();
     }
 
@@ -262,6 +262,10 @@ public class MenuController : MonoBehaviour
                 string cena = "Cena" + (indexCena++);
                 videoPlayer.clip = (VideoClip)Resources.Load(cena);
                 videoPlayer.isLooping = true;
+
+                GameObject buttonNext = GameObject.Find("btnProximo");
+                Vector2 newPosition = new Vector2(787f, -207.104f);
+                buttonNext.GetComponent<Transform>().localPosition = newPosition;
             }
         }
 
