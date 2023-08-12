@@ -24,6 +24,8 @@ public class enemyTarget : MonoBehaviour
         if (life <= 0)
         {
             ani.SetBool("isDead", true);
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<BoxCollider2D>().isTrigger = true;
             Destroy(gameObject, 1f);
         }
     }

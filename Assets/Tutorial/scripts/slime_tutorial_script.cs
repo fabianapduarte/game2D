@@ -30,6 +30,8 @@ public class slime_tutorial_script : MonoBehaviour
         if (life <= 0)
         {
             ani.SetBool("isDead", true);
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<PolygonCollider2D>().isTrigger = true;
             Destroy(gameObject, 1f);
         }
     }

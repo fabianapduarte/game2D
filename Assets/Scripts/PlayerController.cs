@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 6;
     private int danoPlayer = 1;
-    private float jumpForce = 8.5f;
+    private float jumpForce = 21f;
     public bool doubleJump;
 
     private Rigidbody2D rb;
@@ -327,7 +327,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.speed = 1;
-            rb.gravityScale = 1f;
+            rb.gravityScale = 6f;
         }
 
         
