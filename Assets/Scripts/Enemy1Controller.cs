@@ -93,8 +93,12 @@ public class Enemy1Controller : MonoBehaviour
         if (life <= 0)
         {
             ani.SetBool("isDead", true);
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            GetComponent<BoxCollider2D>().isTrigger = true;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.bodyType = RigidbodyType2D.Static;
+                GetComponent<BoxCollider2D>().isTrigger = true;
+            }
             Destroy(gameObject, .4f);
         }
     }
