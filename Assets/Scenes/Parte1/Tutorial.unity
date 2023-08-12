@@ -2450,8 +2450,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A fogueira \xE9 um ponto de salvamento. Se a Sim\xE9tra passar por ela
-    e morrer, renascer\xE1 a partir dela."
+  m_text: "A fogueira \xE9 um Checkpoint. Passe por ela para garantir um atalho ao
+    renascer."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
   m_sharedMaterial: {fileID: -1312703284477486907, guid: 8ba0275bc78d5aa4caf8e323e9fe2986, type: 2}
@@ -4674,6 +4674,10 @@ PrefabInstance:
     - target: {fileID: 6529037360947707042, guid: 794085dbd0309be458724a2f676fa72b, type: 3}
       propertyPath: m_Name
       value: BonecoAlvo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529037360947707042, guid: 794085dbd0309be458724a2f676fa72b, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7612088595999808592, guid: 794085dbd0309be458724a2f676fa72b, type: 3}

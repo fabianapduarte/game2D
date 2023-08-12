@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        print(playerLifes);
+        //print(playerLifes);
         sceneCurrent = SceneManager.GetActiveScene().name;
     }
 
@@ -199,6 +199,11 @@ public class GameController : MonoBehaviour
         if (enemy.layer == 9)
         {
             enemy.GetComponent<Enemy4Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
+        }
+
+        if (enemy.layer == 15)
+        {
+            enemy.GetComponent<enemyTarget>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
         }
     }
 

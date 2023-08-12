@@ -38,7 +38,7 @@ public class enemyTarget : MonoBehaviour
 
         //Adiciona tempo de recuperacao pro inimigo
         contabilizaDano = 1;
-        Invoke("Sleep", 1f);
+        //Invoke("Sleep", 1f);
 
 
     }

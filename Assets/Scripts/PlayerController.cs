@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour
 
     private bool jump = true;
     private float direcaoDoAtaque;
-    float previousState = Input.GetAxis("Ataque2");
+    private float reducao = 0.8f;
+    //private float previousState = Input.GetAxis("Ataque2");
 
     // Start is called before the first frame update
     void Start()
@@ -106,7 +107,8 @@ public class PlayerController : MonoBehaviour
         //float previousState = Input.GetAxis("Ataque2"); // Estado no frame anterior
         float currentState = Input.GetAxisRaw("Ataque2"); // Estado no frame atual
 
-        return currentState > 0 && previousState <= 0;
+        //return currentState > 0 && previousState <= 0;
+        return false;
     }
 
     // Update is called once per frame
@@ -167,7 +169,7 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isEspecial", false);
         }
 
-        previousState = Input.GetAxis("Ataque2");
+        //previousState = Input.GetAxis("Ataque2");
         if (((Input.GetButtonDown("Ataque1") || (Input.GetButtonDown("Ataque2") || GetR2ButtonDown()))) && contabilizaDano != 0)
         {
             //SOM DE BLOQUEIO
@@ -180,7 +182,7 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isMagicAtacking", true);
             CancelInvoke("Sleep");
             contabilizaDano = 1;
-            Invoke("Sleep", 1.5f);
+            Invoke("Sleep", .7f);
             GameObject.Find("AudioController").GetComponent<AudioController>().Attack2();
         }
         else
@@ -334,7 +336,10 @@ public class PlayerController : MonoBehaviour
         if ((stateInfo.IsName("Attack") || stateInfo.IsName("Spell")) && playerInFloor){
             if((horizontal <= 0 && direcaoDoAtaque < 0) || (horizontal >= 0 && direcaoDoAtaque > 0))
             {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0f);
+                rb.velocity = new Vector3(rb.velocity.x*reducao, rb.velocity.y, 0f);
+                reducao = reducao - 0.07f;
+                if (reducao < 0)
+                    reducao = 0;
             }
             else
             {
@@ -343,6 +348,10 @@ public class PlayerController : MonoBehaviour
                 ani.SetBool("isMagicAtacking", false);
                 ani.Play("idle");
             }
+        }
+        else
+        {
+            reducao = 0.8f;
         }
 
         //old 0.16739f
@@ -436,6 +445,7 @@ public class PlayerController : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (collision.gameObject.CompareTag("Enemy") && (stateInfo.IsName("Attack") || stateInfo.IsName("especial")))
         {
+            print("bati");
             if (contabilizaDano == 0)
             {
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
@@ -456,7 +466,7 @@ public class PlayerController : MonoBehaviour
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
                 contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
+                Invoke("Sleep", .7f);
             }
         }
         if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Spell"))
@@ -500,7 +510,7 @@ public class PlayerController : MonoBehaviour
                     boss.Hurt(GetDano());
                 }
                 contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
+                Invoke("Sleep", .7f);
             }
         }
         if (collision.gameObject.CompareTag("Boss") && stateInfo.IsName("Spell"))
