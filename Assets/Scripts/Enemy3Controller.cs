@@ -129,7 +129,7 @@ public class Enemy3Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player") && collision.GetType() == typeof(BoxCollider2D))
+        if (collision.gameObject.tag.Equals("Player") && collision.GetType() == typeof(BoxCollider2D) && life > 0)
         {
             if (contabilizaDano == 0)
             {
