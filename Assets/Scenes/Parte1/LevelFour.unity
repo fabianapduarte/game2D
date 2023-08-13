@@ -6686,11 +6686,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4239266484827795504, guid: f5154831bad10d2438e87b876f70b224, type: 3}
       propertyPath: m_Value
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4239266484827795504, guid: f5154831bad10d2438e87b876f70b224, type: 3}
       propertyPath: m_MaxValue
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4239266484827795505, guid: f5154831bad10d2438e87b876f70b224, type: 3}
       propertyPath: m_AnchoredPosition.x

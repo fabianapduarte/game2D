@@ -14074,11 +14074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3210373409253738997, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
       propertyPath: m_Value
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3210373409253738997, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
       propertyPath: m_MaxValue
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4335840369261586038, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -14208,7 +14208,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.36
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -503595066436314146, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
 --- !u!1 &6272337777091914321 stripped
 GameObject:

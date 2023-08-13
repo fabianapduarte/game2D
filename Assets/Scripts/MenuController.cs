@@ -391,6 +391,8 @@ public class MenuController : MonoBehaviour
     }
 
     public void configPause(){
+        PlayerController player = GameObject.Find("Simetra").GetComponent<PlayerController>();
+        player.resetaInputPulo();
         GameObject button = GameObject.Find("VolumeBtn");
         EventSystem.current.SetSelectedGameObject(button);
     }

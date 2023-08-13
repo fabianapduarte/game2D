@@ -93,7 +93,7 @@ public class BossController : MonoBehaviour
         contabilizaDano = 1;
         Invoke("Sleep", 1f);
 
-        if (FindObjectOfType<LifeBarController>().GetValueLifeBar() == 0)
+        if (FindObjectOfType<LifeBarController>().GetValueLifeBar() <= 0)
         {
             ani.SetBool("isDead", true);
             //Rigidbody2D rb = GetComponent<Rigidbody2D>();

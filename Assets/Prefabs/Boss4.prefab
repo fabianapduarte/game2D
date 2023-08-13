@@ -378,7 +378,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4239266484681911311}
   - component: {fileID: 4239266484681911296}
-  - component: {fileID: -1654671135682411215}
   m_Layer: 0
   m_Name: Boss4
   m_TagString: Boss
@@ -454,19 +453,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1654671135682411215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4239266484681911297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71eb7c32a06ed0c4d90b0ccb077f7a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 1
 --- !u!1 &4239266484827795506
 GameObject:
   m_ObjectHideFlags: 0
