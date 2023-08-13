@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool playerInFloor = false;
     private Animator ani;
     private int contabilizaDano = 0;
+    private int contabilizaDanoSpell = 0;
     private int contabilizaColeta = 0;
 
     private bool isClimbing;
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool jump = true;
     private float direcaoDoAtaque;
     private float reducao = 0.8f;
-    //private float previousState = Input.GetAxis("Ataque2");
+    private bool previousStateR2 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -104,10 +105,19 @@ public class PlayerController : MonoBehaviour
 
     private bool GetR2ButtonDown()
     {
-        //float previousState = Input.GetAxis("Ataque2"); // Estado no frame anterior
-        float currentState = Input.GetAxisRaw("Ataque2"); // Estado no frame atual
+        bool currentStateR2 = Input.GetAxis("Ataque2") > 0;
 
-        //return currentState > 0 && previousState <= 0;
+        if (!previousStateR2 && currentStateR2)
+        {
+            previousStateR2 = true;
+            print("foi");
+            return true;
+        }
+        else if (!currentStateR2)
+        {
+            previousStateR2 = false;
+        }
+
         return false;
     }
 
@@ -120,6 +130,7 @@ public class PlayerController : MonoBehaviour
         GameObject dialogo = GameObject.Find("Dialogue");
 
         DetectSlopes();
+
 
         if (Input.GetButtonDown("Jump") && jump && dialogo==null)
         {
@@ -169,20 +180,17 @@ public class PlayerController : MonoBehaviour
             ani.SetBool("isEspecial", false);
         }
 
-        //previousState = Input.GetAxis("Ataque2");
-        if (((Input.GetButtonDown("Ataque1") || (Input.GetButtonDown("Ataque2") || GetR2ButtonDown()))) && contabilizaDano != 0)
+        bool isR2 = GetR2ButtonDown();
+        if (((Input.GetButtonDown("Ataque1")) && contabilizaDano != 0 || ((Input.GetButtonDown("Ataque2") || isR2) && contabilizaDanoSpell !=0)))
         {
             //SOM DE BLOQUEIO
             GameObject.Find("AudioController").GetComponent<AudioController>().AttackBlock();
         }
 
-        if ((Input.GetButtonDown("Ataque2") || GetR2ButtonDown()) && contabilizaDano == 0 && SceneManager.GetActiveScene().buildIndex >= 7)
+        if ((Input.GetButtonDown("Ataque2") || isR2) && contabilizaDanoSpell == 0 && SceneManager.GetActiveScene().buildIndex >= 7)
         {
             direcaoDoAtaque = transform.localScale.x;
             ani.SetBool("isMagicAtacking", true);
-            CancelInvoke("Sleep");
-            contabilizaDano = 1;
-            Invoke("Sleep", .7f);
             GameObject.Find("AudioController").GetComponent<AudioController>().Attack2();
         }
         else
@@ -412,6 +420,12 @@ public class PlayerController : MonoBehaviour
         return;
     }
 
+    private void SleepSpell()
+    {
+        contabilizaDanoSpell = 0;
+        return;
+    }
+
     public float GetSpeed()
     {
         return speed;
@@ -445,7 +459,6 @@ public class PlayerController : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (collision.gameObject.CompareTag("Enemy") && (stateInfo.IsName("Attack") || stateInfo.IsName("especial")))
         {
-            print("bati");
             if (contabilizaDano == 0)
             {
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
@@ -471,11 +484,14 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Spell"))
         {
-            if (contabilizaDano == 0)
+            print(contabilizaDanoSpell);
+            if (contabilizaDanoSpell == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 FindObjectOfType<GameController>().HurtEnemy(collision.gameObject);
-                
+                CancelInvoke("SleepSpell");
+                contabilizaDanoSpell = 1;
+                Invoke("SleepSpell", .5f);
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
                 controle.Vibrate(0.3f);
             }
@@ -515,7 +531,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Boss") && stateInfo.IsName("Spell"))
         {
-            if (contabilizaDano == 0)
+            if (contabilizaDanoSpell == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
                 BossController boss = FindObjectOfType<BossController>();
@@ -523,8 +539,9 @@ public class PlayerController : MonoBehaviour
                 {
                     boss.Hurt(GetDano());
                 }
-                contabilizaDano = 1;
-                Invoke("Sleep", 1.5f);
+                CancelInvoke("SleepSpell");
+                contabilizaDanoSpell = 1;
+                Invoke("SleepSpell", .5f);
                 InputController controle = GameObject.Find("InputController").GetComponent<InputController>();
                 controle.Vibrate(0.3f);
             }
