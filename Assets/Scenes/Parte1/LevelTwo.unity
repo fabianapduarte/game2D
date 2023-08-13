@@ -3838,6 +3838,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plataforma (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4146574434067522648, guid: dd2774645ce20584993fb41efe5292d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd2774645ce20584993fb41efe5292d0, type: 3}
 --- !u!1 &686080534
@@ -14191,6 +14195,10 @@ PrefabInstance:
     - target: {fileID: 8449028710056951232, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449028710056951232, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1831502
       objectReference: {fileID: 0}
     - target: {fileID: 8449028710056951232, guid: a57a387cc21b7ee48b9c93d735f91cb6, type: 3}
       propertyPath: m_AnchoredPosition.x
