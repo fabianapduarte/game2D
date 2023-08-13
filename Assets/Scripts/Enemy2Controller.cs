@@ -58,7 +58,7 @@ public class Enemy2Controller : MonoBehaviour
             if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
             {
                 //Faz com que so ataque depois de um tempo
-                if (contabilizaDano == 0 && FindObjectOfType<GameController>().isPlayerAlive())
+                if (contabilizaDano == 0)
                 {
                     ani.SetBool("isAtacking", true);
                 }

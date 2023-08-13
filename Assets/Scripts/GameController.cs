@@ -243,6 +243,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void ResetLifes()
+    {
+        playerLifes = 5;
+    }
+
     void GameOver()
     {
         playerLifes = 5;

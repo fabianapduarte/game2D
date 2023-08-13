@@ -30,7 +30,7 @@ public class Enemy1Controller : MonoBehaviour
         Vector3 pontoMedioPlayer = colliderPlayer.bounds.center;
         float distanciaPontosMedios = Vector3.Distance(pontoMedioObjetoAtual, pontoMedioPlayer);
 
-        if (distanciaPontosMedios > limite)
+        if (distanciaPontosMedios > limite && life > 0)
         {
             if (playerCheck == true && Vector3.Distance(transform.position, player.position) <= 12f)
             {
@@ -94,11 +94,13 @@ public class Enemy1Controller : MonoBehaviour
         {
             ani.SetBool("isDead", true);
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, LayerMask.GetMask("Floor"));
+            //hit.collider != null &&
             if (rb != null)
             {
                 rb.bodyType = RigidbodyType2D.Static;
-                GetComponent<BoxCollider2D>().isTrigger = true;
-            }
+            }  
+            GetComponent<BoxCollider2D>().isTrigger = true;
             Destroy(gameObject, .4f);
         }
     }
@@ -139,6 +141,10 @@ public class Enemy1Controller : MonoBehaviour
                 controle.Vibrate(1f);
                 Invoke("Sleep", 2f);
             }
+        }
+        if (collision.gameObject.layer == 3 && life <= 0) 
+        {
+           
         }
     }
 }   

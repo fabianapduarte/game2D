@@ -30,7 +30,7 @@ public class Enemy3Controller : MonoBehaviour
         Vector3 pontoMedioPlayer = colliderPlayer.bounds.center;
         float distanciaPontosMedios = Vector3.Distance(pontoMedioObjetoAtual, pontoMedioPlayer);
 
-        if (distanciaPontosMedios > limite)
+        if (distanciaPontosMedios > limite && life > 0)
         {
             if (playerCheck == true && Vector3.Distance(transform.position, player.position) <= 12f)
             {

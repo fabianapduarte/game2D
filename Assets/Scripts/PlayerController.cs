@@ -337,7 +337,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.speed = 1;
-            rb.gravityScale = 6f;
+            rb.gravityScale = 1f;
         }
 
         

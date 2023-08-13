@@ -362,6 +362,15 @@ public class MenuController : MonoBehaviour
         {
             PlayerPrefs.SetInt("FaseAtual", PlayerPrefs.GetInt("FaseAtual")+1);
         }
+
+        if (!SceneManager.GetActiveScene().name.Equals("Vitoria") && !SceneManager.GetActiveScene().name.Equals("Derrota"))
+        {
+            GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
+            if (gameController != null)
+            {
+                gameController.ResetLifes();
+            }
+        }
         
         if (pause.activeSelf)
         {
