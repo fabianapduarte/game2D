@@ -143,8 +143,14 @@ public class GameController : MonoBehaviour
                 {
                     enemy.GetComponent<Enemy4Controller>().SetPlayerCheck(false);
                 }
-                enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
+                Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                }
                 enemy.GetComponent<BoxCollider2D>().isTrigger = true;
+
             }
             GameObject boss = GameObject.FindWithTag("Boss");
             boss.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -161,6 +167,11 @@ public class GameController : MonoBehaviour
             Invoke("GameOver", 2f);
             contabilizaMorte = 1;
         }
+    }
+
+    public bool isPlayerAlive()
+    {
+        return playerLifes > 0;
     }
 
     public void SetSafePoint(GameObject savepoint)

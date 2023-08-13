@@ -58,7 +58,7 @@ public class Enemy3Controller : MonoBehaviour
             if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
             {
                 //Faz com que so ataque depois de um tempo
-                if (contabilizaDano == 0)
+                if (contabilizaDano == 0 && FindObjectOfType<GameController>().isPlayerAlive())
                 {
                     ani.SetBool("isAtacking", true);
                 }
@@ -98,8 +98,8 @@ public class Enemy3Controller : MonoBehaviour
             if (rb != null)
             {
                 rb.bodyType = RigidbodyType2D.Static;
-                GetComponent<BoxCollider2D>().isTrigger = true;
             }
+            GetComponent<BoxCollider2D>().isTrigger = true;
             Destroy(gameObject, 1f);
         }
     }
