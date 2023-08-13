@@ -14,6 +14,10 @@ public class TreasureChestController : MonoBehaviour
     public void AnimationOpen()
     {
         ani.SetBool("isOpen", true);
-        transform.GetChild(1).gameObject.SetActive(true);
+        if(transform.childCount == 2)
+        {
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+
     }
 }

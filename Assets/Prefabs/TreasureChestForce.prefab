@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3821022079093858497}
   - component: {fileID: 4492087586766485762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 2532724521837614891}
   - component: {fileID: -2977967804293323127}
   - component: {fileID: -1747122154913765346}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TreasureChestForce
   m_TagString: treasureChest
   m_Icon: {fileID: 0}
