@@ -30,7 +30,7 @@ public class Enemy4Controller : MonoBehaviour
         Vector3 pontoMedioPlayer = colliderPlayer.bounds.center;
         float distanciaPontosMedios = Vector3.Distance(pontoMedioObjetoAtual, pontoMedioPlayer);
 
-        if (distanciaPontosMedios > limite)
+        if (distanciaPontosMedios > limite && life > 0)
         {
             if(playerCheck == true && Vector3.Distance(transform.position, player.position) <= 12f)
             {
@@ -58,7 +58,7 @@ public class Enemy4Controller : MonoBehaviour
             if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
             {
                 //Faz com que so ataque depois de um tempo
-                if (contabilizaDano == 0)
+                if (contabilizaDano == 0 && FindObjectOfType<GameController>().isPlayerAlive())
                 {
                     ani.SetBool("isAtacking", true);
                 }
@@ -93,8 +93,12 @@ public class Enemy4Controller : MonoBehaviour
         if (life <= 0)
         {
             ani.SetBool("isDead", true);
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            GetComponent<BoxCollider2D>().isTrigger = true;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.bodyType = RigidbodyType2D.Static;
+                GetComponent<BoxCollider2D>().isTrigger = true;
+            }
             Destroy(gameObject, 1f);
         }
     }
@@ -124,7 +128,7 @@ public class Enemy4Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player") && collision.GetType() == typeof(BoxCollider2D))
+        if (collision.gameObject.tag.Equals("Player") && collision.GetType() == typeof(BoxCollider2D) && life > 0)
         {
             if (contabilizaDano == 0)
             {

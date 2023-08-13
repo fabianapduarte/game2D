@@ -59,7 +59,7 @@ public class BossController : MonoBehaviour
             if (player.GetComponent<Animator>().GetBool("isAtacking") == false)
             {
                 //Faz com que so ataque depois de um tempo
-                if (contabilizaDano == 0)
+                if (contabilizaDano == 0 && FindObjectOfType<GameController>().isPlayerAlive())
                 {
                     ani.SetBool("isAtacking", true);
                 }
@@ -93,9 +93,16 @@ public class BossController : MonoBehaviour
         contabilizaDano = 1;
         Invoke("Sleep", 1f);
 
-        if (FindObjectOfType<LifeBarController>().GetValueLifeBar() == 0)
+        if (FindObjectOfType<LifeBarController>().GetValueLifeBar() <= 0)
         {
             ani.SetBool("isDead", true);
+            //Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, LayerMask.GetMask("Floor"));
+            //if (hit.collider != null && rb != null)
+            //{
+            //    rb.bodyType = RigidbodyType2D.Static;
+            //}
+            //GetComponent<BoxCollider2D>().isTrigger = true;
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
