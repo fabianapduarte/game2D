@@ -62,7 +62,7 @@ public class Enemy2Controller : MonoBehaviour
                 {
                     ani.SetBool("isAtacking", true);
                 }
-                Invoke("TimeTransitionAttack", 0.6f);
+                Invoke("TimeTransitionAttack", 0.4f);
             }
         }
     }
