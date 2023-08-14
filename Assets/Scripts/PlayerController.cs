@@ -183,6 +183,9 @@ public class PlayerController : MonoBehaviour
         {
             //SOM DE BLOQUEIO
             GameObject.Find("AudioController").GetComponent<AudioController>().AttackBlock();
+            ani.SetBool("isAtacking", false);
+            ani.SetBool("isEspecial", false);
+            ani.SetBool("isMagicAtacking", false);
         }
 
         if ((Input.GetButtonDown("Ataque2") || isR2) && contabilizaDanoSpell == 0 && SceneManager.GetActiveScene().buildIndex >= 7)

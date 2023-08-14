@@ -22,21 +22,21 @@ public class SpawnerController : MonoBehaviour
         } else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(2);
-            qntMax = Random.Range(4, 6);
+            qntMax = 4;
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(3);
-            qntMax = Random.Range(5, 7);
+            qntMax = Random.Range(4, 6);
         }
         else if(SceneManager.GetActiveScene().name.Equals("LevelFour"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(4);
-            qntMax = Random.Range(6, 8);
+            qntMax = Random.Range(5, 7);
         }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(5);
-            qntMax = Random.Range(7, 9);
+            qntMax = Random.Range(6, 8);
         }
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
