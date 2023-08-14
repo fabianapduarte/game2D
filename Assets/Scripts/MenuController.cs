@@ -356,6 +356,11 @@ public class MenuController : MonoBehaviour
         previousSceneIndex = index;
     }
 
+    public int GetPreviusSceneIndex()
+    {
+        return previousSceneIndex;
+    }
+
     public void mainMenu()
     {
         if (SceneManager.GetActiveScene().name.Equals("Vitoria"))

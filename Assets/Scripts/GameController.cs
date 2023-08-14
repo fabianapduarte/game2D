@@ -12,13 +12,12 @@ public class GameController : MonoBehaviour
     // player
     private int playerLifes = 5;
     private float maxSpeed = 11f;
-    private int contabilizaColeta = 0;
     private int contabilizaMorte = 0;
     private int contabilizaBonusSpeed = 0;
     private int contabilizaBonusForce = 0;
+    private bool saveProgress = false;
 
     //private Vector3 savePoint = Vector3.zero;
-    private string sceneCurrent;
 
     // enemies
     public GameObject[] enemiesLevelOne;
@@ -54,8 +53,50 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        //print(playerLifes);
-        sceneCurrent = SceneManager.GetActiveScene().name;
+        int index = GameObject.Find("MenuController").GetComponent<MenuController>().GetPreviusSceneIndex();
+        if(saveProgress || index == 0)
+        {
+            //GameObject.Find("TreasureChestSpeed").GetComponent<TreasureChestController>().AnimationOpen();
+            if(GameObject.Find("TreasureChestSpeed").transform.childCount == 2)
+            {
+                Destroy(GameObject.Find("TreasureChestSpeed").transform.GetChild(1).gameObject);
+            }
+            GameObject hud = GameObject.Find("HUD");
+            if (hud != null)
+            {
+                hud.transform.GetChild(5).gameObject.SetActive(false);
+            }
+            saveProgress = false;
+            return;
+        }
+        GameObject[] coletaveis = GameObject.FindGameObjectsWithTag("treasureChest");
+        GameObject player = GameObject.Find("Simetra");
+        if(coletaveis != null && player != null)
+        {
+            foreach (GameObject elem in coletaveis)
+            {
+                if(elem.transform.childCount == 2)
+                {
+                    if(Mathf.Abs(elem.transform.position.x) < Mathf.Abs(player.transform.position.x))
+                    {
+                        float distance = Vector3.Distance(elem.transform.position, player.transform.position);
+                        if (distance >= 6f)
+                        {
+                            GameObject hud = GameObject.Find("HUD");
+                            if(hud != null)
+                            {
+                                float value = Mathf.PingPong(Time.time, 1f);
+                                Color color = hud.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().color;
+                                hud.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().color = new Vector4(color.r, color.g, color.b, value);
+                                hud.transform.GetChild(5).gameObject.SetActive(true);
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
     }
 
     public void SetContabilizaBonusForce()
@@ -224,6 +265,11 @@ public class GameController : MonoBehaviour
         {
             if (contabilizaBonusForce == 0)
             {
+                GameObject hud = GameObject.Find("HUD");
+                if (hud != null)
+                {
+                    hud.transform.GetChild(5).gameObject.SetActive(false);
+                }
                 GameObject.Find("Simetra").GetComponent<PlayerController>().SetDanoPlayer(1);
                 contabilizaBonusForce = 1;
             }
@@ -234,6 +280,11 @@ public class GameController : MonoBehaviour
             {
                 if(contabilizaBonusSpeed == 0)
                 {
+                    GameObject hud = GameObject.Find("HUD");
+                    if (hud != null)
+                    {
+                        hud.transform.GetChild(5).gameObject.SetActive(false);
+                    }
                     GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
                     contabilizaBonusSpeed = 1;
                 }
@@ -261,6 +312,10 @@ public class GameController : MonoBehaviour
         else
         {
             contabilizaBonusSpeed = 0;
+        }
+        if(GetSavePoint() != Vector3.zero)
+        {
+            saveProgress = true;
         }
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
