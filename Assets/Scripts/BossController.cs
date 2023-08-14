@@ -105,27 +105,19 @@ public class BossController : MonoBehaviour
             //GetComponent<BoxCollider2D>().isTrigger = true;
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1, transform.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2, transform.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3, transform.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
-            }
-            else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
-            {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5);
-            }
-            else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
-            {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4, transform.name);
             }
             GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
             FindObjectOfType<ZonesScriptController>().DestroyZone();

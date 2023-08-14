@@ -15,7 +15,7 @@ public class EntradaCastleController : MonoBehaviour
         else
         {
             envinronmentsExtern.SetActive(true);
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5);
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5, "Zone1");
         }
     }
 }

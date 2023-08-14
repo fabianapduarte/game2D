@@ -52,26 +52,26 @@ public class SpawnerController : MonoBehaviour
             GameObject.Find("detectInZone").GetComponent<DetectPlayerController>().setContabilizaStart();
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4, Zone.name);
             }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6, Zone.name);
             }
             GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
             Destroy(Zone);

@@ -4152,8 +4152,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.7733, y: -1252.0913}
-  m_SizeDelta: {x: 1226.7, y: 1408.619}
+  m_AnchoredPosition: {x: 4.7785, y: -1284.0747}
+  m_SizeDelta: {x: 1226.7, y: 1472.586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804264081
 MonoBehaviour:
@@ -4199,7 +4199,8 @@ MonoBehaviour:
     \nBackground e Ambienta\xE7\xE3o do P\xE2ntano de Asudem - Criador(a): The Flavare\nColet\xE1veis
     - Criador(a): AhNinniah\nBackground do Tutorial - Criador(a): Devnewton\nBarra
     de Vida dos BOSSs - Criador(a): Adwitr\nBoss da Caverna de Aigolotim - Criador(a):
-    Chierit\n\nO a\xFAdio do jogo foi feito inteiramente com a\xFAdios das plataformas
+    Chierit\n\"Digging, Ice, Hammer, B.wav\" (Som de impedimento do ataque) - Criador(a):
+    InspectorJ\n\nO a\xFAdio do jogo foi feito inteiramente com a\xFAdios das plataformas
     Pixabay,\nFreesound e Unity Assets Store (Licen\xE7a de Extens\xE3o).\n \nO Pixabay
     permite o uso dos a\xFAdios por meio de uma Licen\xE7a de Conte\xFAdo, que permite\nque
     utilizemos as midias sem necessidade de atribui\xE7\xE3o aos autores(as) e possamos\nmodific\xE1-las
