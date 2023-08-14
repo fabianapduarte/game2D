@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-using static UnityEngine.EventSystems.EventTrigger;
-using TMPro;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 perpendicularSpeed;
 
     private int combo = 0;
+
 
     public PhysicsMaterial2D noFriction;
     public PhysicsMaterial2D friction;
@@ -266,8 +265,6 @@ public class PlayerController : MonoBehaviour
             rb.sharedMaterial = noFriction;
         }
     }
-
-    //private AudioSource running;
 
     private void Flip(bool isFliped){
         float scaleX = Mathf.Abs(transform.localScale.x);

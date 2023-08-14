@@ -53,21 +53,13 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        int index = GameObject.Find("MenuController").GetComponent<MenuController>().GetPreviusSceneIndex();
-        if(saveProgress || index == 0)
+        if(saveProgress)
         {
-            //GameObject.Find("TreasureChestSpeed").GetComponent<TreasureChestController>().AnimationOpen();
-            if(GameObject.Find("TreasureChestSpeed").transform.childCount == 2)
-            {
-                Destroy(GameObject.Find("TreasureChestSpeed").transform.GetChild(1).gameObject);
-            }
             GameObject hud = GameObject.Find("HUD");
             if (hud != null && !SceneManager.GetActiveScene().name.Equals("Tutorial"))
             {
-                hud.transform.GetChild(5).gameObject.SetActive(false);
+                hud.transform.GetChild(4).gameObject.SetActive(false);
             }
-            saveProgress = false;
-            return;
         }
         GameObject[] coletaveis = GameObject.FindGameObjectsWithTag("treasureChest");
         GameObject player = GameObject.Find("Simetra");
@@ -75,28 +67,56 @@ public class GameController : MonoBehaviour
         {
             foreach (GameObject elem in coletaveis)
             {
-                if(elem.transform.childCount == 2)
+                if (elem.transform.childCount == 2)
                 {
-                    if(Mathf.Abs(elem.transform.position.x) < Mathf.Abs(player.transform.position.x))
+                    float distance = Vector3.Distance(elem.transform.position, player.transform.position);
+                    if (elem.transform.position.x < player.transform.position.x)
                     {
-                        float distance = Vector3.Distance(elem.transform.position, player.transform.position);
-                        if (distance >= 6f)
+                        if (distance >= 7f)
                         {
                             GameObject hud = GameObject.Find("HUD");
-                            if(hud != null)
+                            if (hud != null)
                             {
                                 float value = Mathf.PingPong(Time.time, 1f);
-                                Color color = hud.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().color;
-                                hud.transform.GetChild(5).gameObject.GetComponent<TextMeshProUGUI>().color = new Vector4(color.r, color.g, color.b, value);
-                                hud.transform.GetChild(5).gameObject.SetActive(true);
+                                Color color = hud.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().color;
+                                hud.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().color = new Vector4(color.r, color.g, color.b, value);
+                                hud.transform.GetChild(4).gameObject.SetActive(true);
                             }
                         }
                     }
+                    else
+                    {
+                        if(distance <= 20f)
+                        {
+                            if (elem.transform.parent != null)
+                            {
+                                if (elem.transform.parent.localPosition.x >= player.transform.position.x)
+                                {
+                                    GameObject hud = GameObject.Find("HUD");
+                                    if (hud != null)
+                                    {
+                                        hud.transform.GetChild(4).gameObject.SetActive(false);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Debug.Log("Aeee");
+                                if (elem.transform.localPosition.x >= player.transform.position.x)
+                                {
+                                    GameObject hud = GameObject.Find("HUD");
+                                    if (hud != null)
+                                    {
+                                        hud.transform.GetChild(4).gameObject.SetActive(false);
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
                 }
-
             }
         }
-
     }
 
     public void SetContabilizaBonusForce()
@@ -268,7 +288,7 @@ public class GameController : MonoBehaviour
                 GameObject hud = GameObject.Find("HUD");
                 if (hud != null)
                 {
-                    hud.transform.GetChild(5).gameObject.SetActive(false);
+                    hud.transform.GetChild(4).gameObject.SetActive(false);
                 }
                 GameObject.Find("Simetra").GetComponent<PlayerController>().SetDanoPlayer(1);
                 contabilizaBonusForce = 1;
@@ -283,7 +303,7 @@ public class GameController : MonoBehaviour
                     GameObject hud = GameObject.Find("HUD");
                     if (hud != null)
                     {
-                        hud.transform.GetChild(5).gameObject.SetActive(false);
+                        hud.transform.GetChild(4).gameObject.SetActive(false);
                     }
                     GameObject.Find("Simetra").GetComponent<PlayerController>().SetSpeed(1);
                     contabilizaBonusSpeed = 1;
@@ -304,18 +324,16 @@ public class GameController : MonoBehaviour
         playerLifes = 5;
         if ((PlayerPrefs.GetFloat("saveX") != 0) && (PlayerPrefs.GetFloat("saveY") != 0))
         {
-            if(contabilizaBonusForce != 0)
+            saveProgress = true;
+            if (contabilizaBonusForce != 0)
             {
                 contabilizaBonusForce = 0;
             }  
         }
         else
         {
+            saveProgress = false;
             contabilizaBonusSpeed = 0;
-        }
-        if(GetSavePoint() != Vector3.zero)
-        {
-            saveProgress = true;
         }
         string derrota = SceneUtility.GetScenePathByBuildIndex(2);
         GameObject.Find("MenuController").GetComponent<MenuController>().PreviousScene(SceneManager.GetActiveScene().buildIndex);
@@ -329,6 +347,7 @@ public class GameController : MonoBehaviour
         string vitoria = SceneUtility.GetScenePathByBuildIndex(1);
         string final = SceneUtility.GetScenePathByBuildIndex(13);
 
+        saveProgress = false;
         PlayerPrefs.SetFloat("saveX", 0f);
         PlayerPrefs.SetFloat("saveY", 0f);
 

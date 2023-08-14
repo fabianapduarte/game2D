@@ -28,10 +28,7 @@ public class AudioController : MonoBehaviour
     public AudioSource hurtEnemy;
 
     [Header("Player")]
-    public AudioSource attackPlayer;
-    public AudioSource runningPlayer;
-    public AudioSource jumpPlayer;
-    public AudioSource hurtPlayer;
+    public GameObject Audios;
 
     [Header("Menu")]
     public AudioSource selection;
@@ -109,46 +106,40 @@ public class AudioController : MonoBehaviour
 
     public void Attack1()
     {
-        AudioClip teste = attack[Random.Range(0, attack.Length-1)];
-        attackPlayer.clip = teste;
-        attackPlayer.Play();
+        //AudioClip teste = attack[Random.Range(0, attack.Length-2)];
+        Audios.transform.GetChild(2).GetComponent<AudioSource>().PlayOneShot(attack[Random.Range(0, attack.Length - 2)]);
+        //attackPlayer.clip = teste;
+        //attackPlayer.Play();
     }
     public void Attack2()
     {
-        AudioClip teste = attack[2];
-        attackPlayer.clip = teste;
-        attackPlayer.Play();
+        Audios.transform.GetChild(2).GetComponent<AudioSource>().PlayOneShot(attack[2]);
     }
 
     public void AttackCombo()
     {
-        AudioClip teste = attack[Random.Range(0, attack.Length - 1)];
-        attackPlayer.clip = teste;
-        attackPlayer.Play();
+        Audios.transform.GetChild(2).GetComponent<AudioSource>().PlayOneShot(attack[3]);
     }
 
     public void AttackBlock()
     {
         AudioClip teste = moveInMenu[0];
-        attackPlayer.clip = teste;
-        attackPlayer.Play();
+        //attackPlayer.clip = teste;
+        //attackPlayer.Play();
     }
 
     public void Jump()
     {
-        AudioClip teste = jump[Random.Range(0, jump.Length)];
-        jumpPlayer.clip = teste;
-        jumpPlayer.Play();
+        Audios.transform.GetChild(1).GetComponent<AudioSource>().PlayOneShot(jump[Random.Range(0, jump.Length)]);
     }
 
     public void RunningPlay()
     {
-        if(!runningPlayer.isPlaying)
+        if(!Audios.transform.GetChild(0).GetComponent<AudioSource>().isPlaying)
         {
-            AudioClip teste = running[Random.Range(0, running.Length)];
-            runningPlayer.clip = teste;
-            runningPlayer.volume = 0.5f;
-            runningPlayer.Play();
+            Audios.transform.GetChild(0).GetComponent<AudioSource>().clip = running[Random.Range(0, running.Length)];
+            Audios.transform.GetChild(0).GetComponent<AudioSource>().volume = 0.5f;
+            Audios.transform.GetChild(0).GetComponent<AudioSource>().Play();
         }
     }
 
@@ -178,9 +169,9 @@ public class AudioController : MonoBehaviour
 
     public void RunningBreak()
     {
-        if (runningPlayer.isPlaying)
+        if (Audios.transform.GetChild(0).GetComponent<AudioSource>().isPlaying)
         {
-            runningPlayer.Stop();
+            Audios.transform.GetChild(0).GetComponent<AudioSource>().Stop();
         }
     }
 
@@ -193,9 +184,7 @@ public class AudioController : MonoBehaviour
 
     public void HurtPlayer()
     {
-        AudioClip teste = playerHurt[0];
-        hurtPlayer.clip = teste;
-        hurtPlayer.Play();
+        Audios.transform.GetChild(3).GetComponent<AudioSource>().PlayOneShot(playerHurt[0]);
     }
 
     public void HurtEnemy()
