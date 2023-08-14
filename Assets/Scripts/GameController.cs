@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
                 Destroy(GameObject.Find("TreasureChestSpeed").transform.GetChild(1).gameObject);
             }
             GameObject hud = GameObject.Find("HUD");
-            if (hud != null)
+            if (hud != null && !SceneManager.GetActiveScene().name.Equals("Tutorial"))
             {
                 hud.transform.GetChild(5).gameObject.SetActive(false);
             }
