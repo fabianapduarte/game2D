@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private float minX4 = -2.9f, maxX4 = 239.1f;
 
-    private float minX5 = 11f, maxX5 = 276f, minY5 = 1.33f;
+    private float minX5 = 11f, maxX5 = 268.5f, minY5 = 1.33f;
 
     private float minX6 = -9.25f, maxX6 = 53.2f;
 
@@ -155,8 +155,8 @@ public class CameraController : MonoBehaviour
         }
         if (zone == "Zone2")
         {
-            this.minX5 = 184.3f;
-            this.maxX5 = 252.6f;
+            this.minX5 = 204f;
+            this.maxX5 = 243.4f;
         }
         if (zone == "EntradaCastle")
         {
