@@ -214,8 +214,15 @@ public class GameController : MonoBehaviour
 
             }
             GameObject boss = GameObject.FindWithTag("Boss");
-            boss.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            boss.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            if(boss != null)
+            {
+                Rigidbody2D bossRigidbody = boss.GetComponent<Rigidbody2D>();
+                if (bossRigidbody != null)
+                {
+                    boss.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    boss.GetComponent<CapsuleCollider2D>().isTrigger = true;
+                }
+            }
             Invoke("DeadPlayer", 1f);
             return;
         }
