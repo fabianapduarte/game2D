@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
                     float distance = Vector3.Distance(elem.transform.position, player.transform.position);
                     if (elem.transform.position.x < player.transform.position.x)
                     {
-                        if (distance >= 7f)
+                        if (distance >= 6f)
                         {
                             GameObject hud = GameObject.Find("HUD");
                             if (hud != null && !SceneManager.GetActiveScene().name.Equals("Tutorial"))
@@ -101,7 +101,7 @@ public class GameController : MonoBehaviour
                             }
                             else
                             {
-                                Debug.Log("Aeee");
+                                Debug.Log(elem.transform.localPosition.x);
                                 if (elem.transform.localPosition.x >= player.transform.position.x)
                                 {
                                     GameObject hud = GameObject.Find("HUD");
@@ -144,7 +144,6 @@ public class GameController : MonoBehaviour
             return enemiesLevelFour;
         }else if (level == 5)
         {
-            FindObjectOfType<LifeBarController>().InitSlider(5);
             return enemiesLevelFive;
         }
         else

@@ -2245,7 +2245,7 @@ MonoBehaviour:
   soundAmbianceLevel: {fileID: 551721440}
   endLevel: {fileID: 551721439}
   hurtEnemy: {fileID: 551721438}
-  Audios: {fileID: 0}
+  Audios: {fileID: 1979832081}
   selection: {fileID: 551721437}
   move: {fileID: 551721436}
   collect: {fileID: 551721435}
@@ -4783,7 +4783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7469871878298535653, guid: ab12a73645a042241bff149cefe84eff, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7469871878298535653, guid: ab12a73645a042241bff149cefe84eff, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5450,7 +5450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6903682294750960241, guid: 1004c0483c304d047a586da5d7c83d60, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6903682294750960241, guid: 1004c0483c304d047a586da5d7c83d60, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6490,6 +6490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d6eca7d7a7be0046b07a442238f53e9, type: 3}
+--- !u!1 &1979832081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 613941567402450882, guid: 9d6eca7d7a7be0046b07a442238f53e9, type: 3}
+  m_PrefabInstance: {fileID: 1979832080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2010050505 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6903682294750960241, guid: 1004c0483c304d047a586da5d7c83d60, type: 3}

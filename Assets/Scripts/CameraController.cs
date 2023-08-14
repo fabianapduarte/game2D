@@ -155,14 +155,8 @@ public class CameraController : MonoBehaviour
         }
         if (zone == "Zone2")
         {
-            this.minX5 = 175.3f;
-            this.maxX5 = 201.8f;
-            this.minY5 = 5.87f;
-        }
-        if (zone == "Zone3")
-        {
-            this.minX5 = 241.5f;
-            this.maxX5 = 258.4f;
+            this.minX5 = 184.3f;
+            this.maxX5 = 252.6f;
             this.minY5 = 5.87f;
         }
         if (zone == "EntradaCastle")

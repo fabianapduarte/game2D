@@ -3620,7 +3620,7 @@ MonoBehaviour:
   soundAmbianceLevel: {fileID: 1208169612}
   endLevel: {fileID: 1208169611}
   hurtEnemy: {fileID: 1208169610}
-  Audios: {fileID: 0}
+  Audios: {fileID: 1805169092}
   selection: {fileID: 1208169609}
   move: {fileID: 1208169608}
   collect: {fileID: 1208169607}
@@ -4936,6 +4936,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d6eca7d7a7be0046b07a442238f53e9, type: 3}
+--- !u!1 &1805169092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 613941567402450882, guid: 9d6eca7d7a7be0046b07a442238f53e9, type: 3}
+  m_PrefabInstance: {fileID: 1805169091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1872923163
 GameObject:
   m_ObjectHideFlags: 0
