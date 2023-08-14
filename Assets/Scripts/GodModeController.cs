@@ -84,7 +84,7 @@ public class GodModeController : MonoBehaviour
                 CancelInvoke("cancelaGM");
                 gmCount++;
                 Invoke("cancelaGM", 1f);
-                if(gmCount == 2){
+                if(gmCount == -1){
                     GodMode.SetActive(true);
                     EventSystem.current.SetSelectedGameObject(buttonContinuarSelecao);
                     Time.timeScale = 0f;

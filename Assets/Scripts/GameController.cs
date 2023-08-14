@@ -51,9 +51,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void verifCollectibles()
     {
-        if(saveProgress)
+        if (saveProgress)
         {
             GameObject hud = GameObject.Find("HUD");
             if (hud != null && !SceneManager.GetActiveScene().name.Equals("Tutorial"))
@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
         }
         GameObject[] coletaveis = GameObject.FindGameObjectsWithTag("treasureChest");
         GameObject player = GameObject.Find("Simetra");
-        if(coletaveis != null && player != null)
+        if (coletaveis != null && player != null)
         {
             foreach (GameObject elem in coletaveis)
             {
@@ -86,7 +86,7 @@ public class GameController : MonoBehaviour
                     }
                     else
                     {
-                        if(distance <= 20f)
+                        if (distance <= 20f)
                         {
                             if (elem.transform.parent != null)
                             {
@@ -112,10 +112,19 @@ public class GameController : MonoBehaviour
                                 }
                             }
                         }
-                        
+
                     }
                 }
             }
+        }
+    }
+
+    private void Update()
+    {
+        GameObject hud = GameObject.Find("HUD");
+        if (hud != null && !SceneManager.GetActiveScene().name.Equals("Tutorial"))
+        {
+            verifCollectibles();
         }
     }
 
@@ -123,6 +132,11 @@ public class GameController : MonoBehaviour
     {
         contabilizaBonusForce = 0;
     } 
+
+    public int GetContabiliaBonusSpeed()
+    {
+        return contabilizaBonusSpeed;
+    }
 
     public GameObject[] GetEnemies(int level)
     {
@@ -259,11 +273,6 @@ public class GameController : MonoBehaviour
         {
             enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
         }
-        if (enemy.layer == 6)
-        {
-            enemy.GetComponent<Enemy1Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());
-        }
-
         if (enemy.layer == 7)
         {
             enemy.GetComponent<Enemy2Controller>().Hurt(GameObject.Find("Simetra").GetComponent<PlayerController>().GetDano());

@@ -142,9 +142,5 @@ public class Enemy1Controller : MonoBehaviour
                 Invoke("Sleep", 2f);
             }
         }
-        if (collision.gameObject.layer == 3 && life <= 0) 
-        {
-           
-        }
     }
 }   

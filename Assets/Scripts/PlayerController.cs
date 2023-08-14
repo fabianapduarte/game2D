@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
-
+//using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 
 public class PlayerController : MonoBehaviour
 {
@@ -60,9 +60,30 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         if ((PlayerPrefs.GetFloat("saveX") != 0) && (PlayerPrefs.GetFloat("saveY") != 0))
         {
+            GameObject[] zones = GameObject.FindGameObjectsWithTag("zone");
+            foreach (GameObject elem in zones)
+            {
+                if(SceneManager.GetActiveScene().name.Equals("LevelTwo") || SceneManager.GetActiveScene().name.Equals("LevelFive"))
+                {
+                    if (elem.name.Equals("Zone1"))
+                    {
+                        Destroy(elem);
+                    }
+                }
+                else
+                {
+                    if (elem.name.Equals("Zone1") || elem.name.Equals("Zone2"))
+                    {
+                        Destroy(elem);
+                    }
+                }
+            }
             transform.position = FindObjectOfType<GameController>().GetSavePoint();
             FindObjectOfType<GameController>().SetContabilizaBonusForce();
-            SetSpeed(1);
+            if (FindObjectOfType<GameController>().GetContabiliaBonusSpeed() == 1)
+            {
+                SetSpeed(1);
+            }  
         }
         if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
