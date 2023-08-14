@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
                         if (distance >= 7f)
                         {
                             GameObject hud = GameObject.Find("HUD");
-                            if (hud != null)
+                            if (hud != null && !SceneManager.GetActiveScene().name.Equals("Tutorial"))
                             {
                                 float value = Mathf.PingPong(Time.time, 1f);
                                 Color color = hud.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().color;
