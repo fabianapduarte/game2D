@@ -109,7 +109,6 @@ public class PlayerController : MonoBehaviour
         if (!previousStateR2 && currentStateR2)
         {
             previousStateR2 = true;
-            print("foi");
             return true;
         }
         else if (!currentStateR2)
@@ -362,12 +361,16 @@ public class PlayerController : MonoBehaviour
         //old 0.16739f
         bool detect1 = Physics2D.OverlapBox(detectFloor.position, new Vector2(0.3f, 0.3f), 0f, isFloor);
         bool detect2 = Physics2D.OverlapBox(detectFloor2.position, new Vector2(0.3f, 0.3f), 0f, isFloor);
-        if((detect1 && detect2) == false)
+        //print("1: "+detect1);
+        //print("2: " + detect2);
+        if ((detect1 == false) && (detect2 == false))
         {
             //coyoteTimeContador
             Invoke("resetCoyoteTime", 0.25f);
         }
-        else {
+        //else if((detect1 || detect2) == true)
+        else
+        {
             playerInFloor = true;
             CancelInvoke("resetCoyoteTime");
         }
@@ -481,7 +484,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Enemy") && stateInfo.IsName("Spell"))
         {
-            print(contabilizaDanoSpell);
+            //print(contabilizaDanoSpell);
             if (contabilizaDanoSpell == 0)
             {
                 GameObject.Find("AudioController").GetComponent<AudioController>().HurtEnemy();
