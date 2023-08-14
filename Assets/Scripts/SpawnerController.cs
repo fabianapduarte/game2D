@@ -22,21 +22,21 @@ public class SpawnerController : MonoBehaviour
         } else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(2);
-            qntMax = Random.Range(4, 6);
+            qntMax = 4;
         }
         else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(3);
-            qntMax = Random.Range(5, 7);
+            qntMax = Random.Range(4, 6);
         }
         else if(SceneManager.GetActiveScene().name.Equals("LevelFour"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(4);
-            qntMax = Random.Range(6, 8);
+            qntMax = Random.Range(5, 7);
         }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
         {
             enemies = FindObjectOfType<GameController>().GetEnemies(5);
-            qntMax = Random.Range(7, 9);
+            qntMax = Random.Range(6, 8);
         }
         else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
         {
@@ -52,26 +52,26 @@ public class SpawnerController : MonoBehaviour
             GameObject.Find("detectInZone").GetComponent<DetectPlayerController>().setContabilizaStart();
             if (SceneManager.GetActiveScene().name.Equals("LevelOne"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(1, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTwo"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(2, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelTree"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(3, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("LevelFour"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(4, Zone.name);
             }else if (SceneManager.GetActiveScene().name.Equals("LevelFive"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(5, Zone.name);
             }
             else if (SceneManager.GetActiveScene().name.Equals("Acidron1"))
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().ResetCoordX(6, Zone.name);
             }
             GameObject.Find("AudioController").GetComponent<AudioController>().BattleSoundFinish();
             Destroy(Zone);

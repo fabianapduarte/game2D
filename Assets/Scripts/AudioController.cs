@@ -106,10 +106,7 @@ public class AudioController : MonoBehaviour
 
     public void Attack1()
     {
-        //AudioClip teste = attack[Random.Range(0, attack.Length-2)];
-        Audios.transform.GetChild(2).GetComponent<AudioSource>().PlayOneShot(attack[Random.Range(0, attack.Length - 2)]);
-        //attackPlayer.clip = teste;
-        //attackPlayer.Play();
+        Audios.transform.GetChild(2).GetComponent<AudioSource>().PlayOneShot(attack[Random.Range(0, attack.Length - 3)]);
     }
     public void Attack2()
     {
@@ -123,9 +120,7 @@ public class AudioController : MonoBehaviour
 
     public void AttackBlock()
     {
-        AudioClip teste = moveInMenu[0];
-        //attackPlayer.clip = teste;
-        //attackPlayer.Play();
+        Audios.transform.GetChild(2).GetComponent<AudioSource>().PlayOneShot(attack[4]);
     }
 
     public void Jump()

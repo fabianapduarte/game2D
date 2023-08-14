@@ -155,15 +155,8 @@ public class CameraController : MonoBehaviour
         }
         if (zone == "Zone2")
         {
-            this.minX5 = 175.3f;
-            this.maxX5 = 201.8f;
-            this.minY5 = 5.87f;
-        }
-        if (zone == "Zone3")
-        {
-            this.minX5 = 241.5f;
-            this.maxX5 = 258.4f;
-            this.minY5 = 5.87f;
+            this.minX5 = 184.3f;
+            this.maxX5 = 252.6f;
         }
         if (zone == "EntradaCastle")
         {
@@ -180,7 +173,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void ResetCoordX(int level)
+    public void ResetCoordX(int level, string zone)
     {
         if(level == 1)
         {
@@ -208,7 +201,14 @@ public class CameraController : MonoBehaviour
         {
             minX5 = 9.12f;
             maxX5 = 276f;
-            minY5 = 0.5f;
+            if (zone.Equals("Zone1"))
+            {
+                this.minY5 = 0.5f;
+            }
+            else
+            {
+                this.minY5 = 5.87f;
+            }
         }
 
         if(level == 6)
