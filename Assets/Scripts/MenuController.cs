@@ -195,13 +195,9 @@ public class MenuController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelTree" || sceneName == "LevelFour" || sceneName == "LevelFive")
+        if (sceneName == "LevelOne" || sceneName == "LevelTwo" || sceneName == "LevelTree" || sceneName == "LevelFour" || sceneName == "LevelFive" || sceneName == "Tutorial")
         {
             changeHudInfos();
-        }
-        if (sceneName == "Tutorial" )
-        {
-            updateCombo();
         }
         
 
