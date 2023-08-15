@@ -160,10 +160,10 @@ public class GameController : MonoBehaviour
         {
             return enemiesLevelFive;
         }
-        /*else
+        else
         {
             return enemiesAcidron1;
-        }*/
+        }
     }
 
     public void HurtPlayer(int danoEnemy)

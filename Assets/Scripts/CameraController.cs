@@ -164,14 +164,14 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    /*public void SetLevel6(string zone)
+    public void SetLevel6(string zone)
     {
         if (zone == "Zone1")
         {
             this.minX6 = 16.75f;
             this.maxX6 = 25.87f;
         }
-    }*/
+    }
 
     public void ResetCoordX(int level, string zone)
     {
