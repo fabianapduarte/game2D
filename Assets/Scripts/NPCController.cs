@@ -13,6 +13,7 @@ public class NPCController : MonoBehaviour
     public LayerMask playerLayer;
     private DialogueTipo1Controller dc;
     private bool onArea;
+    private int contabilizaInitDialogue = 0;
 
     void Start()
     {
@@ -26,9 +27,10 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interacao")) && onArea)
+        if ((Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Interacao")) && onArea &&  contabilizaInitDialogue == 0)
         {
             dc.Speech(icon, message, nameNPC);
+            contabilizaInitDialogue = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetButtonDown("Submit"))
@@ -36,6 +38,11 @@ public class NPCController : MonoBehaviour
             dc.NextSentence();
         }
 
+    }
+
+    public void SetContabilizaInitDialogue(int value)
+    {
+        contabilizaInitDialogue = value;
     }
 
     public void DetectionPlayer()

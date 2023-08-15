@@ -58,6 +58,7 @@ public class DialogueTipo1Controller : MonoBehaviour
                 {
                     index = 0;
                     messageNPC.text = "";
+                    FindObjectOfType<NPCController>().SetContabilizaInitDialogue(0);
                     dialogue.GetComponent<Animation>().Play("DialogueEnd");
                     Invoke("Sleep", 0.4f);
                 }
