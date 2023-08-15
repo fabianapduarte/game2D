@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             speed += 2;
             danoPlayer += 2;
         }
-        else if (SceneManager.GetActiveScene().name.Equals("LevelFour") || SceneManager.GetActiveScene().name.Equals("Acidron1"))
+        else if (SceneManager.GetActiveScene().name.Equals("LevelFour") /*|| SceneManager.GetActiveScene().name.Equals("Acidron1")*/)
         {
             speed += 3;
             danoPlayer += 3;
