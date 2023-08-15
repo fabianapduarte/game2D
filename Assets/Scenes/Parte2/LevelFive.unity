@@ -4161,7 +4161,7 @@ GameObject:
   - component: {fileID: 471620294}
   - component: {fileID: 471620293}
   m_Layer: 5
-  m_Name: danoDeAtaqueTxt
+  m_Name: danoDeAtaque
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

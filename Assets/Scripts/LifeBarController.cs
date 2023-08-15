@@ -20,10 +20,6 @@ public class LifeBarController : MonoBehaviour
         {
             GetComponent<Slider>().value = 35;
         }
-        else
-        {
-            GetComponent<Slider>().value = 45;
-        }
     }
 
     public void SetLifeBar(int value)
