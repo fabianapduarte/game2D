@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public GameObject[] enemiesLevelTree;
     public GameObject[] enemiesLevelFour;
     public GameObject[] enemiesLevelFive;
-    //public GameObject[] enemiesAcidron1;
+    public GameObject[] enemiesAcidron1;
 
     public static GameController instance = null;
 
