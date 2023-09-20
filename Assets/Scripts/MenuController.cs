@@ -149,7 +149,7 @@ public class MenuController : MonoBehaviour
             btnPlay.onClick.AddListener(FadeOut);
             btnMultiplayer = GameObject.Find("MultiplayerBtn").GetComponent<Button>();
             btnMultiplayer.onClick.AddListener(PlayMultiplayer);
-            btnDelSave = GameObject.Find("DeleteBtn").GetComponent<Button>();
+            btnDelSave = GameObject.Find("btn2").GetComponent<Button>();
             btnDelSave.onClick.AddListener(DelSave);
             btnQuit = GameObject.Find("ExitBtn").GetComponent<Button>();
             btnQuit.onClick.AddListener(QuitGame);

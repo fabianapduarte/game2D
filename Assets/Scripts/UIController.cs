@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     private GameObject botaoAtual;
     public GameObject MainMenu;
     public GameObject ConfiguracoesMenu;
+    public GameObject DeleteMenu;
     public GameObject PlayMenu;
     public GameObject CreditosMenu;
     public TextMeshProUGUI dica;
@@ -58,6 +59,7 @@ public class UIController : MonoBehaviour
     public void menu(){
         MainMenu.SetActive(true);
         ConfiguracoesMenu.SetActive(false);
+        DeleteMenu.SetActive(false);
         PlayMenu.SetActive(false);
         CreditosMenu.SetActive(false);
     }
@@ -78,6 +80,12 @@ public class UIController : MonoBehaviour
 
     public void selectPlay(){
         GameObject button = GameObject.Find("PlayBtn");
+        EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    public void selectDel()
+    {
+        GameObject button = GameObject.Find("btn1");
         EventSystem.current.SetSelectedGameObject(button);
     }
 
@@ -117,7 +125,7 @@ public class UIController : MonoBehaviour
             }
             else{
                 //Aqui vem o som de troca
-                if (botaoAtual != null)
+                if (botaoAtual != null && btnSelected.name != "MultiplayerBtn")
                 {
                     audioBtn.MoveButton();
                 }
@@ -129,11 +137,15 @@ public class UIController : MonoBehaviour
 
             //Icone de espada
             if (!telaDeEstadoFinal){
+                if (btnSelected.name == "MultiplayerBtn")
+                {
+                    return;
+                }
                 foreach (Button btn in btns){
                     TextMeshProUGUI btnText = btn.GetComponentInChildren<TextMeshProUGUI>();
                     btnText.color = corBase;
                 }
-                //Debug.Log(btnSelected + " was selected");
+                Debug.Log(btnSelected + " was selected");
                 TextMeshProUGUI texto = btnSelected.GetComponentInChildren<TextMeshProUGUI>();
                 texto.color = corDeSelecao;
 
