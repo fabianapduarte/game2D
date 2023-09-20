@@ -154,7 +154,10 @@ public class UIController : MonoBehaviour
                 if (obj != null){
                     indicador = obj.GetComponent<Image>();
                 }
-                Vector3 posicaoBtn = new Vector3(btnSelected.transform.position.x-70, btnSelected.transform.position.y, 0);
+
+                float screenWidth = Screen.width;
+                float percentOfScreenWidth = screenWidth * 0.0365f;
+                Vector3 posicaoBtn = new Vector3(btnSelected.transform.position.x-percentOfScreenWidth, btnSelected.transform.position.y, 0);
                 indicador.rectTransform.position = posicaoBtn;
                 botaoAtual = btnSelected;
             }else{
