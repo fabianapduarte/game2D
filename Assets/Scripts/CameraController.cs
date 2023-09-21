@@ -200,7 +200,7 @@ public class CameraController : MonoBehaviour
         if (level == 5)
         {
             minX5 = 9.12f;
-            maxX5 = 276f;
+            maxX5 = 268.4f;
             if (zone.Equals("Zone1"))
             {
                 this.minY5 = 0.5f;
